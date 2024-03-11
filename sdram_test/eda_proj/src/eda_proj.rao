@@ -1,0 +1,112 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Lite</Mode>
+    <AoCore_Lite index="0" sample_clock="clk_266m" trig_type="0" capture_amount="4096" implemention="0" input_register_enabled="1" capture_init_data_enabled="1" module_name="top">
+        <SignalList>
+            <Bus capture_enable="true" name="SDRAM_DQ[15:0]">
+                <Signal>SDRAM_DQ[15]</Signal>
+                <Signal>SDRAM_DQ[14]</Signal>
+                <Signal>SDRAM_DQ[13]</Signal>
+                <Signal>SDRAM_DQ[12]</Signal>
+                <Signal>SDRAM_DQ[11]</Signal>
+                <Signal>SDRAM_DQ[10]</Signal>
+                <Signal>SDRAM_DQ[9]</Signal>
+                <Signal>SDRAM_DQ[8]</Signal>
+                <Signal>SDRAM_DQ[7]</Signal>
+                <Signal>SDRAM_DQ[6]</Signal>
+                <Signal>SDRAM_DQ[5]</Signal>
+                <Signal>SDRAM_DQ[4]</Signal>
+                <Signal>SDRAM_DQ[3]</Signal>
+                <Signal>SDRAM_DQ[2]</Signal>
+                <Signal>SDRAM_DQ[1]</Signal>
+                <Signal>SDRAM_DQ[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="SDRAM_A[12:0]">
+                <Signal>SDRAM_A[12]</Signal>
+                <Signal>SDRAM_A[11]</Signal>
+                <Signal>SDRAM_A[10]</Signal>
+                <Signal>SDRAM_A[9]</Signal>
+                <Signal>SDRAM_A[8]</Signal>
+                <Signal>SDRAM_A[7]</Signal>
+                <Signal>SDRAM_A[6]</Signal>
+                <Signal>SDRAM_A[5]</Signal>
+                <Signal>SDRAM_A[4]</Signal>
+                <Signal>SDRAM_A[3]</Signal>
+                <Signal>SDRAM_A[2]</Signal>
+                <Signal>SDRAM_A[1]</Signal>
+                <Signal>SDRAM_A[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="SDRAM_BA[1:0]">
+                <Signal>SDRAM_BA[1]</Signal>
+                <Signal>SDRAM_BA[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="SDRAM_DQM[1:0]">
+                <Signal>SDRAM_DQM[1]</Signal>
+                <Signal>SDRAM_DQM[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="sdram_dout[7:0]">
+                <Signal>sdram_dout[7]</Signal>
+                <Signal>sdram_dout[6]</Signal>
+                <Signal>sdram_dout[5]</Signal>
+                <Signal>sdram_dout[4]</Signal>
+                <Signal>sdram_dout[3]</Signal>
+                <Signal>sdram_dout[2]</Signal>
+                <Signal>sdram_dout[1]</Signal>
+                <Signal>sdram_dout[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="sdram_din[7:0]">
+                <Signal>sdram_din[7]</Signal>
+                <Signal>sdram_din[6]</Signal>
+                <Signal>sdram_din[5]</Signal>
+                <Signal>sdram_din[4]</Signal>
+                <Signal>sdram_din[3]</Signal>
+                <Signal>sdram_din[2]</Signal>
+                <Signal>sdram_din[1]</Signal>
+                <Signal>sdram_din[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="sdram_address[26:0]">
+                <Signal>sdram_address[26]</Signal>
+                <Signal>sdram_address[25]</Signal>
+                <Signal>sdram_address[24]</Signal>
+                <Signal>sdram_address[23]</Signal>
+                <Signal>sdram_address[22]</Signal>
+                <Signal>sdram_address[21]</Signal>
+                <Signal>sdram_address[20]</Signal>
+                <Signal>sdram_address[19]</Signal>
+                <Signal>sdram_address[18]</Signal>
+                <Signal>sdram_address[17]</Signal>
+                <Signal>sdram_address[16]</Signal>
+                <Signal>sdram_address[15]</Signal>
+                <Signal>sdram_address[14]</Signal>
+                <Signal>sdram_address[13]</Signal>
+                <Signal>sdram_address[12]</Signal>
+                <Signal>sdram_address[11]</Signal>
+                <Signal>sdram_address[10]</Signal>
+                <Signal>sdram_address[9]</Signal>
+                <Signal>sdram_address[8]</Signal>
+                <Signal>sdram_address[7]</Signal>
+                <Signal>sdram_address[6]</Signal>
+                <Signal>sdram_address[5]</Signal>
+                <Signal>sdram_address[4]</Signal>
+                <Signal>sdram_address[3]</Signal>
+                <Signal>sdram_address[2]</Signal>
+                <Signal>sdram_address[1]</Signal>
+                <Signal>sdram_address[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">led_succeed</Signal>
+            <Signal capture_enable="true">led_fault</Signal>
+            <Signal capture_enable="true">sdram_read</Signal>
+            <Signal capture_enable="true">sdram_write</Signal>
+            <Signal capture_enable="true">sdram_busy</Signal>
+            <Signal capture_enable="true">sdram_data_ready</Signal>
+            <Signal capture_enable="true">data_correct</Signal>
+            <Signal capture_enable="true">scan_finished</Signal>
+            <Signal capture_enable="true">SDRAM_CLK</Signal>
+            <Signal capture_enable="true">clk_66p7m</Signal>
+            <Signal capture_enable="true">clk_66p7m_shifted</Signal>
+            <Signal capture_enable="true">clk_266m</Signal>
+        </SignalList>
+    </AoCore_Lite>
+    <GAO_ID>1010101010100001</GAO_ID>
+</GAO_CONFIG>
