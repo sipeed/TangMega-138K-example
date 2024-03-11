@@ -6,7 +6,7 @@
 - PCIE_+12V_IN: OK
 
 ## Output
-Test statement: AC coupled, 20M bandwidth, 10X probe, grounding spring. Board idle.
+Test condition: AC coupled, 20M bandwidth, 10X probe, grounding spring. Board idle.
 
 
 Input power: 5V_USB @ 5.09V ripple: 31.20mV
@@ -25,6 +25,6 @@ Input power: 5V_USB @ 5.09V ripple: 31.20mV
 - Core_1.2V: Not measurable
 
 ## Thermal
-Test statement: room temperature: 20 celsius
+Test condition: room temperature: 20 celsius
 
 No unexpected heating detected.
