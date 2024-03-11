@@ -9,7 +9,7 @@
 Test statement: AC coupled, 20M bandwidth, 10X probe, grounding spring. Board idle.
 
 
-Input power: 5V_USB@5.09V ripple: 31.20mV
+Input power: 5V_USB @ 5.09V ripple: 31.20mV
 
 
 - 5V_PMU_OUT: 5.02V @ 38.40mV
