@@ -1,0 +1,20 @@
+-d C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\impl\gwsynthesis\gw138.vg
+-p GW5AST-138B-PBGA484A-1
+-pn GW5AST-LV138PG484AES
+-cst C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\gw138.cst
+-cfg C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\impl\pnr\device.cfg
+-sdc C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\gw138.sdc
+-gao_crc 0000110111111111
+-bit
+-tr
+-ph
+-timing
+-ireg_not_in_iob
+-oreg_not_in_iob
+-ioreg_not_in_iob
+-cst_error
+-correct_hold 1
+-route_maxfan 23
+-global_freq 100.000
+-enable_dsrm 0
+-rtl_gao

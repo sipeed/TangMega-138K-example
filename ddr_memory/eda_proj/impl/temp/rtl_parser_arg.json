@@ -1,0 +1,37 @@
+{
+ "Device" : "GW5AST-138B",
+ "Files" : [
+  {
+   "Path" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/ddr_memory/eda_proj/src/ddr3_memory_interface/ddr3_memory_interface.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/ddr_memory/eda_proj/src/ddr3_test.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/ddr_memory/eda_proj/src/fifo.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/ddr_memory/eda_proj/src/gowin_pll/gowin_pll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/ddr_memory/eda_proj/src/top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/ddr_memory/eda_proj/src/uart_tx.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/ddr_memory/eda_proj/impl/temp/rtl_parser.result",
+ "Top" : "",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

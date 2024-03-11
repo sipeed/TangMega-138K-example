@@ -1,0 +1,24 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Lite</Mode>
+    <AoCore_Lite index="0" sample_clock="sys_clk" trig_type="0" capture_amount="1024" implemention="0" input_register_enabled="0" capture_init_data_enabled="0" module_name="top">
+        <SignalList>
+            <Signal capture_enable="true">u_ddr3/wr_data_rdy</Signal>
+            <Signal capture_enable="true">u_ddr3/wr_data_en</Signal>
+            <Signal capture_enable="true">u_ddr3/rd_data_valid</Signal>
+            <Signal capture_enable="true">u_ddr3/init_calib_complete</Signal>
+            <Signal capture_enable="true">u_ddr3/clk_out</Signal>
+            <Signal capture_enable="true">u_ddr_test/app_rdy</Signal>
+            <Signal capture_enable="true">u_ddr_test/app_en</Signal>
+            <Signal capture_enable="true">u_ddr_test/app_wdf_wren</Signal>
+            <Signal capture_enable="true">u_ddr_test/app_wdf_end</Signal>
+            <Signal capture_enable="true">u_ddr_test/app_burst</Signal>
+            <Signal capture_enable="true">u_ddr_test/app_rd_data_valid</Signal>
+            <Signal capture_enable="true">u_ddr_test/init_calib_complete</Signal>
+            <Signal capture_enable="true">u_ddr_test/wdone</Signal>
+            <Signal capture_enable="true">u_ddr_test/rdone</Signal>
+        </SignalList>
+    </AoCore_Lite>
+    <GAO_ID>0000110111111111</GAO_ID>
+</GAO_CONFIG>

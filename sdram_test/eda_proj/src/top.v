@@ -32,6 +32,7 @@ Gowin_PLL systempll(
 localparam BIT_SEQ = 8'b10011100;
 reg sdram_read;
 reg sdram_write;
+reg sdram_fresh;
 wire sdram_busy;
 wire sdram_data_ready;
 wire [7:0] sdram_dout;
@@ -53,7 +54,7 @@ sdram sdram_inst(
     .clk_sdram(clk_66p7m_shifted),
     .resetn(~reset),
     .refresh((!(sdram_read || sdram_write))? clk_66p7m : 1'b0),
-    .addr(sdram_address[26:1]),
+    .addr(sdram_address[27:2]),
     .din(sdram_din),
     .dout(sdram_dout),
     .rd(sdram_read),
@@ -65,7 +66,7 @@ sdram sdram_inst(
 reg data_correct;
 reg scan_finished;
 
-reg [26:0] sdram_address;
+reg [27:0] sdram_address;
 
 always @(negedge clk_266m or posedge reset) begin
     if(reset) begin
@@ -77,15 +78,24 @@ always @(negedge clk_266m or posedge reset) begin
     end else if(data_correct && (!(scan_finished)) && (!sdram_busy)) begin
         sdram_address <= sdram_address + 1;
         sdram_din <= BIT_SEQ;
-        if(sdram_address[0] == 0) begin 
+        if(sdram_address[1:0] == 0) begin 
             sdram_write <= 1;
             sdram_read <= 0;
-        end else if(sdram_address[0] == 1) begin
+            sdram_fresh <= 0;
+        end else if(sdram_address[1:0] == 1) begin
             sdram_write <= 0;
             sdram_read <= 1;
+            sdram_fresh <= 0;
+        end else if(sdram_address[1:0] == 2) begin
+            sdram_write <= 0;
+            sdram_read <= 0;
+            sdram_fresh <= 1;
+        end else if(sdram_address[1:0] == 3) begin
+            sdram_write <= 0;
+            sdram_read <= 0;
+            sdram_fresh <= 0;
         end
     end
-
 end
 
 always @(posedge sdram_data_ready) begin 
@@ -94,7 +104,7 @@ always @(posedge sdram_data_ready) begin
         led_fault <= 0;
     end else begin
         data_correct <= (BIT_SEQ == sdram_dout);
-        if(!(BIT_SEQ == sdram_dout)) led_fault <= 1;
+        led_fault <= ~data_correct;
     end
 end
 endmodule

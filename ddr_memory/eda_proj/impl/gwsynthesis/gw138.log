@@ -1,0 +1,78 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\ddr3_memory_interface\ddr3_memory_interface.v'
+Analyzing Verilog file 'C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\ddr3_test.v'
+Analyzing Verilog file 'C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\fifo.v'
+Analyzing Verilog file 'C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\gowin_pll\gowin_pll.v'
+Analyzing Verilog file 'C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\top.v'
+Analyzing Verilog file 'C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\uart_tx.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v'
+Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
+Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v'
+Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
+Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top_138.v'
+Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top_138.v":376)
+Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top_138.v":376)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\gw_jtag.v'
+Analyzing Verilog file 'C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\impl\gwsynthesis\RTL_GAO\gw_gao_top.v'
+Compiling module '**'("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\ddr3_memory_interface\ddr3_memory_interface.v":31235)
+Compiling module 'DDR3_Memory_Interface_Top'("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\ddr3_memory_interface\ddr3_memory_interface.v":31236)
+Compiling module 'ddr3_test'("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\ddr3_test.v":1)
+WARN  (EX3791) : Expression size 17 truncated to fit in target size 16("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\ddr3_test.v":59)
+WARN  (EX3791) : Expression size 30 truncated to fit in target size 29("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\ddr3_test.v":91)
+WARN  (EX3791) : Expression size 17 truncated to fit in target size 16("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\ddr3_test.v":113)
+WARN  (EX3791) : Expression size 25 truncated to fit in target size 24("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\ddr3_test.v":126)
+WARN  (EX3791) : Expression size 30 truncated to fit in target size 29("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\ddr3_test.v":155)
+Compiling module 'FIFO'("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\fifo.v":1)
+Extracting RAM for identifier 'array_reg'("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\fifo.v":16)
+WARN  (EX3791) : Expression size 2 truncated to fit in target size 1("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\fifo.v":67)
+WARN  (EX3791) : Expression size 2 truncated to fit in target size 1("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\fifo.v":68)
+Compiling module 'Gowin_PLL'("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\gowin_pll\gowin_pll.v":10)
+Compiling module 'top'("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\top.v":1)
+WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\top.v":29)
+Compiling module 'FIFO(AWIDTH=13)'("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\fifo.v":1)
+Extracting RAM for identifier 'array_reg'("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\fifo.v":16)
+WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\fifo.v":67)
+WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\fifo.v":68)
+Compiling module 'BAUDGEN'("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\uart_tx.v":125)
+WARN  (EX3791) : Expression size 23 truncated to fit in target size 22("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\uart_tx.v":147)
+Compiling module 'UART_TX'("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\uart_tx.v":1)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\uart_tx.v":85)
+WARN  (EX3791) : Expression size 4 truncated to fit in target size 3("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\uart_tx.v":100)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\uart_tx.v":103)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\uart_tx.v":116)
+WARN  (EX3670) : Actual bit length 14 differs from formal bit length 15 for port 'O_ddr_addr'("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\top.v":129)
+WARN  (EX3791) : Expression size 17 truncated to fit in target size 16("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\top.v":230)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
+Extracting RAM for identifier '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
+WARN  (EX3791) : Expression size ** truncated to fit in target size **("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top_138.v":376)
+Compiling module 'GW_JTAG'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\gw_jtag.v":1)
+Compiling module 'gw_gao'("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":1)
+Trying to combine GAO to RTL design
+NOTE  (EX0101) : Current top module is "top"
+WARN  (AG0100) : Find logical loop signal : "rst_n_s"("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\top.v":31)
+WARN  (AG0100) : Find logical loop signal : "rst_n_s"("C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\src\top.v":31)
+WARN  (AG0101) : The netlist is not one directed acyclic graph
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\impl\gwsynthesis\gw138.vg" completed
+[100%] Generate report file "C:\Users\AlanC\Sipeed\TangMega-138K-example\ddr_memory\eda_proj\impl\gwsynthesis\gw138_syn.rpt.html" completed
+GowinSynthesis finish

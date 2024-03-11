@@ -1,0 +1,36 @@
+[
+ {
+  "InstFile" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/sdram_test/eda_proj/src/top.v",
+  "InstLine" : 2,
+  "InstName" : "top",
+  "ModuleFile" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/sdram_test/eda_proj/src/top.v",
+  "ModuleLine" : 2,
+  "ModuleName" : "top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/sdram_test/eda_proj/src/top.v",
+    "InstLine" : 19,
+    "InstName" : "osc",
+    "ModuleFile" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/sdram_test/eda_proj/src/gowin_osc/gowin_osc.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_OSC"
+   },
+   {
+    "InstFile" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/sdram_test/eda_proj/src/top.v",
+    "InstLine" : 26,
+    "InstName" : "systempll",
+    "ModuleFile" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/sdram_test/eda_proj/src/gowin_pll/gowin_pll.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_PLL"
+   },
+   {
+    "InstFile" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/sdram_test/eda_proj/src/top.v",
+    "InstLine" : 41,
+    "InstName" : "sdram_inst",
+    "ModuleFile" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/sdram_test/eda_proj/src/sdram.v",
+    "ModuleLine" : 37,
+    "ModuleName" : "sdram"
+   }
+  ]
+ }
+]

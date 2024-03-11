@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="top" Register="33" Alu="27" Lut="20" T_Register="567(33)" T_Alu="52(27)" T_Lut="438(20)" T_Bsram="22(0)">
+    <SubModule name="osc"/>
+    <SubModule name="systempll"/>
+    <SubModule name="sdram_inst" Register="58" Alu="14" Lut="83" T_Register="58(58)" T_Alu="14(14)" T_Lut="83(83)"/>
+    <SubModule name="gw_gao_inst_0" Register="476" Alu="11" Lut="335" Bsram="22" T_Register="476(476)" T_Alu="11(11)" T_Lut="335(335)" T_Bsram="22(22)"/>
+</Module>
