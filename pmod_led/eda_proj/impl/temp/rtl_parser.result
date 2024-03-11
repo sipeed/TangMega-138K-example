@@ -1,0 +1,20 @@
+[
+ {
+  "InstFile" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/pmod_led/eda_proj/src/top.v",
+  "InstLine" : 1,
+  "InstName" : "led",
+  "ModuleFile" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/pmod_led/eda_proj/src/top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "led",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/pmod_led/eda_proj/src/top.v",
+    "InstLine" : 5,
+    "InstName" : "f2p1mosc_inst",
+    "ModuleFile" : "C:/Users/AlanC/Sipeed/TangMega-138K-example/pmod_led/eda_proj/src/gowin_osc/gowin_osc.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_OSC"
+   }
+  ]
+ }
+]
