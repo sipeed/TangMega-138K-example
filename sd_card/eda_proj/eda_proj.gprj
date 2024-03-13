@@ -1,0 +1,17 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW5AST-138B" pn="GW5AST-LV138PG484AC2/I1">gw5ast138b-010</Device>
+    <FileList>
+        <File path="src/sd_file_list_reader.v" type="file.verilog" enable="1"/>
+        <File path="src/sd_reader.sv" type="file.verilog" enable="1"/>
+        <File path="src/sdcmd_ctrl.sv" type="file.verilog" enable="1"/>
+        <File path="src/top.sv" type="file.verilog" enable="1"/>
+        <File path="src/uart_tx.v" type="file.verilog" enable="1"/>
+        <File path="src/pin.cst" type="file.cst" enable="1"/>
+        <File path="src/eda_proj.sdc" type="file.sdc" enable="1"/>
+        <File path="src/print.svh" type="file.other" enable="1"/>
+    </FileList>
+</Project>
