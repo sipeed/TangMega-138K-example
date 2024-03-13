@@ -1,0 +1,3 @@
+[submodule "LicheeTang25k_SDRAM"]
+	path = LicheeTang25k_SDRAM
+	url = https://github.com/ZiyangYE/LicheeTang25k_SDRAM.git
