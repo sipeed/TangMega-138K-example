@@ -1,0 +1,50 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Lite</Mode>
+    <AoCore_Lite index="0" sample_clock="clk" trig_type="0" capture_amount="8192" implemention="0" input_register_enabled="1" capture_init_data_enabled="1" module_name="top">
+        <SignalList>
+            <Bus capture_enable="true" name="count[16:0]">
+                <Signal>count[16]</Signal>
+                <Signal>count[15]</Signal>
+                <Signal>count[14]</Signal>
+                <Signal>count[13]</Signal>
+                <Signal>count[12]</Signal>
+                <Signal>count[11]</Signal>
+                <Signal>count[10]</Signal>
+                <Signal>count[9]</Signal>
+                <Signal>count[8]</Signal>
+                <Signal>count[7]</Signal>
+                <Signal>count[6]</Signal>
+                <Signal>count[5]</Signal>
+                <Signal>count[4]</Signal>
+                <Signal>count[3]</Signal>
+                <Signal>count[2]</Signal>
+                <Signal>count[1]</Signal>
+                <Signal>count[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="target[16:0]">
+                <Signal>target[16]</Signal>
+                <Signal>target[15]</Signal>
+                <Signal>target[14]</Signal>
+                <Signal>target[13]</Signal>
+                <Signal>target[12]</Signal>
+                <Signal>target[11]</Signal>
+                <Signal>target[10]</Signal>
+                <Signal>target[9]</Signal>
+                <Signal>target[8]</Signal>
+                <Signal>target[7]</Signal>
+                <Signal>target[6]</Signal>
+                <Signal>target[5]</Signal>
+                <Signal>target[4]</Signal>
+                <Signal>target[3]</Signal>
+                <Signal>target[2]</Signal>
+                <Signal>target[1]</Signal>
+                <Signal>target[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">fan_pwm</Signal>
+            <Signal capture_enable="true">key_in</Signal>
+        </SignalList>
+    </AoCore_Lite>
+    <GAO_ID>1101010110010100</GAO_ID>
+</GAO_CONFIG>

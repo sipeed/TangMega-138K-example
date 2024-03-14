@@ -1,0 +1,15 @@
+//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
+//All rights reserved. 
+//File Title: Physical Constraints file
+//Tool Version: V1.9.9.01 (64-bit)
+//Part Number: GW5AST-LV138PG484AC2/I1
+//Device: GW5AST-138
+//Device Version: B
+//Created Time: Thu 03 14 10:46:51 2024
+
+IO_LOC "fan_pwm" T14;
+IO_PORT "fan_pwm" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+IO_LOC "key_in" AB13;
+IO_PORT "key_in" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+IO_LOC "clk" V22;
+IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
