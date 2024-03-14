@@ -21,15 +21,15 @@ Gowin_PLL pll_inst(
     );
     // Horizen count to Hsync, then next Horizen line.
 
-    parameter       H_Pixel_Valid    = 16'd800; 
-    parameter       H_FrontPorch     = 16'd210;
-    parameter       H_BackPorch      = 16'd182;  
+    parameter       H_Pixel_Valid    = 16'd1024; 
+    parameter       H_FrontPorch     = 16'd144;
+    parameter       H_BackPorch      = 16'd144;  
 
     parameter       PixelForHS       = H_Pixel_Valid + H_FrontPorch + H_BackPorch;
 
-    parameter       V_Pixel_Valid    = 16'd480; 
-    parameter       V_FrontPorch     = 16'd45;  
-    parameter       V_BackPorch      = 16'd8;    
+    parameter       V_Pixel_Valid    = 16'd768; 
+    parameter       V_FrontPorch     = 16'd13;  
+    parameter       V_BackPorch      = 16'd11;    
 
     parameter       PixelForVS       = V_Pixel_Valid + V_FrontPorch + V_BackPorch;
 
