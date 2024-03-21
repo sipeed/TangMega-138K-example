@@ -17,8 +17,8 @@ This repository is for storing Tang Mega 138K examples
 - [ ] dvp_camera
 - [x] joystick
 - [ ] joycon
-- [ ] usb_host
-- [x] sdram **Not working for 66.667Mhz or faster due to bus load**
+- [x] usb_host
+- [x] sdram **Not working for 100Mhz or faster due to bus load**
 - [x] qspi_flash
 
 ## Onboard facility
