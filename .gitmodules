@@ -1,3 +1,6 @@
 [submodule "LicheeTang25k_SDRAM"]
 	path = LicheeTang25k_SDRAM
 	url = https://github.com/AlanCui4080/LicheeTang25k_SDRAM.git
+[submodule "sipeed_usb_hid_host_138k"]
+	path = sipeed_usb_hid_host_138k
+	url = https://github.com/AlanCui4080/sipeed_usb_hid_host_138k
