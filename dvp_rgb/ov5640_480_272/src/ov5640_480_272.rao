@@ -1,0 +1,57 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Lite</Mode>
+    <AoCore_Lite index="0" sample_clock="cmos_clk" trig_type="0" capture_amount="16384" implemention="0" input_register_enabled="1" capture_init_data_enabled="0" module_name="top">
+        <SignalList>
+            <Bus capture_enable="true" name="cmos_db[7:0]">
+                <Signal>cmos_db[7]</Signal>
+                <Signal>cmos_db[6]</Signal>
+                <Signal>cmos_db[5]</Signal>
+                <Signal>cmos_db[4]</Signal>
+                <Signal>cmos_db[3]</Signal>
+                <Signal>cmos_db[2]</Signal>
+                <Signal>cmos_db[1]</Signal>
+                <Signal>cmos_db[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="lcd_r[5:0]">
+                <Signal>lcd_r[5]</Signal>
+                <Signal>lcd_r[4]</Signal>
+                <Signal>lcd_r[3]</Signal>
+                <Signal>lcd_r[2]</Signal>
+                <Signal>lcd_r[1]</Signal>
+                <Signal>lcd_r[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="lcd_g[5:0]">
+                <Signal>lcd_g[5]</Signal>
+                <Signal>lcd_g[4]</Signal>
+                <Signal>lcd_g[3]</Signal>
+                <Signal>lcd_g[2]</Signal>
+                <Signal>lcd_g[1]</Signal>
+                <Signal>lcd_g[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="lcd_b[5:0]">
+                <Signal>lcd_b[5]</Signal>
+                <Signal>lcd_b[4]</Signal>
+                <Signal>lcd_b[3]</Signal>
+                <Signal>lcd_b[2]</Signal>
+                <Signal>lcd_b[1]</Signal>
+                <Signal>lcd_b[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">cmos_scl</Signal>
+            <Signal capture_enable="true">cmos_sda</Signal>
+            <Signal capture_enable="true">cmos_vsync</Signal>
+            <Signal capture_enable="true">cmos_href</Signal>
+            <Signal capture_enable="true">cmos_pclk</Signal>
+            <Signal capture_enable="true">cmos_xclk</Signal>
+            <Signal capture_enable="true">cmos_rst_n</Signal>
+            <Signal capture_enable="true">cmos_pwdn</Signal>
+            <Signal capture_enable="true">lcd_dclk</Signal>
+            <Signal capture_enable="true">lcd_hs</Signal>
+            <Signal capture_enable="true">lcd_vs</Signal>
+            <Signal capture_enable="true">lcd_de</Signal>
+            <Signal capture_enable="true">video_clk</Signal>
+        </SignalList>
+    </AoCore_Lite>
+    <GAO_ID>0010011000001011</GAO_ID>
+</GAO_CONFIG>
