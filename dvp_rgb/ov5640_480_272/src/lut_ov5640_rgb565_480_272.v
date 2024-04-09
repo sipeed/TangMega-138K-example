@@ -215,7 +215,7 @@ begin
 	    10'd206: lut_data <= {8'h78 , 24'h502500};
 	    10'd207: lut_data <= {8'h78 , 24'h300802}; // wake up from standby, bit[6]
 
-	    10'd208: lut_data <= {8'h00 , 24'h303511};// PLL
+	    10'd208: lut_data <= {8'h00 , 24'h303521};// PLL
 	    10'd209: lut_data <= {8'h00 , 24'h30368C};// PLL
 	    10'd210: lut_data <= {8'h00 , 24'h3c0708};// light meter 1 threshold [7:0]		  
 
@@ -264,8 +264,8 @@ begin
 	    10'd252: lut_data <= {8'h78 , 24'h5001a3};
 	    10'd253: lut_data <= {8'h78 , 24'h350300};
 
-	    10'd254: lut_data <= {8'h78 , 24'h503d80}; // test
-	    10'd255: lut_data <= {8'h78 , 24'h474100};
+	    10'd254: lut_data <= {8'hff , 24'h503d80}; // test
+	    10'd255: lut_data <= {8'hff , 24'h474100};
 
 	    10'd256: lut_data <= {8'h78 , 24'h302c03}; // drive 4x
 
