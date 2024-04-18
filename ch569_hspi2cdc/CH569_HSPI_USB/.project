@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<projectDescription>
+	<name>CH569_HSPI_USB</name>
+	<comment/>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<triggers>clean,full,incremental,</triggers>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder</name>
+			<triggers>full,incremental,</triggers>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
+	</natures>
+<filteredResources>
+<filter>
+<id>1595986042669</id>
+<name/>
+<type>22</type>
+<matcher>
+<id>org.eclipse.ui.ide.multiFilter</id>
+<arguments>1.0-name-matches-false-false-*.wvproj</arguments>
+</matcher>
+</filter>
+</filteredResources>
+	<variableList>
+		<variable>
+			<name>copy_PARENT</name>
+			<value>file:/D:/%E5%B7%A5%E4%BD%9C%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6/2.2020%E9%A1%B9%E7%9B%AE/12.CH569EVT/CH569EVT/Ch56x_EVT/EVT/EXAM</value>
+		</variable>
+	</variableList>
+</projectDescription>
