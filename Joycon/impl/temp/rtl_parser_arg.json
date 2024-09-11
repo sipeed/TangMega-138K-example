@@ -1,0 +1,33 @@
+{
+ "Device" : "GW5AST-138B",
+ "Files" : [
+  {
+   "Path" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_uart_fsm.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Uart_FSM.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/joycon_fsm.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/uart_master/uart_core.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/impl/temp/rtl_parser.result",
+ "Top" : "Joycon_top",
+ "VerilogStd" : "sysv",
+ "VhdlStd" : "vhdl_93"
+}

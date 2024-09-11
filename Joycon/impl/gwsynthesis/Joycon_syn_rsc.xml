@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="Joycon_top" Lut="12" T_Register="1189(0)" T_Alu="46(0)" T_Lut="1662(12)" T_Bsram="4(0)">
+    <SubModule name="Joycon_left" Lut="2" T_Register="575(0)" T_Alu="23(0)" T_Lut="810(2)" T_Bsram="2(0)">
+        <SubModule name="JoyCon_FSM_inst" Register="339" Alu="15" Lut="492" T_Register="339(339)" T_Alu="15(15)" T_Lut="492(492)"/>
+        <SubModule name="uart_control_core" Register="34" Lut="71" T_Register="34(34)" T_Lut="71(71)"/>
+        <SubModule name="joycon_uart_core" Register="202" Alu="8" Lut="245" Bsram="2" T_Register="202(202)" T_Alu="8(8)" T_Lut="245(245)" T_Bsram="2(2)"/>
+    </SubModule>
+    <SubModule name="Joycon_right" Lut="2" T_Register="614(0)" T_Alu="23(0)" T_Lut="840(2)" T_Bsram="2(0)">
+        <SubModule name="JoyCon_FSM_inst" Register="378" Alu="15" Lut="518" T_Register="378(378)" T_Alu="15(15)" T_Lut="518(518)"/>
+        <SubModule name="uart_control_core" Register="34" Lut="75" T_Register="34(34)" T_Lut="75(75)"/>
+        <SubModule name="joycon_uart_core" Register="202" Alu="8" Lut="245" Bsram="2" T_Register="202(202)" T_Alu="8(8)" T_Lut="245(245)" T_Bsram="2(2)"/>
+    </SubModule>
+</Module>

@@ -1,0 +1,19 @@
+-d C:\Users\12161\OneDrive\Desktop\Files\Hoshi\JOYCON_UART\Project\Joycon\impl\gwsynthesis\Joycon.vg
+-p GW5AST-138B-PBGA484A-1
+-pn GW5AST-LV138PG484AC1/I0
+-cst C:\Users\12161\OneDrive\Desktop\Files\Hoshi\JOYCON_UART\Project\Joycon\src\Joycon.cst
+-cfg C:\Users\12161\OneDrive\Desktop\Files\Hoshi\JOYCON_UART\Project\Joycon\impl\pnr\device.cfg
+-sdc C:\Users\12161\OneDrive\Desktop\Files\Hoshi\JOYCON_UART\Project\Joycon\src\joycon.sdc
+-bit
+-tr
+-ph
+-timing
+-ireg_not_in_iob
+-oreg_not_in_iob
+-ioreg_not_in_iob
+-cst_error
+-convert_sdp32_36_to_sdp16_18
+-correct_hold 1
+-route_maxfan 23
+-global_freq 50.000
+-enable_dsrm 0
