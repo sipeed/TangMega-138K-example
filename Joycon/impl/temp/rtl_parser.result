@@ -1,49 +1,49 @@
 [
  {
-  "InstFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_top.v",
+  "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_top.v",
   "InstLine" : 3,
   "InstName" : "Joycon_top",
-  "ModuleFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_top.v",
+  "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_top.v",
   "ModuleLine" : 3,
   "ModuleName" : "Joycon_top",
   "SubInsts" : [
    {
-    "InstFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_top.v",
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_top.v",
     "InstLine" : 70,
     "InstName" : "Joycon_left",
-    "ModuleFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_uart_fsm.v",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_uart_fsm.v",
     "ModuleLine" : 3,
     "ModuleName" : "Joycon_uart_fsm",
     "SubInsts" : [
      {
-      "InstFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_uart_fsm.v",
+      "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_uart_fsm.v",
       "InstLine" : 51,
       "InstName" : "JoyCon_FSM_inst",
-      "ModuleFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/joycon_fsm.v",
+      "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/joycon_fsm.v",
       "ModuleLine" : 1,
       "ModuleName" : "Joycon_fsm"
      },
      {
-      "InstFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_uart_fsm.v",
+      "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_uart_fsm.v",
       "InstLine" : 90,
       "InstName" : "uart_control_core",
-      "ModuleFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Uart_FSM.v",
+      "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Uart_FSM.v",
       "ModuleLine" : 4,
       "ModuleName" : "uart_fsm"
      },
      {
-      "InstFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_uart_fsm.v",
+      "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_uart_fsm.v",
       "InstLine" : 109,
       "InstName" : "joycon_uart_core",
-      "ModuleFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/uart_master/uart_core.v",
+      "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/uart_master/uart_core.v",
       "ModuleLine" : 1469,
       "ModuleName" : "uart_core",
       "SubInsts" : [
        {
-        "InstFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/uart_master/uart_core.v",
+        "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/uart_master/uart_core.v",
         "InstLine" : 1514,
         "InstName" : "i4",
-        "ModuleFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/uart_master/uart_core.v",
+        "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/uart_master/uart_core.v",
         "ModuleLine" : 10,
         "ModuleName" : "~uart_master.uart_core"
        }
@@ -52,42 +52,42 @@
     ]
    },
    {
-    "InstFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_top.v",
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_top.v",
     "InstLine" : 95,
     "InstName" : "Joycon_right",
-    "ModuleFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_uart_fsm.v",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_uart_fsm.v",
     "ModuleLine" : 3,
     "ModuleName" : "Joycon_uart_fsm",
     "SubInsts" : [
      {
-      "InstFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_uart_fsm.v",
+      "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_uart_fsm.v",
       "InstLine" : 51,
       "InstName" : "JoyCon_FSM_inst",
-      "ModuleFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/joycon_fsm.v",
+      "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/joycon_fsm.v",
       "ModuleLine" : 1,
       "ModuleName" : "Joycon_fsm"
      },
      {
-      "InstFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_uart_fsm.v",
+      "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_uart_fsm.v",
       "InstLine" : 90,
       "InstName" : "uart_control_core",
-      "ModuleFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Uart_FSM.v",
+      "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Uart_FSM.v",
       "ModuleLine" : 4,
       "ModuleName" : "uart_fsm"
      },
      {
-      "InstFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/Joycon_uart_fsm.v",
+      "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_uart_fsm.v",
       "InstLine" : 109,
       "InstName" : "joycon_uart_core",
-      "ModuleFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/uart_master/uart_core.v",
+      "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/uart_master/uart_core.v",
       "ModuleLine" : 1469,
       "ModuleName" : "uart_core",
       "SubInsts" : [
        {
-        "InstFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/uart_master/uart_core.v",
+        "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/uart_master/uart_core.v",
         "InstLine" : 1514,
         "InstName" : "i4",
-        "ModuleFile" : "C:/Users/Think/Documents/FPGA_Project/Gowin/138K-PG484/Joycon/src/uart_master/uart_core.v",
+        "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/uart_master/uart_core.v",
         "ModuleLine" : 10,
         "ModuleName" : "~uart_master.uart_core"
        }
