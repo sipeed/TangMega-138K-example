@@ -3,10 +3,13 @@
 <Project>
     <Template>FPGA</Template>
     <Version>5</Version>
-    <Device name="GW5AST-138B" pn="GW5AST-LV138FPG676AES">gw5ast138b-002</Device>
+    <Device name="" pn="GW5AST-LV138PG484AC1/I0">gw5ast138b-011</Device>
     <FileList>
+        <File path="src/WS2812.v" type="file.verilog" enable="1"/>
+        <File path="src/divide.v" type="file.verilog" enable="1"/>
+        <File path="src/hsv2rgb.v" type="file.verilog" enable="1"/>
+        <File path="src/multiply.v" type="file.verilog" enable="1"/>
         <File path="src/top.v" type="file.verilog" enable="1"/>
-        <File path="src/ws2812.v" type="file.verilog" enable="1"/>
         <File path="src/ws2812.cst" type="file.cst" enable="1"/>
     </FileList>
 </Project>

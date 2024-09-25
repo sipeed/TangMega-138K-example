@@ -1,99 +1,244 @@
-module ws2812 (
-	input 		clk,  //输入 时钟源  
-
-	output reg WS2812 //输出到WS2812的接口
-	
+`timescale 1ns/1ns
+module WS2812 #
+(
+	parameter clk_freq = 50_000_000,	//20ns
+	parameter fps = 60,
+	parameter used_led  = 1,
+	parameter independent_led_ctrl = "true"
+)(
+	input sys_clk,
+	input rst_n,
+	output Do,
+	/* LED Input Interface, Sync to sys_clk */
+	input  [7:0] pixel_addr,
+	input  [7:0] pixel_Red,
+	input  [7:0] pixel_Green,
+	input  [7:0] pixel_Blue,
+	input  pixel_valid,
+	output TE
 );
-parameter WS2812_NUM 	= 1 - 1     ; // WS2812的LED数量(1从0开始)
-parameter WS2812_WIDTH 	= 24 	     ; // WS2812的数据位宽
-parameter CLK_FRE 	 	= 50_000_000	 	 ; // CLK的频率(HZ)
 
-parameter DELAY_1_HIGH 	= (CLK_FRE / 1_000_000 * 0.85 )  - 1; //≈850ns±150ns     1 高电平时间
-parameter DELAY_1_LOW 	= (CLK_FRE / 1_000_000 * 0.40 )  - 1; //≈400ns±150ns 	 1 低电平时间
-parameter DELAY_0_HIGH 	= (CLK_FRE / 1_000_000 * 0.40 )  - 1; //≈400ns±150ns 	 0 高电平时间
-parameter DELAY_0_LOW 	= (CLK_FRE / 1_000_000 * 0.85 )  - 1; //≈850ns±150ns     0 低电平时间
-parameter DELAY_RESET 	= (CLK_FRE / 10 ) - 1; //0.1s 复位时间 ＞50us
-
-parameter RESET 	 		= 0; //状态机声明
-parameter DATA_SEND  		= 1;
-parameter BIT_SEND_HIGH   	= 2;
-parameter BIT_SEND_LOW   	= 3;
-
-reg [ 1:0] state       = 0; // synthesis preserve //主状态机控制
-reg [ 8:0] bit_send    = 0; // amount of bit sent // increase it for larger led strips/matrix
-reg [ 8:0] data_send   = 0; // amount of data sent // increase it for larger led strips/matrix
-reg [31:0] clk_count   = 0; // 延时控制
-reg [23:0] WS2812_data = 24'd1; // WS2812的颜色数据
-
-always@(posedge clk)
-	case (state)
-		RESET:begin
-			WS2812 <= 0;
-
-			if (clk_count < DELAY_RESET) 
-				clk_count <= clk_count + 1;
-			else begin
-				clk_count <= 0;
-				WS2812_data <= {WS2812_data[22:0],WS2812_data[23]};//颜色移位循环显示
-				state <= DATA_SEND;
+	/* LED Memory */
+	reg [23:0] led_mem[used_led-1:0];
+	reg [7:0] for_var;
+	always@(posedge sys_clk or negedge rst_n)
+	begin
+		if(!rst_n)
+		begin
+			for(for_var=0; for_var<used_led; for_var=for_var+1)
+			begin
+				led_mem[for_var] <= 24'd0;
+			end
+		end else begin
+			if(pixel_valid)
+			begin
+				if(independent_led_ctrl == "true")
+				begin
+					if(pixel_addr < used_led)
+					begin
+						led_mem[pixel_addr] <= {pixel_Green, pixel_Red, pixel_Blue};
+					end
+				end else begin
+					for(for_var = 0; for_var < used_led; for_var = for_var+1)
+					begin
+						led_mem[for_var] <= {pixel_Green, pixel_Red, pixel_Blue};
+					end
+				end
+				
 			end
 		end
+	end
 
-		DATA_SEND:
-			if (data_send == WS2812_NUM && bit_send == WS2812_WIDTH)begin 
-				data_send <= 0;
-				bit_send  <= 0;
-				state <= RESET;
-			end 
-			else if (bit_send < WS2812_WIDTH) begin
-				state    <= BIT_SEND_HIGH;
+	/*           1 Code									0 Code
+	 *	     __________		   _____			   ______			   _______
+	 * _____|          |______|				______|		 |____________|
+	 *      |<-------->|<---->|					  |<---->|<---------->|
+	 *			 T1H      T0L						T0H			T0L
+	 *			0.85us   0.4us						0.4us		0.85us
+	 *
+	 *   One code duration: T0H + T0L = 1.25us +- 600ns
+	 *   Reset Code: keep low for tReset(>50us)
+	 *
+	 *	Data: G7-G0, R7-R0, B7-B0 MSB, GRB
+	 */
+
+	localparam cnt_H = clk_freq / 1_176_470;
+	localparam cnt_L = clk_freq / 2_500_000;
+	localparam cnt_dur = cnt_H + cnt_L;	//bit clk cnt
+	localparam cnt_1frame = clk_freq / fps;
+
+	reg [31:0] frame_cnt;
+	reg ws2812_proging;
+	reg load_led;
+
+	reg [23:0] led_data;		//Temp Memory
+	reg [23:0] latch_led_data;	//Shift Memory
+	reg [15:0] timing_cnt;			//Timing Gen
+	reg [4:0]  led_bit_cnt;			//WS2812 Bit
+	reg [7:0] led_num_cnt;			//Current LED Number
+
+
+	reg tearing_effect;
+	assign TE = tearing_effect;
+
+	reg data_out;
+	assign Do = data_out;
+
+	/* LED data Latch */
+	always@(posedge sys_clk or negedge rst_n)
+	begin
+		if(!rst_n)
+		begin
+			led_data <= 24'd0;
+		end else begin
+			if(load_led)
+			begin
+				if(led_num_cnt >= used_led)
+				begin
+					led_data <= led_data;
+				end else begin
+					led_data <= led_mem[led_num_cnt];
+				end
+			end else begin
+				led_data <= led_data;
 			end
-			else begin// if (bit_send == WS2812_WIDTH)
-				data_send <= data_send + 1;
-				bit_send  <= 0;
-				state    <= BIT_SEND_HIGH;
+		end
+	end
+
+	/* bit cnt Generate and data latch,shift */
+	always@(posedge sys_clk or negedge rst_n)
+	begin
+		if(!rst_n)
+		begin
+			frame_cnt <= 0;
+			ws2812_proging <= 0;
+			load_led <= 1;
+			tearing_effect <= 0;
+
+			timing_cnt <= 16'b0;
+			led_bit_cnt <= 5'd0;
+			led_num_cnt <= 8'd0;
+			latch_led_data <= 24'd0;
+		end else begin	
+			if(frame_cnt >= cnt_1frame - 1)
+			begin
+				frame_cnt <= 0;
+			end else begin
+				frame_cnt <= frame_cnt + 1;
+			end
+
+			/* Preload Led data */
+			if(frame_cnt >= cnt_1frame - 1)
+			begin
+				load_led <= 1;
+			end else begin
+				if(led_bit_cnt == 5'd22 && timing_cnt == cnt_dur)
+				begin
+					load_led <= 1;
+				end else begin
+					load_led <= 0;
+				end
 			end
 			
-		BIT_SEND_HIGH:begin
-			WS2812 <= 1;
 
-			if (WS2812_data[bit_send]) 
-				if (clk_count < DELAY_1_HIGH)
-					clk_count <= clk_count + 1;
-				else begin
-					clk_count <= 0;
-					state    <= BIT_SEND_LOW;
+			if(ws2812_proging)	
+			begin
+				/* 1 Bit Send Complete */
+				if(timing_cnt == cnt_dur)	//1bit timeout
+				begin
+					timing_cnt <= 0;	//Reset to bit start time
+
+					/* 1 LED (24bit) send complete */
+					if(led_bit_cnt == 5'd23)
+					begin
+						led_bit_cnt <= 5'd0;
+						/* All led data send out, generate reset to inform WS2812 wait for new transmission */
+						if(led_num_cnt == used_led - 1)	
+						begin
+							tearing_effect <= 1;
+							latch_led_data <= 0;
+							led_num_cnt <= 0;
+							ws2812_proging <= 0;	//to reset state
+						end else begin
+							tearing_effect <= 0;
+							latch_led_data <= led_data;
+							led_num_cnt <= led_num_cnt + 1'b1;
+							ws2812_proging <= 1;
+						end
+					end else begin
+						led_bit_cnt <= led_bit_cnt + 1'b1;
+						//Shift latched led data in each bit send complete
+						latch_led_data <= {latch_led_data[22:0], 1'b0};
+						tearing_effect <= 0;
+						led_num_cnt <= led_num_cnt;
+						ws2812_proging <= 1;
+					end
+
+				end else begin
+					timing_cnt <= timing_cnt + 1;
+					led_bit_cnt <= led_bit_cnt;
+					load_led <= 0;
+					latch_led_data <= latch_led_data;
+					tearing_effect <= 0;
+					led_num_cnt <= led_num_cnt;
+					ws2812_proging <= 1;
 				end
-			else 
-				if (clk_count < DELAY_0_HIGH)
-					clk_count <= clk_count + 1;
-				else begin
-					clk_count <= 0;
-					state    <= BIT_SEND_LOW;
+
+			end else begin	//Wait for new write
+				if(frame_cnt == 0)
+				begin
+					timing_cnt <= 0;
+					led_bit_cnt <= 0;
+					load_led <= 0;
+					latch_led_data <= led_data;
+					tearing_effect <= 0;
+					led_num_cnt <= 0;
+					ws2812_proging <= 1;
+				end else begin
+					timing_cnt <= 0;
+					led_bit_cnt <= 0;
+					load_led <= 0;
+					latch_led_data <= 0;
+					tearing_effect <= 0;
+					led_num_cnt <= 0;
+					ws2812_proging <= 0;
 				end
+			end
 		end
-
-		BIT_SEND_LOW:begin
-			WS2812 <= 0;
-
-			if (WS2812_data[bit_send]) 
-				if (clk_count < DELAY_1_LOW) 
-					clk_count <= clk_count + 1;
-				else begin
-					clk_count <= 0;
-
-					bit_send <= bit_send + 1;
-					state    <= DATA_SEND;
+	end
+	
+	/* Data shift */
+	always@(posedge sys_clk or negedge rst_n)
+	begin
+		if(!rst_n)
+		begin
+			data_out <= 1'b0;
+		end else begin
+			if(ws2812_proging)
+			begin
+				if(latch_led_data[23] == 1'b1)
+				begin
+					if(timing_cnt < cnt_H - 1)
+					begin
+						data_out <= 1'b1;
+					end else begin
+						data_out <= 1'b0;
+					end
+				end else begin
+					if(timing_cnt < cnt_L - 1)
+					begin
+						data_out <= 1'b1;
+					end else begin
+						data_out <= 1'b0;
+					end
 				end
-			else 
-				if (clk_count < DELAY_0_LOW) 
-					clk_count <= clk_count + 1;
-				else begin
-					clk_count <= 0;
-					
-					bit_send <= bit_send + 1;
-					state    <= DATA_SEND;
-				end
+			end else begin
+				data_out <= 1'b0;
+			end
 		end
-	endcase
+	end
+
+	
+
 endmodule
+	
