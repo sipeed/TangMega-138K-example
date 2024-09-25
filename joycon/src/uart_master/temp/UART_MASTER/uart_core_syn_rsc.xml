@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="uart_core" Register="204" Alu="8" Lut="251" Bsram="2" T_Register="204(204)" T_Alu="8(8)" T_Lut="251(251)" T_Bsram="2(2)"/>

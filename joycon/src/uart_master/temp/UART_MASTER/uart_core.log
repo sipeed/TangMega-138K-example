@@ -1,0 +1,42 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_top.v'
+Analyzing included file 'top_define.vh'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_top.v":1)
+Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_top.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_top.v":1)
+Analyzing included file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\static_macro_define.vh'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_top.v":2)
+Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_top.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_top.v":2)
+Analyzing included file 'uart_master_defines.vh'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_top.v":3)
+Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_top.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_top.v":3)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_encrypt.v'
+Analyzing included file 'top_define.vh'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_encrypt.v":1138)
+Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_encrypt.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_encrypt.v":1138)
+Analyzing included file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\static_macro_define.vh'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_encrypt.v":1138)
+Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_encrypt.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_encrypt.v":1138)
+Analyzing included file 'uart_master_defines.vh'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_encrypt.v":1138)
+Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_encrypt.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_encrypt.v":1138)
+Compiling module 'uart_core'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_top.v":5)
+WARN  (EX3771) : Module instantiation should have an instance name("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_top.v":59)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_encrypt.v":1138)
+WARN  (EX3791) : Expression size ** truncated to fit in target size **("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_encrypt.v":1138)
+Extracting RAM for identifier '**'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\UARTMASTER\data\uart_master_encrypt.v":1138)
+NOTE  (EX0101) : Current top module is "uart_core"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "C:\Users\12161\OneDrive\Desktop\Files\Hoshi\JOYCON_UART\Project\Joycon\src\uart_master\temp\UART_MASTER\uart_core.vg" completed
+Generate template file "C:\Users\12161\OneDrive\Desktop\Files\Hoshi\JOYCON_UART\Project\Joycon\src\uart_master\temp\UART_MASTER\uart_core_tmp.v" completed
+[100%] Generate report file "C:\Users\12161\OneDrive\Desktop\Files\Hoshi\JOYCON_UART\Project\Joycon\src\uart_master\temp\UART_MASTER\uart_core_syn.rpt.html" completed
+GowinSynthesis finish
