@@ -38,6 +38,7 @@ Here are quick instructions for the more experienced,
 - Download & Complie the project, then downloading the bitstream to you board.
 - You can also try using the prebuilt bitstream, but remember to unzip it before downloading.
 - Observe whether the monitor is show the screen captured by the sensor correctly.
+- If your monitor says there is no signal input, you may need to manually pull up the HPD signal on the HDMI connector. On this board, K13 is responsible for controlling the HPD signal.
 
 ## LEDs & button
 
@@ -55,4 +56,5 @@ Here are the details for LEDs:(LED0 is on the far right)
 1 button **(S0)** use to reset the transmission.  
 
 ## Development
-TBD
+If you want to modify the video resolution output, Please refer to the comments in the top file.
+Changing the resolution requires changing the output of TMDS_PLL. For specific frequency values, please refer to the relevant VESA documents.

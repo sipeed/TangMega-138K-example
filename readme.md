@@ -1,6 +1,6 @@
 # Tang Mega 138k Examples
 
-This repository is for storing Tang Mega 138K examples
+This repository is for storing Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html) examples
 
 # Working progress
 ## Peripherals
@@ -10,15 +10,15 @@ This repository is for storing Tang Mega 138K examples
 - [x] hdmi_svo
 - [x] lcd_rgb666_screen (Both 800x480 and 1024*600)
 - [x] pmod_led
-- [x] pmod_fan **Not working for version 31000 due to hardware design failure**
+- [x] pmod_fan **Not working for version 31000 due to hardware design** 
 - [x] sd_card
 - [x] udp_rgmii_send
 - [x] ws2812
-- [ ] dvp_camera
+- [x] dvp_camera
 - [x] joystick
-- [ ] joycon
+- [x] joycon
 - [x] usb_host
-- [x] sdram **Not working for 100Mhz or faster due to bus load**
+- [x] sdram
 - [x] qspi_flash
 
 ## Onboard facility
