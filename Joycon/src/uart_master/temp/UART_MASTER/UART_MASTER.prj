@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW5AST-138C" package="PBGA484A" speed="1" partNumber="GW5AST-LV138PG484AC1/I0"/>
+    <FileList>
+        <File path="C:/Gowin/Gowin_V1.9.10.01_x64/IDE/ipcore/UARTMASTER/data/uart_master_top.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.10.01_x64/IDE/ipcore/UARTMASTER/data/uart_master_encrypt.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="1"/>
+        <Option type="include_path" value="C:/Gowin/Gowin_V1.9.10.01_x64/IDE/ipcore/UARTMASTER/data"/>
+        <Option type="include_path" value="C:/Users/12161/OneDrive/Desktop/Files/Hoshi/JOYCON_UART/Project/Joycon/src/uart_master/temp/UART_MASTER"/>
+        <Option type="output_file" value="uart_core.vg"/>
+        <Option type="output_template" value="uart_core_tmp.v"/>
+        <Option type="ram_balance" value="1"/>
+        <Option type="ram_rw_check" value="1"/>
+        <Option type="vcc" value="0.9"/>
+        <Option type="vccx" value="1.8"/>
+        <Option type="verilog_language" value="sysv-2017"/>
+    </OptionList>
+</Project>

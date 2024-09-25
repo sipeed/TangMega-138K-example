@@ -1,0 +1,33 @@
+{
+ "Device" : "GW5AST-138B",
+ "Files" : [
+  {
+   "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Joycon_uart_fsm.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/Uart_FSM.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/joycon_fsm.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/src/uart_master/uart_core.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/Joycon/impl/temp/rtl_parser.result",
+ "Top" : "Joycon_top",
+ "VerilogStd" : "sysv",
+ "VhdlStd" : "vhdl_93"
+}
