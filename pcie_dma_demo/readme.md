@@ -21,12 +21,14 @@ In theory, other GW5AST & GW5AT models can also use this demo, such as Sipeed [T
 | -- docs
 |    |`-- PCIe_demo_guide_en.pdf  --> official guide（en） 
 |    |`-- PCIe_demo_guide_zh.pdf  --> official guide(zh) 
-|     `-- images				  --> picture resources                           
-|-- src                           --> project sources 
+|     `-- images                  --> picture resources                           
+|-- src                           --> project sources
+|-- impl                          --> project config & implementation  
 |
+|`-- gowin_pcie_demo.7z           --> drivers & app for test(zipped)
 |`-- pcie_dma_demo.fs.7z          --> prbuild bitstream(zipped)
-|`-- pcie_dma_demo.gprj	          --> demo project
-|`-- pcie_dma_demo.gprj.user	  --> project conf.
+|`-- pcie_dma_demo.gprj           --> demo project
+|`-- pcie_dma_demo.gprj.user      --> project conf.
 
 ```
 

@@ -34,7 +34,7 @@ Please confirm that you have the following conditions:
 ## How to use
 
 Here are quick instructions for the more experienced,
-- Assemble your sensor and board, then connect it to your monitor with an HDMI cable.
+- Assemble your sensor and board, then connect it to your monitor via an HDMI cable.
 - Download & Complie the project, then downloading the bitstream to you board.
 - You can also try using the prebuilt bitstream, but remember to unzip it before downloading.
 - Observe whether the monitor is show the screen captured by the sensor correctly.
@@ -57,4 +57,7 @@ Here are the details for LEDs:(LED0 is on the far right)
 
 ## Development
 If you want to modify the video resolution output, Please refer to the comments in the top file.
-Changing the resolution requires changing the output of TMDS_PLL. For specific frequency values, please refer to the relevant VESA documents.
+
+Changing the resolution requires changing the output of TMDS_PLL. 
+
+For specific frequency values, please refer to the relevant VESA documents.
