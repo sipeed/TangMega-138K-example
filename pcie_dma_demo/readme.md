@@ -18,7 +18,7 @@ In theory, other GW5AST & GW5AT models can also use this demo, such as Sipeed [T
 ## Directory structure
 
 ```
-| -- docs
+| -- docs                         --> manuals and documentation
 |    |`-- PCIe_demo_guide_en.pdf  --> official guide（en） 
 |    |`-- PCIe_demo_guide_zh.pdf  --> official guide(zh) 
 |     `-- images                  --> picture resources                           
