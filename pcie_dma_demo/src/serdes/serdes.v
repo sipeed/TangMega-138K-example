@@ -1,13 +1,38 @@
 //Copyright (C)2014-2024 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: IP file
-//Tool Version: V1.9.10.01 (64-bit)
-//Part Number: GW5AST-LV138PG484AC1/I0
-//Device: GW5AST-138
+//Tool Version: V1.9.9.02
+//Part Number: GW5AST-LV138PG484AES
+//Device: GW5AST-138B
 //Device Version: B
-//Created Time: Tue Sep 24 17:32:21 2024
+//Created Time: Wed May  8 21:22:07 2024
 
-module SerDes_Top (PCIE_Controller_Top_pcie_tl_rx_sop_o, PCIE_Controller_Top_pcie_tl_rx_eop_o, PCIE_Controller_Top_pcie_tl_rx_data_o, PCIE_Controller_Top_pcie_tl_rx_valid_o, PCIE_Controller_Top_pcie_tl_rx_bardec_o, PCIE_Controller_Top_pcie_tl_rx_err_o, PCIE_Controller_Top_pcie_tl_tx_wait_o, PCIE_Controller_Top_pcie_tl_int_ack_o, PCIE_Controller_Top_pcie_ltssm_o, PCIE_Controller_Top_pcie_tl_tx_creditsp_o, PCIE_Controller_Top_pcie_tl_tx_creditsnp_o, PCIE_Controller_Top_pcie_tl_tx_creditscpl_o, PCIE_Controller_Top_pcie_tl_cfg_busdev_o, PCIE_Controller_Top_pcie_linkup_o, PCIE_Controller_Top_pcie_rstn_i, PCIE_Controller_Top_pcie_tl_clk_i, PCIE_Controller_Top_pcie_tl_rx_wait_i, PCIE_Controller_Top_pcie_tl_rx_masknp_i, PCIE_Controller_Top_pcie_tl_tx_sop_i, PCIE_Controller_Top_pcie_tl_tx_eop_i, PCIE_Controller_Top_pcie_tl_tx_data_i, PCIE_Controller_Top_pcie_tl_tx_valid_i, PCIE_Controller_Top_pcie_tl_int_status_i, PCIE_Controller_Top_pcie_tl_int_req_i, PCIE_Controller_Top_pcie_tl_int_msinum_i);
+module SerDes_Top (
+    PCIE_Controller_Top_pcie_tl_rx_sop_o, 
+    PCIE_Controller_Top_pcie_tl_rx_eop_o, 
+    PCIE_Controller_Top_pcie_tl_rx_data_o, 
+    PCIE_Controller_Top_pcie_tl_rx_valid_o, 
+    PCIE_Controller_Top_pcie_tl_rx_bardec_o, 
+    PCIE_Controller_Top_pcie_tl_rx_err_o, 
+    PCIE_Controller_Top_pcie_tl_tx_wait_o, 
+    PCIE_Controller_Top_pcie_tl_int_ack_o, 
+    PCIE_Controller_Top_pcie_ltssm_o, 
+    PCIE_Controller_Top_pcie_tl_tx_creditsp_o, 
+    PCIE_Controller_Top_pcie_tl_tx_creditsnp_o, 
+    PCIE_Controller_Top_pcie_tl_tx_creditscpl_o, 
+    PCIE_Controller_Top_pcie_tl_cfg_busdev_o, 
+    PCIE_Controller_Top_pcie_linkup_o, 
+    PCIE_Controller_Top_pcie_rstn_i, 
+    PCIE_Controller_Top_pcie_tl_clk_i, 
+    PCIE_Controller_Top_pcie_tl_rx_wait_i, 
+    PCIE_Controller_Top_pcie_tl_rx_masknp_i, 
+    PCIE_Controller_Top_pcie_tl_tx_sop_i, 
+    PCIE_Controller_Top_pcie_tl_tx_eop_i, 
+    PCIE_Controller_Top_pcie_tl_tx_data_i, 
+    PCIE_Controller_Top_pcie_tl_tx_valid_i, 
+    PCIE_Controller_Top_pcie_tl_int_status_i, 
+    PCIE_Controller_Top_pcie_tl_int_req_i, 
+    PCIE_Controller_Top_pcie_tl_int_msinum_i);
 
 output PCIE_Controller_Top_pcie_tl_rx_sop_o;
 output PCIE_Controller_Top_pcie_tl_rx_eop_o;

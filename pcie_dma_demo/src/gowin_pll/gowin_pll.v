@@ -1,11 +1,11 @@
 //Copyright (C)2014-2024 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: IP file
-//Tool Version: V1.9.10.01 (64-bit)
+//Tool Version: V1.9.9.02
 //Part Number: GW5AST-LV138PG484AES
-//Device: GW5AST-138
+//Device: GW5AST-138B
 //Device Version: B
-//Created Time: Tue Sep 24 16:11:36 2024
+//Created Time: Wed May  8 21:21:45 2024
 
 module Gowin_PLL (lock, clkout0, clkout1, clkin);
 

@@ -1,6 +1,6 @@
 [General]
 ipc_version=4
-target_device=gw5ast138b-011
+target_device=gw5ast138b-000
 type=Serdes
 version=1.2
 
@@ -29,8 +29,8 @@ Enable_MSI_Capability=true
 LANG=0
 Lane_Width=X4
 Max_Payload_Size=4096bytes
-Maximum_Link_Speed=false
-Maximum_Link_Speed_8=true
+Maximum_Link_Speed=true
+Maximum_Link_Speed_8=false
 Prefetchable0=false
 Prefetchable1=false
 Prefetchable2=false
@@ -38,7 +38,7 @@ Prefetchable3=false
 Prefetchable4=false
 Prefetchable5=false
 Reference_Clock_Frequency=100MHz
-Reference_Clock_Source=Q0 REFCLK0
+Reference_Clock_Source=Q0 REFCLK1
 Revision_ID=00
 Size0=1MegaBytes
 Size1=2KiloBytes
@@ -53,7 +53,7 @@ Vendor_ID=22C2
 file=pcie_controller
 module=PCIE_Controller_Top
 recordlanes=Q0 Lane0, Q0 Lane1, Q0 Lane2, Q0 Lane3
-target_device=gw5ast138b-011
+target_device=gw5ast138b-000
 type=pcie
 value0=FFF00004
 value1=00000000

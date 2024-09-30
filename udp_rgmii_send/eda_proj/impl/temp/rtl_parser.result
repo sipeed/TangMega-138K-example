@@ -1,0 +1,46 @@
+[
+ {
+  "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/top.sv",
+  "InstLine" : 1,
+  "InstName" : "top",
+  "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/top.sv",
+  "ModuleLine" : 1,
+  "ModuleName" : "top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/top.sv",
+    "InstLine" : 25,
+    "InstName" : "GMII_pll_m0",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/gowin_pll/GMII_pll.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "GMII_pll"
+   },
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/top.sv",
+    "InstLine" : 41,
+    "InstName" : "GMII_send_m0",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/GMII_send.sv",
+    "ModuleLine" : 1,
+    "ModuleName" : "GMII_send",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/GMII_send.sv",
+      "InstLine" : 156,
+      "InstName" : "crc32_m0",
+      "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/crc.v",
+      "ModuleLine" : 3,
+      "ModuleName" : "crc"
+     }
+    ]
+   },
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/top.sv",
+    "InstLine" : 57,
+    "InstName" : "GMII2RGMII_m0",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/gowin_ddr/GMII2RGMII.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "GMII2RGMII"
+   }
+  ]
+ }
+]

@@ -1,0 +1,138 @@
+[
+ {
+  "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/serdes/serdes_Test.v",
+  "InstLine" : 10,
+  "InstName" : "SerDes_Test",
+  "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/serdes/serdes_Test.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "SerDes_Test",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/serdes/serdes_Test.v",
+    "InstLine" : 541,
+    "InstName" : "Customized_PHY_Top_inst",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/serdes/customized_phy/customized_phy.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Customized_PHY_Top"
+   }
+  ]
+ },
+ {
+  "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
+  "InstLine" : 3,
+  "InstName" : "top",
+  "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
+  "ModuleLine" : 3,
+  "ModuleName" : "top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
+    "InstLine" : 316,
+    "InstName" : "u_tlp_bar_demux",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/pcie/tlp_encryption.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "tlp_bar_demux"
+   },
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
+    "InstLine" : 344,
+    "InstName" : "u_mem_ctrl_tlp_decode",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/pcie/tlp_encryption.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "tlp_dec"
+   },
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
+    "InstLine" : 371,
+    "InstName" : "u_cc_ctrl",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/pcie/tlp_encryption.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "cc_ctrl"
+   },
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
+    "InstLine" : 404,
+    "InstName" : "u_dma_ctrl_tlp_dec",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/pcie/tlp_encryption.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "tlp_dec"
+   },
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
+    "InstLine" : 450,
+    "InstName" : "u_cmd_if",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/pcie/tlp_encryption.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "tlp_cmd_if_mult_chn"
+   },
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
+    "InstLine" : 520,
+    "InstName" : "chn_loop_i[0].u_tlp_cpld_dec",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/pcie/tlp_encryption.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "tlp_cpld_dec"
+   },
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
+    "InstLine" : 551,
+    "InstName" : "chn_loop_i[0].u_tlp_rq",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/pcie/tlp_encryption.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "tlp_rq_ctrl"
+   },
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
+    "InstLine" : 597,
+    "InstName" : "chn_loop_j[0].u_tlp_rc",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/pcie/tlp_encryption.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "tlp_rc_ctrl"
+   },
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
+    "InstLine" : 671,
+    "InstName" : "u_tl_tx",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/pcie/tlp_encryption.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "tl_tx_mux_if"
+   },
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
+    "InstLine" : 30,
+    "InstName" : "u_pll",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/gowin_pll/gowin_pll.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_PLL"
+   },
+   {
+    "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
+    "InstLine" : 711,
+    "InstName" : "u_pcie_ctrl",
+    "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/serdes/serdes.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "SerDes_Top",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/serdes/serdes.v",
+      "InstLine" : 602,
+      "InstName" : "PCIE_Controller_Top_inst",
+      "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/serdes/pcie_controller/pcie_controller.v",
+      "ModuleLine" : 258,
+      "ModuleName" : "PCIE_Controller_Top",
+      "SubInsts" : [
+       {
+        "InstFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/serdes/pcie_controller/pcie_controller.v",
+        "InstLine" : 407,
+        "InstName" : "u_pcie_controller",
+        "ModuleFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/serdes/pcie_controller/pcie_controller.v",
+        "ModuleLine" : 10,
+        "ModuleName" : "~pcie_top.PCIE_Controller_Top"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]

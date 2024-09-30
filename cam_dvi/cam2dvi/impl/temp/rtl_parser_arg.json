@@ -83,7 +83,7 @@
  ],
  "LoopLimit" : 2000,
  "ResultFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/cam_dvi/cam2dvi/impl/temp/rtl_parser.result",
- "Top" : "",
+ "Top" : "top",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"
 }

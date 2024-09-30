@@ -1,0 +1,33 @@
+{
+ "Device" : "GW5AST-138B",
+ "Files" : [
+  {
+   "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/GMII_send.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/crc.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/gowin_ddr/GMII2RGMII.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/gowin_pll/GMII_pll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/src/top.sv",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/udp_rgmii_send/eda_proj/impl/temp/rtl_parser.result",
+ "Top" : "",
+ "VerilogStd" : "sysv",
+ "VhdlStd" : "vhdl_93"
+}

@@ -18,6 +18,10 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/serdes/customized_phy/customized_phy.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/serdes/pcie_controller/pcie_controller.v",
    "Type" : "verilog"
   },
@@ -26,16 +30,20 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/serdes/serdes_Test.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/src/top.v",
    "Type" : "verilog"
   }
  ],
  "IncludePath" : [
-
+  "src/include"
  ],
  "LoopLimit" : 2000,
  "ResultFile" : "C:/Users/Think/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/impl/temp/rtl_parser.result",
- "Top" : "",
+ "Top" : "top",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"
 }

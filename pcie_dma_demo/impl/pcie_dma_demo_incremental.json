@@ -1,0 +1,536 @@
+[
+ {
+  "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+  "InstLine" : 3,
+  "InstName" : "top",
+  "Mode" : 1,
+  "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+  "ModuleLine" : 3,
+  "ModuleName" : "top",
+  "Process" : 0,
+  "SetMode" : false,
+  "SetProcess" : false,
+  "SubNodes" : [
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 378,
+    "InstName" : "u_tlp_bar_demux",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+    "ModuleLine" : 19,
+    "ModuleName" : "tlp_bar_demux",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false
+   },
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 406,
+    "InstName" : "u_tlp_dec",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+    "ModuleLine" : 112,
+    "ModuleName" : "tlp_dec",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false
+   },
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 451,
+    "InstName" : "u_cmd_if",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+    "ModuleLine" : 654,
+    "ModuleName" : "tlp_cmd_if_mult_chn",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false,
+    "SubNodes" : [
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "InstLine" : 1003,
+      "InstName" : "u_sdp_regs",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "ModuleLine" : 2483,
+      "ModuleName" : "SDPGW",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false
+     },
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "InstLine" : 1127,
+      "InstName" : "u_msi_ctrl",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "ModuleLine" : 2208,
+      "ModuleName" : "msi_ctrl",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false
+     }
+    ]
+   },
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 526,
+    "InstName" : "chn_loop_i[0].u_tlp_cpld_dec",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+    "ModuleLine" : 307,
+    "ModuleName" : "tlp_cpld_dec",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false,
+    "SubNodes" : [
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "InstLine" : 514,
+      "InstName" : "u_sdp_cpld",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "ModuleLine" : 2483,
+      "ModuleName" : "SDPGW",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false
+     },
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "InstLine" : 635,
+      "InstName" : "u_rq_pool",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "ModuleLine" : 2309,
+      "ModuleName" : "rq_pool",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false,
+      "SubNodes" : [
+       {
+        "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "InstLine" : 2367,
+        "InstName" : "u_sdp_mem",
+        "Mode" : 1,
+        "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "ModuleLine" : 2483,
+        "ModuleName" : "SDPGW",
+        "Process" : 0,
+        "SetMode" : false,
+        "SetProcess" : false
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 554,
+    "InstName" : "chn_loop_i[0].u_tlp_rq",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+    "ModuleLine" : 1155,
+    "ModuleName" : "tlp_rq_ctrl",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false,
+    "SubNodes" : [
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "InstLine" : 1262,
+      "InstName" : "u_cmd_queue",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "ModuleLine" : 2385,
+      "ModuleName" : "SYNC_FIFO",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false,
+      "SubNodes" : [
+       {
+        "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "InstLine" : 2462,
+        "InstName" : "u_sdp",
+        "Mode" : 1,
+        "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "ModuleLine" : 2483,
+        "ModuleName" : "SDPGW",
+        "Process" : 0,
+        "SetMode" : false,
+        "SetProcess" : false
+       }
+      ]
+     },
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "InstLine" : 1330,
+      "InstName" : "u_rq_buf",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "ModuleLine" : 2385,
+      "ModuleName" : "SYNC_FIFO",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false,
+      "SubNodes" : [
+       {
+        "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "InstLine" : 2462,
+        "InstName" : "u_sdp",
+        "Mode" : 1,
+        "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "ModuleLine" : 2483,
+        "ModuleName" : "SDPGW",
+        "Process" : 0,
+        "SetMode" : false,
+        "SetProcess" : false
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 597,
+    "InstName" : "chn_loop_j[0].u_tlp_rc",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+    "ModuleLine" : 1441,
+    "ModuleName" : "tlp_rc_ctrl",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false,
+    "SubNodes" : [
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "InstLine" : 1606,
+      "InstName" : "u_cmd_queue",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "ModuleLine" : 2385,
+      "ModuleName" : "SYNC_FIFO",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false,
+      "SubNodes" : [
+       {
+        "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "InstLine" : 2462,
+        "InstName" : "u_sdp",
+        "Mode" : 1,
+        "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "ModuleLine" : 2483,
+        "ModuleName" : "SDPGW",
+        "Process" : 0,
+        "SetMode" : false,
+        "SetProcess" : false
+       }
+      ]
+     },
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "InstLine" : 1741,
+      "InstName" : "u_rc_buf",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "ModuleLine" : 2385,
+      "ModuleName" : "SYNC_FIFO",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false,
+      "SubNodes" : [
+       {
+        "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "InstLine" : 2462,
+        "InstName" : "u_sdp",
+        "Mode" : 1,
+        "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "ModuleLine" : 2483,
+        "ModuleName" : "SDPGW",
+        "Process" : 0,
+        "SetMode" : false,
+        "SetProcess" : false
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 637,
+    "InstName" : "u_mem_tlp_dec",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+    "ModuleLine" : 112,
+    "ModuleName" : "tlp_dec",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false
+   },
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 660,
+    "InstName" : "u_cc_ctrl",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+    "ModuleLine" : 1784,
+    "ModuleName" : "cc_ctrl",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false,
+    "SubNodes" : [
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "InstLine" : 1912,
+      "InstName" : "u_sdp_mem",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "ModuleLine" : 2483,
+      "ModuleName" : "SDPGW",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false
+     }
+    ]
+   },
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 783,
+    "InstName" : "u_tlp_posted_mux",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+    "ModuleLine" : 1965,
+    "ModuleName" : "tlp_tx_mux",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false,
+    "SubNodes" : [
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "InstLine" : 2017,
+      "InstName" : "arb_inst",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/arb/arbiter.v",
+      "ModuleLine" : 34,
+      "ModuleName" : "arbiter",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false,
+      "SubNodes" : [
+       {
+        "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/arb/arbiter.v",
+        "InstLine" : 74,
+        "InstName" : "priority_encoder_inst",
+        "Mode" : 1,
+        "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/arb/priority_encoder.v",
+        "ModuleLine" : 34,
+        "ModuleName" : "priority_encoder",
+        "Process" : 0,
+        "SetMode" : false,
+        "SetProcess" : false
+       },
+       {
+        "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/arb/arbiter.v",
+        "InstLine" : 91,
+        "InstName" : "priority_encoder_masked",
+        "Mode" : 1,
+        "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/arb/priority_encoder.v",
+        "ModuleLine" : 34,
+        "ModuleName" : "priority_encoder",
+        "Process" : 0,
+        "SetMode" : false,
+        "SetProcess" : false
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 806,
+    "InstName" : "u_tlp_posted_tx_ctl",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+    "ModuleLine" : 2041,
+    "ModuleName" : "tlp_tx_ctrl",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false,
+    "SubNodes" : [
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "InstLine" : 2127,
+      "InstName" : "u_pkt_buf",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "ModuleLine" : 2385,
+      "ModuleName" : "SYNC_FIFO",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false,
+      "SubNodes" : [
+       {
+        "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "InstLine" : 2462,
+        "InstName" : "u_sdp",
+        "Mode" : 1,
+        "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "ModuleLine" : 2483,
+        "ModuleName" : "SDPGW",
+        "Process" : 0,
+        "SetMode" : false,
+        "SetProcess" : false
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 828,
+    "InstName" : "u_tlp_np_mux",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+    "ModuleLine" : 1965,
+    "ModuleName" : "tlp_tx_mux",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false,
+    "SubNodes" : [
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "InstLine" : 2017,
+      "InstName" : "arb_inst",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/arb/arbiter.v",
+      "ModuleLine" : 34,
+      "ModuleName" : "arbiter",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false,
+      "SubNodes" : [
+       {
+        "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/arb/arbiter.v",
+        "InstLine" : 74,
+        "InstName" : "priority_encoder_inst",
+        "Mode" : 1,
+        "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/arb/priority_encoder.v",
+        "ModuleLine" : 34,
+        "ModuleName" : "priority_encoder",
+        "Process" : 0,
+        "SetMode" : false,
+        "SetProcess" : false
+       },
+       {
+        "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/arb/arbiter.v",
+        "InstLine" : 91,
+        "InstName" : "priority_encoder_masked",
+        "Mode" : 1,
+        "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/arb/priority_encoder.v",
+        "ModuleLine" : 34,
+        "ModuleName" : "priority_encoder",
+        "Process" : 0,
+        "SetMode" : false,
+        "SetProcess" : false
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 851,
+    "InstName" : "u_tlp_np_tx_ctl",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+    "ModuleLine" : 2041,
+    "ModuleName" : "tlp_tx_ctrl",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false,
+    "SubNodes" : [
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "InstLine" : 2127,
+      "InstName" : "u_pkt_buf",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+      "ModuleLine" : 2385,
+      "ModuleName" : "SYNC_FIFO",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false,
+      "SubNodes" : [
+       {
+        "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "InstLine" : 2462,
+        "InstName" : "u_sdp",
+        "Mode" : 1,
+        "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+        "ModuleLine" : 2483,
+        "ModuleName" : "SDPGW",
+        "Process" : 0,
+        "SetMode" : false,
+        "SetProcess" : false
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 872,
+    "InstName" : "u_tl_pnp_mux",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/pcie/tlp_dec.v",
+    "ModuleLine" : 2176,
+    "ModuleName" : "tlp_pnp_mux",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false
+   },
+   {
+    "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/top.v",
+    "InstLine" : 899,
+    "InstName" : "u_pcie_ctrl",
+    "Mode" : 1,
+    "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/serdes/serdes.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Serdes_Top",
+    "Process" : 0,
+    "SetMode" : false,
+    "SetProcess" : false,
+    "SubNodes" : [
+     {
+      "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/serdes/serdes.v",
+      "InstLine" : 604,
+      "InstName" : "PCIE_Controller_Top_inst",
+      "Mode" : 1,
+      "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/serdes/pcie_controller/pcie_controller.v",
+      "ModuleLine" : 258,
+      "ModuleName" : "PCIE_Controller_Top",
+      "Process" : 0,
+      "SetMode" : false,
+      "SetProcess" : false,
+      "SubNodes" : [
+       {
+        "InstFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/serdes/pcie_controller/pcie_controller.v",
+        "InstLine" : 407,
+        "InstName" : "u_pcie_controller",
+        "Mode" : 1,
+        "ModuleFile" : "E:/proj/fpga_proj/demo_proj/pcie_dma_demo/src/serdes/pcie_controller/pcie_controller.v",
+        "ModuleLine" : 1,
+        "ModuleName" : "~pcie_top.PCIE_Controller_Top",
+        "Process" : 0,
+        "SetMode" : false,
+        "SetProcess" : false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]

@@ -1,15 +1,397 @@
 <?xml version="1" encoding="UTF-8"?>
 <GAO_CONFIG>
     <Version>3.0</Version>
-    <Mode>Lite</Mode>
-    <AoCore_Lite index="0" sample_clock="sys_clk_p" trig_type="0" capture_amount="1024" implemention="0" input_register_enabled="1" capture_init_data_enabled="1" module_name="top">
+    <Mode>Standard</Mode>
+    <AoCore index="0" sample_clock="tlp_clk" trig_type="0" storage_depth="2048" window_num="1" capture_amount="2048" implementation="0" trigger_pos="0" module_name="top" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
         <SignalList>
-            <Signal capture_enable="true">rst_n</Signal>
-            <Signal capture_enable="true">pcie_rstn</Signal>
-            <Signal capture_enable="true">tlp_rst</Signal>
-            <Signal capture_enable="true">w_rst_n</Signal>
-            <Signal capture_enable="true">rstn</Signal>
+            <Bus capture_enable="true" name="rc_wr_data_in[2047:0]">
+                <Signal>rc_wr_data_in[255]</Signal>
+                <Signal>rc_wr_data_in[254]</Signal>
+                <Signal>rc_wr_data_in[253]</Signal>
+                <Signal>rc_wr_data_in[252]</Signal>
+                <Signal>rc_wr_data_in[251]</Signal>
+                <Signal>rc_wr_data_in[250]</Signal>
+                <Signal>rc_wr_data_in[249]</Signal>
+                <Signal>rc_wr_data_in[248]</Signal>
+                <Signal>rc_wr_data_in[247]</Signal>
+                <Signal>rc_wr_data_in[246]</Signal>
+                <Signal>rc_wr_data_in[245]</Signal>
+                <Signal>rc_wr_data_in[244]</Signal>
+                <Signal>rc_wr_data_in[243]</Signal>
+                <Signal>rc_wr_data_in[242]</Signal>
+                <Signal>rc_wr_data_in[241]</Signal>
+                <Signal>rc_wr_data_in[240]</Signal>
+                <Signal>rc_wr_data_in[239]</Signal>
+                <Signal>rc_wr_data_in[238]</Signal>
+                <Signal>rc_wr_data_in[237]</Signal>
+                <Signal>rc_wr_data_in[236]</Signal>
+                <Signal>rc_wr_data_in[235]</Signal>
+                <Signal>rc_wr_data_in[234]</Signal>
+                <Signal>rc_wr_data_in[233]</Signal>
+                <Signal>rc_wr_data_in[232]</Signal>
+                <Signal>rc_wr_data_in[231]</Signal>
+                <Signal>rc_wr_data_in[230]</Signal>
+                <Signal>rc_wr_data_in[229]</Signal>
+                <Signal>rc_wr_data_in[228]</Signal>
+                <Signal>rc_wr_data_in[227]</Signal>
+                <Signal>rc_wr_data_in[226]</Signal>
+                <Signal>rc_wr_data_in[225]</Signal>
+                <Signal>rc_wr_data_in[224]</Signal>
+                <Signal>rc_wr_data_in[223]</Signal>
+                <Signal>rc_wr_data_in[222]</Signal>
+                <Signal>rc_wr_data_in[221]</Signal>
+                <Signal>rc_wr_data_in[220]</Signal>
+                <Signal>rc_wr_data_in[219]</Signal>
+                <Signal>rc_wr_data_in[218]</Signal>
+                <Signal>rc_wr_data_in[217]</Signal>
+                <Signal>rc_wr_data_in[216]</Signal>
+                <Signal>rc_wr_data_in[215]</Signal>
+                <Signal>rc_wr_data_in[214]</Signal>
+                <Signal>rc_wr_data_in[213]</Signal>
+                <Signal>rc_wr_data_in[212]</Signal>
+                <Signal>rc_wr_data_in[211]</Signal>
+                <Signal>rc_wr_data_in[210]</Signal>
+                <Signal>rc_wr_data_in[209]</Signal>
+                <Signal>rc_wr_data_in[208]</Signal>
+                <Signal>rc_wr_data_in[207]</Signal>
+                <Signal>rc_wr_data_in[206]</Signal>
+                <Signal>rc_wr_data_in[205]</Signal>
+                <Signal>rc_wr_data_in[204]</Signal>
+                <Signal>rc_wr_data_in[203]</Signal>
+                <Signal>rc_wr_data_in[202]</Signal>
+                <Signal>rc_wr_data_in[201]</Signal>
+                <Signal>rc_wr_data_in[200]</Signal>
+                <Signal>rc_wr_data_in[199]</Signal>
+                <Signal>rc_wr_data_in[198]</Signal>
+                <Signal>rc_wr_data_in[197]</Signal>
+                <Signal>rc_wr_data_in[196]</Signal>
+                <Signal>rc_wr_data_in[195]</Signal>
+                <Signal>rc_wr_data_in[194]</Signal>
+                <Signal>rc_wr_data_in[193]</Signal>
+                <Signal>rc_wr_data_in[192]</Signal>
+                <Signal>rc_wr_data_in[191]</Signal>
+                <Signal>rc_wr_data_in[190]</Signal>
+                <Signal>rc_wr_data_in[189]</Signal>
+                <Signal>rc_wr_data_in[188]</Signal>
+                <Signal>rc_wr_data_in[187]</Signal>
+                <Signal>rc_wr_data_in[186]</Signal>
+                <Signal>rc_wr_data_in[185]</Signal>
+                <Signal>rc_wr_data_in[184]</Signal>
+                <Signal>rc_wr_data_in[183]</Signal>
+                <Signal>rc_wr_data_in[182]</Signal>
+                <Signal>rc_wr_data_in[181]</Signal>
+                <Signal>rc_wr_data_in[180]</Signal>
+                <Signal>rc_wr_data_in[179]</Signal>
+                <Signal>rc_wr_data_in[178]</Signal>
+                <Signal>rc_wr_data_in[177]</Signal>
+                <Signal>rc_wr_data_in[176]</Signal>
+                <Signal>rc_wr_data_in[175]</Signal>
+                <Signal>rc_wr_data_in[174]</Signal>
+                <Signal>rc_wr_data_in[173]</Signal>
+                <Signal>rc_wr_data_in[172]</Signal>
+                <Signal>rc_wr_data_in[171]</Signal>
+                <Signal>rc_wr_data_in[170]</Signal>
+                <Signal>rc_wr_data_in[169]</Signal>
+                <Signal>rc_wr_data_in[168]</Signal>
+                <Signal>rc_wr_data_in[167]</Signal>
+                <Signal>rc_wr_data_in[166]</Signal>
+                <Signal>rc_wr_data_in[165]</Signal>
+                <Signal>rc_wr_data_in[164]</Signal>
+                <Signal>rc_wr_data_in[163]</Signal>
+                <Signal>rc_wr_data_in[162]</Signal>
+                <Signal>rc_wr_data_in[161]</Signal>
+                <Signal>rc_wr_data_in[160]</Signal>
+                <Signal>rc_wr_data_in[159]</Signal>
+                <Signal>rc_wr_data_in[158]</Signal>
+                <Signal>rc_wr_data_in[157]</Signal>
+                <Signal>rc_wr_data_in[156]</Signal>
+                <Signal>rc_wr_data_in[155]</Signal>
+                <Signal>rc_wr_data_in[154]</Signal>
+                <Signal>rc_wr_data_in[153]</Signal>
+                <Signal>rc_wr_data_in[152]</Signal>
+                <Signal>rc_wr_data_in[151]</Signal>
+                <Signal>rc_wr_data_in[150]</Signal>
+                <Signal>rc_wr_data_in[149]</Signal>
+                <Signal>rc_wr_data_in[148]</Signal>
+                <Signal>rc_wr_data_in[147]</Signal>
+                <Signal>rc_wr_data_in[146]</Signal>
+                <Signal>rc_wr_data_in[145]</Signal>
+                <Signal>rc_wr_data_in[144]</Signal>
+                <Signal>rc_wr_data_in[143]</Signal>
+                <Signal>rc_wr_data_in[142]</Signal>
+                <Signal>rc_wr_data_in[141]</Signal>
+                <Signal>rc_wr_data_in[140]</Signal>
+                <Signal>rc_wr_data_in[139]</Signal>
+                <Signal>rc_wr_data_in[138]</Signal>
+                <Signal>rc_wr_data_in[137]</Signal>
+                <Signal>rc_wr_data_in[136]</Signal>
+                <Signal>rc_wr_data_in[135]</Signal>
+                <Signal>rc_wr_data_in[134]</Signal>
+                <Signal>rc_wr_data_in[133]</Signal>
+                <Signal>rc_wr_data_in[132]</Signal>
+                <Signal>rc_wr_data_in[131]</Signal>
+                <Signal>rc_wr_data_in[130]</Signal>
+                <Signal>rc_wr_data_in[129]</Signal>
+                <Signal>rc_wr_data_in[128]</Signal>
+                <Signal>rc_wr_data_in[127]</Signal>
+                <Signal>rc_wr_data_in[126]</Signal>
+                <Signal>rc_wr_data_in[125]</Signal>
+                <Signal>rc_wr_data_in[124]</Signal>
+                <Signal>rc_wr_data_in[123]</Signal>
+                <Signal>rc_wr_data_in[122]</Signal>
+                <Signal>rc_wr_data_in[121]</Signal>
+                <Signal>rc_wr_data_in[120]</Signal>
+                <Signal>rc_wr_data_in[119]</Signal>
+                <Signal>rc_wr_data_in[118]</Signal>
+                <Signal>rc_wr_data_in[117]</Signal>
+                <Signal>rc_wr_data_in[116]</Signal>
+                <Signal>rc_wr_data_in[115]</Signal>
+                <Signal>rc_wr_data_in[114]</Signal>
+                <Signal>rc_wr_data_in[113]</Signal>
+                <Signal>rc_wr_data_in[112]</Signal>
+                <Signal>rc_wr_data_in[111]</Signal>
+                <Signal>rc_wr_data_in[110]</Signal>
+                <Signal>rc_wr_data_in[109]</Signal>
+                <Signal>rc_wr_data_in[108]</Signal>
+                <Signal>rc_wr_data_in[107]</Signal>
+                <Signal>rc_wr_data_in[106]</Signal>
+                <Signal>rc_wr_data_in[105]</Signal>
+                <Signal>rc_wr_data_in[104]</Signal>
+                <Signal>rc_wr_data_in[103]</Signal>
+                <Signal>rc_wr_data_in[102]</Signal>
+                <Signal>rc_wr_data_in[101]</Signal>
+                <Signal>rc_wr_data_in[100]</Signal>
+                <Signal>rc_wr_data_in[99]</Signal>
+                <Signal>rc_wr_data_in[98]</Signal>
+                <Signal>rc_wr_data_in[97]</Signal>
+                <Signal>rc_wr_data_in[96]</Signal>
+                <Signal>rc_wr_data_in[95]</Signal>
+                <Signal>rc_wr_data_in[94]</Signal>
+                <Signal>rc_wr_data_in[93]</Signal>
+                <Signal>rc_wr_data_in[92]</Signal>
+                <Signal>rc_wr_data_in[91]</Signal>
+                <Signal>rc_wr_data_in[90]</Signal>
+                <Signal>rc_wr_data_in[89]</Signal>
+                <Signal>rc_wr_data_in[88]</Signal>
+                <Signal>rc_wr_data_in[87]</Signal>
+                <Signal>rc_wr_data_in[86]</Signal>
+                <Signal>rc_wr_data_in[85]</Signal>
+                <Signal>rc_wr_data_in[84]</Signal>
+                <Signal>rc_wr_data_in[83]</Signal>
+                <Signal>rc_wr_data_in[82]</Signal>
+                <Signal>rc_wr_data_in[81]</Signal>
+                <Signal>rc_wr_data_in[80]</Signal>
+                <Signal>rc_wr_data_in[79]</Signal>
+                <Signal>rc_wr_data_in[78]</Signal>
+                <Signal>rc_wr_data_in[77]</Signal>
+                <Signal>rc_wr_data_in[76]</Signal>
+                <Signal>rc_wr_data_in[75]</Signal>
+                <Signal>rc_wr_data_in[74]</Signal>
+                <Signal>rc_wr_data_in[73]</Signal>
+                <Signal>rc_wr_data_in[72]</Signal>
+                <Signal>rc_wr_data_in[71]</Signal>
+                <Signal>rc_wr_data_in[70]</Signal>
+                <Signal>rc_wr_data_in[69]</Signal>
+                <Signal>rc_wr_data_in[68]</Signal>
+                <Signal>rc_wr_data_in[67]</Signal>
+                <Signal>rc_wr_data_in[66]</Signal>
+                <Signal>rc_wr_data_in[65]</Signal>
+                <Signal>rc_wr_data_in[64]</Signal>
+                <Signal>rc_wr_data_in[63]</Signal>
+                <Signal>rc_wr_data_in[62]</Signal>
+                <Signal>rc_wr_data_in[61]</Signal>
+                <Signal>rc_wr_data_in[60]</Signal>
+                <Signal>rc_wr_data_in[59]</Signal>
+                <Signal>rc_wr_data_in[58]</Signal>
+                <Signal>rc_wr_data_in[57]</Signal>
+                <Signal>rc_wr_data_in[56]</Signal>
+                <Signal>rc_wr_data_in[55]</Signal>
+                <Signal>rc_wr_data_in[54]</Signal>
+                <Signal>rc_wr_data_in[53]</Signal>
+                <Signal>rc_wr_data_in[52]</Signal>
+                <Signal>rc_wr_data_in[51]</Signal>
+                <Signal>rc_wr_data_in[50]</Signal>
+                <Signal>rc_wr_data_in[49]</Signal>
+                <Signal>rc_wr_data_in[48]</Signal>
+                <Signal>rc_wr_data_in[47]</Signal>
+                <Signal>rc_wr_data_in[46]</Signal>
+                <Signal>rc_wr_data_in[45]</Signal>
+                <Signal>rc_wr_data_in[44]</Signal>
+                <Signal>rc_wr_data_in[43]</Signal>
+                <Signal>rc_wr_data_in[42]</Signal>
+                <Signal>rc_wr_data_in[41]</Signal>
+                <Signal>rc_wr_data_in[40]</Signal>
+                <Signal>rc_wr_data_in[39]</Signal>
+                <Signal>rc_wr_data_in[38]</Signal>
+                <Signal>rc_wr_data_in[37]</Signal>
+                <Signal>rc_wr_data_in[36]</Signal>
+                <Signal>rc_wr_data_in[35]</Signal>
+                <Signal>rc_wr_data_in[34]</Signal>
+                <Signal>rc_wr_data_in[33]</Signal>
+                <Signal>rc_wr_data_in[32]</Signal>
+                <Signal>rc_wr_data_in[31]</Signal>
+                <Signal>rc_wr_data_in[30]</Signal>
+                <Signal>rc_wr_data_in[29]</Signal>
+                <Signal>rc_wr_data_in[28]</Signal>
+                <Signal>rc_wr_data_in[27]</Signal>
+                <Signal>rc_wr_data_in[26]</Signal>
+                <Signal>rc_wr_data_in[25]</Signal>
+                <Signal>rc_wr_data_in[24]</Signal>
+                <Signal>rc_wr_data_in[23]</Signal>
+                <Signal>rc_wr_data_in[22]</Signal>
+                <Signal>rc_wr_data_in[21]</Signal>
+                <Signal>rc_wr_data_in[20]</Signal>
+                <Signal>rc_wr_data_in[19]</Signal>
+                <Signal>rc_wr_data_in[18]</Signal>
+                <Signal>rc_wr_data_in[17]</Signal>
+                <Signal>rc_wr_data_in[16]</Signal>
+                <Signal>rc_wr_data_in[15]</Signal>
+                <Signal>rc_wr_data_in[14]</Signal>
+                <Signal>rc_wr_data_in[13]</Signal>
+                <Signal>rc_wr_data_in[12]</Signal>
+                <Signal>rc_wr_data_in[11]</Signal>
+                <Signal>rc_wr_data_in[10]</Signal>
+                <Signal>rc_wr_data_in[9]</Signal>
+                <Signal>rc_wr_data_in[8]</Signal>
+                <Signal>rc_wr_data_in[7]</Signal>
+                <Signal>rc_wr_data_in[6]</Signal>
+                <Signal>rc_wr_data_in[5]</Signal>
+                <Signal>rc_wr_data_in[4]</Signal>
+                <Signal>rc_wr_data_in[3]</Signal>
+                <Signal>rc_wr_data_in[2]</Signal>
+                <Signal>rc_wr_data_in[1]</Signal>
+                <Signal>rc_wr_data_in[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="rc_wr_data_valid[7:0]">
+                <Signal>rc_wr_data_valid[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="rc_wr_req_en[7:0]">
+                <Signal>rc_wr_req_en[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="rc_wr_req_addr[511:0]">
+                <Signal>rc_wr_req_addr[63]</Signal>
+                <Signal>rc_wr_req_addr[62]</Signal>
+                <Signal>rc_wr_req_addr[61]</Signal>
+                <Signal>rc_wr_req_addr[60]</Signal>
+                <Signal>rc_wr_req_addr[59]</Signal>
+                <Signal>rc_wr_req_addr[58]</Signal>
+                <Signal>rc_wr_req_addr[57]</Signal>
+                <Signal>rc_wr_req_addr[56]</Signal>
+                <Signal>rc_wr_req_addr[55]</Signal>
+                <Signal>rc_wr_req_addr[54]</Signal>
+                <Signal>rc_wr_req_addr[53]</Signal>
+                <Signal>rc_wr_req_addr[52]</Signal>
+                <Signal>rc_wr_req_addr[51]</Signal>
+                <Signal>rc_wr_req_addr[50]</Signal>
+                <Signal>rc_wr_req_addr[49]</Signal>
+                <Signal>rc_wr_req_addr[48]</Signal>
+                <Signal>rc_wr_req_addr[47]</Signal>
+                <Signal>rc_wr_req_addr[46]</Signal>
+                <Signal>rc_wr_req_addr[45]</Signal>
+                <Signal>rc_wr_req_addr[44]</Signal>
+                <Signal>rc_wr_req_addr[43]</Signal>
+                <Signal>rc_wr_req_addr[42]</Signal>
+                <Signal>rc_wr_req_addr[41]</Signal>
+                <Signal>rc_wr_req_addr[40]</Signal>
+                <Signal>rc_wr_req_addr[39]</Signal>
+                <Signal>rc_wr_req_addr[38]</Signal>
+                <Signal>rc_wr_req_addr[37]</Signal>
+                <Signal>rc_wr_req_addr[36]</Signal>
+                <Signal>rc_wr_req_addr[35]</Signal>
+                <Signal>rc_wr_req_addr[34]</Signal>
+                <Signal>rc_wr_req_addr[33]</Signal>
+                <Signal>rc_wr_req_addr[32]</Signal>
+                <Signal>rc_wr_req_addr[31]</Signal>
+                <Signal>rc_wr_req_addr[30]</Signal>
+                <Signal>rc_wr_req_addr[29]</Signal>
+                <Signal>rc_wr_req_addr[28]</Signal>
+                <Signal>rc_wr_req_addr[27]</Signal>
+                <Signal>rc_wr_req_addr[26]</Signal>
+                <Signal>rc_wr_req_addr[25]</Signal>
+                <Signal>rc_wr_req_addr[24]</Signal>
+                <Signal>rc_wr_req_addr[23]</Signal>
+                <Signal>rc_wr_req_addr[22]</Signal>
+                <Signal>rc_wr_req_addr[21]</Signal>
+                <Signal>rc_wr_req_addr[20]</Signal>
+                <Signal>rc_wr_req_addr[19]</Signal>
+                <Signal>rc_wr_req_addr[18]</Signal>
+                <Signal>rc_wr_req_addr[17]</Signal>
+                <Signal>rc_wr_req_addr[16]</Signal>
+                <Signal>rc_wr_req_addr[15]</Signal>
+                <Signal>rc_wr_req_addr[14]</Signal>
+                <Signal>rc_wr_req_addr[13]</Signal>
+                <Signal>rc_wr_req_addr[12]</Signal>
+                <Signal>rc_wr_req_addr[11]</Signal>
+                <Signal>rc_wr_req_addr[10]</Signal>
+                <Signal>rc_wr_req_addr[9]</Signal>
+                <Signal>rc_wr_req_addr[8]</Signal>
+                <Signal>rc_wr_req_addr[7]</Signal>
+                <Signal>rc_wr_req_addr[6]</Signal>
+                <Signal>rc_wr_req_addr[5]</Signal>
+                <Signal>rc_wr_req_addr[4]</Signal>
+                <Signal>rc_wr_req_addr[3]</Signal>
+                <Signal>rc_wr_req_addr[2]</Signal>
+                <Signal>rc_wr_req_addr[1]</Signal>
+                <Signal>rc_wr_req_addr[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="rc_wr_req_len[95:0]">
+                <Signal>rc_wr_req_len[11]</Signal>
+                <Signal>rc_wr_req_len[10]</Signal>
+                <Signal>rc_wr_req_len[9]</Signal>
+                <Signal>rc_wr_req_len[8]</Signal>
+                <Signal>rc_wr_req_len[7]</Signal>
+                <Signal>rc_wr_req_len[6]</Signal>
+                <Signal>rc_wr_req_len[5]</Signal>
+                <Signal>rc_wr_req_len[4]</Signal>
+                <Signal>rc_wr_req_len[3]</Signal>
+                <Signal>rc_wr_req_len[2]</Signal>
+                <Signal>rc_wr_req_len[1]</Signal>
+                <Signal>rc_wr_req_len[0]</Signal>
+            </Bus>
         </SignalList>
-    </AoCore_Lite>
-    <GAO_ID>0011010000111110</GAO_ID>
+        <Triggers>
+            <Trigger index="0">
+                <SignalList>
+                    <Signal>rc_wr_req_en[0]</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="1"/>
+            <Trigger index="2"/>
+            <Trigger index="3"/>
+            <Trigger index="4"/>
+            <Trigger index="5"/>
+            <Trigger index="6"/>
+            <Trigger index="7"/>
+            <Trigger index="8"/>
+            <Trigger index="9"/>
+            <Trigger index="10"/>
+            <Trigger index="11"/>
+            <Trigger index="12"/>
+            <Trigger index="13"/>
+            <Trigger index="14"/>
+            <Trigger index="15"/>
+        </Triggers>
+        <MatchUnits>
+            <MatchUnit index="0" enabled="1" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="1" value1="0" trigger="0"/>
+            <MatchUnit index="1" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="2" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="4" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="5" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="6" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="7" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="8" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="9" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="10" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="11" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="12" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="13" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="14" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+        </MatchUnits>
+        <Expressions type="Static">
+            <Expression>M0</Expression>
+        </Expressions>
+    </AoCore>
+    <GAO_ID>0110110111111011</GAO_ID>
 </GAO_CONFIG>
