@@ -29,6 +29,7 @@ This demo now is only test on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/ha
 Please confirm that you have the following conditions:
 - GOWIN IDE Version ≥ 1.9.10
 - **DO NOT** use GOWIN Programmer version **1.9.10.02**, for this version contains many issues
+- You can get a windows GOWIN Programmer version **1.9.10.03** Alpha for [HERE](https://api.dl.sipeed.com/shareURL/TANG/programmer)
 - Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html)
 - An OV5640 Sensor, a HDMI/DVI Monitor and a HDMI cable
 - USB-C date cable, use to connect the board to  PC  
@@ -45,7 +46,7 @@ Here are quick instructions for the more experienced,
 ## LEDs & button
 
 This demo uses 4 LEDs to indicate status
-You need a PMOD_LED module to get the indicator LEDs, just plug the module into the outer connector.   
+You need a PMOD_LED module to get the indicator LEDs, just plug the module into the **LEFT** connector near the board edge.   
 Here are the details for LEDs:(LED0 is on the far right)
 | LEDs      | Description                     | Expected situation|
 | ----------| --------------------------------|-------------------|
