@@ -76,7 +76,13 @@ But this LED should not be always on, otherwise please check whether the relevan
 
 1 button **KEY.1(AB13)** use to reset the transmission.  
 
+## Troubleshoot
+
+- If the board is installed on the motherboard for testing, please ensure that the board is programmed and then powered on while the host computer is completely powered off.
+- If you find that the board is not recognized after entering the system, you need to perform the above process again.
+
 ## Development
+
 Please refer to the comments in the top file, those comments help understand how the entire demo works.
 
 The brief working principle of the demo:
