@@ -1,3 +1,5 @@
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+
 # Cam2DVI - a DVP Camera DVI(HDMI) demo for Sipeed Tang MEGA 138K FPGA Boards
 
 This project is a demo to test the DVP Camera, DDR3 memory & HDMI on GOWIN GW5AST-138K, it base on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html), it uses the DDR3 memory as framebuffer on the board for video capture & output testing.
@@ -60,7 +62,8 @@ Here are the details for LEDs:(LED0 is on the far right)
 1 button **KEY.0(AA13)** use to reset the transmission.  
 
 ## Development
-If you want to modify the video resolution output, Please refer to the comments in the top file.
+
+If you want to modify the video resolution output, please refer to the comments in the top file.
 
 Changing the resolution requires changing the output of TMDS_PLL. 
 
