@@ -45,18 +45,19 @@ Here are quick instructions for the more experienced,
 
 ## LEDs & button
 
-This demo uses 4 LEDs to indicate status
+This demo uses 5 LEDs to indicate status
 You need a PMOD_LED module to get the indicator LEDs, just plug the module into the **LEFT** connector near the board edge.   
 Here are the details for LEDs:(LED0 is on the far right)
+
 | LEDs      | Description                     | Expected situation|
 | ----------| --------------------------------|-------------------|
 | LED0      |  DDR3 initialization            | ON                |
 | LED1      |  DDR3_pll_lock                  | ON                |
 | LED2      |  TMDS_DDR_pll_lock              | ON                |
-| LED3      |  cmos_vs_cnt                    | Blink             |
-| LED4      |  cmos_i2c_done                  | ON                |
+| LED3      |  CMOS_vs_cnt                    | Blink             |
+| LED4      |  CMOS_i2c_done                  | ON                |
 
-1 button **(S0)** use to reset the transmission.  
+1 button **KEY.0(AA13)** use to reset the transmission.  
 
 ## Development
 If you want to modify the video resolution output, Please refer to the comments in the top file.
