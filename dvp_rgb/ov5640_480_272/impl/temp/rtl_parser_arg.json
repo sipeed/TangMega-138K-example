@@ -1,0 +1,69 @@
+{
+ "Device" : "GW5AST-138B",
+ "Files" : [
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/cmos_8_16bit.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/color_bar.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/fifo_top/video_fifo_2.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/gowin_pll/cmos_pll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/gowin_pll/sys_pll_2.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/i2c_master/i2c_config.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/i2c_master/i2c_master_bit_ctrl.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/i2c_master/i2c_master_byte_ctrl.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/i2c_master/i2c_master_defines.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/i2c_master/i2c_master_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/i2c_master/timescale.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/lut_ov5640_rgb565_480_272.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/video_timing_data.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/impl/temp/rtl_parser.result",
+ "Top" : "",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

@@ -1,0 +1,30 @@
+[
+ {
+  "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/ch569_hspi2cdc/CH569_HSPI_FPGA/src/top.sv",
+  "InstLine" : 1,
+  "InstName" : "top",
+  "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/ch569_hspi2cdc/CH569_HSPI_FPGA/src/top.sv",
+  "ModuleLine" : 1,
+  "ModuleName" : "top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/ch569_hspi2cdc/CH569_HSPI_FPGA/src/top.sv",
+    "InstLine" : 224,
+    "InstName" : "M_HSPI",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/ch569_hspi2cdc/CH569_HSPI_FPGA/src/EXM_HSPI.sv",
+    "ModuleLine" : 2,
+    "ModuleName" : "EXM_HSPI",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/ch569_hspi2cdc/CH569_HSPI_FPGA/src/EXM_HSPI.sv",
+      "InstLine" : 439,
+      "InstName" : "m_crc16",
+      "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/ch569_hspi2cdc/CH569_HSPI_FPGA/src/EXM_HSPI.sv",
+      "ModuleLine" : 477,
+      "ModuleName" : "crc16_16b"
+     }
+    ]
+   }
+  ]
+ }
+]

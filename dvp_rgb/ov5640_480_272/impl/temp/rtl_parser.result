@@ -1,0 +1,118 @@
+[
+ {
+  "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/top.v",
+  "InstLine" : 1,
+  "InstName" : "top",
+  "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/top.v",
+    "InstLine" : 67,
+    "InstName" : "sys_pll_m0",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/gowin_pll/sys_pll_2.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "sys_pll"
+   },
+   {
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/top.v",
+    "InstLine" : 71,
+    "InstName" : "cmos_pll_m0",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/gowin_pll/cmos_pll.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "cmos_pll"
+   },
+   {
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/top.v",
+    "InstLine" : 77,
+    "InstName" : "i2c_config_m0",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/i2c_master/i2c_config.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "i2c_config",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/i2c_master/i2c_config.v",
+      "InstLine" : 101,
+      "InstName" : "i2c_master_top_m0",
+      "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/i2c_master/i2c_master_top.v",
+      "ModuleLine" : 1,
+      "ModuleName" : "i2c_master_top",
+      "SubInsts" : [
+       {
+        "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/i2c_master/i2c_master_top.v",
+        "InstLine" : 232,
+        "InstName" : "byte_controller",
+        "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/i2c_master/i2c_master_byte_ctrl.v",
+        "ModuleLine" : 75,
+        "ModuleName" : "i2c_master_byte_ctrl",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/i2c_master/i2c_master_byte_ctrl.v",
+          "InstLine" : 146,
+          "InstName" : "bit_controller",
+          "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/i2c_master/i2c_master_bit_ctrl.v",
+          "ModuleLine" : 143,
+          "ModuleName" : "i2c_master_bit_ctrl"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/top.v",
+    "InstLine" : 92,
+    "InstName" : "lut_ov5640_rgb565_480_272_m0",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/lut_ov5640_rgb565_480_272.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "lut_ov5640_rgb565_480_272"
+   },
+   {
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/top.v",
+    "InstLine" : 97,
+    "InstName" : "cmos_8_16bit_m0",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/cmos_8_16bit.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "cmos_8_16bit"
+   },
+   {
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/top.v",
+    "InstLine" : 108,
+    "InstName" : "video_timing_data_m0",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/video_timing_data.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "video_timing_data",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/video_timing_data.v",
+      "InstLine" : 32,
+      "InstName" : "video_fifo_m0",
+      "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/fifo_top/video_fifo_2.v",
+      "ModuleLine" : 2085,
+      "ModuleName" : "video_fifo",
+      "SubInsts" : [
+       {
+        "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/fifo_top/video_fifo_2.v",
+        "InstLine" : 2108,
+        "InstName" : "fifo_inst",
+        "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/fifo_top/video_fifo_2.v",
+        "ModuleLine" : 13,
+        "ModuleName" : "~fifo.video_fifo"
+       }
+      ]
+     },
+     {
+      "InstFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/video_timing_data.v",
+      "InstLine" : 73,
+      "InstName" : "color_bar_m0",
+      "ModuleFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/dvp_rgb/ov5640_480_272/src/color_bar.v",
+      "ModuleLine" : 1,
+      "ModuleName" : "color_bar"
+     }
+    ]
+   }
+  ]
+ }
+]

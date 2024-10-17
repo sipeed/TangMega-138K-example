@@ -1,0 +1,21 @@
+{
+ "Device" : "GW5AST-138B",
+ "Files" : [
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/ch569_hspi2cdc/CH569_HSPI_FPGA/src/EXM_HSPI.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/ch569_hspi2cdc/CH569_HSPI_FPGA/src/top.sv",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/ch569_hspi2cdc/CH569_HSPI_FPGA/impl/temp/rtl_parser.result",
+ "Top" : "",
+ "VerilogStd" : "sysv",
+ "VhdlStd" : "vhdl_93"
+}
