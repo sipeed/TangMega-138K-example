@@ -3,7 +3,7 @@
 
 This project is a demo to test the Serdes on GOWIN GW5AST-138K, it base on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html), and uses the PCIe x4 AIC interfaces on the board for transceiver testing.
 
-Main features,
+## Main features
 
 - x1, x2 or x4 PCIe bus transmission
 - Support PCIe Gen2 or Gen3(Gen 3 for defulate)
@@ -12,7 +12,7 @@ Main features,
 This demo is forked from the pcie demo of Sipeed [Tang MEGA 138K Pro](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k-pro.html), which mainchip is **GW5AST-LV138FPG676AC1/10** or **GW5AST-LV138FPG676AES**.   
 And it now is tested on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html), which mainchip is **GW5AST-LV138PGG464AC1/10** or **GW5AST-LV138PG484AES**.   
 
-In theory, other GW5AST & GW5AT models can also use this demo, such as Sipeed [Tang MEGA 60k](https://wiki.sipeed.com/hardware/en/tang/tang-mega-60k/mega-60k.html), which mainchip is **GW5AT-LV60PGG464AC1/10** or **GW5AT-LV60PG484AES**. However, the relevant IP needs to wait for the release of updates from ***GOWIN DEMI***.
+In theory, other GW5AST & GW5AT models can also use this demo, such as Sipeed [Tang MEGA 60k](https://wiki.sipeed.com/hardware/en/tang/tang-mega-60k/mega-60k.html), which mainchip is **GW5AT-LV60PGG464AC1/10** or **GW5AT-LV60PG484AES**. However, the relevant IP needs to wait for the release of updates from ***GOWIN SEMI***.
 
 
 ## Directory structure
@@ -54,7 +54,7 @@ In theory, other GW5AST & GW5AT models can also use this demo, such as Sipeed [T
 - See GOWIN [official guide](./doc/) first.
 - Prepare the system and environment for testing and ensure that the kernel module is loaded correctly.
 - Assemble your board with a PC motherboard with PCIe Slot(x4 or longer), or use a USB4/Thunderbolt PCIe dock instead.
-- Use the `lspci` to check whether there is a new **memory controller** in the system, and its ID is `22C2:1100`.Otherwise, please troubleshoot the problem according to the LED table below.
+- Use the `lspci` to check whether there is a new `**memory controller**` in the system, and its ID is `22C2:1100`.Otherwise, please troubleshoot the problem according to the LED table below.
 - Starting test according to the instructions in the [official guide](./doc/PCIe_demo_guide_en.pdf).
 
 ## LEDs & button

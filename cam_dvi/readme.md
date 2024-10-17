@@ -2,7 +2,7 @@
 
 This project is a demo to test the DVP Camera, DDR3 memory & HDMI on GOWIN GW5AST-138K, it base on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html), it uses the DDR3 memory as framebuffer on the board for video capture & output testing.
 
-Main features,
+## Main features
 
 - 720P@60/30Hz TMDS video output via HDMI connector.
 - 720P@60/30Hz RGB565 video capture via DVP Camera OV5640.
