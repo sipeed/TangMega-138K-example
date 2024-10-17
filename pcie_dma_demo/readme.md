@@ -61,7 +61,8 @@ In theory, other GW5AST & GW5AT models can also use this demo, such as Sipeed [T
 
 This demo uses 4 LEDs to indicate status
 You need a PMOD_LED module to get the indicator LEDs, just plug the module into the **LEFT** connector near the board edge.   
-Here are the details for LEDs:(LED0 is on the far left)
+Here are the details for LEDs: 
+(LED0 is on the far right, next to the HDMI connector)
 
 | LEDs      | Description                     | Expected situation|
 | ----------| --------------------------------|-------------------|
@@ -75,7 +76,13 @@ But this LED should not be always on, otherwise please check whether the relevan
 
 1 button **KEY.1(AB13)** use to reset the transmission.  
 
+## Troubleshoot
+
+- If the board is installed on the motherboard for testing, please ensure that the board is programmed and then powered on while the host computer is completely powered off.
+- If you find that the board is not recognized after entering the system, you need to perform the above process again.
+
 ## Development
+
 Please refer to the comments in the top file, those comments help understand how the entire demo works.
 
 The brief working principle of the demo:
