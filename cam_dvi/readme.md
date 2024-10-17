@@ -32,7 +32,7 @@ Please confirm that you have the following conditions:
 - You can get a windows GOWIN Programmer version **1.9.10.03** Alpha for [HERE](https://api.dl.sipeed.com/shareURL/TANG/programmer)
 - Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html)
 - An OV5640 Sensor, a HDMI/DVI Monitor and a HDMI cable
-- USB-C date cable, use to connect the board to  PC  
+- USB-C date cable, use to connect the board to your PC  
 
 ## How to use
 
