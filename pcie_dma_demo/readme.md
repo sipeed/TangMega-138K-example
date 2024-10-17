@@ -61,7 +61,7 @@ In theory, other GW5AST & GW5AT models can also use this demo, such as Sipeed [T
 
 This demo uses 4 LEDs to indicate status
 You need a PMOD_LED module to get the indicator LEDs, just plug the module into the **LEFT** connector near the board edge.   
-Here are the details for LEDs:(LED0 is on the far left)
+Here are the details for LEDs:(LED0 is on the far right, next to the HDMI connector)
 
 | LEDs      | Description                     | Expected situation|
 | ----------| --------------------------------|-------------------|
