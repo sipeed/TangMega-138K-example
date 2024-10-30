@@ -22,5 +22,8 @@ NOTE: must boot FPGA first to avoid affect `HSPI` on CH569.
 
 Please confirm that you have the following conditions:
 - GOWIN IDE Version ≥ 1.9.9
-- **DO NOT** use GOWIN Programmer version **1.9.10.02**, for this version contains many issues
-- You can get a windows GOWIN Programmer version **1.9.10.03** Alpha for [HERE](https://api.dl.sipeed.com/shareURL/TANG/programmer)
+- **DO NOT** use GOWIN Programmer version **1.9.10.02**, for this version contains many issues with on board debugger
+- A **USB3.0** USB-A to USB-C cable, **DO NOT** use the cable which is USB2.0 ONLY
+
+Phenomenon after programming: 
+- The **READY** and **DONE** LEDs on the **SOM** board flash alternately to indicate that the FPGA logic is executing normally.
