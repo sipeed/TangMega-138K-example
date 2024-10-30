@@ -2,6 +2,7 @@
 
 WCHISPStudio is used to flash `CH569_HSPI_USB/obj/CH569_HSPI_USB.hex` to your CH569 onboard.
 
+NOTE: Do **NOT** use the regular port designated for FPGA flashing and UART communication. The correct port is located on the top left of the board and belongs to the `WCH569`.
 
 NOTE: **MUST** change these settings below
 
