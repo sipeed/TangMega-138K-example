@@ -1,0 +1,403 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Standard</Mode>
+    <AoCore index="0" sample_clock="cfg_clk" trig_type="0" storage_depth="2048" window_num="1" capture_amount="2048" trigger_pos="256" module_name="top" force_trigger_by_falling_edge="false">
+        <SignalList>
+            <Bus name="ltssm_status[4:0]" restorename="u_pcie_ctrl/PCIE_Controller_Top_inst/u_pcie_controller/ltssm_status[4:0]">
+                <Signal>u_pcie_ctrl/PCIE_Controller_Top_inst/u_pcie_controller/ltssm_status[4]</Signal>
+                <Signal>u_pcie_ctrl/PCIE_Controller_Top_inst/u_pcie_controller/ltssm_status[3]</Signal>
+                <Signal>u_pcie_ctrl/PCIE_Controller_Top_inst/u_pcie_controller/ltssm_status[2]</Signal>
+                <Signal>u_pcie_ctrl/PCIE_Controller_Top_inst/u_pcie_controller/ltssm_status[1]</Signal>
+                <Signal>u_pcie_ctrl/PCIE_Controller_Top_inst/u_pcie_controller/ltssm_status[0]</Signal>
+            </Bus>
+            <Signal>req_dma_wr_valid[0]</Signal>
+            <Signal>req_dma_rd_valid[0]</Signal>
+            <Bus name="tl_tx_valid[7:0]">
+                <Signal>tl_tx_valid[7]</Signal>
+                <Signal>tl_tx_valid[6]</Signal>
+                <Signal>tl_tx_valid[5]</Signal>
+                <Signal>tl_tx_valid[4]</Signal>
+                <Signal>tl_tx_valid[3]</Signal>
+                <Signal>tl_tx_valid[2]</Signal>
+                <Signal>tl_tx_valid[1]</Signal>
+                <Signal>tl_tx_valid[0]</Signal>
+            </Bus>
+            <Bus name="tl_tx_data[255:224]">
+                <Signal>tl_tx_data[255]</Signal>
+                <Signal>tl_tx_data[254]</Signal>
+                <Signal>tl_tx_data[253]</Signal>
+                <Signal>tl_tx_data[252]</Signal>
+                <Signal>tl_tx_data[251]</Signal>
+                <Signal>tl_tx_data[250]</Signal>
+                <Signal>tl_tx_data[249]</Signal>
+                <Signal>tl_tx_data[248]</Signal>
+                <Signal>tl_tx_data[247]</Signal>
+                <Signal>tl_tx_data[246]</Signal>
+                <Signal>tl_tx_data[245]</Signal>
+                <Signal>tl_tx_data[244]</Signal>
+                <Signal>tl_tx_data[243]</Signal>
+                <Signal>tl_tx_data[242]</Signal>
+                <Signal>tl_tx_data[241]</Signal>
+                <Signal>tl_tx_data[240]</Signal>
+                <Signal>tl_tx_data[239]</Signal>
+                <Signal>tl_tx_data[238]</Signal>
+                <Signal>tl_tx_data[237]</Signal>
+                <Signal>tl_tx_data[236]</Signal>
+                <Signal>tl_tx_data[235]</Signal>
+                <Signal>tl_tx_data[234]</Signal>
+                <Signal>tl_tx_data[233]</Signal>
+                <Signal>tl_tx_data[232]</Signal>
+                <Signal>tl_tx_data[231]</Signal>
+                <Signal>tl_tx_data[230]</Signal>
+                <Signal>tl_tx_data[229]</Signal>
+                <Signal>tl_tx_data[228]</Signal>
+                <Signal>tl_tx_data[227]</Signal>
+                <Signal>tl_tx_data[226]</Signal>
+                <Signal>tl_tx_data[225]</Signal>
+                <Signal>tl_tx_data[224]</Signal>
+            </Bus>
+            <Bus name="tl_tx_data[223:192]">
+                <Signal>tl_tx_data[223]</Signal>
+                <Signal>tl_tx_data[222]</Signal>
+                <Signal>tl_tx_data[221]</Signal>
+                <Signal>tl_tx_data[220]</Signal>
+                <Signal>tl_tx_data[219]</Signal>
+                <Signal>tl_tx_data[218]</Signal>
+                <Signal>tl_tx_data[217]</Signal>
+                <Signal>tl_tx_data[216]</Signal>
+                <Signal>tl_tx_data[215]</Signal>
+                <Signal>tl_tx_data[214]</Signal>
+                <Signal>tl_tx_data[213]</Signal>
+                <Signal>tl_tx_data[212]</Signal>
+                <Signal>tl_tx_data[211]</Signal>
+                <Signal>tl_tx_data[210]</Signal>
+                <Signal>tl_tx_data[209]</Signal>
+                <Signal>tl_tx_data[208]</Signal>
+                <Signal>tl_tx_data[207]</Signal>
+                <Signal>tl_tx_data[206]</Signal>
+                <Signal>tl_tx_data[205]</Signal>
+                <Signal>tl_tx_data[204]</Signal>
+                <Signal>tl_tx_data[203]</Signal>
+                <Signal>tl_tx_data[202]</Signal>
+                <Signal>tl_tx_data[201]</Signal>
+                <Signal>tl_tx_data[200]</Signal>
+                <Signal>tl_tx_data[199]</Signal>
+                <Signal>tl_tx_data[198]</Signal>
+                <Signal>tl_tx_data[197]</Signal>
+                <Signal>tl_tx_data[196]</Signal>
+                <Signal>tl_tx_data[195]</Signal>
+                <Signal>tl_tx_data[194]</Signal>
+                <Signal>tl_tx_data[193]</Signal>
+                <Signal>tl_tx_data[192]</Signal>
+            </Bus>
+            <Bus name="tl_tx_data[191:160]">
+                <Signal>tl_tx_data[191]</Signal>
+                <Signal>tl_tx_data[190]</Signal>
+                <Signal>tl_tx_data[189]</Signal>
+                <Signal>tl_tx_data[188]</Signal>
+                <Signal>tl_tx_data[187]</Signal>
+                <Signal>tl_tx_data[186]</Signal>
+                <Signal>tl_tx_data[185]</Signal>
+                <Signal>tl_tx_data[184]</Signal>
+                <Signal>tl_tx_data[183]</Signal>
+                <Signal>tl_tx_data[182]</Signal>
+                <Signal>tl_tx_data[181]</Signal>
+                <Signal>tl_tx_data[180]</Signal>
+                <Signal>tl_tx_data[179]</Signal>
+                <Signal>tl_tx_data[178]</Signal>
+                <Signal>tl_tx_data[177]</Signal>
+                <Signal>tl_tx_data[176]</Signal>
+                <Signal>tl_tx_data[175]</Signal>
+                <Signal>tl_tx_data[174]</Signal>
+                <Signal>tl_tx_data[173]</Signal>
+                <Signal>tl_tx_data[172]</Signal>
+                <Signal>tl_tx_data[171]</Signal>
+                <Signal>tl_tx_data[170]</Signal>
+                <Signal>tl_tx_data[169]</Signal>
+                <Signal>tl_tx_data[168]</Signal>
+                <Signal>tl_tx_data[167]</Signal>
+                <Signal>tl_tx_data[166]</Signal>
+                <Signal>tl_tx_data[165]</Signal>
+                <Signal>tl_tx_data[164]</Signal>
+                <Signal>tl_tx_data[163]</Signal>
+                <Signal>tl_tx_data[162]</Signal>
+                <Signal>tl_tx_data[161]</Signal>
+                <Signal>tl_tx_data[160]</Signal>
+            </Bus>
+            <Bus name="tl_tx_data[159:128]">
+                <Signal>tl_tx_data[159]</Signal>
+                <Signal>tl_tx_data[158]</Signal>
+                <Signal>tl_tx_data[157]</Signal>
+                <Signal>tl_tx_data[156]</Signal>
+                <Signal>tl_tx_data[155]</Signal>
+                <Signal>tl_tx_data[154]</Signal>
+                <Signal>tl_tx_data[153]</Signal>
+                <Signal>tl_tx_data[152]</Signal>
+                <Signal>tl_tx_data[151]</Signal>
+                <Signal>tl_tx_data[150]</Signal>
+                <Signal>tl_tx_data[149]</Signal>
+                <Signal>tl_tx_data[148]</Signal>
+                <Signal>tl_tx_data[147]</Signal>
+                <Signal>tl_tx_data[146]</Signal>
+                <Signal>tl_tx_data[145]</Signal>
+                <Signal>tl_tx_data[144]</Signal>
+                <Signal>tl_tx_data[143]</Signal>
+                <Signal>tl_tx_data[142]</Signal>
+                <Signal>tl_tx_data[141]</Signal>
+                <Signal>tl_tx_data[140]</Signal>
+                <Signal>tl_tx_data[139]</Signal>
+                <Signal>tl_tx_data[138]</Signal>
+                <Signal>tl_tx_data[137]</Signal>
+                <Signal>tl_tx_data[136]</Signal>
+                <Signal>tl_tx_data[135]</Signal>
+                <Signal>tl_tx_data[134]</Signal>
+                <Signal>tl_tx_data[133]</Signal>
+                <Signal>tl_tx_data[132]</Signal>
+                <Signal>tl_tx_data[131]</Signal>
+                <Signal>tl_tx_data[130]</Signal>
+                <Signal>tl_tx_data[129]</Signal>
+                <Signal>tl_tx_data[128]</Signal>
+            </Bus>
+            <Signal>tl_tx_eop</Signal>
+            <Signal>tl_tx_sop</Signal>
+            <Signal>tl_tx_wait</Signal>
+            <Bus name="tl_rx_valid[7:0]">
+                <Signal>tl_rx_valid[7]</Signal>
+                <Signal>tl_rx_valid[6]</Signal>
+                <Signal>tl_rx_valid[5]</Signal>
+                <Signal>tl_rx_valid[4]</Signal>
+                <Signal>tl_rx_valid[3]</Signal>
+                <Signal>tl_rx_valid[2]</Signal>
+                <Signal>tl_rx_valid[1]</Signal>
+                <Signal>tl_rx_valid[0]</Signal>
+            </Bus>
+            <Bus name="tl_rx_data[255:224]">
+                <Signal>tl_rx_data[255]</Signal>
+                <Signal>tl_rx_data[254]</Signal>
+                <Signal>tl_rx_data[253]</Signal>
+                <Signal>tl_rx_data[252]</Signal>
+                <Signal>tl_rx_data[251]</Signal>
+                <Signal>tl_rx_data[250]</Signal>
+                <Signal>tl_rx_data[249]</Signal>
+                <Signal>tl_rx_data[248]</Signal>
+                <Signal>tl_rx_data[247]</Signal>
+                <Signal>tl_rx_data[246]</Signal>
+                <Signal>tl_rx_data[245]</Signal>
+                <Signal>tl_rx_data[244]</Signal>
+                <Signal>tl_rx_data[243]</Signal>
+                <Signal>tl_rx_data[242]</Signal>
+                <Signal>tl_rx_data[241]</Signal>
+                <Signal>tl_rx_data[240]</Signal>
+                <Signal>tl_rx_data[239]</Signal>
+                <Signal>tl_rx_data[238]</Signal>
+                <Signal>tl_rx_data[237]</Signal>
+                <Signal>tl_rx_data[236]</Signal>
+                <Signal>tl_rx_data[235]</Signal>
+                <Signal>tl_rx_data[234]</Signal>
+                <Signal>tl_rx_data[233]</Signal>
+                <Signal>tl_rx_data[232]</Signal>
+                <Signal>tl_rx_data[231]</Signal>
+                <Signal>tl_rx_data[230]</Signal>
+                <Signal>tl_rx_data[229]</Signal>
+                <Signal>tl_rx_data[228]</Signal>
+                <Signal>tl_rx_data[227]</Signal>
+                <Signal>tl_rx_data[226]</Signal>
+                <Signal>tl_rx_data[225]</Signal>
+                <Signal>tl_rx_data[224]</Signal>
+            </Bus>
+            <Bus name="tl_rx_data[223:192]">
+                <Signal>tl_rx_data[223]</Signal>
+                <Signal>tl_rx_data[222]</Signal>
+                <Signal>tl_rx_data[221]</Signal>
+                <Signal>tl_rx_data[220]</Signal>
+                <Signal>tl_rx_data[219]</Signal>
+                <Signal>tl_rx_data[218]</Signal>
+                <Signal>tl_rx_data[217]</Signal>
+                <Signal>tl_rx_data[216]</Signal>
+                <Signal>tl_rx_data[215]</Signal>
+                <Signal>tl_rx_data[214]</Signal>
+                <Signal>tl_rx_data[213]</Signal>
+                <Signal>tl_rx_data[212]</Signal>
+                <Signal>tl_rx_data[211]</Signal>
+                <Signal>tl_rx_data[210]</Signal>
+                <Signal>tl_rx_data[209]</Signal>
+                <Signal>tl_rx_data[208]</Signal>
+                <Signal>tl_rx_data[207]</Signal>
+                <Signal>tl_rx_data[206]</Signal>
+                <Signal>tl_rx_data[205]</Signal>
+                <Signal>tl_rx_data[204]</Signal>
+                <Signal>tl_rx_data[203]</Signal>
+                <Signal>tl_rx_data[202]</Signal>
+                <Signal>tl_rx_data[201]</Signal>
+                <Signal>tl_rx_data[200]</Signal>
+                <Signal>tl_rx_data[199]</Signal>
+                <Signal>tl_rx_data[198]</Signal>
+                <Signal>tl_rx_data[197]</Signal>
+                <Signal>tl_rx_data[196]</Signal>
+                <Signal>tl_rx_data[195]</Signal>
+                <Signal>tl_rx_data[194]</Signal>
+                <Signal>tl_rx_data[193]</Signal>
+                <Signal>tl_rx_data[192]</Signal>
+            </Bus>
+            <Bus name="tl_rx_data[191:160]">
+                <Signal>tl_rx_data[191]</Signal>
+                <Signal>tl_rx_data[190]</Signal>
+                <Signal>tl_rx_data[189]</Signal>
+                <Signal>tl_rx_data[188]</Signal>
+                <Signal>tl_rx_data[187]</Signal>
+                <Signal>tl_rx_data[186]</Signal>
+                <Signal>tl_rx_data[185]</Signal>
+                <Signal>tl_rx_data[184]</Signal>
+                <Signal>tl_rx_data[183]</Signal>
+                <Signal>tl_rx_data[182]</Signal>
+                <Signal>tl_rx_data[181]</Signal>
+                <Signal>tl_rx_data[180]</Signal>
+                <Signal>tl_rx_data[179]</Signal>
+                <Signal>tl_rx_data[178]</Signal>
+                <Signal>tl_rx_data[177]</Signal>
+                <Signal>tl_rx_data[176]</Signal>
+                <Signal>tl_rx_data[175]</Signal>
+                <Signal>tl_rx_data[174]</Signal>
+                <Signal>tl_rx_data[173]</Signal>
+                <Signal>tl_rx_data[172]</Signal>
+                <Signal>tl_rx_data[171]</Signal>
+                <Signal>tl_rx_data[170]</Signal>
+                <Signal>tl_rx_data[169]</Signal>
+                <Signal>tl_rx_data[168]</Signal>
+                <Signal>tl_rx_data[167]</Signal>
+                <Signal>tl_rx_data[166]</Signal>
+                <Signal>tl_rx_data[165]</Signal>
+                <Signal>tl_rx_data[164]</Signal>
+                <Signal>tl_rx_data[163]</Signal>
+                <Signal>tl_rx_data[162]</Signal>
+                <Signal>tl_rx_data[161]</Signal>
+                <Signal>tl_rx_data[160]</Signal>
+            </Bus>
+            <Bus name="tl_rx_data[159:128]">
+                <Signal>tl_rx_data[159]</Signal>
+                <Signal>tl_rx_data[158]</Signal>
+                <Signal>tl_rx_data[157]</Signal>
+                <Signal>tl_rx_data[156]</Signal>
+                <Signal>tl_rx_data[155]</Signal>
+                <Signal>tl_rx_data[154]</Signal>
+                <Signal>tl_rx_data[153]</Signal>
+                <Signal>tl_rx_data[152]</Signal>
+                <Signal>tl_rx_data[151]</Signal>
+                <Signal>tl_rx_data[150]</Signal>
+                <Signal>tl_rx_data[149]</Signal>
+                <Signal>tl_rx_data[148]</Signal>
+                <Signal>tl_rx_data[147]</Signal>
+                <Signal>tl_rx_data[146]</Signal>
+                <Signal>tl_rx_data[145]</Signal>
+                <Signal>tl_rx_data[144]</Signal>
+                <Signal>tl_rx_data[143]</Signal>
+                <Signal>tl_rx_data[142]</Signal>
+                <Signal>tl_rx_data[141]</Signal>
+                <Signal>tl_rx_data[140]</Signal>
+                <Signal>tl_rx_data[139]</Signal>
+                <Signal>tl_rx_data[138]</Signal>
+                <Signal>tl_rx_data[137]</Signal>
+                <Signal>tl_rx_data[136]</Signal>
+                <Signal>tl_rx_data[135]</Signal>
+                <Signal>tl_rx_data[134]</Signal>
+                <Signal>tl_rx_data[133]</Signal>
+                <Signal>tl_rx_data[132]</Signal>
+                <Signal>tl_rx_data[131]</Signal>
+                <Signal>tl_rx_data[130]</Signal>
+                <Signal>tl_rx_data[129]</Signal>
+                <Signal>tl_rx_data[128]</Signal>
+            </Bus>
+            <Signal>tl_rx_eop</Signal>
+            <Signal>tl_rx_sop</Signal>
+            <Signal>tl_int_req</Signal>
+            <Signal>tl_int_ack</Signal>
+            <Signal>tl_int_status</Signal>
+            <Bus name="tl_int_msinum[4:0]">
+                <Signal>tl_int_msinum[4]</Signal>
+                <Signal>tl_int_msinum[3]</Signal>
+                <Signal>tl_int_msinum[2]</Signal>
+                <Signal>tl_int_msinum[1]</Signal>
+                <Signal>tl_int_msinum[0]</Signal>
+            </Bus>
+            <Bus name="rc_queue_level[7:0]">
+                <Signal>rc_queue_level[7]</Signal>
+                <Signal>rc_queue_level[6]</Signal>
+                <Signal>rc_queue_level[5]</Signal>
+                <Signal>rc_queue_level[4]</Signal>
+                <Signal>rc_queue_level[3]</Signal>
+                <Signal>rc_queue_level[2]</Signal>
+                <Signal>rc_queue_level[1]</Signal>
+                <Signal>rc_queue_level[0]</Signal>
+            </Bus>
+            <Bus name="rq_queue_level[7:0]">
+                <Signal>rq_queue_level[7]</Signal>
+                <Signal>rq_queue_level[6]</Signal>
+                <Signal>rq_queue_level[5]</Signal>
+                <Signal>rq_queue_level[4]</Signal>
+                <Signal>rq_queue_level[3]</Signal>
+                <Signal>rq_queue_level[2]</Signal>
+                <Signal>rq_queue_level[1]</Signal>
+                <Signal>rq_queue_level[0]</Signal>
+            </Bus>
+        </SignalList>
+        <Triggers>
+            <Trigger index="0">
+                <SignalList>
+                    <Signal>req_dma_wr_valid[0]</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="1">
+                <SignalList>
+                    <Signal>req_dma_rd_valid[0]</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="2">
+                <SignalList>
+                    <Signal>tl_int_status</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="3">
+                <SignalList>
+                    <Signal>tl_tx_wait</Signal>
+                    <Signal>tl_tx_sop</Signal>
+                    <Signal>tl_tx_eop</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="4"/>
+            <Trigger index="5"/>
+            <Trigger index="6"/>
+            <Trigger index="7"/>
+            <Trigger index="8"/>
+            <Trigger index="9"/>
+            <Trigger index="10"/>
+            <Trigger index="11"/>
+            <Trigger index="12"/>
+            <Trigger index="13"/>
+            <Trigger index="14"/>
+            <Trigger index="15"/>
+        </Triggers>
+        <MatchUnits>
+            <MatchUnit index="0" enabled="1" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="1" value1="0" trigger="0"/>
+            <MatchUnit index="1" enabled="1" match_type="1" counter_enable="0" counter_width="5" counter="16" countinuous="0" func="0" value0="1" value1="0" trigger="1"/>
+            <MatchUnit index="2" enabled="1" match_type="1" counter_enable="0" counter_width="10" counter="1000" countinuous="0" func="0" value0="X" value1="0" trigger="2"/>
+            <MatchUnit index="3" enabled="1" match_type="3" counter_enable="1" counter_width="10" counter="1" countinuous="0" func="0" value0="X1X" value1="000" trigger="3"/>
+            <MatchUnit index="4" enabled="0" match_type="2" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="XXXXXX" value1="000000" trigger="4"/>
+            <MatchUnit index="5" enabled="0" match_type="2" counter_enable="1" counter_width="10" counter="2" countinuous="0" func="0" value0="X" value1="0" trigger="5"/>
+            <MatchUnit index="6" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="7" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="8" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="9" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="10" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="11" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="12" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="13" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="14" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+        </MatchUnits>
+        <Expressions type="Static">
+            <Expression>(M0|M1)&amp;M2&amp;M3</Expression>
+        </Expressions>
+    </AoCore>
+    <GAO_ID>0001111101000101</GAO_ID>
+</GAO_CONFIG>

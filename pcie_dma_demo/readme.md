@@ -6,8 +6,8 @@ This project is a demo to test the Serdes on GOWIN GW5AST-138K, it base on Sipee
 ## Main features
 
 - x1, x2 or x4 PCIe bus transmission
-- Support PCIe Gen2 or Gen3(Gen 3 for defulate)
-- speed testing with GOWIN linux pcie driver and demo application
+- Support both PCIe Gen2 or Gen3
+- Speed testing with GOWIN linux pcie driver and demo application
 
 This demo is forked from the pcie demo of Sipeed [Tang MEGA 138K Pro](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k-pro.html), which mainchip is **GW5AST-LV138FPG676AC1/10** or **GW5AST-LV138FPG676AES**.   
 And it now is tested on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html), which mainchip is **GW5AST-LV138PGG484AC1/10** or **GW5AST-LV138PG484AES**.   
@@ -21,16 +21,34 @@ In theory, other GW5AST & GW5AT models can also use this demo, such as Sipeed [T
 | -- docs                         --> manuals and documentation
 |    |`-- PCIe_demo_guide_en.pdf  --> official guide（en） 
 |    |`-- PCIe_demo_guide_zh.pdf  --> official guide(zh) 
-|     `-- images                  --> picture resources                           
-|-- src                           --> project sources
-|-- impl                          --> project config & implementation  
+|     `-- images                  --> picture resources
+|    
+| -- pcie_gen2(5G)                --> pcie_gen2 demo 
+|    |`-- src                     --> project sources
+|    |`-- impl                    --> project config & implementation  
+|    |`-- pcie_dma_demo.fs.7z     --> prbuild bitstream(zipped)
+|     `-- pcie_dma_demo.gprj      --> demo project
+|    
+| -- pcie_gen3(8G)                --> pcie_gen3 demo 
+|    |`-- src                     --> project sources
+|    ...
 |
-|`-- gowin_pcie_demo.7z           --> drivers & app for test(zipped)
-|`-- pcie_dma_demo.fs.7z          --> prbuild bitstream(zipped)
-|`-- pcie_dma_demo.gprj           --> demo project
-|`-- pcie_dma_demo.gprj.user      --> project conf.
-
+| -- gowin_pcie_demo.7z           --> drivers & app for test(zipped)    
+|   
 ```
+
+***
+## Implementation report
+
+### Timing report
+![Timing_Summaries](./docs/images/Timing_Summaries.png)
+As shown, the design meets all timing constraints.
+
+### Resource report
+![Resource_rpt](./docs/images/Resource_rpt.png)
+The resource usage of this design is shown in the figure aboce.
+
+***
 
 ## Getting start
 
@@ -41,21 +59,30 @@ In theory, other GW5AST & GW5AT models can also use this demo, such as Sipeed [T
    - For facilitate testing, the board needs to be modified to automatically turn on after power-on.
    - In order to achieve the above modifications, you need to solder the R190 or R191 by yourself, or just short the two pads by a tin.
    - You could refer [the ibom](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/03_Designator_drawing/) for Sipeed download station.
+- Please **DO NOT** :
+   - delete the **`impl`** folder.
+   - Try to change the FPGA model in the project yourself.
+   - Rename the project. 
+   
+   Otherwise you may lose important configuration information about your project. This leads to a series of problems such as implementation failure or unsatisfied timing.
+
+   If you unfortunately have encountered a problem, please refer to the [Troubleshoot](#troubleshoot) section for solutions.
+
 
 ## Important notes
 
-   - You need to compile the kernel module and the demo app for your system and load the kernel module yourself. 
-   - The demo requires PCIe Gen3. Although it can be modified to Gen2 mode. However, the demo's compatibility with PCIe Gen2 was very poor in previous testing.
+   - You need to compile the kernel module and the demo app for your system and load the kernel module yourself.
+   - The recommended operating system distribution is Ubuntu20.04, but Ubuntu22.04 or newer is also available (you need to solve the dependency problem by yourself). 
    - It's recommend to programming your board to flash before start test.
    - If you want to compile the demo yourself, don't forget to set the flash loading rate to 105MHz in *Project-Configuration-sysControl*. Otherwise, there will be some compatibility issues when using PCie on the computer motherboard for testing.
 
 ## How to use
 
-- See GOWIN [official guide](./doc/) first.
+- See GOWIN [official guide](./docs/) first.
 - Prepare the system and environment for testing and ensure that the kernel module is loaded correctly.
 - Assemble your board with a PC motherboard with PCIe Slot(x4 or longer), or use a USB4/Thunderbolt PCIe dock instead.
 - Use the `lspci` to check whether there is a new `**memory controller**` in the system, and its ID is `22C2:1100`.Otherwise, please troubleshoot the problem according to the LED table below.
-- Starting test according to the instructions in the [official guide](./doc/PCIe_demo_guide_en.pdf).
+- Starting test according to the instructions in the [official guide](./docs/PCIe_demo_guide_en.pdf).
 
 ## LEDs & button
 
@@ -78,6 +105,27 @@ But this LED should not be always on, otherwise please check whether the relevan
 
 ## Troubleshoot
 
+### Building the progject
+- **WARN  (PR1014) :** Generic routing resource will be used to clock signal 'sys_clk_p_d' by the specified constraint.
+  - This is due to the oscillator clock input pin **`V22`** on the SOM which is not the GCLK pin.
+  - Since this design does not involve complex cross-clock domain synchronization processing, it can be ignored.
+
+- **ERROR  (PR2028) :** The constrained location is useless in current package. & **ERROR  (PR2017) :** 'led[x]' cannot be placed according to constraint, for the location is a dedicated pin (CPU/SSPI).
+  - This is usually caused by missing project configuration. As the error message says, led[x] is a dedicated pin (CPU/SSPI).
+  - The solution is as follows:
+    - In top bar menu, go to ***`Project-Configuration`***, than selet ***`Dual-Purpose Pin`***. Check the corresponding options according to the error message. 
+    - For example, you need to check ***`Use SSPI as regular IO` & `Use CPU as regular IO`*** here.
+    ![Dual-Purpose_pin](./docs/images/Dual-Purpose_Pin.png)
+    - Then try to re-Implementation it.
+- The timing report shows that timing constraints are not met (contains **RED ITEMS**)
+![timing_error](./docs/images/Timing_error.png)
+  - This is also caused by missing project configuration. In order to solve the problem, you need to confirm the following settings:
+     - In top bar menu, go to ***`Project-Configuration`***, than selet ***`Place`***. Change the `Place Option` to `2`. 
+     - *(optional)* Change `Place input registers to IOB`, `Place output registers to IOB`, `Place inout registers to IOB` to `Ture`,
+     - *(optional)* In ***`Route`*** page, Change the `Clock Route Order` to `1` & `Route Option` to `1`.
+     - Then try to re-Implementation it.
+
+### Testing the borad
 - If the board is installed on the motherboard for testing, please ensure that the board is programmed and then powered on while the host computer is completely powered off.
 - If you find that the board is not recognized after entering the system, you need to perform the above process again.
 

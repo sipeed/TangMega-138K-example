@@ -1,4 +1,4 @@
-# FPGA Programmer (BL818)
+# FPGA Programmer (BL616)
 ## Query ID Code	 
 Info:	Target Cable: USB Debugger A/0/13089/null@15MHz
 Info:	Target Device: GW5AST-138B(0x0001081B)

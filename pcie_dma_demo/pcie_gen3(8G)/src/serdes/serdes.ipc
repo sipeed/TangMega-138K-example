@@ -1,0 +1,74 @@
+[General]
+ipc_version=4
+target_device=gw5ast138b-011
+type=Serdes
+version=1.2
+
+[Config]
+LANG=0
+Synthesis_tool=GowinSynthesis
+file=serdes
+module=SerDes_Top
+
+[PCI%20Express%20Controller%3Apcie_controller%3APCIE_Controller_Top]
+Bar0_Enable=true
+Bar1_Enable=false
+Bar2_Enable=true
+Bar3_Enable=false
+Bar4_Enable=true
+Bar5_Enable=false
+Base_Class_Value=05
+Bit64_0=true
+Bit64_1=false
+Bit64_2=true
+Bit64_3=false
+Bit64_4=true
+Bit64_5=false
+Device_ID=1100
+Enable_MSI_Capability=true
+LANG=0
+Lane_Width=X4
+Max_Payload_Size=4096bytes
+Maximum_Link_Speed=false
+Maximum_Link_Speed_8=true
+Prefetchable0=false
+Prefetchable1=false
+Prefetchable2=false
+Prefetchable3=false
+Prefetchable4=false
+Prefetchable5=false
+Reference_Clock_Frequency=100MHz
+Reference_Clock_Source=Q0 REFCLK0
+Revision_ID=00
+Size0=1MegaBytes
+Size1=2KiloBytes
+Size2=1MegaBytes
+Size3=2KiloBytes
+Size4=1MegaBytes
+Size5=2KiloBytes
+Sub_Class_Value=80
+Synthesis_tool=GowinSynthesis
+TLP_Clock_Fequency=100MHz
+Vendor_ID=22C2
+file=pcie_controller
+module=PCIE_Controller_Top
+recordlanes=Q0 Lane0, Q0 Lane1, Q0 Lane2, Q0 Lane3
+target_device=gw5ast138b-011
+type=pcie
+value0=FFF00004
+value1=00000000
+value2=FFF00004
+value3=00000000
+value4=FFF00004
+value5=00000000
+version=1.0
+
+[All_access]
+Q0_LANE0_RX=Q0_LANE0_RX -> Q0_QPLL0 -> Q0_MUX0 -> Q0_REFCLK0
+Q0_LANE0_TX=Q0_LANE0_TX -> Q0_QPLL0 -> Q0_MUX0 -> Q0_REFCLK0
+Q0_LANE1_RX=Q0_LANE1_RX -> Q0_QPLL0 -> Q0_MUX0 -> Q0_REFCLK0
+Q0_LANE1_TX=Q0_LANE1_TX -> Q0_QPLL0 -> Q0_MUX0 -> Q0_REFCLK0
+Q0_LANE2_RX=Q0_LANE2_RX -> Q0_QPLL0 -> Q0_MUX0 -> Q0_REFCLK0
+Q0_LANE2_TX=Q0_LANE2_TX -> Q0_QPLL0 -> Q0_MUX0 -> Q0_REFCLK0
+Q0_LANE3_RX=Q0_LANE3_RX -> Q0_QPLL0 -> Q0_MUX0 -> Q0_REFCLK0
+Q0_LANE3_TX=Q0_LANE3_TX -> Q0_QPLL0 -> Q0_MUX0 -> Q0_REFCLK0

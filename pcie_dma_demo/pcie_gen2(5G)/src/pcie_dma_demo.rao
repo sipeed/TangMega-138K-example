@@ -1,0 +1,15 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Lite</Mode>
+    <AoCore_Lite index="0" sample_clock="sys_clk_p" trig_type="0" capture_amount="1024" implemention="0" input_register_enabled="1" capture_init_data_enabled="1" module_name="top">
+        <SignalList>
+            <Signal capture_enable="true">rst_n</Signal>
+            <Signal capture_enable="true">pcie_rstn</Signal>
+            <Signal capture_enable="true">tlp_rst</Signal>
+            <Signal capture_enable="true">w_rst_n</Signal>
+            <Signal capture_enable="true">rstn</Signal>
+        </SignalList>
+    </AoCore_Lite>
+    <GAO_ID>0011010000111110</GAO_ID>
+</GAO_CONFIG>
