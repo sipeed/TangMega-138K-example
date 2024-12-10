@@ -126,8 +126,40 @@ But this LED should not be always on, otherwise please check whether the relevan
      - Then try to re-Implementation it.
 
 ### Testing the borad
-- If the board is installed on the motherboard for testing, please ensure that the board is programmed and then powered on while the host computer is completely powered off.
-- If you find that the board is not recognized after entering the system, you need to perform the above process again.
+#### On PC motherboard:
+- Please ensure that the board is programmed while the host computer is completely powered off, and then powered on your computer.
+- If you find that the FPGA board is not recognized after entering the system, you need to reboot, or perform the above process again.
+
+#### On USB4/Thunderbolt dock:
+- Please ensure that the board is programmed, then plug it into your dock, the dock need to power-off first.
+- Makesure that the dock is properly connected to power (if needed), then connect the dock to your PC. If you find that the FPGA board is not recognized, just re-plug your dock.
+- If your dock cannot provide 12V power supply or does not have PCIe 3V3, you can use additional USB to power the FPGA board.
+
+#### On Raspberry Pi:
+- CM4/5 or 5b is needed.
+- It seems that GOWIN's official PCIe driver has some problems on aarch64 Linux.
+
+## Test environment
+These environments have been verified and the demo can be used normally.
+
+On PC motherboard:
+- Motherboard: GIGABYTE **B365 M AORUS ELITE**
+- CPU: Genuine Intel **i5-8400**
+- System: Ubuntu **20.04**(Secure Boot disabled)
+
+  Note: On this motherboard, if the demo is in **Gen3** mode, `copy_to_host` seems to have some problems, especially when the block size is 4096. The test will take a long time and look like it is frozen.Perhaps if you wait patiently for a while, the results will come out.
+***
+On USB4/Thunderbolt dock:
+- Barebone computer: Genuine Intel **NUC13ANHi7**
+- System: Ubuntu **22.04**(Secure Boot disabled)
+- PCIe dock: **ADT UT3G** (ASM2464)
+  
+  Note: This dock seems to be **incompatible** with PCIe Gen2. During my testing, the dock did not recognize the Gen2 mode demo. Perhaps the **JHL** series(JHL7/8xxx) is more suitable for this test?
+***
+On Raspberry Pi:
+- Raspberry Pi 5b(4GB RAM).
+- Sipeed Tang Console NEO(Coming soon, Can be used as a PCIe HAT for the RPi).
+- Necessary FPC wires and copper pillars.
 
 ## Development
 
