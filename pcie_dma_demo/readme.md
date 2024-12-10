@@ -111,8 +111,9 @@ But this LED should not be always on, otherwise please check whether the relevan
   - This is due to the oscillator clock input pin **`V22`** on the SOM which is not the GCLK pin.
   - Since this design does not involve complex cross-clock domain synchronization processing, it can be ignored.
 
-- **ERROR  (PR2028) :** The constrained location is useless in current package. & **ERROR  (PR2017) :** 'led[x]' cannot be placed according to constraint, for the location is a dedicated pin (CPU/SSPI).
-  - This is usually caused by missing project configuration. As the error message says, led[x] is a dedicated pin (CPU/SSPI).
+- **ERROR  (PR2028) :** The constrained location is useless in current package. 
+- **ERROR  (PR2017) :** 'led[x]' cannot be placed according to constraint, for the location is a dedicated pin (CPU/SSPI).
+  - This is usually caused by missing project configuration. As the error message says, led[x] is a dedicated pin **`(CPU/SSPI)`**.
   - The solution is as follows:
     - In top bar menu, go to ***`Project-Configuration`***, than selet ***`Dual-Purpose Pin`***. Check the corresponding options according to the error message. 
     - For example, you need to check ***`Use SSPI as regular IO` & `Use CPU as regular IO`*** here.
@@ -122,7 +123,7 @@ But this LED should not be always on, otherwise please check whether the relevan
 ![timing_error](./docs/images/Timing_error.png)
   - This is also caused by missing project configuration. In order to solve the problem, you need to confirm the following settings:
      - In top bar menu, go to ***`Project-Configuration`***, than selet ***`Place`***. Change the `Place Option` to `2`. 
-     - *(optional)* Change `Place input registers to IOB`, `Place output registers to IOB`, `Place inout registers to IOB` to `Ture`,
+     - *(optional)* Change `Place input registers to IOB`, `Place output registers to IOB`, `Place inout registers to IOB` to `Ture`.
      - *(optional)* In ***`Route`*** page, Change the `Clock Route Order` to `1` & `Route Option` to `1`.
      - Then try to re-Implementation it.
 
@@ -138,29 +139,36 @@ But this LED should not be always on, otherwise please check whether the relevan
 
 #### On Raspberry Pi:
 - CM4/5 or 5b is needed.
-- It seems that GOWIN's official PCIe driver has some problems on aarch64 Linux.
+- TBD
 
 ## Test environment
 These environments have been verified and the demo can be used normally.
 
-On PC motherboard:
+**On PC motherboard:**
 - Motherboard: GIGABYTE **B365 M AORUS ELITE**
 - CPU: Genuine Intel **i5-8400**
-- System: Ubuntu **20.04**(Secure Boot disabled)
+- System: Ubuntu **20.04** (Secure Boot disabled)
 
-  Note: On this motherboard, if the demo is in **Gen3** mode, `copy_to_host` seems to have some problems, especially when the block size is 4096. The test will take a long time and look like it is frozen.Perhaps if you wait patiently for a while, the results will come out.
+  Note: On this motherboard, if the demo is in **Gen3** mode, `copy_to_host` seems to have some problems, especially when the block size is **4096**. 
+  
+  The test will take a long time and look like it is frozen.Perhaps if you wait patiently for a while, the results will come out.
 ***
-On USB4/Thunderbolt dock:
+**On USB4/Thunderbolt dock:**
 - Barebone computer: Genuine Intel **NUC13ANHi7**
-- System: Ubuntu **22.04**(Secure Boot disabled)
+- System: Ubuntu **22.04** (Secure Boot disabled)
 - PCIe dock: **ADT UT3G** (ASM2464)
   
-  Note: This dock seems to be **incompatible** with PCIe Gen2. During my testing, the dock did not recognize the Gen2 mode demo. Perhaps the **JHL** series(JHL7/8xxx) is more suitable for this test?
+  Note: This dock seems to be **incompatible** with PCIe Gen2. During my testing, the dock did not recognize the Gen2 mode demo. 
+  
+  Perhaps the **JHL** series(JHL7/8xxx) is more suitable for this test?
 ***
-On Raspberry Pi:
+**On Raspberry Pi:**
 - Raspberry Pi 5b(4GB RAM).
 - Sipeed Tang Console NEO(Coming soon, Can be used as a PCIe HAT for the RPi).
 - Necessary FPC wires and copper pillars.
+
+
+Note: It seems that GOWIN's official PCIe driver has some problems on aarch64 Linux. So the test is currently not successfully executed.
 
 ## Development
 
