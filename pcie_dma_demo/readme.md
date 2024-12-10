@@ -1,13 +1,14 @@
 # pcie_dma_demo - a SERDES demo for Sipeed Tang MEGA 138K FPGA Boards
 
 
-This project is a demo to test the Serdes on GOWIN GW5AST-138K, it base on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html), and uses the PCIe x4 AIC interfaces on the board for transceiver testing.
+This project is a demo to test the Serdes on GOWIN GW5AST-138K, it base on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html), and uses the PCIe x4 **AIC interfaces** on the board for transceiver testing.
 
 ## Main features
 
 - x1, x2 or x4 PCIe bus transmission
 - Support both PCIe Gen2 or Gen3
-- Speed testing with GOWIN linux pcie driver and demo application
+- Speed testing with **GOWIN** Linux PCIe Driver and Demo Application
+- Up to 6 configurable PCIe bar
 
 This demo is forked from the pcie demo of Sipeed [Tang MEGA 138K Pro](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k-pro.html), which mainchip is **GW5AST-LV138FPG676AC1/10** or **GW5AST-LV138FPG676AES**.   
 And it now is tested on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html), which mainchip is **GW5AST-LV138PGG484AC1/10** or **GW5AST-LV138PG484AES**.   
@@ -60,7 +61,7 @@ The resource usage of this design is shown in the figure aboce.
    - In order to achieve the above modifications, you need to solder the R190 or R191 by yourself, or just short the two pads by a tin.
    - You could refer [the ibom](https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/03_Designator_drawing/) for Sipeed download station.
 - Please **DO NOT** :
-   - delete the **`impl`** folder.
+   - Delete the **`impl`** folder.
    - Try to change the FPGA model in the project yourself.
    - Rename the project. 
    
