@@ -9,7 +9,7 @@
 * microcontroller manufactured by Nanjing Qinheng Microelectronics.
 *******************************************************************************/
 #include "CH56x_common.h"
-#include "CH56x_USB30_LIB.H"
+#include "CH56x_usb30_LIB.h"
 #include "CH56x_usb20.h"
 #include "CH56x_usb30.h"
 #include "cdc.h"
