@@ -1,38 +1,37 @@
 GowinSynthesis start
 Running parser ...
-Analyzing Verilog file 'D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v'
-Analyzing included file 'define.vh'("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v":375)
-Back to file 'D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v'("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v":375)
-Analyzing included file 'D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\static_macro_define.vh'("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v":375)
-Back to file 'D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v'("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v":375)
-Analyzing Verilog file 'D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v'
-Analyzing included file 'define.vh'("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":1)
-Back to file 'D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v'("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":1)
-Analyzing included file 'D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\static_macro_define.vh'("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":2)
-Back to file 'D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v'("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":2)
-Compiling module 'PCIE_Controller_Top'("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":4)
-Compiling module '**'("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v":375)
-WARN  (EX3791) : Expression size ** truncated to fit in target size **("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v":375)
+Analyzing Verilog file 'D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v'
+Analyzing included file 'define.vh'("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v":399)
+Back to file 'D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v'("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v":399)
+Analyzing included file 'D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\static_macro_define.vh'("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v":399)
+Back to file 'D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v'("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v":399)
+Analyzing Verilog file 'D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v'
+Analyzing included file 'define.vh'("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":1)
+Back to file 'D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v'("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":1)
+Analyzing included file 'D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\static_macro_define.vh'("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":2)
+Back to file 'D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v'("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":2)
+Compiling module 'PCIE_Controller_Top'("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":4)
+Compiling module '**'("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v":399)
+WARN  (EX3791) : Expression size ** truncated to fit in target size **("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_encrypt.v":399)
 NOTE  (EX0101) : Current top module is "PCIE_Controller_Top"
 [5%] Running netlist conversion ...
-WARN  (CV0020) : Input pcie_pl_test_out_i[31:5] is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":145)
-WARN  (CV0016) : Input fabric_pl_rx_det is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":149)
-WARN  (CV0016) : Input fabric_ln0_pma_rx_lock is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":150)
-WARN  (CV0016) : Input fabric_ln0_astat is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":151)
-WARN  (CV0016) : Input fabric_pl_txdata is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":152)
-WARN  (CV0016) : Input fabric_pl_txdata_h is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":153)
-WARN  (CV0016) : Input fabric_pl_txdatak is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":154)
-WARN  (CV0016) : Input fabric_pl_txdatak_h is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":155)
-WARN  (CV0016) : Input fabric_pl_txdatavalid is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":156)
-WARN  (CV0016) : Input fabric_pl_txdatavalid_h is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":157)
-WARN  (CV0016) : Input fabric_ln0_rxdata is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":158)
-WARN  (CV0018) : Input fabric_ln0_rxdatavalid[0] is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":159)
-WARN  (CV0016) : Input fabric_ln1_rxdata is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":160)
-WARN  (CV0016) : Input fabric_ln2_rxdata is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":161)
-WARN  (CV0016) : Input fabric_ln3_rxdata is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":162)
-WARN  (CV0016) : Input fabric_pl_rate is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":163)
-WARN  (CV0016) : Input fabric_pl_rate_h is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":164)
-WARN  (CV0016) : Input pcie_half_clk_i is unused("D:\Applications\Gowin\Gowin_V1.9.10.03_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":165)
+WARN  (CV0016) : Input fabric_pl_rx_det is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":179)
+WARN  (CV0016) : Input fabric_ln0_pma_rx_lock is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":180)
+WARN  (CV0016) : Input fabric_ln0_astat is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":181)
+WARN  (CV0016) : Input fabric_pl_txdata is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":182)
+WARN  (CV0016) : Input fabric_pl_txdata_h is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":183)
+WARN  (CV0016) : Input fabric_pl_txdatak is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":184)
+WARN  (CV0016) : Input fabric_pl_txdatak_h is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":185)
+WARN  (CV0016) : Input fabric_pl_txdatavalid is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":186)
+WARN  (CV0016) : Input fabric_pl_txdatavalid_h is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":187)
+WARN  (CV0016) : Input fabric_ln0_rxdata is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":188)
+WARN  (CV0018) : Input fabric_ln0_rxdatavalid[0] is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":189)
+WARN  (CV0016) : Input fabric_ln1_rxdata is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":190)
+WARN  (CV0016) : Input fabric_ln2_rxdata is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":191)
+WARN  (CV0016) : Input fabric_ln3_rxdata is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":192)
+WARN  (CV0016) : Input fabric_pl_rate is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":193)
+WARN  (CV0016) : Input fabric_pl_rate_h is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":194)
+WARN  (CV0016) : Input pcie_half_clk_i is unused("D:\Applications\Gowin\Gowin_V1.9.11.01_x64\IDE\ipcore\SERDES_IP\IPlib\PCIE\data\pcie_controller_top.v":195)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed
@@ -48,7 +47,7 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
-[95%] Generate netlist file "C:\Users\Think\OneDrive\Documents\GitHub\TangMega-138K-example\pcie_dma_demo\pcie_gen2(5G)\src\serdes\pcie_controller\temp\pcie\pcie_controller.vg" completed
-Generate template file "C:\Users\Think\OneDrive\Documents\GitHub\TangMega-138K-example\pcie_dma_demo\pcie_gen2(5G)\src\serdes\pcie_controller\temp\pcie\pcie_controller_tmp.v" completed
-[100%] Generate report file "C:\Users\Think\OneDrive\Documents\GitHub\TangMega-138K-example\pcie_dma_demo\pcie_gen2(5G)\src\serdes\pcie_controller\temp\pcie\pcie_controller_syn.rpt.html" completed
+[95%] Generate netlist file "C:\Users\Think\Downloads\pcie_gen2(5G)\src\serdes\pcie_controller\temp\pcie\pcie_controller.vg" completed
+Generate template file "C:\Users\Think\Downloads\pcie_gen2(5G)\src\serdes\pcie_controller\temp\pcie\pcie_controller_tmp.v" completed
+[100%] Generate report file "C:\Users\Think\Downloads\pcie_gen2(5G)\src\serdes\pcie_controller\temp\pcie\pcie_controller_syn.rpt.html" completed
 GowinSynthesis finish

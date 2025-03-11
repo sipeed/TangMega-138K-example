@@ -1,8 +1,8 @@
-//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2025 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: Post-PnR Verilog Simulation Model file
-//Tool Version: V1.9.10.03
-//Created Time: Tue Dec 10 17:00:07 2024
+//Tool Version: V1.9.11.01 (64-bit)
+//Created Time: Tue Mar 11 18:35:00 2025
 
 `timescale 100 ps/100 ps
 module PCIE_Controller_Top(
@@ -17,6 +17,11 @@ module PCIE_Controller_Top(
 	pcie_tl_int_status_i,
 	pcie_tl_int_req_i,
 	pcie_tl_int_msinum_i,
+	pcie_tl_drp_addr_i,
+	pcie_tl_drp_wrdata_i,
+	pcie_tl_drp_wr_i,
+	pcie_tl_drp_rd_i,
+	pcie_tl_drp_strb_i,
 	pcie_tl_rx_sop_i,
 	pcie_tl_rx_eop_i,
 	pcie_tl_rx_data_i,
@@ -25,6 +30,11 @@ module PCIE_Controller_Top(
 	pcie_tl_rx_err_i,
 	pcie_tl_tx_wait_i,
 	pcie_tl_int_ack_i,
+	pcie_tl_drp_clk_i,
+	pcie_tl_drp_rddata_i,
+	pcie_tl_drp_rd_valid_i,
+	pcie_tl_drp_ready_i,
+	pcie_tl_drp_resp_i,
 	pcie_tl_tx_credits_i,
 	pcie_pl_test_out_i,
 	pcie_tl_cfg_busdev_i,
@@ -53,6 +63,11 @@ module PCIE_Controller_Top(
 	pcie_tl_rx_err_o,
 	pcie_tl_tx_wait_o,
 	pcie_tl_int_ack_o,
+	pcie_tl_drp_clk_o,
+	pcie_tl_drp_rddata_o,
+	pcie_tl_drp_rd_valid_o,
+	pcie_tl_drp_ready_o,
+	pcie_tl_drp_resp_o,
 	pcie_ltssm_o,
 	pcie_tl_tx_creditsp_o,
 	pcie_tl_tx_creditsnp_o,
@@ -68,13 +83,16 @@ module PCIE_Controller_Top(
 	pcie_tl_int_status_o,
 	pcie_tl_int_req_o,
 	pcie_tl_int_msinum_o,
+	pcie_tl_drp_addr_o,
+	pcie_tl_drp_wrdata_o,
+	pcie_tl_drp_wr_o,
+	pcie_tl_drp_rd_o,
+	pcie_tl_drp_strb_o,
 	pcie_pmac_rstn_o,
-	pcie_csr_mode_o,
 	pcie_tl_clk_freq_o,
 	pcie_tl_tx_prot_o,
 	pcie_tl_brsw_in_o,
 	pcie_tl_pm_obffcontrol_o,
-	pcie_upar_strb_s_o,
 	pcie_VCC,
 	pcie_GND,
 	pcie_tl_clk_o
@@ -90,6 +108,11 @@ input [7:0] pcie_tl_tx_valid_i;
 input pcie_tl_int_status_i;
 input pcie_tl_int_req_i;
 input [4:0] pcie_tl_int_msinum_i;
+input [23:0] pcie_tl_drp_addr_i;
+input [31:0] pcie_tl_drp_wrdata_i;
+input pcie_tl_drp_wr_i;
+input pcie_tl_drp_rd_i;
+input [7:0] pcie_tl_drp_strb_i;
 input pcie_tl_rx_sop_i;
 input pcie_tl_rx_eop_i;
 input [255:0] pcie_tl_rx_data_i;
@@ -98,6 +121,11 @@ input [5:0] pcie_tl_rx_bardec_i;
 input [7:0] pcie_tl_rx_err_i;
 input pcie_tl_tx_wait_i;
 input pcie_tl_int_ack_i;
+input pcie_tl_drp_clk_i;
+input [31:0] pcie_tl_drp_rddata_i;
+input pcie_tl_drp_rd_valid_i;
+input pcie_tl_drp_ready_i;
+input pcie_tl_drp_resp_i;
 input [95:0] pcie_tl_tx_credits_i;
 input [31:0] pcie_pl_test_out_i;
 input [12:0] pcie_tl_cfg_busdev_i;
@@ -126,6 +154,11 @@ output [5:0] pcie_tl_rx_bardec_o;
 output [7:0] pcie_tl_rx_err_o;
 output pcie_tl_tx_wait_o;
 output pcie_tl_int_ack_o;
+output pcie_tl_drp_clk_o;
+output [31:0] pcie_tl_drp_rddata_o;
+output pcie_tl_drp_rd_valid_o;
+output pcie_tl_drp_ready_o;
+output pcie_tl_drp_resp_o;
 output [4:0] pcie_ltssm_o;
 output [31:0] pcie_tl_tx_creditsp_o;
 output [31:0] pcie_tl_tx_creditsnp_o;
@@ -141,13 +174,16 @@ output [7:0] pcie_tl_tx_valid_o;
 output pcie_tl_int_status_o;
 output pcie_tl_int_req_o;
 output [4:0] pcie_tl_int_msinum_o;
+output [23:0] pcie_tl_drp_addr_o;
+output [31:0] pcie_tl_drp_wrdata_o;
+output pcie_tl_drp_wr_o;
+output pcie_tl_drp_rd_o;
+output [7:0] pcie_tl_drp_strb_o;
 output pcie_pmac_rstn_o;
-output [4:0] pcie_csr_mode_o;
 output [21:0] pcie_tl_clk_freq_o;
 output [31:0] pcie_tl_tx_prot_o;
 output [7:0] pcie_tl_brsw_in_o;
 output [3:0] pcie_tl_pm_obffcontrol_o;
-output [7:0] pcie_upar_strb_s_o;
 output pcie_VCC;
 output pcie_GND;
 output pcie_tl_clk_o;
@@ -171,7 +207,6 @@ wire [7:0] fabric_pl_txdatavalid;
 wire [7:0] fabric_pl_txdatavalid_h;
 wire pcie_GND;
 wire pcie_VCC;
-wire [4:0] pcie_csr_mode_o;
 wire pcie_half_clk_i;
 wire pcie_linkup_o;
 wire [4:0] pcie_ltssm_o;
@@ -184,6 +219,26 @@ wire [12:0] pcie_tl_cfg_busdev_o;
 wire [21:0] pcie_tl_clk_freq_o;
 wire pcie_tl_clk_i;
 wire pcie_tl_clk_o;
+wire [23:0] pcie_tl_drp_addr_i;
+wire [23:0] pcie_tl_drp_addr_o;
+wire pcie_tl_drp_clk_i;
+wire pcie_tl_drp_clk_o;
+wire pcie_tl_drp_rd_i;
+wire pcie_tl_drp_rd_o;
+wire pcie_tl_drp_rd_valid_i;
+wire pcie_tl_drp_rd_valid_o;
+wire [31:0] pcie_tl_drp_rddata_i;
+wire [31:0] pcie_tl_drp_rddata_o;
+wire pcie_tl_drp_ready_i;
+wire pcie_tl_drp_ready_o;
+wire pcie_tl_drp_resp_i;
+wire pcie_tl_drp_resp_o;
+wire [7:0] pcie_tl_drp_strb_i;
+wire [7:0] pcie_tl_drp_strb_o;
+wire pcie_tl_drp_wr_i;
+wire pcie_tl_drp_wr_o;
+wire [31:0] pcie_tl_drp_wrdata_i;
+wire [31:0] pcie_tl_drp_wrdata_o;
 wire pcie_tl_int_ack_i;
 wire pcie_tl_int_ack_o;
 wire [4:0] pcie_tl_int_msinum_i;
@@ -224,10 +279,10 @@ wire [7:0] pcie_tl_tx_valid_i;
 wire [7:0] pcie_tl_tx_valid_o;
 wire pcie_tl_tx_wait_i;
 wire pcie_tl_tx_wait_o;
-wire [7:0] pcie_upar_strb_s_o;
-wire \u_pcie_controller/n216_4 ;
-wire \u_pcie_controller/n216_5 ;
+wire \u_pcie_controller/n203_4 ;
+wire \u_pcie_controller/n203_5 ;
 wire \u_pcie_controller/ltssm_10 ;
+wire \u_pcie_controller/rstn ;
 wire [4:0] \u_pcie_controller/pl_test_out_rr ;
 wire \u_pcie_controller/u_rstn/key_an ;
 wire \u_pcie_controller/u_rstn/n24_11 ;
@@ -1425,1881 +1480,2241 @@ IBUF gowin_buf_281 (
 	.O(pcie_tl_int_ack_o)
 );
 IBUF gowin_buf_282 (
+	.I(pcie_tl_drp_clk_i),
+	.O(pcie_tl_drp_clk_o)
+);
+IBUF gowin_buf_283 (
+	.I(pcie_tl_drp_rddata_i[0]),
+	.O(pcie_tl_drp_rddata_o[0])
+);
+IBUF gowin_buf_284 (
+	.I(pcie_tl_drp_rddata_i[1]),
+	.O(pcie_tl_drp_rddata_o[1])
+);
+IBUF gowin_buf_285 (
+	.I(pcie_tl_drp_rddata_i[2]),
+	.O(pcie_tl_drp_rddata_o[2])
+);
+IBUF gowin_buf_286 (
+	.I(pcie_tl_drp_rddata_i[3]),
+	.O(pcie_tl_drp_rddata_o[3])
+);
+IBUF gowin_buf_287 (
+	.I(pcie_tl_drp_rddata_i[4]),
+	.O(pcie_tl_drp_rddata_o[4])
+);
+IBUF gowin_buf_288 (
+	.I(pcie_tl_drp_rddata_i[5]),
+	.O(pcie_tl_drp_rddata_o[5])
+);
+IBUF gowin_buf_289 (
+	.I(pcie_tl_drp_rddata_i[6]),
+	.O(pcie_tl_drp_rddata_o[6])
+);
+IBUF gowin_buf_290 (
+	.I(pcie_tl_drp_rddata_i[7]),
+	.O(pcie_tl_drp_rddata_o[7])
+);
+IBUF gowin_buf_291 (
+	.I(pcie_tl_drp_rddata_i[8]),
+	.O(pcie_tl_drp_rddata_o[8])
+);
+IBUF gowin_buf_292 (
+	.I(pcie_tl_drp_rddata_i[9]),
+	.O(pcie_tl_drp_rddata_o[9])
+);
+IBUF gowin_buf_293 (
+	.I(pcie_tl_drp_rddata_i[10]),
+	.O(pcie_tl_drp_rddata_o[10])
+);
+IBUF gowin_buf_294 (
+	.I(pcie_tl_drp_rddata_i[11]),
+	.O(pcie_tl_drp_rddata_o[11])
+);
+IBUF gowin_buf_295 (
+	.I(pcie_tl_drp_rddata_i[12]),
+	.O(pcie_tl_drp_rddata_o[12])
+);
+IBUF gowin_buf_296 (
+	.I(pcie_tl_drp_rddata_i[13]),
+	.O(pcie_tl_drp_rddata_o[13])
+);
+IBUF gowin_buf_297 (
+	.I(pcie_tl_drp_rddata_i[14]),
+	.O(pcie_tl_drp_rddata_o[14])
+);
+IBUF gowin_buf_298 (
+	.I(pcie_tl_drp_rddata_i[15]),
+	.O(pcie_tl_drp_rddata_o[15])
+);
+IBUF gowin_buf_299 (
+	.I(pcie_tl_drp_rddata_i[16]),
+	.O(pcie_tl_drp_rddata_o[16])
+);
+IBUF gowin_buf_300 (
+	.I(pcie_tl_drp_rddata_i[17]),
+	.O(pcie_tl_drp_rddata_o[17])
+);
+IBUF gowin_buf_301 (
+	.I(pcie_tl_drp_rddata_i[18]),
+	.O(pcie_tl_drp_rddata_o[18])
+);
+IBUF gowin_buf_302 (
+	.I(pcie_tl_drp_rddata_i[19]),
+	.O(pcie_tl_drp_rddata_o[19])
+);
+IBUF gowin_buf_303 (
+	.I(pcie_tl_drp_rddata_i[20]),
+	.O(pcie_tl_drp_rddata_o[20])
+);
+IBUF gowin_buf_304 (
+	.I(pcie_tl_drp_rddata_i[21]),
+	.O(pcie_tl_drp_rddata_o[21])
+);
+IBUF gowin_buf_305 (
+	.I(pcie_tl_drp_rddata_i[22]),
+	.O(pcie_tl_drp_rddata_o[22])
+);
+IBUF gowin_buf_306 (
+	.I(pcie_tl_drp_rddata_i[23]),
+	.O(pcie_tl_drp_rddata_o[23])
+);
+IBUF gowin_buf_307 (
+	.I(pcie_tl_drp_rddata_i[24]),
+	.O(pcie_tl_drp_rddata_o[24])
+);
+IBUF gowin_buf_308 (
+	.I(pcie_tl_drp_rddata_i[25]),
+	.O(pcie_tl_drp_rddata_o[25])
+);
+IBUF gowin_buf_309 (
+	.I(pcie_tl_drp_rddata_i[26]),
+	.O(pcie_tl_drp_rddata_o[26])
+);
+IBUF gowin_buf_310 (
+	.I(pcie_tl_drp_rddata_i[27]),
+	.O(pcie_tl_drp_rddata_o[27])
+);
+IBUF gowin_buf_311 (
+	.I(pcie_tl_drp_rddata_i[28]),
+	.O(pcie_tl_drp_rddata_o[28])
+);
+IBUF gowin_buf_312 (
+	.I(pcie_tl_drp_rddata_i[29]),
+	.O(pcie_tl_drp_rddata_o[29])
+);
+IBUF gowin_buf_313 (
+	.I(pcie_tl_drp_rddata_i[30]),
+	.O(pcie_tl_drp_rddata_o[30])
+);
+IBUF gowin_buf_314 (
+	.I(pcie_tl_drp_rddata_i[31]),
+	.O(pcie_tl_drp_rddata_o[31])
+);
+IBUF gowin_buf_315 (
+	.I(pcie_tl_drp_rd_valid_i),
+	.O(pcie_tl_drp_rd_valid_o)
+);
+IBUF gowin_buf_316 (
+	.I(pcie_tl_drp_ready_i),
+	.O(pcie_tl_drp_ready_o)
+);
+IBUF gowin_buf_317 (
+	.I(pcie_tl_drp_resp_i),
+	.O(pcie_tl_drp_resp_o)
+);
+IBUF gowin_buf_318 (
 	.I(pcie_tl_tx_credits_i[0]),
 	.O(pcie_tl_tx_creditsp_o[0])
 );
-IBUF gowin_buf_283 (
+IBUF gowin_buf_319 (
 	.I(pcie_tl_tx_credits_i[1]),
 	.O(pcie_tl_tx_creditsp_o[1])
 );
-IBUF gowin_buf_284 (
+IBUF gowin_buf_320 (
 	.I(pcie_tl_tx_credits_i[2]),
 	.O(pcie_tl_tx_creditsp_o[2])
 );
-IBUF gowin_buf_285 (
+IBUF gowin_buf_321 (
 	.I(pcie_tl_tx_credits_i[3]),
 	.O(pcie_tl_tx_creditsp_o[3])
 );
-IBUF gowin_buf_286 (
+IBUF gowin_buf_322 (
 	.I(pcie_tl_tx_credits_i[4]),
 	.O(pcie_tl_tx_creditsp_o[4])
 );
-IBUF gowin_buf_287 (
+IBUF gowin_buf_323 (
 	.I(pcie_tl_tx_credits_i[5]),
 	.O(pcie_tl_tx_creditsp_o[5])
 );
-IBUF gowin_buf_288 (
+IBUF gowin_buf_324 (
 	.I(pcie_tl_tx_credits_i[6]),
 	.O(pcie_tl_tx_creditsp_o[6])
 );
-IBUF gowin_buf_289 (
+IBUF gowin_buf_325 (
 	.I(pcie_tl_tx_credits_i[7]),
 	.O(pcie_tl_tx_creditsp_o[7])
 );
-IBUF gowin_buf_290 (
+IBUF gowin_buf_326 (
 	.I(pcie_tl_tx_credits_i[8]),
 	.O(pcie_tl_tx_creditsp_o[8])
 );
-IBUF gowin_buf_291 (
+IBUF gowin_buf_327 (
 	.I(pcie_tl_tx_credits_i[9]),
 	.O(pcie_tl_tx_creditsp_o[9])
 );
-IBUF gowin_buf_292 (
+IBUF gowin_buf_328 (
 	.I(pcie_tl_tx_credits_i[10]),
 	.O(pcie_tl_tx_creditsp_o[10])
 );
-IBUF gowin_buf_293 (
+IBUF gowin_buf_329 (
 	.I(pcie_tl_tx_credits_i[11]),
 	.O(pcie_tl_tx_creditsp_o[11])
 );
-IBUF gowin_buf_294 (
+IBUF gowin_buf_330 (
 	.I(pcie_tl_tx_credits_i[12]),
 	.O(pcie_tl_tx_creditsp_o[12])
 );
-IBUF gowin_buf_295 (
+IBUF gowin_buf_331 (
 	.I(pcie_tl_tx_credits_i[13]),
 	.O(pcie_tl_tx_creditsp_o[13])
 );
-IBUF gowin_buf_296 (
+IBUF gowin_buf_332 (
 	.I(pcie_tl_tx_credits_i[14]),
 	.O(pcie_tl_tx_creditsp_o[14])
 );
-IBUF gowin_buf_297 (
+IBUF gowin_buf_333 (
 	.I(pcie_tl_tx_credits_i[15]),
 	.O(pcie_tl_tx_creditsp_o[15])
 );
-IBUF gowin_buf_298 (
+IBUF gowin_buf_334 (
 	.I(pcie_tl_tx_credits_i[16]),
 	.O(pcie_tl_tx_creditsp_o[16])
 );
-IBUF gowin_buf_299 (
+IBUF gowin_buf_335 (
 	.I(pcie_tl_tx_credits_i[17]),
 	.O(pcie_tl_tx_creditsp_o[17])
 );
-IBUF gowin_buf_300 (
+IBUF gowin_buf_336 (
 	.I(pcie_tl_tx_credits_i[18]),
 	.O(pcie_tl_tx_creditsp_o[18])
 );
-IBUF gowin_buf_301 (
+IBUF gowin_buf_337 (
 	.I(pcie_tl_tx_credits_i[19]),
 	.O(pcie_tl_tx_creditsp_o[19])
 );
-IBUF gowin_buf_302 (
+IBUF gowin_buf_338 (
 	.I(pcie_tl_tx_credits_i[20]),
 	.O(pcie_tl_tx_creditsp_o[20])
 );
-IBUF gowin_buf_303 (
+IBUF gowin_buf_339 (
 	.I(pcie_tl_tx_credits_i[21]),
 	.O(pcie_tl_tx_creditsp_o[21])
 );
-IBUF gowin_buf_304 (
+IBUF gowin_buf_340 (
 	.I(pcie_tl_tx_credits_i[22]),
 	.O(pcie_tl_tx_creditsp_o[22])
 );
-IBUF gowin_buf_305 (
+IBUF gowin_buf_341 (
 	.I(pcie_tl_tx_credits_i[23]),
 	.O(pcie_tl_tx_creditsp_o[23])
 );
-IBUF gowin_buf_306 (
+IBUF gowin_buf_342 (
 	.I(pcie_tl_tx_credits_i[24]),
 	.O(pcie_tl_tx_creditsp_o[24])
 );
-IBUF gowin_buf_307 (
+IBUF gowin_buf_343 (
 	.I(pcie_tl_tx_credits_i[25]),
 	.O(pcie_tl_tx_creditsp_o[25])
 );
-IBUF gowin_buf_308 (
+IBUF gowin_buf_344 (
 	.I(pcie_tl_tx_credits_i[26]),
 	.O(pcie_tl_tx_creditsp_o[26])
 );
-IBUF gowin_buf_309 (
+IBUF gowin_buf_345 (
 	.I(pcie_tl_tx_credits_i[27]),
 	.O(pcie_tl_tx_creditsp_o[27])
 );
-IBUF gowin_buf_310 (
+IBUF gowin_buf_346 (
 	.I(pcie_tl_tx_credits_i[28]),
 	.O(pcie_tl_tx_creditsp_o[28])
 );
-IBUF gowin_buf_311 (
+IBUF gowin_buf_347 (
 	.I(pcie_tl_tx_credits_i[29]),
 	.O(pcie_tl_tx_creditsp_o[29])
 );
-IBUF gowin_buf_312 (
+IBUF gowin_buf_348 (
 	.I(pcie_tl_tx_credits_i[30]),
 	.O(pcie_tl_tx_creditsp_o[30])
 );
-IBUF gowin_buf_313 (
+IBUF gowin_buf_349 (
 	.I(pcie_tl_tx_credits_i[31]),
 	.O(pcie_tl_tx_creditsp_o[31])
 );
-IBUF gowin_buf_314 (
+IBUF gowin_buf_350 (
 	.I(pcie_tl_tx_credits_i[32]),
 	.O(pcie_tl_tx_creditsnp_o[0])
 );
-IBUF gowin_buf_315 (
+IBUF gowin_buf_351 (
 	.I(pcie_tl_tx_credits_i[33]),
 	.O(pcie_tl_tx_creditsnp_o[1])
 );
-IBUF gowin_buf_316 (
+IBUF gowin_buf_352 (
 	.I(pcie_tl_tx_credits_i[34]),
 	.O(pcie_tl_tx_creditsnp_o[2])
 );
-IBUF gowin_buf_317 (
+IBUF gowin_buf_353 (
 	.I(pcie_tl_tx_credits_i[35]),
 	.O(pcie_tl_tx_creditsnp_o[3])
 );
-IBUF gowin_buf_318 (
+IBUF gowin_buf_354 (
 	.I(pcie_tl_tx_credits_i[36]),
 	.O(pcie_tl_tx_creditsnp_o[4])
 );
-IBUF gowin_buf_319 (
+IBUF gowin_buf_355 (
 	.I(pcie_tl_tx_credits_i[37]),
 	.O(pcie_tl_tx_creditsnp_o[5])
 );
-IBUF gowin_buf_320 (
+IBUF gowin_buf_356 (
 	.I(pcie_tl_tx_credits_i[38]),
 	.O(pcie_tl_tx_creditsnp_o[6])
 );
-IBUF gowin_buf_321 (
+IBUF gowin_buf_357 (
 	.I(pcie_tl_tx_credits_i[39]),
 	.O(pcie_tl_tx_creditsnp_o[7])
 );
-IBUF gowin_buf_322 (
+IBUF gowin_buf_358 (
 	.I(pcie_tl_tx_credits_i[40]),
 	.O(pcie_tl_tx_creditsnp_o[8])
 );
-IBUF gowin_buf_323 (
+IBUF gowin_buf_359 (
 	.I(pcie_tl_tx_credits_i[41]),
 	.O(pcie_tl_tx_creditsnp_o[9])
 );
-IBUF gowin_buf_324 (
+IBUF gowin_buf_360 (
 	.I(pcie_tl_tx_credits_i[42]),
 	.O(pcie_tl_tx_creditsnp_o[10])
 );
-IBUF gowin_buf_325 (
+IBUF gowin_buf_361 (
 	.I(pcie_tl_tx_credits_i[43]),
 	.O(pcie_tl_tx_creditsnp_o[11])
 );
-IBUF gowin_buf_326 (
+IBUF gowin_buf_362 (
 	.I(pcie_tl_tx_credits_i[44]),
 	.O(pcie_tl_tx_creditsnp_o[12])
 );
-IBUF gowin_buf_327 (
+IBUF gowin_buf_363 (
 	.I(pcie_tl_tx_credits_i[45]),
 	.O(pcie_tl_tx_creditsnp_o[13])
 );
-IBUF gowin_buf_328 (
+IBUF gowin_buf_364 (
 	.I(pcie_tl_tx_credits_i[46]),
 	.O(pcie_tl_tx_creditsnp_o[14])
 );
-IBUF gowin_buf_329 (
+IBUF gowin_buf_365 (
 	.I(pcie_tl_tx_credits_i[47]),
 	.O(pcie_tl_tx_creditsnp_o[15])
 );
-IBUF gowin_buf_330 (
+IBUF gowin_buf_366 (
 	.I(pcie_tl_tx_credits_i[48]),
 	.O(pcie_tl_tx_creditsnp_o[16])
 );
-IBUF gowin_buf_331 (
+IBUF gowin_buf_367 (
 	.I(pcie_tl_tx_credits_i[49]),
 	.O(pcie_tl_tx_creditsnp_o[17])
 );
-IBUF gowin_buf_332 (
+IBUF gowin_buf_368 (
 	.I(pcie_tl_tx_credits_i[50]),
 	.O(pcie_tl_tx_creditsnp_o[18])
 );
-IBUF gowin_buf_333 (
+IBUF gowin_buf_369 (
 	.I(pcie_tl_tx_credits_i[51]),
 	.O(pcie_tl_tx_creditsnp_o[19])
 );
-IBUF gowin_buf_334 (
+IBUF gowin_buf_370 (
 	.I(pcie_tl_tx_credits_i[52]),
 	.O(pcie_tl_tx_creditsnp_o[20])
 );
-IBUF gowin_buf_335 (
+IBUF gowin_buf_371 (
 	.I(pcie_tl_tx_credits_i[53]),
 	.O(pcie_tl_tx_creditsnp_o[21])
 );
-IBUF gowin_buf_336 (
+IBUF gowin_buf_372 (
 	.I(pcie_tl_tx_credits_i[54]),
 	.O(pcie_tl_tx_creditsnp_o[22])
 );
-IBUF gowin_buf_337 (
+IBUF gowin_buf_373 (
 	.I(pcie_tl_tx_credits_i[55]),
 	.O(pcie_tl_tx_creditsnp_o[23])
 );
-IBUF gowin_buf_338 (
+IBUF gowin_buf_374 (
 	.I(pcie_tl_tx_credits_i[56]),
 	.O(pcie_tl_tx_creditsnp_o[24])
 );
-IBUF gowin_buf_339 (
+IBUF gowin_buf_375 (
 	.I(pcie_tl_tx_credits_i[57]),
 	.O(pcie_tl_tx_creditsnp_o[25])
 );
-IBUF gowin_buf_340 (
+IBUF gowin_buf_376 (
 	.I(pcie_tl_tx_credits_i[58]),
 	.O(pcie_tl_tx_creditsnp_o[26])
 );
-IBUF gowin_buf_341 (
+IBUF gowin_buf_377 (
 	.I(pcie_tl_tx_credits_i[59]),
 	.O(pcie_tl_tx_creditsnp_o[27])
 );
-IBUF gowin_buf_342 (
+IBUF gowin_buf_378 (
 	.I(pcie_tl_tx_credits_i[60]),
 	.O(pcie_tl_tx_creditsnp_o[28])
 );
-IBUF gowin_buf_343 (
+IBUF gowin_buf_379 (
 	.I(pcie_tl_tx_credits_i[61]),
 	.O(pcie_tl_tx_creditsnp_o[29])
 );
-IBUF gowin_buf_344 (
+IBUF gowin_buf_380 (
 	.I(pcie_tl_tx_credits_i[62]),
 	.O(pcie_tl_tx_creditsnp_o[30])
 );
-IBUF gowin_buf_345 (
+IBUF gowin_buf_381 (
 	.I(pcie_tl_tx_credits_i[63]),
 	.O(pcie_tl_tx_creditsnp_o[31])
 );
-IBUF gowin_buf_346 (
+IBUF gowin_buf_382 (
 	.I(pcie_tl_tx_credits_i[64]),
 	.O(pcie_tl_tx_creditscpl_o[0])
 );
-IBUF gowin_buf_347 (
+IBUF gowin_buf_383 (
 	.I(pcie_tl_tx_credits_i[65]),
 	.O(pcie_tl_tx_creditscpl_o[1])
 );
-IBUF gowin_buf_348 (
+IBUF gowin_buf_384 (
 	.I(pcie_tl_tx_credits_i[66]),
 	.O(pcie_tl_tx_creditscpl_o[2])
 );
-IBUF gowin_buf_349 (
+IBUF gowin_buf_385 (
 	.I(pcie_tl_tx_credits_i[67]),
 	.O(pcie_tl_tx_creditscpl_o[3])
 );
-IBUF gowin_buf_350 (
+IBUF gowin_buf_386 (
 	.I(pcie_tl_tx_credits_i[68]),
 	.O(pcie_tl_tx_creditscpl_o[4])
 );
-IBUF gowin_buf_351 (
+IBUF gowin_buf_387 (
 	.I(pcie_tl_tx_credits_i[69]),
 	.O(pcie_tl_tx_creditscpl_o[5])
 );
-IBUF gowin_buf_352 (
+IBUF gowin_buf_388 (
 	.I(pcie_tl_tx_credits_i[70]),
 	.O(pcie_tl_tx_creditscpl_o[6])
 );
-IBUF gowin_buf_353 (
+IBUF gowin_buf_389 (
 	.I(pcie_tl_tx_credits_i[71]),
 	.O(pcie_tl_tx_creditscpl_o[7])
 );
-IBUF gowin_buf_354 (
+IBUF gowin_buf_390 (
 	.I(pcie_tl_tx_credits_i[72]),
 	.O(pcie_tl_tx_creditscpl_o[8])
 );
-IBUF gowin_buf_355 (
+IBUF gowin_buf_391 (
 	.I(pcie_tl_tx_credits_i[73]),
 	.O(pcie_tl_tx_creditscpl_o[9])
 );
-IBUF gowin_buf_356 (
+IBUF gowin_buf_392 (
 	.I(pcie_tl_tx_credits_i[74]),
 	.O(pcie_tl_tx_creditscpl_o[10])
 );
-IBUF gowin_buf_357 (
+IBUF gowin_buf_393 (
 	.I(pcie_tl_tx_credits_i[75]),
 	.O(pcie_tl_tx_creditscpl_o[11])
 );
-IBUF gowin_buf_358 (
+IBUF gowin_buf_394 (
 	.I(pcie_tl_tx_credits_i[76]),
 	.O(pcie_tl_tx_creditscpl_o[12])
 );
-IBUF gowin_buf_359 (
+IBUF gowin_buf_395 (
 	.I(pcie_tl_tx_credits_i[77]),
 	.O(pcie_tl_tx_creditscpl_o[13])
 );
-IBUF gowin_buf_360 (
+IBUF gowin_buf_396 (
 	.I(pcie_tl_tx_credits_i[78]),
 	.O(pcie_tl_tx_creditscpl_o[14])
 );
-IBUF gowin_buf_361 (
+IBUF gowin_buf_397 (
 	.I(pcie_tl_tx_credits_i[79]),
 	.O(pcie_tl_tx_creditscpl_o[15])
 );
-IBUF gowin_buf_362 (
+IBUF gowin_buf_398 (
 	.I(pcie_tl_tx_credits_i[80]),
 	.O(pcie_tl_tx_creditscpl_o[16])
 );
-IBUF gowin_buf_363 (
+IBUF gowin_buf_399 (
 	.I(pcie_tl_tx_credits_i[81]),
 	.O(pcie_tl_tx_creditscpl_o[17])
 );
-IBUF gowin_buf_364 (
+IBUF gowin_buf_400 (
 	.I(pcie_tl_tx_credits_i[82]),
 	.O(pcie_tl_tx_creditscpl_o[18])
 );
-IBUF gowin_buf_365 (
+IBUF gowin_buf_401 (
 	.I(pcie_tl_tx_credits_i[83]),
 	.O(pcie_tl_tx_creditscpl_o[19])
 );
-IBUF gowin_buf_366 (
+IBUF gowin_buf_402 (
 	.I(pcie_tl_tx_credits_i[84]),
 	.O(pcie_tl_tx_creditscpl_o[20])
 );
-IBUF gowin_buf_367 (
+IBUF gowin_buf_403 (
 	.I(pcie_tl_tx_credits_i[85]),
 	.O(pcie_tl_tx_creditscpl_o[21])
 );
-IBUF gowin_buf_368 (
+IBUF gowin_buf_404 (
 	.I(pcie_tl_tx_credits_i[86]),
 	.O(pcie_tl_tx_creditscpl_o[22])
 );
-IBUF gowin_buf_369 (
+IBUF gowin_buf_405 (
 	.I(pcie_tl_tx_credits_i[87]),
 	.O(pcie_tl_tx_creditscpl_o[23])
 );
-IBUF gowin_buf_370 (
+IBUF gowin_buf_406 (
 	.I(pcie_tl_tx_credits_i[88]),
 	.O(pcie_tl_tx_creditscpl_o[24])
 );
-IBUF gowin_buf_371 (
+IBUF gowin_buf_407 (
 	.I(pcie_tl_tx_credits_i[89]),
 	.O(pcie_tl_tx_creditscpl_o[25])
 );
-IBUF gowin_buf_372 (
+IBUF gowin_buf_408 (
 	.I(pcie_tl_tx_credits_i[90]),
 	.O(pcie_tl_tx_creditscpl_o[26])
 );
-IBUF gowin_buf_373 (
+IBUF gowin_buf_409 (
 	.I(pcie_tl_tx_credits_i[91]),
 	.O(pcie_tl_tx_creditscpl_o[27])
 );
-IBUF gowin_buf_374 (
+IBUF gowin_buf_410 (
 	.I(pcie_tl_tx_credits_i[92]),
 	.O(pcie_tl_tx_creditscpl_o[28])
 );
-IBUF gowin_buf_375 (
+IBUF gowin_buf_411 (
 	.I(pcie_tl_tx_credits_i[93]),
 	.O(pcie_tl_tx_creditscpl_o[29])
 );
-IBUF gowin_buf_376 (
+IBUF gowin_buf_412 (
 	.I(pcie_tl_tx_credits_i[94]),
 	.O(pcie_tl_tx_creditscpl_o[30])
 );
-IBUF gowin_buf_377 (
+IBUF gowin_buf_413 (
 	.I(pcie_tl_tx_credits_i[95]),
 	.O(pcie_tl_tx_creditscpl_o[31])
 );
-IBUF gowin_buf_378 (
+IBUF gowin_buf_414 (
 	.I(pcie_tl_cfg_busdev_i[0]),
 	.O(pcie_tl_cfg_busdev_o[0])
 );
-IBUF gowin_buf_379 (
+IBUF gowin_buf_415 (
 	.I(pcie_tl_cfg_busdev_i[1]),
 	.O(pcie_tl_cfg_busdev_o[1])
 );
-IBUF gowin_buf_380 (
+IBUF gowin_buf_416 (
 	.I(pcie_tl_cfg_busdev_i[2]),
 	.O(pcie_tl_cfg_busdev_o[2])
 );
-IBUF gowin_buf_381 (
+IBUF gowin_buf_417 (
 	.I(pcie_tl_cfg_busdev_i[3]),
 	.O(pcie_tl_cfg_busdev_o[3])
 );
-IBUF gowin_buf_382 (
+IBUF gowin_buf_418 (
 	.I(pcie_tl_cfg_busdev_i[4]),
 	.O(pcie_tl_cfg_busdev_o[4])
 );
-IBUF gowin_buf_383 (
+IBUF gowin_buf_419 (
 	.I(pcie_tl_cfg_busdev_i[5]),
 	.O(pcie_tl_cfg_busdev_o[5])
 );
-IBUF gowin_buf_384 (
+IBUF gowin_buf_420 (
 	.I(pcie_tl_cfg_busdev_i[6]),
 	.O(pcie_tl_cfg_busdev_o[6])
 );
-IBUF gowin_buf_385 (
+IBUF gowin_buf_421 (
 	.I(pcie_tl_cfg_busdev_i[7]),
 	.O(pcie_tl_cfg_busdev_o[7])
 );
-IBUF gowin_buf_386 (
+IBUF gowin_buf_422 (
 	.I(pcie_tl_cfg_busdev_i[8]),
 	.O(pcie_tl_cfg_busdev_o[8])
 );
-IBUF gowin_buf_387 (
+IBUF gowin_buf_423 (
 	.I(pcie_tl_cfg_busdev_i[9]),
 	.O(pcie_tl_cfg_busdev_o[9])
 );
-IBUF gowin_buf_388 (
+IBUF gowin_buf_424 (
 	.I(pcie_tl_cfg_busdev_i[10]),
 	.O(pcie_tl_cfg_busdev_o[10])
 );
-IBUF gowin_buf_389 (
+IBUF gowin_buf_425 (
 	.I(pcie_tl_cfg_busdev_i[11]),
 	.O(pcie_tl_cfg_busdev_o[11])
 );
-IBUF gowin_buf_390 (
+IBUF gowin_buf_426 (
 	.I(pcie_tl_cfg_busdev_i[12]),
 	.O(pcie_tl_cfg_busdev_o[12])
 );
-IBUF gowin_buf_391 (
+IBUF gowin_buf_427 (
 	.I(pcie_tl_rx_wait_i),
 	.O(pcie_tl_rx_wait_o)
 );
-IBUF gowin_buf_392 (
+IBUF gowin_buf_428 (
 	.I(pcie_tl_rx_masknp_i),
 	.O(pcie_tl_rx_masknp_o)
 );
-IBUF gowin_buf_393 (
+IBUF gowin_buf_429 (
 	.I(pcie_tl_tx_sop_i),
 	.O(pcie_tl_tx_sop_o)
 );
-IBUF gowin_buf_394 (
+IBUF gowin_buf_430 (
 	.I(pcie_tl_tx_eop_i),
 	.O(pcie_tl_tx_eop_o)
 );
-IBUF gowin_buf_395 (
+IBUF gowin_buf_431 (
 	.I(pcie_tl_tx_data_i[0]),
 	.O(pcie_tl_tx_data_o[0])
 );
-IBUF gowin_buf_396 (
+IBUF gowin_buf_432 (
 	.I(pcie_tl_tx_data_i[1]),
 	.O(pcie_tl_tx_data_o[1])
 );
-IBUF gowin_buf_397 (
+IBUF gowin_buf_433 (
 	.I(pcie_tl_tx_data_i[2]),
 	.O(pcie_tl_tx_data_o[2])
 );
-IBUF gowin_buf_398 (
+IBUF gowin_buf_434 (
 	.I(pcie_tl_tx_data_i[3]),
 	.O(pcie_tl_tx_data_o[3])
 );
-IBUF gowin_buf_399 (
+IBUF gowin_buf_435 (
 	.I(pcie_tl_tx_data_i[4]),
 	.O(pcie_tl_tx_data_o[4])
 );
-IBUF gowin_buf_400 (
+IBUF gowin_buf_436 (
 	.I(pcie_tl_tx_data_i[5]),
 	.O(pcie_tl_tx_data_o[5])
 );
-IBUF gowin_buf_401 (
+IBUF gowin_buf_437 (
 	.I(pcie_tl_tx_data_i[6]),
 	.O(pcie_tl_tx_data_o[6])
 );
-IBUF gowin_buf_402 (
+IBUF gowin_buf_438 (
 	.I(pcie_tl_tx_data_i[7]),
 	.O(pcie_tl_tx_data_o[7])
 );
-IBUF gowin_buf_403 (
+IBUF gowin_buf_439 (
 	.I(pcie_tl_tx_data_i[8]),
 	.O(pcie_tl_tx_data_o[8])
 );
-IBUF gowin_buf_404 (
+IBUF gowin_buf_440 (
 	.I(pcie_tl_tx_data_i[9]),
 	.O(pcie_tl_tx_data_o[9])
 );
-IBUF gowin_buf_405 (
+IBUF gowin_buf_441 (
 	.I(pcie_tl_tx_data_i[10]),
 	.O(pcie_tl_tx_data_o[10])
 );
-IBUF gowin_buf_406 (
+IBUF gowin_buf_442 (
 	.I(pcie_tl_tx_data_i[11]),
 	.O(pcie_tl_tx_data_o[11])
 );
-IBUF gowin_buf_407 (
+IBUF gowin_buf_443 (
 	.I(pcie_tl_tx_data_i[12]),
 	.O(pcie_tl_tx_data_o[12])
 );
-IBUF gowin_buf_408 (
+IBUF gowin_buf_444 (
 	.I(pcie_tl_tx_data_i[13]),
 	.O(pcie_tl_tx_data_o[13])
 );
-IBUF gowin_buf_409 (
+IBUF gowin_buf_445 (
 	.I(pcie_tl_tx_data_i[14]),
 	.O(pcie_tl_tx_data_o[14])
 );
-IBUF gowin_buf_410 (
+IBUF gowin_buf_446 (
 	.I(pcie_tl_tx_data_i[15]),
 	.O(pcie_tl_tx_data_o[15])
 );
-IBUF gowin_buf_411 (
+IBUF gowin_buf_447 (
 	.I(pcie_tl_tx_data_i[16]),
 	.O(pcie_tl_tx_data_o[16])
 );
-IBUF gowin_buf_412 (
+IBUF gowin_buf_448 (
 	.I(pcie_tl_tx_data_i[17]),
 	.O(pcie_tl_tx_data_o[17])
 );
-IBUF gowin_buf_413 (
+IBUF gowin_buf_449 (
 	.I(pcie_tl_tx_data_i[18]),
 	.O(pcie_tl_tx_data_o[18])
 );
-IBUF gowin_buf_414 (
+IBUF gowin_buf_450 (
 	.I(pcie_tl_tx_data_i[19]),
 	.O(pcie_tl_tx_data_o[19])
 );
-IBUF gowin_buf_415 (
+IBUF gowin_buf_451 (
 	.I(pcie_tl_tx_data_i[20]),
 	.O(pcie_tl_tx_data_o[20])
 );
-IBUF gowin_buf_416 (
+IBUF gowin_buf_452 (
 	.I(pcie_tl_tx_data_i[21]),
 	.O(pcie_tl_tx_data_o[21])
 );
-IBUF gowin_buf_417 (
+IBUF gowin_buf_453 (
 	.I(pcie_tl_tx_data_i[22]),
 	.O(pcie_tl_tx_data_o[22])
 );
-IBUF gowin_buf_418 (
+IBUF gowin_buf_454 (
 	.I(pcie_tl_tx_data_i[23]),
 	.O(pcie_tl_tx_data_o[23])
 );
-IBUF gowin_buf_419 (
+IBUF gowin_buf_455 (
 	.I(pcie_tl_tx_data_i[24]),
 	.O(pcie_tl_tx_data_o[24])
 );
-IBUF gowin_buf_420 (
+IBUF gowin_buf_456 (
 	.I(pcie_tl_tx_data_i[25]),
 	.O(pcie_tl_tx_data_o[25])
 );
-IBUF gowin_buf_421 (
+IBUF gowin_buf_457 (
 	.I(pcie_tl_tx_data_i[26]),
 	.O(pcie_tl_tx_data_o[26])
 );
-IBUF gowin_buf_422 (
+IBUF gowin_buf_458 (
 	.I(pcie_tl_tx_data_i[27]),
 	.O(pcie_tl_tx_data_o[27])
 );
-IBUF gowin_buf_423 (
+IBUF gowin_buf_459 (
 	.I(pcie_tl_tx_data_i[28]),
 	.O(pcie_tl_tx_data_o[28])
 );
-IBUF gowin_buf_424 (
+IBUF gowin_buf_460 (
 	.I(pcie_tl_tx_data_i[29]),
 	.O(pcie_tl_tx_data_o[29])
 );
-IBUF gowin_buf_425 (
+IBUF gowin_buf_461 (
 	.I(pcie_tl_tx_data_i[30]),
 	.O(pcie_tl_tx_data_o[30])
 );
-IBUF gowin_buf_426 (
+IBUF gowin_buf_462 (
 	.I(pcie_tl_tx_data_i[31]),
 	.O(pcie_tl_tx_data_o[31])
 );
-IBUF gowin_buf_427 (
+IBUF gowin_buf_463 (
 	.I(pcie_tl_tx_data_i[32]),
 	.O(pcie_tl_tx_data_o[32])
 );
-IBUF gowin_buf_428 (
+IBUF gowin_buf_464 (
 	.I(pcie_tl_tx_data_i[33]),
 	.O(pcie_tl_tx_data_o[33])
 );
-IBUF gowin_buf_429 (
+IBUF gowin_buf_465 (
 	.I(pcie_tl_tx_data_i[34]),
 	.O(pcie_tl_tx_data_o[34])
 );
-IBUF gowin_buf_430 (
+IBUF gowin_buf_466 (
 	.I(pcie_tl_tx_data_i[35]),
 	.O(pcie_tl_tx_data_o[35])
 );
-IBUF gowin_buf_431 (
+IBUF gowin_buf_467 (
 	.I(pcie_tl_tx_data_i[36]),
 	.O(pcie_tl_tx_data_o[36])
 );
-IBUF gowin_buf_432 (
+IBUF gowin_buf_468 (
 	.I(pcie_tl_tx_data_i[37]),
 	.O(pcie_tl_tx_data_o[37])
 );
-IBUF gowin_buf_433 (
+IBUF gowin_buf_469 (
 	.I(pcie_tl_tx_data_i[38]),
 	.O(pcie_tl_tx_data_o[38])
 );
-IBUF gowin_buf_434 (
+IBUF gowin_buf_470 (
 	.I(pcie_tl_tx_data_i[39]),
 	.O(pcie_tl_tx_data_o[39])
 );
-IBUF gowin_buf_435 (
+IBUF gowin_buf_471 (
 	.I(pcie_tl_tx_data_i[40]),
 	.O(pcie_tl_tx_data_o[40])
 );
-IBUF gowin_buf_436 (
+IBUF gowin_buf_472 (
 	.I(pcie_tl_tx_data_i[41]),
 	.O(pcie_tl_tx_data_o[41])
 );
-IBUF gowin_buf_437 (
+IBUF gowin_buf_473 (
 	.I(pcie_tl_tx_data_i[42]),
 	.O(pcie_tl_tx_data_o[42])
 );
-IBUF gowin_buf_438 (
+IBUF gowin_buf_474 (
 	.I(pcie_tl_tx_data_i[43]),
 	.O(pcie_tl_tx_data_o[43])
 );
-IBUF gowin_buf_439 (
+IBUF gowin_buf_475 (
 	.I(pcie_tl_tx_data_i[44]),
 	.O(pcie_tl_tx_data_o[44])
 );
-IBUF gowin_buf_440 (
+IBUF gowin_buf_476 (
 	.I(pcie_tl_tx_data_i[45]),
 	.O(pcie_tl_tx_data_o[45])
 );
-IBUF gowin_buf_441 (
+IBUF gowin_buf_477 (
 	.I(pcie_tl_tx_data_i[46]),
 	.O(pcie_tl_tx_data_o[46])
 );
-IBUF gowin_buf_442 (
+IBUF gowin_buf_478 (
 	.I(pcie_tl_tx_data_i[47]),
 	.O(pcie_tl_tx_data_o[47])
 );
-IBUF gowin_buf_443 (
+IBUF gowin_buf_479 (
 	.I(pcie_tl_tx_data_i[48]),
 	.O(pcie_tl_tx_data_o[48])
 );
-IBUF gowin_buf_444 (
+IBUF gowin_buf_480 (
 	.I(pcie_tl_tx_data_i[49]),
 	.O(pcie_tl_tx_data_o[49])
 );
-IBUF gowin_buf_445 (
+IBUF gowin_buf_481 (
 	.I(pcie_tl_tx_data_i[50]),
 	.O(pcie_tl_tx_data_o[50])
 );
-IBUF gowin_buf_446 (
+IBUF gowin_buf_482 (
 	.I(pcie_tl_tx_data_i[51]),
 	.O(pcie_tl_tx_data_o[51])
 );
-IBUF gowin_buf_447 (
+IBUF gowin_buf_483 (
 	.I(pcie_tl_tx_data_i[52]),
 	.O(pcie_tl_tx_data_o[52])
 );
-IBUF gowin_buf_448 (
+IBUF gowin_buf_484 (
 	.I(pcie_tl_tx_data_i[53]),
 	.O(pcie_tl_tx_data_o[53])
 );
-IBUF gowin_buf_449 (
+IBUF gowin_buf_485 (
 	.I(pcie_tl_tx_data_i[54]),
 	.O(pcie_tl_tx_data_o[54])
 );
-IBUF gowin_buf_450 (
+IBUF gowin_buf_486 (
 	.I(pcie_tl_tx_data_i[55]),
 	.O(pcie_tl_tx_data_o[55])
 );
-IBUF gowin_buf_451 (
+IBUF gowin_buf_487 (
 	.I(pcie_tl_tx_data_i[56]),
 	.O(pcie_tl_tx_data_o[56])
 );
-IBUF gowin_buf_452 (
+IBUF gowin_buf_488 (
 	.I(pcie_tl_tx_data_i[57]),
 	.O(pcie_tl_tx_data_o[57])
 );
-IBUF gowin_buf_453 (
+IBUF gowin_buf_489 (
 	.I(pcie_tl_tx_data_i[58]),
 	.O(pcie_tl_tx_data_o[58])
 );
-IBUF gowin_buf_454 (
+IBUF gowin_buf_490 (
 	.I(pcie_tl_tx_data_i[59]),
 	.O(pcie_tl_tx_data_o[59])
 );
-IBUF gowin_buf_455 (
+IBUF gowin_buf_491 (
 	.I(pcie_tl_tx_data_i[60]),
 	.O(pcie_tl_tx_data_o[60])
 );
-IBUF gowin_buf_456 (
+IBUF gowin_buf_492 (
 	.I(pcie_tl_tx_data_i[61]),
 	.O(pcie_tl_tx_data_o[61])
 );
-IBUF gowin_buf_457 (
+IBUF gowin_buf_493 (
 	.I(pcie_tl_tx_data_i[62]),
 	.O(pcie_tl_tx_data_o[62])
 );
-IBUF gowin_buf_458 (
+IBUF gowin_buf_494 (
 	.I(pcie_tl_tx_data_i[63]),
 	.O(pcie_tl_tx_data_o[63])
 );
-IBUF gowin_buf_459 (
+IBUF gowin_buf_495 (
 	.I(pcie_tl_tx_data_i[64]),
 	.O(pcie_tl_tx_data_o[64])
 );
-IBUF gowin_buf_460 (
+IBUF gowin_buf_496 (
 	.I(pcie_tl_tx_data_i[65]),
 	.O(pcie_tl_tx_data_o[65])
 );
-IBUF gowin_buf_461 (
+IBUF gowin_buf_497 (
 	.I(pcie_tl_tx_data_i[66]),
 	.O(pcie_tl_tx_data_o[66])
 );
-IBUF gowin_buf_462 (
+IBUF gowin_buf_498 (
 	.I(pcie_tl_tx_data_i[67]),
 	.O(pcie_tl_tx_data_o[67])
 );
-IBUF gowin_buf_463 (
+IBUF gowin_buf_499 (
 	.I(pcie_tl_tx_data_i[68]),
 	.O(pcie_tl_tx_data_o[68])
 );
-IBUF gowin_buf_464 (
+IBUF gowin_buf_500 (
 	.I(pcie_tl_tx_data_i[69]),
 	.O(pcie_tl_tx_data_o[69])
 );
-IBUF gowin_buf_465 (
+IBUF gowin_buf_501 (
 	.I(pcie_tl_tx_data_i[70]),
 	.O(pcie_tl_tx_data_o[70])
 );
-IBUF gowin_buf_466 (
+IBUF gowin_buf_502 (
 	.I(pcie_tl_tx_data_i[71]),
 	.O(pcie_tl_tx_data_o[71])
 );
-IBUF gowin_buf_467 (
+IBUF gowin_buf_503 (
 	.I(pcie_tl_tx_data_i[72]),
 	.O(pcie_tl_tx_data_o[72])
 );
-IBUF gowin_buf_468 (
+IBUF gowin_buf_504 (
 	.I(pcie_tl_tx_data_i[73]),
 	.O(pcie_tl_tx_data_o[73])
 );
-IBUF gowin_buf_469 (
+IBUF gowin_buf_505 (
 	.I(pcie_tl_tx_data_i[74]),
 	.O(pcie_tl_tx_data_o[74])
 );
-IBUF gowin_buf_470 (
+IBUF gowin_buf_506 (
 	.I(pcie_tl_tx_data_i[75]),
 	.O(pcie_tl_tx_data_o[75])
 );
-IBUF gowin_buf_471 (
+IBUF gowin_buf_507 (
 	.I(pcie_tl_tx_data_i[76]),
 	.O(pcie_tl_tx_data_o[76])
 );
-IBUF gowin_buf_472 (
+IBUF gowin_buf_508 (
 	.I(pcie_tl_tx_data_i[77]),
 	.O(pcie_tl_tx_data_o[77])
 );
-IBUF gowin_buf_473 (
+IBUF gowin_buf_509 (
 	.I(pcie_tl_tx_data_i[78]),
 	.O(pcie_tl_tx_data_o[78])
 );
-IBUF gowin_buf_474 (
+IBUF gowin_buf_510 (
 	.I(pcie_tl_tx_data_i[79]),
 	.O(pcie_tl_tx_data_o[79])
 );
-IBUF gowin_buf_475 (
+IBUF gowin_buf_511 (
 	.I(pcie_tl_tx_data_i[80]),
 	.O(pcie_tl_tx_data_o[80])
 );
-IBUF gowin_buf_476 (
+IBUF gowin_buf_512 (
 	.I(pcie_tl_tx_data_i[81]),
 	.O(pcie_tl_tx_data_o[81])
 );
-IBUF gowin_buf_477 (
+IBUF gowin_buf_513 (
 	.I(pcie_tl_tx_data_i[82]),
 	.O(pcie_tl_tx_data_o[82])
 );
-IBUF gowin_buf_478 (
+IBUF gowin_buf_514 (
 	.I(pcie_tl_tx_data_i[83]),
 	.O(pcie_tl_tx_data_o[83])
 );
-IBUF gowin_buf_479 (
+IBUF gowin_buf_515 (
 	.I(pcie_tl_tx_data_i[84]),
 	.O(pcie_tl_tx_data_o[84])
 );
-IBUF gowin_buf_480 (
+IBUF gowin_buf_516 (
 	.I(pcie_tl_tx_data_i[85]),
 	.O(pcie_tl_tx_data_o[85])
 );
-IBUF gowin_buf_481 (
+IBUF gowin_buf_517 (
 	.I(pcie_tl_tx_data_i[86]),
 	.O(pcie_tl_tx_data_o[86])
 );
-IBUF gowin_buf_482 (
+IBUF gowin_buf_518 (
 	.I(pcie_tl_tx_data_i[87]),
 	.O(pcie_tl_tx_data_o[87])
 );
-IBUF gowin_buf_483 (
+IBUF gowin_buf_519 (
 	.I(pcie_tl_tx_data_i[88]),
 	.O(pcie_tl_tx_data_o[88])
 );
-IBUF gowin_buf_484 (
+IBUF gowin_buf_520 (
 	.I(pcie_tl_tx_data_i[89]),
 	.O(pcie_tl_tx_data_o[89])
 );
-IBUF gowin_buf_485 (
+IBUF gowin_buf_521 (
 	.I(pcie_tl_tx_data_i[90]),
 	.O(pcie_tl_tx_data_o[90])
 );
-IBUF gowin_buf_486 (
+IBUF gowin_buf_522 (
 	.I(pcie_tl_tx_data_i[91]),
 	.O(pcie_tl_tx_data_o[91])
 );
-IBUF gowin_buf_487 (
+IBUF gowin_buf_523 (
 	.I(pcie_tl_tx_data_i[92]),
 	.O(pcie_tl_tx_data_o[92])
 );
-IBUF gowin_buf_488 (
+IBUF gowin_buf_524 (
 	.I(pcie_tl_tx_data_i[93]),
 	.O(pcie_tl_tx_data_o[93])
 );
-IBUF gowin_buf_489 (
+IBUF gowin_buf_525 (
 	.I(pcie_tl_tx_data_i[94]),
 	.O(pcie_tl_tx_data_o[94])
 );
-IBUF gowin_buf_490 (
+IBUF gowin_buf_526 (
 	.I(pcie_tl_tx_data_i[95]),
 	.O(pcie_tl_tx_data_o[95])
 );
-IBUF gowin_buf_491 (
+IBUF gowin_buf_527 (
 	.I(pcie_tl_tx_data_i[96]),
 	.O(pcie_tl_tx_data_o[96])
 );
-IBUF gowin_buf_492 (
+IBUF gowin_buf_528 (
 	.I(pcie_tl_tx_data_i[97]),
 	.O(pcie_tl_tx_data_o[97])
 );
-IBUF gowin_buf_493 (
+IBUF gowin_buf_529 (
 	.I(pcie_tl_tx_data_i[98]),
 	.O(pcie_tl_tx_data_o[98])
 );
-IBUF gowin_buf_494 (
+IBUF gowin_buf_530 (
 	.I(pcie_tl_tx_data_i[99]),
 	.O(pcie_tl_tx_data_o[99])
 );
-IBUF gowin_buf_495 (
+IBUF gowin_buf_531 (
 	.I(pcie_tl_tx_data_i[100]),
 	.O(pcie_tl_tx_data_o[100])
 );
-IBUF gowin_buf_496 (
+IBUF gowin_buf_532 (
 	.I(pcie_tl_tx_data_i[101]),
 	.O(pcie_tl_tx_data_o[101])
 );
-IBUF gowin_buf_497 (
+IBUF gowin_buf_533 (
 	.I(pcie_tl_tx_data_i[102]),
 	.O(pcie_tl_tx_data_o[102])
 );
-IBUF gowin_buf_498 (
+IBUF gowin_buf_534 (
 	.I(pcie_tl_tx_data_i[103]),
 	.O(pcie_tl_tx_data_o[103])
 );
-IBUF gowin_buf_499 (
+IBUF gowin_buf_535 (
 	.I(pcie_tl_tx_data_i[104]),
 	.O(pcie_tl_tx_data_o[104])
 );
-IBUF gowin_buf_500 (
+IBUF gowin_buf_536 (
 	.I(pcie_tl_tx_data_i[105]),
 	.O(pcie_tl_tx_data_o[105])
 );
-IBUF gowin_buf_501 (
+IBUF gowin_buf_537 (
 	.I(pcie_tl_tx_data_i[106]),
 	.O(pcie_tl_tx_data_o[106])
 );
-IBUF gowin_buf_502 (
+IBUF gowin_buf_538 (
 	.I(pcie_tl_tx_data_i[107]),
 	.O(pcie_tl_tx_data_o[107])
 );
-IBUF gowin_buf_503 (
+IBUF gowin_buf_539 (
 	.I(pcie_tl_tx_data_i[108]),
 	.O(pcie_tl_tx_data_o[108])
 );
-IBUF gowin_buf_504 (
+IBUF gowin_buf_540 (
 	.I(pcie_tl_tx_data_i[109]),
 	.O(pcie_tl_tx_data_o[109])
 );
-IBUF gowin_buf_505 (
+IBUF gowin_buf_541 (
 	.I(pcie_tl_tx_data_i[110]),
 	.O(pcie_tl_tx_data_o[110])
 );
-IBUF gowin_buf_506 (
+IBUF gowin_buf_542 (
 	.I(pcie_tl_tx_data_i[111]),
 	.O(pcie_tl_tx_data_o[111])
 );
-IBUF gowin_buf_507 (
+IBUF gowin_buf_543 (
 	.I(pcie_tl_tx_data_i[112]),
 	.O(pcie_tl_tx_data_o[112])
 );
-IBUF gowin_buf_508 (
+IBUF gowin_buf_544 (
 	.I(pcie_tl_tx_data_i[113]),
 	.O(pcie_tl_tx_data_o[113])
 );
-IBUF gowin_buf_509 (
+IBUF gowin_buf_545 (
 	.I(pcie_tl_tx_data_i[114]),
 	.O(pcie_tl_tx_data_o[114])
 );
-IBUF gowin_buf_510 (
+IBUF gowin_buf_546 (
 	.I(pcie_tl_tx_data_i[115]),
 	.O(pcie_tl_tx_data_o[115])
 );
-IBUF gowin_buf_511 (
+IBUF gowin_buf_547 (
 	.I(pcie_tl_tx_data_i[116]),
 	.O(pcie_tl_tx_data_o[116])
 );
-IBUF gowin_buf_512 (
+IBUF gowin_buf_548 (
 	.I(pcie_tl_tx_data_i[117]),
 	.O(pcie_tl_tx_data_o[117])
 );
-IBUF gowin_buf_513 (
+IBUF gowin_buf_549 (
 	.I(pcie_tl_tx_data_i[118]),
 	.O(pcie_tl_tx_data_o[118])
 );
-IBUF gowin_buf_514 (
+IBUF gowin_buf_550 (
 	.I(pcie_tl_tx_data_i[119]),
 	.O(pcie_tl_tx_data_o[119])
 );
-IBUF gowin_buf_515 (
+IBUF gowin_buf_551 (
 	.I(pcie_tl_tx_data_i[120]),
 	.O(pcie_tl_tx_data_o[120])
 );
-IBUF gowin_buf_516 (
+IBUF gowin_buf_552 (
 	.I(pcie_tl_tx_data_i[121]),
 	.O(pcie_tl_tx_data_o[121])
 );
-IBUF gowin_buf_517 (
+IBUF gowin_buf_553 (
 	.I(pcie_tl_tx_data_i[122]),
 	.O(pcie_tl_tx_data_o[122])
 );
-IBUF gowin_buf_518 (
+IBUF gowin_buf_554 (
 	.I(pcie_tl_tx_data_i[123]),
 	.O(pcie_tl_tx_data_o[123])
 );
-IBUF gowin_buf_519 (
+IBUF gowin_buf_555 (
 	.I(pcie_tl_tx_data_i[124]),
 	.O(pcie_tl_tx_data_o[124])
 );
-IBUF gowin_buf_520 (
+IBUF gowin_buf_556 (
 	.I(pcie_tl_tx_data_i[125]),
 	.O(pcie_tl_tx_data_o[125])
 );
-IBUF gowin_buf_521 (
+IBUF gowin_buf_557 (
 	.I(pcie_tl_tx_data_i[126]),
 	.O(pcie_tl_tx_data_o[126])
 );
-IBUF gowin_buf_522 (
+IBUF gowin_buf_558 (
 	.I(pcie_tl_tx_data_i[127]),
 	.O(pcie_tl_tx_data_o[127])
 );
-IBUF gowin_buf_523 (
+IBUF gowin_buf_559 (
 	.I(pcie_tl_tx_data_i[128]),
 	.O(pcie_tl_tx_data_o[128])
 );
-IBUF gowin_buf_524 (
+IBUF gowin_buf_560 (
 	.I(pcie_tl_tx_data_i[129]),
 	.O(pcie_tl_tx_data_o[129])
 );
-IBUF gowin_buf_525 (
+IBUF gowin_buf_561 (
 	.I(pcie_tl_tx_data_i[130]),
 	.O(pcie_tl_tx_data_o[130])
 );
-IBUF gowin_buf_526 (
+IBUF gowin_buf_562 (
 	.I(pcie_tl_tx_data_i[131]),
 	.O(pcie_tl_tx_data_o[131])
 );
-IBUF gowin_buf_527 (
+IBUF gowin_buf_563 (
 	.I(pcie_tl_tx_data_i[132]),
 	.O(pcie_tl_tx_data_o[132])
 );
-IBUF gowin_buf_528 (
+IBUF gowin_buf_564 (
 	.I(pcie_tl_tx_data_i[133]),
 	.O(pcie_tl_tx_data_o[133])
 );
-IBUF gowin_buf_529 (
+IBUF gowin_buf_565 (
 	.I(pcie_tl_tx_data_i[134]),
 	.O(pcie_tl_tx_data_o[134])
 );
-IBUF gowin_buf_530 (
+IBUF gowin_buf_566 (
 	.I(pcie_tl_tx_data_i[135]),
 	.O(pcie_tl_tx_data_o[135])
 );
-IBUF gowin_buf_531 (
+IBUF gowin_buf_567 (
 	.I(pcie_tl_tx_data_i[136]),
 	.O(pcie_tl_tx_data_o[136])
 );
-IBUF gowin_buf_532 (
+IBUF gowin_buf_568 (
 	.I(pcie_tl_tx_data_i[137]),
 	.O(pcie_tl_tx_data_o[137])
 );
-IBUF gowin_buf_533 (
+IBUF gowin_buf_569 (
 	.I(pcie_tl_tx_data_i[138]),
 	.O(pcie_tl_tx_data_o[138])
 );
-IBUF gowin_buf_534 (
+IBUF gowin_buf_570 (
 	.I(pcie_tl_tx_data_i[139]),
 	.O(pcie_tl_tx_data_o[139])
 );
-IBUF gowin_buf_535 (
+IBUF gowin_buf_571 (
 	.I(pcie_tl_tx_data_i[140]),
 	.O(pcie_tl_tx_data_o[140])
 );
-IBUF gowin_buf_536 (
+IBUF gowin_buf_572 (
 	.I(pcie_tl_tx_data_i[141]),
 	.O(pcie_tl_tx_data_o[141])
 );
-IBUF gowin_buf_537 (
+IBUF gowin_buf_573 (
 	.I(pcie_tl_tx_data_i[142]),
 	.O(pcie_tl_tx_data_o[142])
 );
-IBUF gowin_buf_538 (
+IBUF gowin_buf_574 (
 	.I(pcie_tl_tx_data_i[143]),
 	.O(pcie_tl_tx_data_o[143])
 );
-IBUF gowin_buf_539 (
+IBUF gowin_buf_575 (
 	.I(pcie_tl_tx_data_i[144]),
 	.O(pcie_tl_tx_data_o[144])
 );
-IBUF gowin_buf_540 (
+IBUF gowin_buf_576 (
 	.I(pcie_tl_tx_data_i[145]),
 	.O(pcie_tl_tx_data_o[145])
 );
-IBUF gowin_buf_541 (
+IBUF gowin_buf_577 (
 	.I(pcie_tl_tx_data_i[146]),
 	.O(pcie_tl_tx_data_o[146])
 );
-IBUF gowin_buf_542 (
+IBUF gowin_buf_578 (
 	.I(pcie_tl_tx_data_i[147]),
 	.O(pcie_tl_tx_data_o[147])
 );
-IBUF gowin_buf_543 (
+IBUF gowin_buf_579 (
 	.I(pcie_tl_tx_data_i[148]),
 	.O(pcie_tl_tx_data_o[148])
 );
-IBUF gowin_buf_544 (
+IBUF gowin_buf_580 (
 	.I(pcie_tl_tx_data_i[149]),
 	.O(pcie_tl_tx_data_o[149])
 );
-IBUF gowin_buf_545 (
+IBUF gowin_buf_581 (
 	.I(pcie_tl_tx_data_i[150]),
 	.O(pcie_tl_tx_data_o[150])
 );
-IBUF gowin_buf_546 (
+IBUF gowin_buf_582 (
 	.I(pcie_tl_tx_data_i[151]),
 	.O(pcie_tl_tx_data_o[151])
 );
-IBUF gowin_buf_547 (
+IBUF gowin_buf_583 (
 	.I(pcie_tl_tx_data_i[152]),
 	.O(pcie_tl_tx_data_o[152])
 );
-IBUF gowin_buf_548 (
+IBUF gowin_buf_584 (
 	.I(pcie_tl_tx_data_i[153]),
 	.O(pcie_tl_tx_data_o[153])
 );
-IBUF gowin_buf_549 (
+IBUF gowin_buf_585 (
 	.I(pcie_tl_tx_data_i[154]),
 	.O(pcie_tl_tx_data_o[154])
 );
-IBUF gowin_buf_550 (
+IBUF gowin_buf_586 (
 	.I(pcie_tl_tx_data_i[155]),
 	.O(pcie_tl_tx_data_o[155])
 );
-IBUF gowin_buf_551 (
+IBUF gowin_buf_587 (
 	.I(pcie_tl_tx_data_i[156]),
 	.O(pcie_tl_tx_data_o[156])
 );
-IBUF gowin_buf_552 (
+IBUF gowin_buf_588 (
 	.I(pcie_tl_tx_data_i[157]),
 	.O(pcie_tl_tx_data_o[157])
 );
-IBUF gowin_buf_553 (
+IBUF gowin_buf_589 (
 	.I(pcie_tl_tx_data_i[158]),
 	.O(pcie_tl_tx_data_o[158])
 );
-IBUF gowin_buf_554 (
+IBUF gowin_buf_590 (
 	.I(pcie_tl_tx_data_i[159]),
 	.O(pcie_tl_tx_data_o[159])
 );
-IBUF gowin_buf_555 (
+IBUF gowin_buf_591 (
 	.I(pcie_tl_tx_data_i[160]),
 	.O(pcie_tl_tx_data_o[160])
 );
-IBUF gowin_buf_556 (
+IBUF gowin_buf_592 (
 	.I(pcie_tl_tx_data_i[161]),
 	.O(pcie_tl_tx_data_o[161])
 );
-IBUF gowin_buf_557 (
+IBUF gowin_buf_593 (
 	.I(pcie_tl_tx_data_i[162]),
 	.O(pcie_tl_tx_data_o[162])
 );
-IBUF gowin_buf_558 (
+IBUF gowin_buf_594 (
 	.I(pcie_tl_tx_data_i[163]),
 	.O(pcie_tl_tx_data_o[163])
 );
-IBUF gowin_buf_559 (
+IBUF gowin_buf_595 (
 	.I(pcie_tl_tx_data_i[164]),
 	.O(pcie_tl_tx_data_o[164])
 );
-IBUF gowin_buf_560 (
+IBUF gowin_buf_596 (
 	.I(pcie_tl_tx_data_i[165]),
 	.O(pcie_tl_tx_data_o[165])
 );
-IBUF gowin_buf_561 (
+IBUF gowin_buf_597 (
 	.I(pcie_tl_tx_data_i[166]),
 	.O(pcie_tl_tx_data_o[166])
 );
-IBUF gowin_buf_562 (
+IBUF gowin_buf_598 (
 	.I(pcie_tl_tx_data_i[167]),
 	.O(pcie_tl_tx_data_o[167])
 );
-IBUF gowin_buf_563 (
+IBUF gowin_buf_599 (
 	.I(pcie_tl_tx_data_i[168]),
 	.O(pcie_tl_tx_data_o[168])
 );
-IBUF gowin_buf_564 (
+IBUF gowin_buf_600 (
 	.I(pcie_tl_tx_data_i[169]),
 	.O(pcie_tl_tx_data_o[169])
 );
-IBUF gowin_buf_565 (
+IBUF gowin_buf_601 (
 	.I(pcie_tl_tx_data_i[170]),
 	.O(pcie_tl_tx_data_o[170])
 );
-IBUF gowin_buf_566 (
+IBUF gowin_buf_602 (
 	.I(pcie_tl_tx_data_i[171]),
 	.O(pcie_tl_tx_data_o[171])
 );
-IBUF gowin_buf_567 (
+IBUF gowin_buf_603 (
 	.I(pcie_tl_tx_data_i[172]),
 	.O(pcie_tl_tx_data_o[172])
 );
-IBUF gowin_buf_568 (
+IBUF gowin_buf_604 (
 	.I(pcie_tl_tx_data_i[173]),
 	.O(pcie_tl_tx_data_o[173])
 );
-IBUF gowin_buf_569 (
+IBUF gowin_buf_605 (
 	.I(pcie_tl_tx_data_i[174]),
 	.O(pcie_tl_tx_data_o[174])
 );
-IBUF gowin_buf_570 (
+IBUF gowin_buf_606 (
 	.I(pcie_tl_tx_data_i[175]),
 	.O(pcie_tl_tx_data_o[175])
 );
-IBUF gowin_buf_571 (
+IBUF gowin_buf_607 (
 	.I(pcie_tl_tx_data_i[176]),
 	.O(pcie_tl_tx_data_o[176])
 );
-IBUF gowin_buf_572 (
+IBUF gowin_buf_608 (
 	.I(pcie_tl_tx_data_i[177]),
 	.O(pcie_tl_tx_data_o[177])
 );
-IBUF gowin_buf_573 (
+IBUF gowin_buf_609 (
 	.I(pcie_tl_tx_data_i[178]),
 	.O(pcie_tl_tx_data_o[178])
 );
-IBUF gowin_buf_574 (
+IBUF gowin_buf_610 (
 	.I(pcie_tl_tx_data_i[179]),
 	.O(pcie_tl_tx_data_o[179])
 );
-IBUF gowin_buf_575 (
+IBUF gowin_buf_611 (
 	.I(pcie_tl_tx_data_i[180]),
 	.O(pcie_tl_tx_data_o[180])
 );
-IBUF gowin_buf_576 (
+IBUF gowin_buf_612 (
 	.I(pcie_tl_tx_data_i[181]),
 	.O(pcie_tl_tx_data_o[181])
 );
-IBUF gowin_buf_577 (
+IBUF gowin_buf_613 (
 	.I(pcie_tl_tx_data_i[182]),
 	.O(pcie_tl_tx_data_o[182])
 );
-IBUF gowin_buf_578 (
+IBUF gowin_buf_614 (
 	.I(pcie_tl_tx_data_i[183]),
 	.O(pcie_tl_tx_data_o[183])
 );
-IBUF gowin_buf_579 (
+IBUF gowin_buf_615 (
 	.I(pcie_tl_tx_data_i[184]),
 	.O(pcie_tl_tx_data_o[184])
 );
-IBUF gowin_buf_580 (
+IBUF gowin_buf_616 (
 	.I(pcie_tl_tx_data_i[185]),
 	.O(pcie_tl_tx_data_o[185])
 );
-IBUF gowin_buf_581 (
+IBUF gowin_buf_617 (
 	.I(pcie_tl_tx_data_i[186]),
 	.O(pcie_tl_tx_data_o[186])
 );
-IBUF gowin_buf_582 (
+IBUF gowin_buf_618 (
 	.I(pcie_tl_tx_data_i[187]),
 	.O(pcie_tl_tx_data_o[187])
 );
-IBUF gowin_buf_583 (
+IBUF gowin_buf_619 (
 	.I(pcie_tl_tx_data_i[188]),
 	.O(pcie_tl_tx_data_o[188])
 );
-IBUF gowin_buf_584 (
+IBUF gowin_buf_620 (
 	.I(pcie_tl_tx_data_i[189]),
 	.O(pcie_tl_tx_data_o[189])
 );
-IBUF gowin_buf_585 (
+IBUF gowin_buf_621 (
 	.I(pcie_tl_tx_data_i[190]),
 	.O(pcie_tl_tx_data_o[190])
 );
-IBUF gowin_buf_586 (
+IBUF gowin_buf_622 (
 	.I(pcie_tl_tx_data_i[191]),
 	.O(pcie_tl_tx_data_o[191])
 );
-IBUF gowin_buf_587 (
+IBUF gowin_buf_623 (
 	.I(pcie_tl_tx_data_i[192]),
 	.O(pcie_tl_tx_data_o[192])
 );
-IBUF gowin_buf_588 (
+IBUF gowin_buf_624 (
 	.I(pcie_tl_tx_data_i[193]),
 	.O(pcie_tl_tx_data_o[193])
 );
-IBUF gowin_buf_589 (
+IBUF gowin_buf_625 (
 	.I(pcie_tl_tx_data_i[194]),
 	.O(pcie_tl_tx_data_o[194])
 );
-IBUF gowin_buf_590 (
+IBUF gowin_buf_626 (
 	.I(pcie_tl_tx_data_i[195]),
 	.O(pcie_tl_tx_data_o[195])
 );
-IBUF gowin_buf_591 (
+IBUF gowin_buf_627 (
 	.I(pcie_tl_tx_data_i[196]),
 	.O(pcie_tl_tx_data_o[196])
 );
-IBUF gowin_buf_592 (
+IBUF gowin_buf_628 (
 	.I(pcie_tl_tx_data_i[197]),
 	.O(pcie_tl_tx_data_o[197])
 );
-IBUF gowin_buf_593 (
+IBUF gowin_buf_629 (
 	.I(pcie_tl_tx_data_i[198]),
 	.O(pcie_tl_tx_data_o[198])
 );
-IBUF gowin_buf_594 (
+IBUF gowin_buf_630 (
 	.I(pcie_tl_tx_data_i[199]),
 	.O(pcie_tl_tx_data_o[199])
 );
-IBUF gowin_buf_595 (
+IBUF gowin_buf_631 (
 	.I(pcie_tl_tx_data_i[200]),
 	.O(pcie_tl_tx_data_o[200])
 );
-IBUF gowin_buf_596 (
+IBUF gowin_buf_632 (
 	.I(pcie_tl_tx_data_i[201]),
 	.O(pcie_tl_tx_data_o[201])
 );
-IBUF gowin_buf_597 (
+IBUF gowin_buf_633 (
 	.I(pcie_tl_tx_data_i[202]),
 	.O(pcie_tl_tx_data_o[202])
 );
-IBUF gowin_buf_598 (
+IBUF gowin_buf_634 (
 	.I(pcie_tl_tx_data_i[203]),
 	.O(pcie_tl_tx_data_o[203])
 );
-IBUF gowin_buf_599 (
+IBUF gowin_buf_635 (
 	.I(pcie_tl_tx_data_i[204]),
 	.O(pcie_tl_tx_data_o[204])
 );
-IBUF gowin_buf_600 (
+IBUF gowin_buf_636 (
 	.I(pcie_tl_tx_data_i[205]),
 	.O(pcie_tl_tx_data_o[205])
 );
-IBUF gowin_buf_601 (
+IBUF gowin_buf_637 (
 	.I(pcie_tl_tx_data_i[206]),
 	.O(pcie_tl_tx_data_o[206])
 );
-IBUF gowin_buf_602 (
+IBUF gowin_buf_638 (
 	.I(pcie_tl_tx_data_i[207]),
 	.O(pcie_tl_tx_data_o[207])
 );
-IBUF gowin_buf_603 (
+IBUF gowin_buf_639 (
 	.I(pcie_tl_tx_data_i[208]),
 	.O(pcie_tl_tx_data_o[208])
 );
-IBUF gowin_buf_604 (
+IBUF gowin_buf_640 (
 	.I(pcie_tl_tx_data_i[209]),
 	.O(pcie_tl_tx_data_o[209])
 );
-IBUF gowin_buf_605 (
+IBUF gowin_buf_641 (
 	.I(pcie_tl_tx_data_i[210]),
 	.O(pcie_tl_tx_data_o[210])
 );
-IBUF gowin_buf_606 (
+IBUF gowin_buf_642 (
 	.I(pcie_tl_tx_data_i[211]),
 	.O(pcie_tl_tx_data_o[211])
 );
-IBUF gowin_buf_607 (
+IBUF gowin_buf_643 (
 	.I(pcie_tl_tx_data_i[212]),
 	.O(pcie_tl_tx_data_o[212])
 );
-IBUF gowin_buf_608 (
+IBUF gowin_buf_644 (
 	.I(pcie_tl_tx_data_i[213]),
 	.O(pcie_tl_tx_data_o[213])
 );
-IBUF gowin_buf_609 (
+IBUF gowin_buf_645 (
 	.I(pcie_tl_tx_data_i[214]),
 	.O(pcie_tl_tx_data_o[214])
 );
-IBUF gowin_buf_610 (
+IBUF gowin_buf_646 (
 	.I(pcie_tl_tx_data_i[215]),
 	.O(pcie_tl_tx_data_o[215])
 );
-IBUF gowin_buf_611 (
+IBUF gowin_buf_647 (
 	.I(pcie_tl_tx_data_i[216]),
 	.O(pcie_tl_tx_data_o[216])
 );
-IBUF gowin_buf_612 (
+IBUF gowin_buf_648 (
 	.I(pcie_tl_tx_data_i[217]),
 	.O(pcie_tl_tx_data_o[217])
 );
-IBUF gowin_buf_613 (
+IBUF gowin_buf_649 (
 	.I(pcie_tl_tx_data_i[218]),
 	.O(pcie_tl_tx_data_o[218])
 );
-IBUF gowin_buf_614 (
+IBUF gowin_buf_650 (
 	.I(pcie_tl_tx_data_i[219]),
 	.O(pcie_tl_tx_data_o[219])
 );
-IBUF gowin_buf_615 (
+IBUF gowin_buf_651 (
 	.I(pcie_tl_tx_data_i[220]),
 	.O(pcie_tl_tx_data_o[220])
 );
-IBUF gowin_buf_616 (
+IBUF gowin_buf_652 (
 	.I(pcie_tl_tx_data_i[221]),
 	.O(pcie_tl_tx_data_o[221])
 );
-IBUF gowin_buf_617 (
+IBUF gowin_buf_653 (
 	.I(pcie_tl_tx_data_i[222]),
 	.O(pcie_tl_tx_data_o[222])
 );
-IBUF gowin_buf_618 (
+IBUF gowin_buf_654 (
 	.I(pcie_tl_tx_data_i[223]),
 	.O(pcie_tl_tx_data_o[223])
 );
-IBUF gowin_buf_619 (
+IBUF gowin_buf_655 (
 	.I(pcie_tl_tx_data_i[224]),
 	.O(pcie_tl_tx_data_o[224])
 );
-IBUF gowin_buf_620 (
+IBUF gowin_buf_656 (
 	.I(pcie_tl_tx_data_i[225]),
 	.O(pcie_tl_tx_data_o[225])
 );
-IBUF gowin_buf_621 (
+IBUF gowin_buf_657 (
 	.I(pcie_tl_tx_data_i[226]),
 	.O(pcie_tl_tx_data_o[226])
 );
-IBUF gowin_buf_622 (
+IBUF gowin_buf_658 (
 	.I(pcie_tl_tx_data_i[227]),
 	.O(pcie_tl_tx_data_o[227])
 );
-IBUF gowin_buf_623 (
+IBUF gowin_buf_659 (
 	.I(pcie_tl_tx_data_i[228]),
 	.O(pcie_tl_tx_data_o[228])
 );
-IBUF gowin_buf_624 (
+IBUF gowin_buf_660 (
 	.I(pcie_tl_tx_data_i[229]),
 	.O(pcie_tl_tx_data_o[229])
 );
-IBUF gowin_buf_625 (
+IBUF gowin_buf_661 (
 	.I(pcie_tl_tx_data_i[230]),
 	.O(pcie_tl_tx_data_o[230])
 );
-IBUF gowin_buf_626 (
+IBUF gowin_buf_662 (
 	.I(pcie_tl_tx_data_i[231]),
 	.O(pcie_tl_tx_data_o[231])
 );
-IBUF gowin_buf_627 (
+IBUF gowin_buf_663 (
 	.I(pcie_tl_tx_data_i[232]),
 	.O(pcie_tl_tx_data_o[232])
 );
-IBUF gowin_buf_628 (
+IBUF gowin_buf_664 (
 	.I(pcie_tl_tx_data_i[233]),
 	.O(pcie_tl_tx_data_o[233])
 );
-IBUF gowin_buf_629 (
+IBUF gowin_buf_665 (
 	.I(pcie_tl_tx_data_i[234]),
 	.O(pcie_tl_tx_data_o[234])
 );
-IBUF gowin_buf_630 (
+IBUF gowin_buf_666 (
 	.I(pcie_tl_tx_data_i[235]),
 	.O(pcie_tl_tx_data_o[235])
 );
-IBUF gowin_buf_631 (
+IBUF gowin_buf_667 (
 	.I(pcie_tl_tx_data_i[236]),
 	.O(pcie_tl_tx_data_o[236])
 );
-IBUF gowin_buf_632 (
+IBUF gowin_buf_668 (
 	.I(pcie_tl_tx_data_i[237]),
 	.O(pcie_tl_tx_data_o[237])
 );
-IBUF gowin_buf_633 (
+IBUF gowin_buf_669 (
 	.I(pcie_tl_tx_data_i[238]),
 	.O(pcie_tl_tx_data_o[238])
 );
-IBUF gowin_buf_634 (
+IBUF gowin_buf_670 (
 	.I(pcie_tl_tx_data_i[239]),
 	.O(pcie_tl_tx_data_o[239])
 );
-IBUF gowin_buf_635 (
+IBUF gowin_buf_671 (
 	.I(pcie_tl_tx_data_i[240]),
 	.O(pcie_tl_tx_data_o[240])
 );
-IBUF gowin_buf_636 (
+IBUF gowin_buf_672 (
 	.I(pcie_tl_tx_data_i[241]),
 	.O(pcie_tl_tx_data_o[241])
 );
-IBUF gowin_buf_637 (
+IBUF gowin_buf_673 (
 	.I(pcie_tl_tx_data_i[242]),
 	.O(pcie_tl_tx_data_o[242])
 );
-IBUF gowin_buf_638 (
+IBUF gowin_buf_674 (
 	.I(pcie_tl_tx_data_i[243]),
 	.O(pcie_tl_tx_data_o[243])
 );
-IBUF gowin_buf_639 (
+IBUF gowin_buf_675 (
 	.I(pcie_tl_tx_data_i[244]),
 	.O(pcie_tl_tx_data_o[244])
 );
-IBUF gowin_buf_640 (
+IBUF gowin_buf_676 (
 	.I(pcie_tl_tx_data_i[245]),
 	.O(pcie_tl_tx_data_o[245])
 );
-IBUF gowin_buf_641 (
+IBUF gowin_buf_677 (
 	.I(pcie_tl_tx_data_i[246]),
 	.O(pcie_tl_tx_data_o[246])
 );
-IBUF gowin_buf_642 (
+IBUF gowin_buf_678 (
 	.I(pcie_tl_tx_data_i[247]),
 	.O(pcie_tl_tx_data_o[247])
 );
-IBUF gowin_buf_643 (
+IBUF gowin_buf_679 (
 	.I(pcie_tl_tx_data_i[248]),
 	.O(pcie_tl_tx_data_o[248])
 );
-IBUF gowin_buf_644 (
+IBUF gowin_buf_680 (
 	.I(pcie_tl_tx_data_i[249]),
 	.O(pcie_tl_tx_data_o[249])
 );
-IBUF gowin_buf_645 (
+IBUF gowin_buf_681 (
 	.I(pcie_tl_tx_data_i[250]),
 	.O(pcie_tl_tx_data_o[250])
 );
-IBUF gowin_buf_646 (
+IBUF gowin_buf_682 (
 	.I(pcie_tl_tx_data_i[251]),
 	.O(pcie_tl_tx_data_o[251])
 );
-IBUF gowin_buf_647 (
+IBUF gowin_buf_683 (
 	.I(pcie_tl_tx_data_i[252]),
 	.O(pcie_tl_tx_data_o[252])
 );
-IBUF gowin_buf_648 (
+IBUF gowin_buf_684 (
 	.I(pcie_tl_tx_data_i[253]),
 	.O(pcie_tl_tx_data_o[253])
 );
-IBUF gowin_buf_649 (
+IBUF gowin_buf_685 (
 	.I(pcie_tl_tx_data_i[254]),
 	.O(pcie_tl_tx_data_o[254])
 );
-IBUF gowin_buf_650 (
+IBUF gowin_buf_686 (
 	.I(pcie_tl_tx_data_i[255]),
 	.O(pcie_tl_tx_data_o[255])
 );
-IBUF gowin_buf_651 (
+IBUF gowin_buf_687 (
 	.I(pcie_tl_tx_valid_i[0]),
 	.O(pcie_tl_tx_valid_o[0])
 );
-IBUF gowin_buf_652 (
+IBUF gowin_buf_688 (
 	.I(pcie_tl_tx_valid_i[1]),
 	.O(pcie_tl_tx_valid_o[1])
 );
-IBUF gowin_buf_653 (
+IBUF gowin_buf_689 (
 	.I(pcie_tl_tx_valid_i[2]),
 	.O(pcie_tl_tx_valid_o[2])
 );
-IBUF gowin_buf_654 (
+IBUF gowin_buf_690 (
 	.I(pcie_tl_tx_valid_i[3]),
 	.O(pcie_tl_tx_valid_o[3])
 );
-IBUF gowin_buf_655 (
+IBUF gowin_buf_691 (
 	.I(pcie_tl_tx_valid_i[4]),
 	.O(pcie_tl_tx_valid_o[4])
 );
-IBUF gowin_buf_656 (
+IBUF gowin_buf_692 (
 	.I(pcie_tl_tx_valid_i[5]),
 	.O(pcie_tl_tx_valid_o[5])
 );
-IBUF gowin_buf_657 (
+IBUF gowin_buf_693 (
 	.I(pcie_tl_tx_valid_i[6]),
 	.O(pcie_tl_tx_valid_o[6])
 );
-IBUF gowin_buf_658 (
+IBUF gowin_buf_694 (
 	.I(pcie_tl_tx_valid_i[7]),
 	.O(pcie_tl_tx_valid_o[7])
 );
-IBUF gowin_buf_659 (
+IBUF gowin_buf_695 (
 	.I(pcie_tl_int_status_i),
 	.O(pcie_tl_int_status_o)
 );
-IBUF gowin_buf_660 (
+IBUF gowin_buf_696 (
 	.I(pcie_tl_int_req_i),
 	.O(pcie_tl_int_req_o)
 );
-IBUF gowin_buf_661 (
+IBUF gowin_buf_697 (
 	.I(pcie_tl_int_msinum_i[0]),
 	.O(pcie_tl_int_msinum_o[0])
 );
-IBUF gowin_buf_662 (
+IBUF gowin_buf_698 (
 	.I(pcie_tl_int_msinum_i[1]),
 	.O(pcie_tl_int_msinum_o[1])
 );
-IBUF gowin_buf_663 (
+IBUF gowin_buf_699 (
 	.I(pcie_tl_int_msinum_i[2]),
 	.O(pcie_tl_int_msinum_o[2])
 );
-IBUF gowin_buf_664 (
+IBUF gowin_buf_700 (
 	.I(pcie_tl_int_msinum_i[3]),
 	.O(pcie_tl_int_msinum_o[3])
 );
-IBUF gowin_buf_665 (
+IBUF gowin_buf_701 (
 	.I(pcie_tl_int_msinum_i[4]),
 	.O(pcie_tl_int_msinum_o[4])
 );
-OBUF gowin_buf_666 (
-	.I(GND),
-	.O(pcie_csr_mode_o[0])
+IBUF gowin_buf_702 (
+	.I(pcie_tl_drp_addr_i[0]),
+	.O(pcie_tl_drp_addr_o[0])
 );
-OBUF gowin_buf_667 (
-	.I(GND),
-	.O(pcie_csr_mode_o[1])
+IBUF gowin_buf_703 (
+	.I(pcie_tl_drp_addr_i[1]),
+	.O(pcie_tl_drp_addr_o[1])
 );
-OBUF gowin_buf_668 (
-	.I(VCC),
-	.O(pcie_csr_mode_o[2])
+IBUF gowin_buf_704 (
+	.I(pcie_tl_drp_addr_i[2]),
+	.O(pcie_tl_drp_addr_o[2])
 );
-OBUF gowin_buf_669 (
-	.I(GND),
-	.O(pcie_csr_mode_o[3])
+IBUF gowin_buf_705 (
+	.I(pcie_tl_drp_addr_i[3]),
+	.O(pcie_tl_drp_addr_o[3])
 );
-OBUF gowin_buf_670 (
+IBUF gowin_buf_706 (
+	.I(pcie_tl_drp_addr_i[4]),
+	.O(pcie_tl_drp_addr_o[4])
+);
+IBUF gowin_buf_707 (
+	.I(pcie_tl_drp_addr_i[5]),
+	.O(pcie_tl_drp_addr_o[5])
+);
+IBUF gowin_buf_708 (
+	.I(pcie_tl_drp_addr_i[6]),
+	.O(pcie_tl_drp_addr_o[6])
+);
+IBUF gowin_buf_709 (
+	.I(pcie_tl_drp_addr_i[7]),
+	.O(pcie_tl_drp_addr_o[7])
+);
+IBUF gowin_buf_710 (
+	.I(pcie_tl_drp_addr_i[8]),
+	.O(pcie_tl_drp_addr_o[8])
+);
+IBUF gowin_buf_711 (
+	.I(pcie_tl_drp_addr_i[9]),
+	.O(pcie_tl_drp_addr_o[9])
+);
+IBUF gowin_buf_712 (
+	.I(pcie_tl_drp_addr_i[10]),
+	.O(pcie_tl_drp_addr_o[10])
+);
+IBUF gowin_buf_713 (
+	.I(pcie_tl_drp_addr_i[11]),
+	.O(pcie_tl_drp_addr_o[11])
+);
+IBUF gowin_buf_714 (
+	.I(pcie_tl_drp_addr_i[12]),
+	.O(pcie_tl_drp_addr_o[12])
+);
+IBUF gowin_buf_715 (
+	.I(pcie_tl_drp_addr_i[13]),
+	.O(pcie_tl_drp_addr_o[13])
+);
+IBUF gowin_buf_716 (
+	.I(pcie_tl_drp_addr_i[14]),
+	.O(pcie_tl_drp_addr_o[14])
+);
+IBUF gowin_buf_717 (
+	.I(pcie_tl_drp_addr_i[15]),
+	.O(pcie_tl_drp_addr_o[15])
+);
+IBUF gowin_buf_718 (
+	.I(pcie_tl_drp_addr_i[16]),
+	.O(pcie_tl_drp_addr_o[16])
+);
+IBUF gowin_buf_719 (
+	.I(pcie_tl_drp_addr_i[17]),
+	.O(pcie_tl_drp_addr_o[17])
+);
+IBUF gowin_buf_720 (
+	.I(pcie_tl_drp_addr_i[18]),
+	.O(pcie_tl_drp_addr_o[18])
+);
+IBUF gowin_buf_721 (
+	.I(pcie_tl_drp_addr_i[19]),
+	.O(pcie_tl_drp_addr_o[19])
+);
+IBUF gowin_buf_722 (
+	.I(pcie_tl_drp_addr_i[20]),
+	.O(pcie_tl_drp_addr_o[20])
+);
+IBUF gowin_buf_723 (
+	.I(pcie_tl_drp_addr_i[21]),
+	.O(pcie_tl_drp_addr_o[21])
+);
+IBUF gowin_buf_724 (
+	.I(pcie_tl_drp_addr_i[22]),
+	.O(pcie_tl_drp_addr_o[22])
+);
+IBUF gowin_buf_725 (
+	.I(pcie_tl_drp_addr_i[23]),
+	.O(pcie_tl_drp_addr_o[23])
+);
+IBUF gowin_buf_726 (
+	.I(pcie_tl_drp_wrdata_i[0]),
+	.O(pcie_tl_drp_wrdata_o[0])
+);
+IBUF gowin_buf_727 (
+	.I(pcie_tl_drp_wrdata_i[1]),
+	.O(pcie_tl_drp_wrdata_o[1])
+);
+IBUF gowin_buf_728 (
+	.I(pcie_tl_drp_wrdata_i[2]),
+	.O(pcie_tl_drp_wrdata_o[2])
+);
+IBUF gowin_buf_729 (
+	.I(pcie_tl_drp_wrdata_i[3]),
+	.O(pcie_tl_drp_wrdata_o[3])
+);
+IBUF gowin_buf_730 (
+	.I(pcie_tl_drp_wrdata_i[4]),
+	.O(pcie_tl_drp_wrdata_o[4])
+);
+IBUF gowin_buf_731 (
+	.I(pcie_tl_drp_wrdata_i[5]),
+	.O(pcie_tl_drp_wrdata_o[5])
+);
+IBUF gowin_buf_732 (
+	.I(pcie_tl_drp_wrdata_i[6]),
+	.O(pcie_tl_drp_wrdata_o[6])
+);
+IBUF gowin_buf_733 (
+	.I(pcie_tl_drp_wrdata_i[7]),
+	.O(pcie_tl_drp_wrdata_o[7])
+);
+IBUF gowin_buf_734 (
+	.I(pcie_tl_drp_wrdata_i[8]),
+	.O(pcie_tl_drp_wrdata_o[8])
+);
+IBUF gowin_buf_735 (
+	.I(pcie_tl_drp_wrdata_i[9]),
+	.O(pcie_tl_drp_wrdata_o[9])
+);
+IBUF gowin_buf_736 (
+	.I(pcie_tl_drp_wrdata_i[10]),
+	.O(pcie_tl_drp_wrdata_o[10])
+);
+IBUF gowin_buf_737 (
+	.I(pcie_tl_drp_wrdata_i[11]),
+	.O(pcie_tl_drp_wrdata_o[11])
+);
+IBUF gowin_buf_738 (
+	.I(pcie_tl_drp_wrdata_i[12]),
+	.O(pcie_tl_drp_wrdata_o[12])
+);
+IBUF gowin_buf_739 (
+	.I(pcie_tl_drp_wrdata_i[13]),
+	.O(pcie_tl_drp_wrdata_o[13])
+);
+IBUF gowin_buf_740 (
+	.I(pcie_tl_drp_wrdata_i[14]),
+	.O(pcie_tl_drp_wrdata_o[14])
+);
+IBUF gowin_buf_741 (
+	.I(pcie_tl_drp_wrdata_i[15]),
+	.O(pcie_tl_drp_wrdata_o[15])
+);
+IBUF gowin_buf_742 (
+	.I(pcie_tl_drp_wrdata_i[16]),
+	.O(pcie_tl_drp_wrdata_o[16])
+);
+IBUF gowin_buf_743 (
+	.I(pcie_tl_drp_wrdata_i[17]),
+	.O(pcie_tl_drp_wrdata_o[17])
+);
+IBUF gowin_buf_744 (
+	.I(pcie_tl_drp_wrdata_i[18]),
+	.O(pcie_tl_drp_wrdata_o[18])
+);
+IBUF gowin_buf_745 (
+	.I(pcie_tl_drp_wrdata_i[19]),
+	.O(pcie_tl_drp_wrdata_o[19])
+);
+IBUF gowin_buf_746 (
+	.I(pcie_tl_drp_wrdata_i[20]),
+	.O(pcie_tl_drp_wrdata_o[20])
+);
+IBUF gowin_buf_747 (
+	.I(pcie_tl_drp_wrdata_i[21]),
+	.O(pcie_tl_drp_wrdata_o[21])
+);
+IBUF gowin_buf_748 (
+	.I(pcie_tl_drp_wrdata_i[22]),
+	.O(pcie_tl_drp_wrdata_o[22])
+);
+IBUF gowin_buf_749 (
+	.I(pcie_tl_drp_wrdata_i[23]),
+	.O(pcie_tl_drp_wrdata_o[23])
+);
+IBUF gowin_buf_750 (
+	.I(pcie_tl_drp_wrdata_i[24]),
+	.O(pcie_tl_drp_wrdata_o[24])
+);
+IBUF gowin_buf_751 (
+	.I(pcie_tl_drp_wrdata_i[25]),
+	.O(pcie_tl_drp_wrdata_o[25])
+);
+IBUF gowin_buf_752 (
+	.I(pcie_tl_drp_wrdata_i[26]),
+	.O(pcie_tl_drp_wrdata_o[26])
+);
+IBUF gowin_buf_753 (
+	.I(pcie_tl_drp_wrdata_i[27]),
+	.O(pcie_tl_drp_wrdata_o[27])
+);
+IBUF gowin_buf_754 (
+	.I(pcie_tl_drp_wrdata_i[28]),
+	.O(pcie_tl_drp_wrdata_o[28])
+);
+IBUF gowin_buf_755 (
+	.I(pcie_tl_drp_wrdata_i[29]),
+	.O(pcie_tl_drp_wrdata_o[29])
+);
+IBUF gowin_buf_756 (
+	.I(pcie_tl_drp_wrdata_i[30]),
+	.O(pcie_tl_drp_wrdata_o[30])
+);
+IBUF gowin_buf_757 (
+	.I(pcie_tl_drp_wrdata_i[31]),
+	.O(pcie_tl_drp_wrdata_o[31])
+);
+IBUF gowin_buf_758 (
+	.I(pcie_tl_drp_wr_i),
+	.O(pcie_tl_drp_wr_o)
+);
+IBUF gowin_buf_759 (
+	.I(pcie_tl_drp_rd_i),
+	.O(pcie_tl_drp_rd_o)
+);
+IBUF gowin_buf_760 (
+	.I(pcie_tl_drp_strb_i[0]),
+	.O(pcie_tl_drp_strb_o[0])
+);
+IBUF gowin_buf_761 (
+	.I(pcie_tl_drp_strb_i[1]),
+	.O(pcie_tl_drp_strb_o[1])
+);
+IBUF gowin_buf_762 (
+	.I(pcie_tl_drp_strb_i[2]),
+	.O(pcie_tl_drp_strb_o[2])
+);
+IBUF gowin_buf_763 (
+	.I(pcie_tl_drp_strb_i[3]),
+	.O(pcie_tl_drp_strb_o[3])
+);
+IBUF gowin_buf_764 (
+	.I(pcie_tl_drp_strb_i[4]),
+	.O(pcie_tl_drp_strb_o[4])
+);
+IBUF gowin_buf_765 (
+	.I(pcie_tl_drp_strb_i[5]),
+	.O(pcie_tl_drp_strb_o[5])
+);
+IBUF gowin_buf_766 (
+	.I(pcie_tl_drp_strb_i[6]),
+	.O(pcie_tl_drp_strb_o[6])
+);
+IBUF gowin_buf_767 (
+	.I(pcie_tl_drp_strb_i[7]),
+	.O(pcie_tl_drp_strb_o[7])
+);
+OBUF gowin_buf_768 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[0])
 );
-OBUF gowin_buf_671 (
+OBUF gowin_buf_769 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[1])
 );
-OBUF gowin_buf_672 (
+OBUF gowin_buf_770 (
 	.I(VCC),
 	.O(pcie_tl_clk_freq_o[2])
 );
-OBUF gowin_buf_673 (
+OBUF gowin_buf_771 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[3])
 );
-OBUF gowin_buf_674 (
+OBUF gowin_buf_772 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[4])
 );
-OBUF gowin_buf_675 (
+OBUF gowin_buf_773 (
 	.I(VCC),
 	.O(pcie_tl_clk_freq_o[5])
 );
-OBUF gowin_buf_676 (
+OBUF gowin_buf_774 (
 	.I(VCC),
 	.O(pcie_tl_clk_freq_o[6])
 );
-OBUF gowin_buf_677 (
+OBUF gowin_buf_775 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[7])
 );
-OBUF gowin_buf_678 (
+OBUF gowin_buf_776 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[8])
 );
-OBUF gowin_buf_679 (
+OBUF gowin_buf_777 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[9])
 );
-OBUF gowin_buf_680 (
+OBUF gowin_buf_778 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[10])
 );
-OBUF gowin_buf_681 (
+OBUF gowin_buf_779 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[11])
 );
-OBUF gowin_buf_682 (
+OBUF gowin_buf_780 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[12])
 );
-OBUF gowin_buf_683 (
+OBUF gowin_buf_781 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[13])
 );
-OBUF gowin_buf_684 (
+OBUF gowin_buf_782 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[14])
 );
-OBUF gowin_buf_685 (
+OBUF gowin_buf_783 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[15])
 );
-OBUF gowin_buf_686 (
+OBUF gowin_buf_784 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[16])
 );
-OBUF gowin_buf_687 (
+OBUF gowin_buf_785 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[17])
 );
-OBUF gowin_buf_688 (
+OBUF gowin_buf_786 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[18])
 );
-OBUF gowin_buf_689 (
+OBUF gowin_buf_787 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[19])
 );
-OBUF gowin_buf_690 (
+OBUF gowin_buf_788 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[20])
 );
-OBUF gowin_buf_691 (
+OBUF gowin_buf_789 (
 	.I(GND),
 	.O(pcie_tl_clk_freq_o[21])
 );
-OBUF gowin_buf_692 (
+OBUF gowin_buf_790 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[0])
 );
-OBUF gowin_buf_693 (
+OBUF gowin_buf_791 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[1])
 );
-OBUF gowin_buf_694 (
+OBUF gowin_buf_792 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[2])
 );
-OBUF gowin_buf_695 (
+OBUF gowin_buf_793 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[3])
 );
-OBUF gowin_buf_696 (
+OBUF gowin_buf_794 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[4])
 );
-OBUF gowin_buf_697 (
+OBUF gowin_buf_795 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[5])
 );
-OBUF gowin_buf_698 (
+OBUF gowin_buf_796 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[6])
 );
-OBUF gowin_buf_699 (
+OBUF gowin_buf_797 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[7])
 );
-OBUF gowin_buf_700 (
+OBUF gowin_buf_798 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[8])
 );
-OBUF gowin_buf_701 (
+OBUF gowin_buf_799 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[9])
 );
-OBUF gowin_buf_702 (
+OBUF gowin_buf_800 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[10])
 );
-OBUF gowin_buf_703 (
+OBUF gowin_buf_801 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[11])
 );
-OBUF gowin_buf_704 (
+OBUF gowin_buf_802 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[12])
 );
-OBUF gowin_buf_705 (
+OBUF gowin_buf_803 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[13])
 );
-OBUF gowin_buf_706 (
+OBUF gowin_buf_804 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[14])
 );
-OBUF gowin_buf_707 (
+OBUF gowin_buf_805 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[15])
 );
-OBUF gowin_buf_708 (
+OBUF gowin_buf_806 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[16])
 );
-OBUF gowin_buf_709 (
+OBUF gowin_buf_807 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[17])
 );
-OBUF gowin_buf_710 (
+OBUF gowin_buf_808 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[18])
 );
-OBUF gowin_buf_711 (
+OBUF gowin_buf_809 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[19])
 );
-OBUF gowin_buf_712 (
+OBUF gowin_buf_810 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[20])
 );
-OBUF gowin_buf_713 (
+OBUF gowin_buf_811 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[21])
 );
-OBUF gowin_buf_714 (
+OBUF gowin_buf_812 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[22])
 );
-OBUF gowin_buf_715 (
+OBUF gowin_buf_813 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[23])
 );
-OBUF gowin_buf_716 (
+OBUF gowin_buf_814 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[24])
 );
-OBUF gowin_buf_717 (
+OBUF gowin_buf_815 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[25])
 );
-OBUF gowin_buf_718 (
+OBUF gowin_buf_816 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[26])
 );
-OBUF gowin_buf_719 (
+OBUF gowin_buf_817 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[27])
 );
-OBUF gowin_buf_720 (
+OBUF gowin_buf_818 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[28])
 );
-OBUF gowin_buf_721 (
+OBUF gowin_buf_819 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[29])
 );
-OBUF gowin_buf_722 (
+OBUF gowin_buf_820 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[30])
 );
-OBUF gowin_buf_723 (
+OBUF gowin_buf_821 (
 	.I(VCC),
 	.O(pcie_tl_tx_prot_o[31])
 );
-OBUF gowin_buf_724 (
+OBUF gowin_buf_822 (
 	.I(GND),
 	.O(pcie_tl_brsw_in_o[0])
 );
-OBUF gowin_buf_725 (
+OBUF gowin_buf_823 (
 	.I(GND),
 	.O(pcie_tl_brsw_in_o[1])
 );
-OBUF gowin_buf_726 (
+OBUF gowin_buf_824 (
 	.I(GND),
 	.O(pcie_tl_brsw_in_o[2])
 );
-OBUF gowin_buf_727 (
+OBUF gowin_buf_825 (
 	.I(GND),
 	.O(pcie_tl_brsw_in_o[3])
 );
-OBUF gowin_buf_728 (
+OBUF gowin_buf_826 (
 	.I(GND),
 	.O(pcie_tl_brsw_in_o[4])
 );
-OBUF gowin_buf_729 (
+OBUF gowin_buf_827 (
 	.I(GND),
 	.O(pcie_tl_brsw_in_o[5])
 );
-OBUF gowin_buf_730 (
+OBUF gowin_buf_828 (
 	.I(VCC),
 	.O(pcie_tl_brsw_in_o[6])
 );
-OBUF gowin_buf_731 (
+OBUF gowin_buf_829 (
 	.I(GND),
 	.O(pcie_tl_brsw_in_o[7])
 );
-OBUF gowin_buf_732 (
+OBUF gowin_buf_830 (
 	.I(VCC),
 	.O(pcie_tl_pm_obffcontrol_o[0])
 );
-OBUF gowin_buf_733 (
+OBUF gowin_buf_831 (
 	.I(VCC),
 	.O(pcie_tl_pm_obffcontrol_o[1])
 );
-OBUF gowin_buf_734 (
+OBUF gowin_buf_832 (
 	.I(VCC),
 	.O(pcie_tl_pm_obffcontrol_o[2])
 );
-OBUF gowin_buf_735 (
+OBUF gowin_buf_833 (
 	.I(VCC),
 	.O(pcie_tl_pm_obffcontrol_o[3])
 );
-OBUF gowin_buf_736 (
-	.I(VCC),
-	.O(pcie_upar_strb_s_o[0])
-);
-OBUF gowin_buf_737 (
-	.I(VCC),
-	.O(pcie_upar_strb_s_o[1])
-);
-OBUF gowin_buf_738 (
-	.I(VCC),
-	.O(pcie_upar_strb_s_o[2])
-);
-OBUF gowin_buf_739 (
-	.I(VCC),
-	.O(pcie_upar_strb_s_o[3])
-);
-OBUF gowin_buf_740 (
-	.I(VCC),
-	.O(pcie_upar_strb_s_o[4])
-);
-OBUF gowin_buf_741 (
-	.I(VCC),
-	.O(pcie_upar_strb_s_o[5])
-);
-OBUF gowin_buf_742 (
-	.I(VCC),
-	.O(pcie_upar_strb_s_o[6])
-);
-OBUF gowin_buf_743 (
-	.I(VCC),
-	.O(pcie_upar_strb_s_o[7])
-);
-OBUF gowin_buf_744 (
+OBUF gowin_buf_834 (
 	.I(VCC),
 	.O(pcie_VCC)
 );
-OBUF gowin_buf_745 (
+OBUF gowin_buf_835 (
 	.I(GND),
 	.O(pcie_GND)
 );
-OBUF gowin_buf_746 (
+OBUF gowin_buf_836 (
 	.I(pcie_tl_clk_i),
 	.O(pcie_tl_clk_o)
 );
-LUT2 \u_pcie_controller/n216_s0  (
+LUT2 \u_pcie_controller/n203_s0  (
 	.I0(\u_pcie_controller/pl_test_out_rr [0]),
-	.I1(\u_pcie_controller/n216_5 ),
-	.F(\u_pcie_controller/n216_4 )
+	.I1(\u_pcie_controller/n203_5 ),
+	.F(\u_pcie_controller/n203_4 )
 );
-defparam \u_pcie_controller/n216_s0 .INIT=4'h4;
-LUT4 \u_pcie_controller/n216_s1  (
+defparam \u_pcie_controller/n203_s0 .INIT=4'h4;
+LUT4 \u_pcie_controller/n203_s1  (
 	.I0(\u_pcie_controller/pl_test_out_rr [1]),
 	.I1(\u_pcie_controller/pl_test_out_rr [2]),
 	.I2(\u_pcie_controller/pl_test_out_rr [3]),
 	.I3(\u_pcie_controller/pl_test_out_rr [4]),
-	.F(\u_pcie_controller/n216_5 )
+	.F(\u_pcie_controller/n203_5 )
 );
-defparam \u_pcie_controller/n216_s1 .INIT=16'h0100;
+defparam \u_pcie_controller/n203_s1 .INIT=16'h0100;
 DFFCE \u_pcie_controller/ltssm_10_s0  (
-	.D(\u_pcie_controller/n216_4 ),
+	.D(\u_pcie_controller/n203_4 ),
 	.CLK(pcie_tl_clk_i),
 	.CE(VCC),
 	.CLEAR(GND),
@@ -3459,7 +3874,7 @@ DFFRE \u_pcie_controller/u_rstn/key_1_s0  (
 	.CLK(pcie_tl_clk_i),
 	.CE(\u_pcie_controller/u_rstn/cnt [7]),
 	.RESET(GND),
-	.Q(pcie_csr_mode_o[4])
+	.Q(\u_pcie_controller/rstn )
 );
 defparam \u_pcie_controller/u_rstn/key_1_s0 .INIT=1'b0;
 DFFCE \u_pcie_controller/u_rstn/key_rst_s0  (
@@ -3622,7 +4037,7 @@ DFFRE \u_pcie_controller/u_pcie_st/cnt_1_s0  (
 );
 defparam \u_pcie_controller/u_pcie_st/cnt_1_s0 .INIT=1'b0;
 DFFRE \u_pcie_controller/u_pcie_st/key_1_s0  (
-	.D(pcie_csr_mode_o[4]),
+	.D(\u_pcie_controller/rstn ),
 	.CLK(pcie_tl_clk_i),
 	.CE(\u_pcie_controller/u_pcie_st/cnt [7]),
 	.RESET(GND),
@@ -3630,7 +4045,7 @@ DFFRE \u_pcie_controller/u_pcie_st/key_1_s0  (
 );
 defparam \u_pcie_controller/u_pcie_st/key_1_s0 .INIT=1'b0;
 DFFCE \u_pcie_controller/u_pcie_st/key_rst_s0  (
-	.D(pcie_csr_mode_o[4]),
+	.D(\u_pcie_controller/rstn ),
 	.CLK(pcie_tl_clk_i),
 	.CE(VCC),
 	.CLEAR(GND),
@@ -3811,12 +4226,12 @@ LUT4 \u_pcie_controller/u_pcie_linkup/n32_s3  (
 defparam \u_pcie_controller/u_pcie_linkup/n32_s3 .INIT=16'h6006;
 LUT4 \u_pcie_controller/u_pcie_linkup/n33_s5  (
 	.I0(\u_pcie_controller/u_pcie_linkup/cnt [0]),
-	.I1(\u_pcie_controller/u_pcie_linkup/key_rst_r ),
+	.I1(\u_pcie_controller/u_pcie_linkup/cnt [7]),
 	.I2(\u_pcie_controller/u_pcie_linkup/key_rst ),
-	.I3(\u_pcie_controller/u_pcie_linkup/cnt [7]),
+	.I3(\u_pcie_controller/u_pcie_linkup/key_rst_r ),
 	.F(\u_pcie_controller/u_pcie_linkup/n33_11 )
 );
-defparam \u_pcie_controller/u_pcie_linkup/n33_s5 .INIT=16'h8241;
+defparam \u_pcie_controller/u_pcie_linkup/n33_s5 .INIT=16'h9009;
 LUT3 \u_pcie_controller/u_pcie_linkup/cnt_6_s5  (
 	.I0(\u_pcie_controller/u_pcie_linkup/key_rst_r ),
 	.I1(\u_pcie_controller/u_pcie_linkup/key_rst ),
@@ -3913,7 +4328,7 @@ DFFCE \u_pcie_controller/u_pcie_linkup/cnt_0_s3  (
 );
 defparam \u_pcie_controller/u_pcie_linkup/cnt_0_s3 .INIT=1'b0;
 INV \u_pcie_controller/u_pcie_linkup/n15_s2  (
-	.I(pcie_csr_mode_o[4]),
+	.I(\u_pcie_controller/rstn ),
 	.O(\u_pcie_controller/u_pcie_linkup/n15_6 )
 );
 endmodule

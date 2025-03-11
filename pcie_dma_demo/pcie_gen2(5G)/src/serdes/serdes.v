@@ -1,13 +1,13 @@
-//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2025 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: IP file
-//Tool Version: V1.9.10.03 (64-bit)
+//Tool Version: V1.9.11.01 (64-bit)
 //Part Number: GW5AST-LV138PG484AC1/I0
 //Device: GW5AST-138
 //Device Version: B
-//Created Time: Tue Dec 10 17:39:27 2024
+//Created Time: Tue Mar 11 19:07:37 2025
 
-module SerDes_Top (PCIE_Controller_Top_pcie_tl_rx_sop_o, PCIE_Controller_Top_pcie_tl_rx_eop_o, PCIE_Controller_Top_pcie_tl_rx_data_o, PCIE_Controller_Top_pcie_tl_rx_valid_o, PCIE_Controller_Top_pcie_tl_rx_bardec_o, PCIE_Controller_Top_pcie_tl_rx_err_o, PCIE_Controller_Top_pcie_tl_tx_wait_o, PCIE_Controller_Top_pcie_tl_int_ack_o, PCIE_Controller_Top_pcie_ltssm_o, PCIE_Controller_Top_pcie_tl_tx_creditsp_o, PCIE_Controller_Top_pcie_tl_tx_creditsnp_o, PCIE_Controller_Top_pcie_tl_tx_creditscpl_o, PCIE_Controller_Top_pcie_tl_cfg_busdev_o, PCIE_Controller_Top_pcie_linkup_o, PCIE_Controller_Top_pcie_rstn_i, PCIE_Controller_Top_pcie_tl_clk_i, PCIE_Controller_Top_pcie_tl_rx_wait_i, PCIE_Controller_Top_pcie_tl_rx_masknp_i, PCIE_Controller_Top_pcie_tl_tx_sop_i, PCIE_Controller_Top_pcie_tl_tx_eop_i, PCIE_Controller_Top_pcie_tl_tx_data_i, PCIE_Controller_Top_pcie_tl_tx_valid_i, PCIE_Controller_Top_pcie_tl_int_status_i, PCIE_Controller_Top_pcie_tl_int_req_i, PCIE_Controller_Top_pcie_tl_int_msinum_i);
+module SerDes_Top (PCIE_Controller_Top_pcie_tl_rx_sop_o, PCIE_Controller_Top_pcie_tl_rx_eop_o, PCIE_Controller_Top_pcie_tl_rx_data_o, PCIE_Controller_Top_pcie_tl_rx_valid_o, PCIE_Controller_Top_pcie_tl_rx_bardec_o, PCIE_Controller_Top_pcie_tl_rx_err_o, PCIE_Controller_Top_pcie_tl_tx_wait_o, PCIE_Controller_Top_pcie_tl_int_ack_o, PCIE_Controller_Top_pcie_ltssm_o, PCIE_Controller_Top_pcie_tl_tx_creditsp_o, PCIE_Controller_Top_pcie_tl_tx_creditsnp_o, PCIE_Controller_Top_pcie_tl_tx_creditscpl_o, PCIE_Controller_Top_pcie_tl_cfg_busdev_o, PCIE_Controller_Top_pcie_linkup_o, PCIE_Controller_Top_pcie_tl_drp_clk_o, PCIE_Controller_Top_pcie_tl_drp_rddata_o, PCIE_Controller_Top_pcie_tl_drp_resp_o, PCIE_Controller_Top_pcie_tl_drp_rd_valid_o, PCIE_Controller_Top_pcie_tl_drp_ready_o, PCIE_Controller_Top_pcie_rstn_i, PCIE_Controller_Top_pcie_tl_clk_i, PCIE_Controller_Top_pcie_tl_rx_wait_i, PCIE_Controller_Top_pcie_tl_rx_masknp_i, PCIE_Controller_Top_pcie_tl_tx_sop_i, PCIE_Controller_Top_pcie_tl_tx_eop_i, PCIE_Controller_Top_pcie_tl_tx_data_i, PCIE_Controller_Top_pcie_tl_tx_valid_i, PCIE_Controller_Top_pcie_tl_int_status_i, PCIE_Controller_Top_pcie_tl_int_req_i, PCIE_Controller_Top_pcie_tl_int_msinum_i, PCIE_Controller_Top_pcie_tl_drp_addr_i, PCIE_Controller_Top_pcie_tl_drp_wrdata_i, PCIE_Controller_Top_pcie_tl_drp_strb_i, PCIE_Controller_Top_pcie_tl_drp_wr_i, PCIE_Controller_Top_pcie_tl_drp_rd_i);
 
 output PCIE_Controller_Top_pcie_tl_rx_sop_o;
 output PCIE_Controller_Top_pcie_tl_rx_eop_o;
@@ -23,6 +23,11 @@ output [31:0] PCIE_Controller_Top_pcie_tl_tx_creditsnp_o;
 output [31:0] PCIE_Controller_Top_pcie_tl_tx_creditscpl_o;
 output [12:0] PCIE_Controller_Top_pcie_tl_cfg_busdev_o;
 output PCIE_Controller_Top_pcie_linkup_o;
+output PCIE_Controller_Top_pcie_tl_drp_clk_o;
+output [31:0] PCIE_Controller_Top_pcie_tl_drp_rddata_o;
+output PCIE_Controller_Top_pcie_tl_drp_resp_o;
+output PCIE_Controller_Top_pcie_tl_drp_rd_valid_o;
+output PCIE_Controller_Top_pcie_tl_drp_ready_o;
 input PCIE_Controller_Top_pcie_rstn_i;
 input PCIE_Controller_Top_pcie_tl_clk_i;
 input PCIE_Controller_Top_pcie_tl_rx_wait_i;
@@ -34,9 +39,14 @@ input [7:0] PCIE_Controller_Top_pcie_tl_tx_valid_i;
 input PCIE_Controller_Top_pcie_tl_int_status_i;
 input PCIE_Controller_Top_pcie_tl_int_req_i;
 input [4:0] PCIE_Controller_Top_pcie_tl_int_msinum_i;
+input [23:0] PCIE_Controller_Top_pcie_tl_drp_addr_i;
+input [31:0] PCIE_Controller_Top_pcie_tl_drp_wrdata_i;
+input [7:0] PCIE_Controller_Top_pcie_tl_drp_strb_i;
+input PCIE_Controller_Top_pcie_tl_drp_wr_i;
+input PCIE_Controller_Top_pcie_tl_drp_rd_i;
 
 wire PCIE_Controller_Top_pcie_half_clk_i;
-wire q0_ck_ahb_i;
+wire PCIE_Controller_Top_pcie_tl_clk_o;
 wire q0_ahb_rstn;
 wire q0_test_dec_en;
 wire q0_quad_pcie_clk;
@@ -171,6 +181,34 @@ wire q0_fabric_lane0_cmu_ok_o;
 wire q0_fabric_lane1_cmu_ok_o;
 wire q0_fabric_lane2_cmu_ok_o;
 wire q0_fabric_lane3_cmu_ok_o;
+wire upar_rst;
+wire upar_wren_s;
+wire [23:0] upar_addr_s;
+wire [31:0] upar_wrdata_s;
+wire upar_rden_s;
+wire [7:0] upar_strb_s;
+wire upar_bus_width_s;
+wire [5466:0] inet_upar_pmac;
+wire [420:0] inet_upar_q0;
+wire [420:0] inet_upar_q1;
+wire [1328:0] inet_upar_test;
+wire csr_tdo;
+wire [31:0] upar_rddata_s;
+wire upar_rdvld_s;
+wire upar_ready_s;
+wire spi_miso;
+wire ahb_clk_o;
+wire tl_clkp_i;
+wire [23:0] upar_arbiter_wrap_SerDes_Top_inst_drp_addr_i;
+wire [0:0] upar_arbiter_wrap_SerDes_Top_inst_drp_wren_i;
+wire [31:0] upar_arbiter_wrap_SerDes_Top_inst_drp_wrdata_i;
+wire [7:0] upar_arbiter_wrap_SerDes_Top_inst_drp_strb_i;
+wire [0:0] upar_arbiter_wrap_SerDes_Top_inst_drp_rden_i;
+wire [7:0] upar_arbiter_wrap_SerDes_Top_inst_drp_clk_o;
+wire [7:0] upar_arbiter_wrap_SerDes_Top_inst_drp_ready_o;
+wire [7:0] upar_arbiter_wrap_SerDes_Top_inst_drp_rdvld_o;
+wire [255:0] upar_arbiter_wrap_SerDes_Top_inst_drp_rddata_o;
+wire [7:0] upar_arbiter_wrap_SerDes_Top_inst_drp_resp_o;
 wire PCIE_Controller_Top_pcie_tl_rx_sop_i;
 wire PCIE_Controller_Top_pcie_tl_rx_eop_i;
 wire [255:0] PCIE_Controller_Top_pcie_tl_rx_data_i;
@@ -200,12 +238,10 @@ wire PCIE_Controller_Top_pcie_tl_int_status_o;
 wire PCIE_Controller_Top_pcie_tl_int_req_o;
 wire [4:0] PCIE_Controller_Top_pcie_tl_int_msinum_o;
 wire PCIE_Controller_Top_pcie_pmac_rstn_o;
-wire [4:0] PCIE_Controller_Top_pcie_csr_mode_o;
 wire [21:0] PCIE_Controller_Top_pcie_tl_clk_freq_o;
 wire [31:0] PCIE_Controller_Top_pcie_tl_tx_prot_o;
 wire [7:0] PCIE_Controller_Top_pcie_tl_brsw_in_o;
 wire [3:0] PCIE_Controller_Top_pcie_tl_pm_obffcontrol_o;
-wire [7:0] PCIE_Controller_Top_pcie_upar_strb_s_o;
 wire PCIE_Controller_Top_pcie_VCC;
 wire PCIE_Controller_Top_pcie_GND;
 wire [531:0] inet_pmac_q0;
@@ -291,25 +327,11 @@ wire tl_cfgexpwrite0;
 wire tl_cfgexpwrite1;
 wire tl_cfgexpwrite2;
 wire tl_cfgexpwrite3;
-wire upar_rst;
-wire upar_wren_s;
-wire [23:0] upar_addr_s;
-wire [31:0] upar_wrdata_s;
-wire upar_rden_s;
-wire [5466:0] inet_upar_pmac;
-wire [420:0] inet_upar_q0;
-wire [420:0] inet_upar_q1;
-wire [1328:0] inet_upar_test;
-wire csr_tdo;
-wire [31:0] upar_rddata_s;
-wire upar_rdvld_s;
-wire upar_ready_s;
-wire spi_miso;
-wire ahb_clk_o;
-wire tl_clkp_i;
+wire gw_vcc;
 wire gw_gnd;
 
 
+assign gw_vcc = 1'b1;
 assign gw_gnd = 1'b0;
 
 GTR12_QUAD gtr12_quad_inst0 (
@@ -564,7 +586,7 @@ GTR12_QUAD gtr12_quad_inst0 (
     .FABRIC_LN3_TX_VLD_IN(gw_gnd),
     .FABRIC_POR_N_I(gw_gnd),
     .FABRIC_QUAD_MCU_REQ_I(gw_gnd),
-    .CK_AHB_I(q0_ck_ahb_i),
+    .CK_AHB_I(PCIE_Controller_Top_pcie_tl_clk_o),
     .AHB_RSTN(q0_ahb_rstn),
     .TEST_DEC_EN(q0_test_dec_en),
     .QUAD_PCIE_CLK(q0_quad_pcie_clk),
@@ -575,79 +597,173 @@ GTR12_QUAD gtr12_quad_inst0 (
 
 defparam gtr12_quad_inst0.POSITION = "Q0";
 
+GTR12_UPAR gtr12_upar_inst (
+    .CSR_TDO(csr_tdo),
+    .UPAR_RDDATA_S(upar_rddata_s),
+    .UPAR_RDVLD_S(upar_rdvld_s),
+    .UPAR_READY_S(upar_ready_s),
+    .SPI_MISO(spi_miso),
+    .AHB_CLK_O(ahb_clk_o),
+    .QUAD_CFG_TEST_DEC_EN(q0_test_dec_en),
+    .AHB_RSTN_O(q0_ahb_rstn),
+    .TL_CLKP_I(tl_clkp_i),
+    .INET_UPAR_PMAC(inet_upar_pmac),
+    .INET_UPAR_Q0(inet_upar_q0),
+    .INET_UPAR_Q1(inet_upar_q1),
+    .INET_UPAR_TEST(inet_upar_test),
+    .CSR_TCK(gw_gnd),
+    .CSR_TMS(gw_gnd),
+    .CSR_TDI(gw_gnd),
+    .UPAR_CLK(PCIE_Controller_Top_pcie_tl_clk_o),
+    .UPAR_RST(upar_rst),
+    .SPI_CLK(gw_gnd),
+    .UPAR_WREN_S(upar_wren_s),
+    .UPAR_ADDR_S(upar_addr_s),
+    .UPAR_WRDATA_S(upar_wrdata_s),
+    .UPAR_RDEN_S(upar_rden_s),
+    .UPAR_STRB_S(upar_strb_s),
+    .UPAR_BUS_WIDTH_S(upar_bus_width_s),
+    .SPI_MOSI(gw_gnd),
+    .SPI_SS(gw_gnd),
+    .CSR_MODE({gw_vcc,gw_gnd,gw_vcc,gw_gnd,gw_gnd}),
+    .FABRIC_DFT_EDT_UPDATE(gw_gnd),
+    .FABRIC_DFT_IJTAG_CE(gw_gnd),
+    .FABRIC_DFT_IJTAG_RESET(gw_gnd),
+    .FABRIC_DFT_IJTAG_SE(gw_gnd),
+    .FABRIC_DFT_IJTAG_SEL(gw_gnd),
+    .FABRIC_DFT_IJTAG_SI(gw_gnd),
+    .FABRIC_DFT_IJTAG_TCK(gw_gnd),
+    .FABRIC_DFT_IJTAG_UE(gw_gnd),
+    .FABRIC_DFT_PLL_BYPASS_CLK(gw_gnd),
+    .FABRIC_DFT_PLL_BYPASS_MODE(gw_gnd),
+    .FABRIC_DFT_SCAN_CLK(gw_gnd),
+    .FABRIC_DFT_SCAN_EN(gw_gnd),
+    .FABRIC_DFT_SCAN_IN0(gw_gnd),
+    .FABRIC_DFT_SCAN_IN1(gw_gnd),
+    .FABRIC_DFT_SCAN_IN2(gw_gnd),
+    .FABRIC_DFT_SCAN_IN3(gw_gnd),
+    .FABRIC_DFT_SCAN_IN4(gw_gnd),
+    .FABRIC_DFT_SCAN_IN5(gw_gnd),
+    .FABRIC_DFT_SCAN_IN6(gw_gnd),
+    .FABRIC_DFT_SCAN_RSTN(gw_gnd),
+    .FABRIC_DFT_SHIFT_SCAN_EN(gw_gnd)
+);
+
+\~upar_arbiter_wrap.SerDes_Top upar_arbiter_wrap_SerDes_Top_inst (
+    .drp_clk_o({upar_arbiter_wrap_SerDes_Top_inst_drp_clk_o[7],upar_arbiter_wrap_SerDes_Top_inst_drp_clk_o[6],upar_arbiter_wrap_SerDes_Top_inst_drp_clk_o[5],upar_arbiter_wrap_SerDes_Top_inst_drp_clk_o[4],upar_arbiter_wrap_SerDes_Top_inst_drp_clk_o[3],upar_arbiter_wrap_SerDes_Top_inst_drp_clk_o[2],upar_arbiter_wrap_SerDes_Top_inst_drp_clk_o[1],upar_arbiter_wrap_SerDes_Top_inst_drp_clk_o[0]}),
+    .drp_ready_o({upar_arbiter_wrap_SerDes_Top_inst_drp_ready_o[7],upar_arbiter_wrap_SerDes_Top_inst_drp_ready_o[6],upar_arbiter_wrap_SerDes_Top_inst_drp_ready_o[5],upar_arbiter_wrap_SerDes_Top_inst_drp_ready_o[4],upar_arbiter_wrap_SerDes_Top_inst_drp_ready_o[3],upar_arbiter_wrap_SerDes_Top_inst_drp_ready_o[2],upar_arbiter_wrap_SerDes_Top_inst_drp_ready_o[1],upar_arbiter_wrap_SerDes_Top_inst_drp_ready_o[0]}),
+    .drp_rdvld_o({upar_arbiter_wrap_SerDes_Top_inst_drp_rdvld_o[7],upar_arbiter_wrap_SerDes_Top_inst_drp_rdvld_o[6],upar_arbiter_wrap_SerDes_Top_inst_drp_rdvld_o[5],upar_arbiter_wrap_SerDes_Top_inst_drp_rdvld_o[4],upar_arbiter_wrap_SerDes_Top_inst_drp_rdvld_o[3],upar_arbiter_wrap_SerDes_Top_inst_drp_rdvld_o[2],upar_arbiter_wrap_SerDes_Top_inst_drp_rdvld_o[1],upar_arbiter_wrap_SerDes_Top_inst_drp_rdvld_o[0]}),
+    .drp_rddata_o({upar_arbiter_wrap_SerDes_Top_inst_drp_rddata_o[255:224],upar_arbiter_wrap_SerDes_Top_inst_drp_rddata_o[223:192],upar_arbiter_wrap_SerDes_Top_inst_drp_rddata_o[191:160],upar_arbiter_wrap_SerDes_Top_inst_drp_rddata_o[159:128],upar_arbiter_wrap_SerDes_Top_inst_drp_rddata_o[127:96],upar_arbiter_wrap_SerDes_Top_inst_drp_rddata_o[95:64],upar_arbiter_wrap_SerDes_Top_inst_drp_rddata_o[63:32],upar_arbiter_wrap_SerDes_Top_inst_drp_rddata_o[31:0]}),
+    .drp_resp_o({upar_arbiter_wrap_SerDes_Top_inst_drp_resp_o[7],upar_arbiter_wrap_SerDes_Top_inst_drp_resp_o[6],upar_arbiter_wrap_SerDes_Top_inst_drp_resp_o[5],upar_arbiter_wrap_SerDes_Top_inst_drp_resp_o[4],upar_arbiter_wrap_SerDes_Top_inst_drp_resp_o[3],upar_arbiter_wrap_SerDes_Top_inst_drp_resp_o[2],upar_arbiter_wrap_SerDes_Top_inst_drp_resp_o[1],upar_arbiter_wrap_SerDes_Top_inst_drp_resp_o[0]}),
+    .upar_rst_o(upar_rst),
+    .upar_addr_o(upar_addr_s),
+    .upar_wren_o(upar_wren_s),
+    .upar_wrdata_o(upar_wrdata_s),
+    .upar_strb_o(upar_strb_s),
+    .upar_rden_o(upar_rden_s),
+    .upar_bus_width_o(upar_bus_width_s),
+    .drp_addr_i({gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,upar_arbiter_wrap_SerDes_Top_inst_drp_addr_i[23:0]}),
+    .drp_wren_i({gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,upar_arbiter_wrap_SerDes_Top_inst_drp_wren_i[0]}),
+    .drp_wrdata_i({gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,upar_arbiter_wrap_SerDes_Top_inst_drp_wrdata_i[31:0]}),
+    .drp_strb_i({gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,upar_arbiter_wrap_SerDes_Top_inst_drp_strb_i[7:0]}),
+    .drp_rden_i({gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,upar_arbiter_wrap_SerDes_Top_inst_drp_rden_i[0]}),
+    .upar_clk_i(PCIE_Controller_Top_pcie_tl_clk_o),
+    .upar_ready_i(upar_ready_s),
+    .upar_rdvld_i(upar_rdvld_s),
+    .upar_rddata_i(upar_rddata_s)
+);
+
 PCIE_Controller_Top PCIE_Controller_Top_inst (
     .pcie_tl_rx_sop_o(PCIE_Controller_Top_pcie_tl_rx_sop_o),
     .pcie_tl_rx_eop_o(PCIE_Controller_Top_pcie_tl_rx_eop_o),
-    .pcie_tl_rx_data_o(PCIE_Controller_Top_pcie_tl_rx_data_o),
-    .pcie_tl_rx_valid_o(PCIE_Controller_Top_pcie_tl_rx_valid_o),
-    .pcie_tl_rx_bardec_o(PCIE_Controller_Top_pcie_tl_rx_bardec_o),
-    .pcie_tl_rx_err_o(PCIE_Controller_Top_pcie_tl_rx_err_o),
+    .pcie_tl_rx_data_o(PCIE_Controller_Top_pcie_tl_rx_data_o[255:0]),
+    .pcie_tl_rx_valid_o(PCIE_Controller_Top_pcie_tl_rx_valid_o[7:0]),
+    .pcie_tl_rx_bardec_o(PCIE_Controller_Top_pcie_tl_rx_bardec_o[5:0]),
+    .pcie_tl_rx_err_o(PCIE_Controller_Top_pcie_tl_rx_err_o[7:0]),
     .pcie_tl_tx_wait_o(PCIE_Controller_Top_pcie_tl_tx_wait_o),
     .pcie_tl_int_ack_o(PCIE_Controller_Top_pcie_tl_int_ack_o),
-    .pcie_ltssm_o(PCIE_Controller_Top_pcie_ltssm_o),
-    .pcie_tl_tx_creditsp_o(PCIE_Controller_Top_pcie_tl_tx_creditsp_o),
-    .pcie_tl_tx_creditsnp_o(PCIE_Controller_Top_pcie_tl_tx_creditsnp_o),
-    .pcie_tl_tx_creditscpl_o(PCIE_Controller_Top_pcie_tl_tx_creditscpl_o),
-    .pcie_tl_cfg_busdev_o(PCIE_Controller_Top_pcie_tl_cfg_busdev_o),
+    .pcie_ltssm_o(PCIE_Controller_Top_pcie_ltssm_o[4:0]),
+    .pcie_tl_tx_creditsp_o(PCIE_Controller_Top_pcie_tl_tx_creditsp_o[31:0]),
+    .pcie_tl_tx_creditsnp_o(PCIE_Controller_Top_pcie_tl_tx_creditsnp_o[31:0]),
+    .pcie_tl_tx_creditscpl_o(PCIE_Controller_Top_pcie_tl_tx_creditscpl_o[31:0]),
+    .pcie_tl_cfg_busdev_o(PCIE_Controller_Top_pcie_tl_cfg_busdev_o[12:0]),
     .pcie_linkup_o(PCIE_Controller_Top_pcie_linkup_o),
     .pcie_tl_rx_wait_o(PCIE_Controller_Top_pcie_tl_rx_wait_o),
     .pcie_tl_rx_masknp_o(PCIE_Controller_Top_pcie_tl_rx_masknp_o),
     .pcie_tl_tx_sop_o(PCIE_Controller_Top_pcie_tl_tx_sop_o),
     .pcie_tl_tx_eop_o(PCIE_Controller_Top_pcie_tl_tx_eop_o),
-    .pcie_tl_tx_data_o(PCIE_Controller_Top_pcie_tl_tx_data_o),
-    .pcie_tl_tx_valid_o(PCIE_Controller_Top_pcie_tl_tx_valid_o),
+    .pcie_tl_tx_data_o(PCIE_Controller_Top_pcie_tl_tx_data_o[255:0]),
+    .pcie_tl_tx_valid_o(PCIE_Controller_Top_pcie_tl_tx_valid_o[7:0]),
     .pcie_tl_int_status_o(PCIE_Controller_Top_pcie_tl_int_status_o),
     .pcie_tl_int_req_o(PCIE_Controller_Top_pcie_tl_int_req_o),
-    .pcie_tl_int_msinum_o(PCIE_Controller_Top_pcie_tl_int_msinum_o),
+    .pcie_tl_int_msinum_o(PCIE_Controller_Top_pcie_tl_int_msinum_o[4:0]),
     .pcie_pmac_rstn_o(PCIE_Controller_Top_pcie_pmac_rstn_o),
-    .pcie_csr_mode_o(PCIE_Controller_Top_pcie_csr_mode_o),
-    .pcie_tl_clk_freq_o(PCIE_Controller_Top_pcie_tl_clk_freq_o),
-    .pcie_tl_tx_prot_o(PCIE_Controller_Top_pcie_tl_tx_prot_o),
-    .pcie_tl_brsw_in_o(PCIE_Controller_Top_pcie_tl_brsw_in_o),
-    .pcie_tl_pm_obffcontrol_o(PCIE_Controller_Top_pcie_tl_pm_obffcontrol_o),
-    .pcie_upar_strb_s_o(PCIE_Controller_Top_pcie_upar_strb_s_o),
+    .pcie_tl_clk_freq_o(PCIE_Controller_Top_pcie_tl_clk_freq_o[21:0]),
+    .pcie_tl_tx_prot_o(PCIE_Controller_Top_pcie_tl_tx_prot_o[31:0]),
+    .pcie_tl_brsw_in_o(PCIE_Controller_Top_pcie_tl_brsw_in_o[7:0]),
+    .pcie_tl_pm_obffcontrol_o(PCIE_Controller_Top_pcie_tl_pm_obffcontrol_o[3:0]),
     .pcie_VCC(PCIE_Controller_Top_pcie_VCC),
     .pcie_GND(PCIE_Controller_Top_pcie_GND),
-    .pcie_tl_clk_o(q0_ck_ahb_i),
+    .pcie_tl_clk_o(PCIE_Controller_Top_pcie_tl_clk_o),
+    .pcie_tl_drp_clk_o(PCIE_Controller_Top_pcie_tl_drp_clk_o),
+    .pcie_tl_drp_rddata_o(PCIE_Controller_Top_pcie_tl_drp_rddata_o[31:0]),
+    .pcie_tl_drp_resp_o(PCIE_Controller_Top_pcie_tl_drp_resp_o),
+    .pcie_tl_drp_rd_valid_o(PCIE_Controller_Top_pcie_tl_drp_rd_valid_o),
+    .pcie_tl_drp_ready_o(PCIE_Controller_Top_pcie_tl_drp_ready_o),
+    .pcie_tl_drp_addr_o(upar_arbiter_wrap_SerDes_Top_inst_drp_addr_i[23:0]),
+    .pcie_tl_drp_wrdata_o(upar_arbiter_wrap_SerDes_Top_inst_drp_wrdata_i[31:0]),
+    .pcie_tl_drp_wr_o(upar_arbiter_wrap_SerDes_Top_inst_drp_wren_i[0]),
+    .pcie_tl_drp_rd_o(upar_arbiter_wrap_SerDes_Top_inst_drp_rden_i[0]),
+    .pcie_tl_drp_strb_o(upar_arbiter_wrap_SerDes_Top_inst_drp_strb_i[7:0]),
     .pcie_rstn_i(PCIE_Controller_Top_pcie_rstn_i),
     .pcie_tl_clk_i(PCIE_Controller_Top_pcie_tl_clk_i),
     .pcie_tl_rx_wait_i(PCIE_Controller_Top_pcie_tl_rx_wait_i),
     .pcie_tl_rx_masknp_i(PCIE_Controller_Top_pcie_tl_rx_masknp_i),
     .pcie_tl_tx_sop_i(PCIE_Controller_Top_pcie_tl_tx_sop_i),
     .pcie_tl_tx_eop_i(PCIE_Controller_Top_pcie_tl_tx_eop_i),
-    .pcie_tl_tx_data_i(PCIE_Controller_Top_pcie_tl_tx_data_i),
-    .pcie_tl_tx_valid_i(PCIE_Controller_Top_pcie_tl_tx_valid_i),
+    .pcie_tl_tx_data_i(PCIE_Controller_Top_pcie_tl_tx_data_i[255:0]),
+    .pcie_tl_tx_valid_i(PCIE_Controller_Top_pcie_tl_tx_valid_i[7:0]),
     .pcie_tl_int_status_i(PCIE_Controller_Top_pcie_tl_int_status_i),
     .pcie_tl_int_req_i(PCIE_Controller_Top_pcie_tl_int_req_i),
-    .pcie_tl_int_msinum_i(PCIE_Controller_Top_pcie_tl_int_msinum_i),
+    .pcie_tl_int_msinum_i(PCIE_Controller_Top_pcie_tl_int_msinum_i[4:0]),
     .pcie_tl_rx_sop_i(PCIE_Controller_Top_pcie_tl_rx_sop_i),
     .pcie_tl_rx_eop_i(PCIE_Controller_Top_pcie_tl_rx_eop_i),
-    .pcie_tl_rx_data_i(PCIE_Controller_Top_pcie_tl_rx_data_i),
-    .pcie_tl_rx_valid_i(PCIE_Controller_Top_pcie_tl_rx_valid_i),
-    .pcie_tl_rx_bardec_i(PCIE_Controller_Top_pcie_tl_rx_bardec_i),
-    .pcie_tl_rx_err_i(PCIE_Controller_Top_pcie_tl_rx_err_i),
+    .pcie_tl_rx_data_i(PCIE_Controller_Top_pcie_tl_rx_data_i[255:0]),
+    .pcie_tl_rx_valid_i(PCIE_Controller_Top_pcie_tl_rx_valid_i[7:0]),
+    .pcie_tl_rx_bardec_i(PCIE_Controller_Top_pcie_tl_rx_bardec_i[5:0]),
+    .pcie_tl_rx_err_i(PCIE_Controller_Top_pcie_tl_rx_err_i[7:0]),
     .pcie_tl_tx_wait_i(PCIE_Controller_Top_pcie_tl_tx_wait_i),
     .pcie_tl_int_ack_i(PCIE_Controller_Top_pcie_tl_int_ack_i),
-    .pcie_tl_tx_credits_i(PCIE_Controller_Top_pcie_tl_tx_credits_i),
-    .pcie_pl_test_out_i(PCIE_Controller_Top_pcie_pl_test_out_i),
-    .pcie_tl_cfg_busdev_i(PCIE_Controller_Top_pcie_tl_cfg_busdev_i),
+    .pcie_tl_tx_credits_i(PCIE_Controller_Top_pcie_tl_tx_credits_i[95:0]),
+    .pcie_pl_test_out_i(PCIE_Controller_Top_pcie_pl_test_out_i[31:0]),
+    .pcie_tl_cfg_busdev_i(PCIE_Controller_Top_pcie_tl_cfg_busdev_i[12:0]),
     .fabric_pl_rx_det(q0_fabric_ln0_rxdet_result),
     .fabric_ln0_pma_rx_lock(q0_fabric_ln0_pma_rx_lock_o),
-    .fabric_ln0_astat(q0_fabric_ln0_astat_o),
-    .fabric_pl_txdata(PCIE_Controller_Top_fabric_pl_txdata),
-    .fabric_pl_txdata_h(PCIE_Controller_Top_fabric_pl_txdata_h),
-    .fabric_pl_txdatak(PCIE_Controller_Top_fabric_pl_txdatak),
-    .fabric_pl_txdatak_h(PCIE_Controller_Top_fabric_pl_txdatak_h),
-    .fabric_pl_txdatavalid(PCIE_Controller_Top_fabric_pl_txdatavalid),
-    .fabric_pl_txdatavalid_h(PCIE_Controller_Top_fabric_pl_txdatavalid_h),
-    .fabric_ln0_rxdata(q0_fabric_ln0_rxdata_o),
+    .fabric_ln0_astat(q0_fabric_ln0_astat_o[5:0]),
+    .fabric_pl_txdata(PCIE_Controller_Top_fabric_pl_txdata[127:0]),
+    .fabric_pl_txdata_h(PCIE_Controller_Top_fabric_pl_txdata_h[127:0]),
+    .fabric_pl_txdatak(PCIE_Controller_Top_fabric_pl_txdatak[15:0]),
+    .fabric_pl_txdatak_h(PCIE_Controller_Top_fabric_pl_txdatak_h[15:0]),
+    .fabric_pl_txdatavalid(PCIE_Controller_Top_fabric_pl_txdatavalid[7:0]),
+    .fabric_pl_txdatavalid_h(PCIE_Controller_Top_fabric_pl_txdatavalid_h[7:0]),
+    .fabric_ln0_rxdata(q0_fabric_ln0_rxdata_o[87:0]),
     .fabric_ln0_rxdatavalid(q0_fabric_ln0_rx_vld_out),
-    .fabric_ln1_rxdata(q0_fabric_ln1_rxdata_o),
-    .fabric_ln2_rxdata(q0_fabric_ln2_rxdata_o),
-    .fabric_ln3_rxdata(q0_fabric_ln3_rxdata_o),
-    .fabric_pl_rate(PCIE_Controller_Top_fabric_pl_rate),
-    .fabric_pl_rate_h(PCIE_Controller_Top_fabric_pl_rate_h),
-    .pcie_half_clk_i(PCIE_Controller_Top_pcie_half_clk_i)
+    .fabric_ln1_rxdata(q0_fabric_ln1_rxdata_o[87:0]),
+    .fabric_ln2_rxdata(q0_fabric_ln2_rxdata_o[87:0]),
+    .fabric_ln3_rxdata(q0_fabric_ln3_rxdata_o[87:0]),
+    .fabric_pl_rate(PCIE_Controller_Top_fabric_pl_rate[1:0]),
+    .fabric_pl_rate_h(PCIE_Controller_Top_fabric_pl_rate_h[1:0]),
+    .pcie_half_clk_i(PCIE_Controller_Top_pcie_half_clk_i),
+    .pcie_tl_drp_addr_i(PCIE_Controller_Top_pcie_tl_drp_addr_i[23:0]),
+    .pcie_tl_drp_wrdata_i(PCIE_Controller_Top_pcie_tl_drp_wrdata_i[31:0]),
+    .pcie_tl_drp_strb_i(PCIE_Controller_Top_pcie_tl_drp_strb_i[7:0]),
+    .pcie_tl_drp_wr_i(PCIE_Controller_Top_pcie_tl_drp_wr_i),
+    .pcie_tl_drp_rd_i(PCIE_Controller_Top_pcie_tl_drp_rd_i),
+    .pcie_tl_drp_clk_i(upar_arbiter_wrap_SerDes_Top_inst_drp_clk_o[0]),
+    .pcie_tl_drp_rddata_i(upar_arbiter_wrap_SerDes_Top_inst_drp_rddata_o[31:0]),
+    .pcie_tl_drp_rd_valid_i(upar_arbiter_wrap_SerDes_Top_inst_drp_rdvld_o[0]),
+    .pcie_tl_drp_ready_i(upar_arbiter_wrap_SerDes_Top_inst_drp_ready_o[0]),
+    .pcie_tl_drp_resp_i(upar_arbiter_wrap_SerDes_Top_inst_drp_resp_o[0])
 );
 
 GTR12_PMAC gtr12_pmac_inst (
@@ -864,7 +980,7 @@ GTR12_PMAC gtr12_pmac_inst (
     .TL_CFGEXPVALID1(gw_gnd),
     .TL_CFGEXPVALID2(gw_gnd),
     .TL_CFGEXPVALID3(gw_gnd),
-    .TL_CLKP(q0_ck_ahb_i),
+    .TL_CLKP(PCIE_Controller_Top_pcie_tl_clk_o),
     .Q0_CPLL0_OK_I(q0_fabric_lane0_cmu_ok_o),
     .Q0_CPLL1_OK_I(q0_fabric_lane1_cmu_ok_o),
     .Q0_CPLL2_OK_I(q0_fabric_lane2_cmu_ok_o),
@@ -873,59 +989,7 @@ GTR12_PMAC gtr12_pmac_inst (
     .Q1_CPLL1_OK_I(gw_gnd),
     .Q1_CPLL2_OK_I(gw_gnd),
     .Q1_CPLL3_OK_I(gw_gnd),
-    .FABRIC_PCLK_I(q0_ck_ahb_i)
-);
-
-GTR12_UPAR gtr12_upar_inst (
-    .CSR_TDO(csr_tdo),
-    .UPAR_RDDATA_S(upar_rddata_s),
-    .UPAR_RDVLD_S(upar_rdvld_s),
-    .UPAR_READY_S(upar_ready_s),
-    .SPI_MISO(spi_miso),
-    .AHB_CLK_O(ahb_clk_o),
-    .QUAD_CFG_TEST_DEC_EN(q0_test_dec_en),
-    .AHB_RSTN_O(q0_ahb_rstn),
-    .TL_CLKP_I(tl_clkp_i),
-    .INET_UPAR_PMAC(inet_upar_pmac),
-    .INET_UPAR_Q0(inet_upar_q0),
-    .INET_UPAR_Q1(inet_upar_q1),
-    .INET_UPAR_TEST(inet_upar_test),
-    .CSR_TCK(PCIE_Controller_Top_pcie_GND),
-    .CSR_TMS(PCIE_Controller_Top_pcie_GND),
-    .CSR_TDI(PCIE_Controller_Top_pcie_GND),
-    .UPAR_CLK(q0_ck_ahb_i),
-    .UPAR_RST(upar_rst),
-    .SPI_CLK(PCIE_Controller_Top_pcie_GND),
-    .UPAR_WREN_S(upar_wren_s),
-    .UPAR_ADDR_S(upar_addr_s),
-    .UPAR_WRDATA_S(upar_wrdata_s),
-    .UPAR_RDEN_S(upar_rden_s),
-    .UPAR_STRB_S(PCIE_Controller_Top_pcie_upar_strb_s_o),
-    .UPAR_BUS_WIDTH_S(PCIE_Controller_Top_pcie_GND),
-    .SPI_MOSI(gw_gnd),
-    .SPI_SS(gw_gnd),
-    .CSR_MODE(PCIE_Controller_Top_pcie_csr_mode_o),
-    .FABRIC_DFT_EDT_UPDATE(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_IJTAG_CE(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_IJTAG_RESET(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_IJTAG_SE(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_IJTAG_SEL(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_IJTAG_SI(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_IJTAG_TCK(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_IJTAG_UE(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_PLL_BYPASS_CLK(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_PLL_BYPASS_MODE(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_SCAN_CLK(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_SCAN_EN(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_SCAN_IN0(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_SCAN_IN1(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_SCAN_IN2(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_SCAN_IN3(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_SCAN_IN4(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_SCAN_IN5(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_SCAN_IN6(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_SCAN_RSTN(PCIE_Controller_Top_pcie_GND),
-    .FABRIC_DFT_SHIFT_SCAN_EN(PCIE_Controller_Top_pcie_GND)
+    .FABRIC_PCLK_I(PCIE_Controller_Top_pcie_tl_clk_o)
 );
 
 endmodule //SerDes_Top

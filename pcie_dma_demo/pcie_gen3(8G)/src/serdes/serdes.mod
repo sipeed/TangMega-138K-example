@@ -1,5 +1,5 @@
 -type SERDES
--path C:/Users/Think/OneDrive/Documents/GitHub/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/serdes/
+-path C:/Users/Think/Downloads/pcie_gen3(8G)/src/serdes/
 -file_type vlg
 -file_name serdes
 -mod_name SerDes_Top
@@ -18,3 +18,5 @@
 -PCIE_Controller_TopQ0Lane2 true
 -PCIE_Controller_TopQ0Lane3 true
 -PCIE_Controller_TopEnableMSI true
+-PCIE_Controller_TopLaneWidth X4
+-PCIE_Controller_TopEnableDRP true

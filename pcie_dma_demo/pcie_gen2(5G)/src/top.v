@@ -3,6 +3,7 @@
 module top(   
     input           sys_clk_p,
     input           pcie_rstn,
+    input           rst_n,
 
     output [3:0]    led
 );
@@ -50,11 +51,11 @@ module top(
     reg [26:0]  perst_cnt   = 0;
     reg [SYS_RST_DLY:0] sys_rst_cnt = 0;
 
-    //wire w_rst_n = rst_n & pcie_rstn;
+    wire w_rst_n = rst_n & pcie_rstn;
     wire pcie_start;
     wire tlp_rst = !pcie_start;
 
-    /*
+    
     // PCIE Start Delay 
     always @ (posedge cfg_clk or negedge w_rst_n)
         if (!w_rst_n)                       
@@ -63,7 +64,7 @@ module top(
             sys_rst_cnt <= sys_rst_cnt + 2'd1;
 
     wire rstn = sys_rst_cnt[SYS_RST_DLY];
-    */
+    
     wire rstn = pcie_rstn;
 
     always @ (posedge cfg_clk or negedge rstn)
@@ -82,8 +83,8 @@ module top(
     assign pcie_start = pcie_st_cnt[PCIE_DLY]?1'b1:1'b0;
 
     // for Led blink
-    always @ (posedge cfg_clk or negedge rstn)
-        if (!rstn)   
+    always @ (posedge cfg_clk or negedge w_rst_n)
+        if (!w_rst_n)   
             run_cnt <= 0;
         else            
             run_cnt <= run_cnt+2'd1;
