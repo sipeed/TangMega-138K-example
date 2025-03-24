@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW5AST-138B" package="PBGA484A" speed="1" partNumber="GW5AST-LV138PG484AC1/I0"/>
+    <FileList>
+        <File path="D:/Applications/Gowin/Gowin_V1.9.11.01_x64/IDE/ipcore/SERDES_IP/data/Upar_Arbiter/upar_arbiter.v" type="verilog"/>
+        <File path="D:/Applications/Gowin/Gowin_V1.9.11.01_x64/IDE/ipcore/SERDES_IP/data/Upar_Arbiter/upar_arbiter_wrap.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="1"/>
+        <Option type="enable_dsrm" value="0"/>
+        <Option type="include_path" value="D:/Applications/Gowin/Gowin_V1.9.11.01_x64/IDE/ipcore/SERDES_IP/data/Upar_Arbiter"/>
+        <Option type="include_path" value="C:/Users/Think/Downloads/pcie_gen3(8G)/src/serdes/upar_arbiter/temp/Upar_Arbiter"/>
+        <Option type="output_file" value="upar_arbiter.vg"/>
+        <Option type="output_template" value="upar_arbiter_tmp.v"/>
+        <Option type="ram_balance" value="1"/>
+        <Option type="ram_rw_check" value="1"/>
+        <Option type="top_module" value="\~upar_arbiter_wrap.SerDes_Top"/>
+        <Option type="vcc" value="0.9"/>
+        <Option type="vccx" value="1.8"/>
+        <Option type="verilog_language" value="sysv-2017"/>
+    </OptionList>
+</Project>
