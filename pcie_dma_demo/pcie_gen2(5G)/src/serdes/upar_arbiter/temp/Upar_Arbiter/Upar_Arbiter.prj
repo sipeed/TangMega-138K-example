@@ -11,7 +11,7 @@
         <Option type="disable_insert_pad" value="1"/>
         <Option type="enable_dsrm" value="0"/>
         <Option type="include_path" value="D:/Applications/Gowin/Gowin_V1.9.11.01_x64/IDE/ipcore/SERDES_IP/data/Upar_Arbiter"/>
-        <Option type="include_path" value="C:/Users/Think/Downloads/pcie_gen2(5G)/src/serdes/upar_arbiter/temp/Upar_Arbiter"/>
+        <Option type="include_path" value="C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen2(5G)/src/serdes/upar_arbiter/temp/Upar_Arbiter"/>
         <Option type="output_file" value="upar_arbiter.vg"/>
         <Option type="output_template" value="upar_arbiter_tmp.v"/>
         <Option type="ram_balance" value="1"/>

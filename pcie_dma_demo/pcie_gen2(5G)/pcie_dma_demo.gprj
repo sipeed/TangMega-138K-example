@@ -3,7 +3,7 @@
 <Project>
     <Template>FPGA</Template>
     <Version>5</Version>
-    <Device name="" pn="GW5AST-LV138PG484AC1/I0">gw5ast138b-011</Device>
+    <Device name="GW5AST-138B" pn="GW5AST-LV138PG484AC1/I0">gw5ast138b-011</Device>
     <FileList>
         <File path="src/arb/arbiter_encryption.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_pll/gowin_pll.v" type="file.verilog" enable="1"/>
@@ -11,6 +11,7 @@
         <File path="src/pcie/tlp_encryption.v" type="file.verilog" enable="1"/>
         <File path="src/serdes/pcie_controller/pcie_controller.v" type="file.verilog" enable="1"/>
         <File path="src/serdes/serdes.v" type="file.verilog" enable="1"/>
+        <File path="src/serdes/upar_arbiter/upar_arbiter.v" type="file.verilog" enable="1"/>
         <File path="src/top.v" type="file.verilog" enable="1"/>
         <File path="src/Pins.cst" type="file.cst" enable="1"/>
         <File path="src/pcie_dma_demo.sdc" type="file.sdc" enable="1"/>

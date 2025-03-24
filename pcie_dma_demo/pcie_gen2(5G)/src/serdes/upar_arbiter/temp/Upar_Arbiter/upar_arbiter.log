@@ -33,7 +33,7 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
-[95%] Generate netlist file "C:\Users\Think\Downloads\pcie_gen2(5G)\src\serdes\upar_arbiter\temp\Upar_Arbiter\upar_arbiter.vg" completed
-Generate template file "C:\Users\Think\Downloads\pcie_gen2(5G)\src\serdes\upar_arbiter\temp\Upar_Arbiter\upar_arbiter_tmp.v" completed
-[100%] Generate report file "C:\Users\Think\Downloads\pcie_gen2(5G)\src\serdes\upar_arbiter\temp\Upar_Arbiter\upar_arbiter_syn.rpt.html" completed
+[95%] Generate netlist file "C:\Users\Think\Downloads\github_pcie_test\TangMega-138K-example\pcie_dma_demo\pcie_gen2(5G)\src\serdes\upar_arbiter\temp\Upar_Arbiter\upar_arbiter.vg" completed
+Generate template file "C:\Users\Think\Downloads\github_pcie_test\TangMega-138K-example\pcie_dma_demo\pcie_gen2(5G)\src\serdes\upar_arbiter\temp\Upar_Arbiter\upar_arbiter_tmp.v" completed
+[100%] Generate report file "C:\Users\Think\Downloads\github_pcie_test\TangMega-138K-example\pcie_dma_demo\pcie_gen2(5G)\src\serdes\upar_arbiter\temp\Upar_Arbiter\upar_arbiter_syn.rpt.html" completed
 GowinSynthesis finish
