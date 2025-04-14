@@ -2,35 +2,35 @@
  "Device" : "GW5AST-138B",
  "Files" : [
   {
-   "Path" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen2(5G)/src/arb/arbiter_encryption.v",
+   "Path" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen2(5G)/src/arb/arbiter_encryption.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen2(5G)/src/gowin_pll/gowin_pll.v",
+   "Path" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen2(5G)/src/gowin_pll/gowin_pll.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen2(5G)/src/include/top_define.v",
+   "Path" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen2(5G)/src/include/top_define.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen2(5G)/src/pcie/tlp_encryption.v",
+   "Path" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen2(5G)/src/pcie/tlp_encryption.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen2(5G)/src/serdes/pcie_controller/pcie_controller.v",
+   "Path" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen2(5G)/src/serdes/pcie_controller/pcie_controller.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen2(5G)/src/serdes/serdes.v",
+   "Path" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen2(5G)/src/serdes/serdes.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen2(5G)/src/top.v",
+   "Path" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen2(5G)/src/serdes/upar_arbiter/upar_arbiter.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen2(5G)/src/serdes/upar_arbiter/upar_arbiter.v",
+   "Path" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen2(5G)/src/top.v",
    "Type" : "verilog"
   }
  ],
@@ -38,7 +38,7 @@
   "src/include"
  ],
  "LoopLimit" : 2000,
- "ResultFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen2(5G)/impl/temp/rtl_parser.result",
+ "ResultFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen2(5G)/impl/temp/rtl_parser.result",
  "Top" : "top",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"

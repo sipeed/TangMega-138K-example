@@ -1,13 +1,13 @@
 -series GW5AST
 -device GW5AST-138
--device_version C
+-device_version B
 -package PBGA484A
 -part_number GW5AST-LV138PG484AC1/I0
 
 
 -mod_name Gowin_PLL
 -file_name gowin_pll
--path C:/Users/12161/OneDrive/Desktop/Files/Hoshi/TangMega-138K-example-main/pcie_dma_demo/src/gowin_pll/
+-path C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/gowin_pll/
 -type PLL_ADV
 -file_type vlg
 -ssc false

@@ -1,5 +1,5 @@
 -type SERDES
--path C:/Users/Think/Downloads/pcie_gen3(8G)/src/serdes/
+-path C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/serdes/
 -file_type vlg
 -file_name serdes
 -mod_name SerDes_Top

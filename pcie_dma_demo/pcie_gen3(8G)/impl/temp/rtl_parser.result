@@ -1,131 +1,131 @@
 [
  {
-  "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
+  "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
   "InstLine" : 3,
   "InstName" : "top",
-  "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
+  "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
   "ModuleLine" : 3,
   "ModuleName" : "top",
   "SubInsts" : [
    {
-    "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
     "InstLine" : 302,
     "InstName" : "u_tlp_bar_demux",
-    "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
     "ModuleLine" : 1,
     "ModuleName" : "tlp_bar_demux"
    },
    {
-    "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
     "InstLine" : 332,
     "InstName" : "u_mem_ctrl_tlp_decode",
-    "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
     "ModuleLine" : 1,
     "ModuleName" : "tlp_dec"
    },
    {
-    "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
     "InstLine" : 358,
     "InstName" : "u_cc_ctrl",
-    "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
     "ModuleLine" : 1,
     "ModuleName" : "cc_ctrl"
    },
    {
-    "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
     "InstLine" : 406,
     "InstName" : "u_dma_ctrl_tlp_dec",
-    "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
     "ModuleLine" : 1,
     "ModuleName" : "tlp_dec"
    },
    {
-    "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
     "InstLine" : 445,
     "InstName" : "u_cmd_if",
-    "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
     "ModuleLine" : 1,
     "ModuleName" : "tlp_cmd_if_mult_chn"
    },
    {
-    "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
     "InstLine" : 518,
     "InstName" : "chn_loop_i[0].u_tlp_rq",
-    "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
     "ModuleLine" : 1,
     "ModuleName" : "tlp_rq_ctrl"
    },
    {
-    "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
     "InstLine" : 559,
     "InstName" : "chn_loop_i[0].u_tlp_cpld_dec",
-    "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
     "ModuleLine" : 1,
     "ModuleName" : "tlp_cpld_dec"
    },
    {
-    "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
     "InstLine" : 594,
     "InstName" : "chn_loop_j[0].u_tlp_rc",
-    "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
     "ModuleLine" : 1,
     "ModuleName" : "tlp_rc_ctrl"
    },
    {
-    "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
     "InstLine" : 666,
     "InstName" : "u_tl_tx",
-    "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/pcie/tlp_encryption.v",
     "ModuleLine" : 1,
     "ModuleName" : "tl_tx_mux_if"
    },
    {
-    "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
     "InstLine" : 28,
     "InstName" : "u_pll",
-    "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/gowin_pll/gowin_pll.v",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/gowin_pll/gowin_pll.v",
     "ModuleLine" : 10,
     "ModuleName" : "Gowin_PLL"
    },
    {
-    "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
+    "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/top.v",
     "InstLine" : 705,
     "InstName" : "u_pcie_ctrl",
-    "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/serdes/serdes.v",
+    "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/serdes/serdes.v",
     "ModuleLine" : 10,
     "ModuleName" : "SerDes_Top",
     "SubInsts" : [
      {
-      "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/serdes/serdes.v",
+      "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/serdes/serdes.v",
       "InstLine" : 652,
       "InstName" : "upar_arbiter_wrap_SerDes_Top_inst",
-      "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/serdes/upar_arbiter/upar_arbiter.v",
+      "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/serdes/upar_arbiter/upar_arbiter.v",
       "ModuleLine" : 3258,
       "ModuleName" : "~upar_arbiter_wrap.SerDes_Top",
       "SubInsts" : [
        {
-        "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/serdes/upar_arbiter/upar_arbiter.v",
+        "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/serdes/upar_arbiter/upar_arbiter.v",
         "InstLine" : 3305,
         "InstName" : "u_upar_arbiter",
-        "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/serdes/upar_arbiter/upar_arbiter.v",
+        "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/serdes/upar_arbiter/upar_arbiter.v",
         "ModuleLine" : 10,
         "ModuleName" : "~upar_arbiter.SerDes_Top"
        }
       ]
      },
      {
-      "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/serdes/serdes.v",
+      "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/serdes/serdes.v",
       "InstLine" : 676,
       "InstName" : "PCIE_Controller_Top_inst",
-      "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/serdes/pcie_controller/pcie_controller.v",
+      "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/serdes/pcie_controller/pcie_controller.v",
       "ModuleLine" : 255,
       "ModuleName" : "PCIE_Controller_Top",
       "SubInsts" : [
        {
-        "InstFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/serdes/pcie_controller/pcie_controller.v",
+        "InstFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/serdes/pcie_controller/pcie_controller.v",
         "InstLine" : 440,
         "InstName" : "u_pcie_controller",
-        "ModuleFile" : "C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen3(8G)/src/serdes/pcie_controller/pcie_controller.v",
+        "ModuleFile" : "C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen3(8G)/src/serdes/pcie_controller/pcie_controller.v",
         "ModuleLine" : 10,
         "ModuleName" : "~pcie_top.PCIE_Controller_Top"
        }

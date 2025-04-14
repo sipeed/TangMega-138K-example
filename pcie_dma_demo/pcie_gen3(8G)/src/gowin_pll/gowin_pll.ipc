@@ -2,7 +2,7 @@
 ipc_version=4
 file=gowin_pll
 module=Gowin_PLL
-target_device=gw5ast138c-007
+target_device=gw5ast138b-011
 type=clock_plladv
 version=1.0
 

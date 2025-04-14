@@ -11,7 +11,7 @@
         <Option type="disable_insert_pad" value="1"/>
         <Option type="enable_dsrm" value="0"/>
         <Option type="include_path" value="D:/Applications/Gowin/Gowin_V1.9.11.01_x64/IDE/ipcore/SERDES_IP/IPlib/PCIE/data"/>
-        <Option type="include_path" value="C:/Users/Think/Downloads/github_pcie_test/TangMega-138K-example/pcie_dma_demo/pcie_gen2(5G)/src/serdes/pcie_controller/temp/pcie"/>
+        <Option type="include_path" value="C:/Users/Think/OneDrive/Documents/FPGA_Project/Gowin/138K-PG484/PCIe_demo/neo/pcie_dma_demo/pcie_gen2(5G)/src/serdes/pcie_controller/temp/pcie"/>
         <Option type="output_file" value="pcie_controller.vg"/>
         <Option type="output_template" value="pcie_controller_tmp.v"/>
         <Option type="ram_balance" value="1"/>
