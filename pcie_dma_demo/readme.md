@@ -10,10 +10,10 @@ This project is a demo to test the Serdes on GOWIN GW5AST-138K, it base on Sipee
 - Speed testing with **GOWIN** Linux PCIe Driver and Demo Application
 - Up to 6 configurable PCIe bar
 
-This demo is forked from the pcie demo of Sipeed [Tang MEGA 138K Pro](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k-pro.html), which mainchip is **GW5AST-LV138FPG676AC1/10** or **GW5AST-LV138FPG676AES**.   
+This demo is forked from the pcie demo of Sipeed [Tang MEGA 138K Pro](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k-pro.html), which mainchip is **GW5AST-LV138FPG676AC1/10** or **GW5AST-LV138FPG676AES**. [Click here](https://github.com/sipeed/TangMega-138KPro-example/tree/main/pcie_dma_demo).  
 And it now is tested on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html), which mainchip is **GW5AST-LV138PGG484AC1/10** or **GW5AST-LV138PG484AES**.   
 
-In theory, other GW5AST & GW5AT models can also use this demo, such as Sipeed [Tang MEGA 60k](https://wiki.sipeed.com/hardware/en/tang/tang-mega-60k/mega-60k.html), which mainchip is **GW5AT-LV60PGG484AC1/10** or **GW5AT-LV60PG484AES**. However, the relevant IP needs to wait for the release of updates from ***GOWIN SEMI***.
+Other GW5AST & GW5AT models can also use this demo, such as Sipeed [Tang MEGA 60k](https://wiki.sipeed.com/hardware/en/tang/tang-mega-60k/mega-60k.html), which mainchip is **GW5AT-LV60PGG484AC1/10** or **GW5AT-LV60PG484AES**. [Click Here](https://github.com/sipeed/TangMega-60K-example/tree/main/pcie_dma_demo).
 
 
 ## Directory structure
@@ -73,13 +73,14 @@ The resource usage of this design is shown in the figure aboce.
 ## Important notes
 
    - You need to compile the kernel module and the demo app for your system and load the kernel module yourself.
-   - The recommended operating system distribution is Ubuntu20.04, but Ubuntu22.04 or newer is also available (you need to solve the dependency problem by yourself). 
+   - The recommended operating system distribution is **Ubuntu 20.04 & 22.04**, but **Ubuntu 24.04** or newer is also available (you need to solve the dependency problem by yourself).
    - It's recommend to programming your board to flash before start test.
    - If you want to compile the demo yourself, don't forget to set the flash loading rate to 105MHz in *Project-Configuration-sysControl*. Otherwise, there will be some compatibility issues when using PCie on the computer motherboard for testing.
 
 ## How to use
 
 - See GOWIN [official guide](./docs/) first.
+- GOWIN IDE Version: **1.9.11.01**.
 - Prepare the system and environment for testing and ensure that the kernel module is loaded correctly.
 - Assemble your board with a PC motherboard with PCIe Slot(x4 or longer), or use a USB4/Thunderbolt PCIe dock instead.
 - Use the `lspci` to check whether there is a new `**memory controller**` in the system, and its ID is `22C2:1100`.Otherwise, please troubleshoot the problem according to the LED table below.
@@ -139,7 +140,7 @@ But this LED should not be always on, otherwise please check whether the relevan
 
 #### On Raspberry Pi:
 - CM4/5 or 5b is needed.
-- TBD
+- Currently, there are compatibility issues between GOWIN's PCIe hardcore and ARM's PCIe controller. An additional retimer (such as DS80PCI402) or switch (such as ASM2806 or ASM1884e) is required to be recognized by the arm host.
 
 ## Test environment
 These environments have been verified and the demo can be used normally.
@@ -147,7 +148,7 @@ These environments have been verified and the demo can be used normally.
 **On PC motherboard:**
 - Motherboard: GIGABYTE **B365 M AORUS ELITE**
 - CPU: Genuine Intel **i5-8400**
-- System: Ubuntu **20.04** (Secure Boot disabled)
+- System: Ubuntu **22.04** (Secure Boot disabled)
 
   Note: On this motherboard, if the demo is in **Gen3** mode, `copy_to_host` seems to have some problems, especially when the block size is **4096**. 
   
@@ -158,17 +159,15 @@ These environments have been verified and the demo can be used normally.
 - System: Ubuntu **22.04** (Secure Boot disabled)
 - PCIe dock: **ADT UT3G** (ASM2464)
   
-  Note: This dock seems to be **incompatible** with PCIe Gen2. During my testing, the dock did not recognize the Gen2 mode demo. 
+  Note: This dock seems to be **Unstable** with PCIe Gen2. During my testing, the dock did sometimes not recognize the Gen2 mode demo. 
   
   Perhaps the **JHL** series(JHL7/8xxx) is more suitable for this test?
 ***
 **On Raspberry Pi:**
-- Raspberry Pi 5b(4GB RAM).
-- Sipeed Tang Console NEO(Coming soon, Can be used as a PCIe HAT for the RPi).
+- Raspberry Pi 5b(2GB RAM).
+- **WaveShare** PCIe TO PCIe x1 Board (C).
+- **WaveShare** PCIe-Packet-Switch-4P (ASM1184e). 
 - Necessary FPC wires and copper pillars.
-
-
-Note: It seems that GOWIN's official PCIe driver has some problems on aarch64 Linux. So the test is currently not successfully executed.
 
 ## Development
 
