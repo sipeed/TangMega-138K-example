@@ -1,5 +1,6 @@
 # DDR3 DRAM TEST
   *ddr_memory_test_uart_Ver.*.fs.7z* is the prebuilt bitstream, select according to the device version.
+  
   If you don't know how to determine the device version, please refer [**HERE**](wiki.sipeed.com/hardware/en/tang/common-doc/questions.html#How-to-Identify-Device-Version).
 ## Test Condition
   - GOWIN EDA Version **V1.9.12.02_SP1** (64-bit) **build(84852)**.
