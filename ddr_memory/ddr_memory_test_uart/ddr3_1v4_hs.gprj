@@ -1,0 +1,22 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW5AST-138C" pn="GW5AST-LV138PG484AC1/I0">gw5ast138c-007</Device>
+    <FileList>
+        <File path="src/ddr3_memory_interface/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
+        <File path="src/ddrtest.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_pll/gowin_pll.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_pll/gowin_pll_mod.v" type="file.verilog" enable="1"/>
+        <File path="src/key_debounce.v" type="file.verilog" enable="1"/>
+        <File path="src/pll_init.v" type="file.verilog" enable="1"/>
+        <File path="src/top.v" type="file.verilog" enable="1"/>
+        <File path="src/uart/sync_fifo.v" type="file.verilog" enable="1"/>
+        <File path="src/uart/uart_rx.v" type="file.verilog" enable="1"/>
+        <File path="src/uart/uart_top.v" type="file.verilog" enable="1"/>
+        <File path="src/uart/uart_tx.v" type="file.verilog" enable="1"/>
+        <File path="src/ddr3_1v4_hs.cst" type="file.cst" enable="1"/>
+        <File path="src/ddr3_1v4_hs.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>
