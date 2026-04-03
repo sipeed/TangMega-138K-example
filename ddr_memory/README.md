@@ -1,13 +1,18 @@
 # DDR3 DRAM TEST
-Test condition: No addtion.
+## Test Condition
+  - GOWIN EDA Version **V1.9.12.02_SP1** (64-bit) **build(84852)**.
+  - Onboard debugger or an additional FT2232 debugger, USB2TLL, whatever you like.
+  - UART: buad 115200, 8N1
 
-## Applicable models
-  - Tang Mega 138k(SOM)
-  - Tang Mega 138k Dock
-  - Tang Console 138k
+## Applicable Models
+  - Tang Mega 138k SOM  *standalone* (Version 30153 or later, both VerB & VerC)
+  - Tang Mega 138k Dock (Version 31004 or later)
+  - Tang Console 138k  (Version 33001C or later)
+
+## 
 
 ## Phenomenon Description
-  After the corresponding bitstream has been successfully downloaded and programmed into the system, connect to the device via the UART interface using a baud rate of 115200 on the RX pin. Upon successful initialization, the system will output the message “DDR3 TEST OKAY!” in the serial terminal.
+  After the corresponding bitstream has been successfully downloaded and programmed into the system, connect to the device via the UART interface. Upon successful initialization, the system will output the message “DDR3 TEST OKAY!” in the serial terminal.
 
 
   This message indicates that both onboard DDR3 memory devices (labeled W and R) have completed the initialization and memory test procedures successfully.
