@@ -2,20 +2,22 @@
 <!DOCTYPE gowin-synthesis-project>
 <Project>
     <Version>beta</Version>
-    <Device id="GW5AST-138B" package="FCPBGA676A" speed="1" partNumber="GW5AST-LV138FPG676AES"/>
+    <Device id="GW5AST-138B" package="PBGA484A" speed="1" partNumber="GW5AST-LV138PG484AC1/I0"/>
     <FileList>
-        <File path="C:/Gowin/Gowin_V1.9.10.01_x64/IDE/ipcore/DDR3/data/ddr3_1_4code_hs/ddr3_1_4code_hs.v" type="verilog"/>
-        <File path="C:/Gowin/Gowin_V1.9.10.01_x64/IDE/ipcore/DDR3/data/ddr3_1_4code_hs/DDR3_TOP.v" type="verilog"/>
+        <File path="E:/Design_Tools/FPGA/Gowin/Gowin_V1.9.12.02_SP1_x64/IDE/ipcore/DDR3/data/ddr3_1_4code_hs/ddr3_1_4code_hs.v" type="verilog"/>
+        <File path="E:/Design_Tools/FPGA/Gowin/Gowin_V1.9.12.02_SP1_x64/IDE/ipcore/DDR3/data/ddr3_1_4code_hs/DDR3_TOP.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="1"/>
         <Option type="enable_dsrm" value="0"/>
-        <Option type="include_path" value="C:/Gowin/Gowin_V1.9.10.01_x64/IDE/ipcore/DDR3/data/ddr3_1_4code_hs"/>
-        <Option type="include_path" value="C:/Users/12161/OneDrive/Desktop/HOSHI_TIMING/Cam2HDMI_ALT/src/ddr3_memory_interface/temp/DDR3"/>
+        <Option type="include_path" value="E:/Design_Tools/FPGA/Gowin/Gowin_V1.9.12.02_SP1_x64/IDE/ipcore/DDR3/data/ddr3_1_4code_hs"/>
+        <Option type="include_path" value="F:/Project/TangMega-138K-example/cam_dvi/cam2dvi/src/ddr3_memory_interface/temp/DDR3"/>
+        <Option type="ip_version" value="6.0"/>
         <Option type="output_file" value="DDR3MI_400M.vg"/>
         <Option type="output_template" value="DDR3MI_400M_tmp.v"/>
         <Option type="ram_balance" value="1"/>
         <Option type="ram_rw_check" value="1"/>
+        <Option type="top_module" value="DDR3MI"/>
         <Option type="vcc" value="0.9"/>
         <Option type="vccx" value="1.8"/>
         <Option type="verilog_language" value="sysv-2017"/>

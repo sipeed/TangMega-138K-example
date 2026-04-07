@@ -16,13 +16,13 @@ module vga_timing#(
 	output                vs,            //vertical synchronization
 	output                de,            //video valid
 
-	output reg [9:0] active_x,           //video x position 
-	output reg [9:0] active_y            //video y position 
+	output reg [11:0] active_x,           //video x position 
+	output reg [11:0] active_y            //video y position 
 	
 	);
 
-	parameter H_TOTAL  = H_ACTIVE + H_FP + H_SYNC + H_BP;//horizontal total time (pixels)
-	parameter V_TOTAL  = V_ACTIVE + V_FP + V_SYNC + V_BP;//vertical total time (lines)
+	localparam H_TOTAL  = H_ACTIVE + H_FP + H_SYNC + H_BP;//horizontal total time (pixels)
+	localparam V_TOTAL  = V_ACTIVE + V_FP + V_SYNC + V_BP;//vertical total time (lines)
 
 
 /***** FOR REFERENCE *******/

@@ -2,18 +2,19 @@
 <!DOCTYPE gowin-synthesis-project>
 <Project>
     <Version>beta</Version>
-    <Device id="GW5AST-138B" package="FCPBGA676A" speed="1" partNumber="GW5AST-LV138FPG676AES"/>
+    <Device id="GW5AST-138B" package="PBGA484A" speed="1" partNumber="GW5AST-LV138PG484AC1/I0"/>
     <FileList>
-        <File path="C:/Users/12161/OneDrive/Desktop/HOSHI_TIMING/Cam2HDMI_ALT/src/fifo_top/temp/FIFO/fifo_define.v" type="verilog"/>
-        <File path="C:/Users/12161/OneDrive/Desktop/HOSHI_TIMING/Cam2HDMI_ALT/src/fifo_top/temp/FIFO/fifo_parameter.v" type="verilog"/>
-        <File path="C:/Gowin/Gowin_V1.9.10.01_x64/IDE/ipcore/FIFO/data/edc.v" type="verilog"/>
-        <File path="C:/Gowin/Gowin_V1.9.10.01_x64/IDE/ipcore/FIFO/data/fifo.v" type="verilog"/>
-        <File path="C:/Gowin/Gowin_V1.9.10.01_x64/IDE/ipcore/FIFO/data/fifo_top.v" type="verilog"/>
+        <File path="F:/Project/TangMega-138K-example/cam_dvi/cam2dvi/src/fifo_top/temp/FIFO/fifo_define.v" type="verilog"/>
+        <File path="F:/Project/TangMega-138K-example/cam_dvi/cam2dvi/src/fifo_top/temp/FIFO/fifo_parameter.v" type="verilog"/>
+        <File path="E:/Design_Tools/FPGA/Gowin/Gowin_V1.9.12.02_SP1_x64/IDE/ipcore/FIFO/data/edc.v" type="verilog"/>
+        <File path="E:/Design_Tools/FPGA/Gowin/Gowin_V1.9.12.02_SP1_x64/IDE/ipcore/FIFO/data/fifo.v" type="verilog"/>
+        <File path="E:/Design_Tools/FPGA/Gowin/Gowin_V1.9.12.02_SP1_x64/IDE/ipcore/FIFO/data/fifo_top.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="1"/>
         <Option type="enable_dsrm" value="0"/>
-        <Option type="include_path" value="C:/Users/12161/OneDrive/Desktop/HOSHI_TIMING/Cam2HDMI_ALT/src/fifo_top/temp/FIFO"/>
+        <Option type="include_path" value="F:/Project/TangMega-138K-example/cam_dvi/cam2dvi/src/fifo_top/temp/FIFO"/>
+        <Option type="ip_version" value="1.1"/>
         <Option type="output_file" value="video_fifo.vg"/>
         <Option type="output_template" value="video_fifo_tmp.v"/>
         <Option type="ram_balance" value="1"/>

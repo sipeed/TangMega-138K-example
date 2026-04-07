@@ -91,7 +91,7 @@ module timing_check#(
                         pixel_clk <= ~pixel_clk;
                         if(pixel_clk)
                         begin
-                            HA_CNT <= HA_CNT + 1;
+                            HA_CNT <= HA_CNT + 1'b1;
                         end else begin
                             HA_CNT <= HA_CNT;
                         end
@@ -117,7 +117,7 @@ module timing_check#(
                     VA_updated <= 0;
                     if(video_de & ~de_d)    //Posedge of DE, H start
                     begin
-                        VA_CNT = VA_CNT + 1;
+                        VA_CNT = VA_CNT + 1'b1;
                     end else begin
                         VA_CNT = VA_CNT;
                     end
@@ -134,7 +134,7 @@ module timing_check#(
                     fps_updated <= 0;
                     if(~vsync_d & video_vsync)   //Posedge of VSYNC
                     begin
-                        fps_CNT = fps_CNT + 1;
+                        fps_CNT = fps_CNT + 1'b1;
                     end else begin
                         fps_CNT = fps_CNT;
                     end

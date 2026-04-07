@@ -2,7 +2,7 @@
 ipc_version=4
 file=DDR3MI_400M
 module=DDR3MI
-target_device=gw5ast138b-002
+target_device=gw5ast138b-011
 type=ddr3
 version=3.0
 
@@ -48,3 +48,13 @@ tRP=15000
 tRRD=10000
 tRTP=7500
 tWTR=7500
+ARBITRATION_MODE=Mode4
+AXI4_INTERFACE=false
+AXI_BSRAM=true
+AXI_REG=false
+AXI_SSRAM=false
+ID_WIDTH=4
+MC_BSRAM=true
+MC_REG=false
+MC_SSRAM=false
+SIM=false

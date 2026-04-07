@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW5AST-138B" package="PBGA484A" speed="1" partNumber="GW5AST-LV138PG484AC1/I0"/>
+    <FileList>
+        <File path="E:/Design_Tools/FPGA/Gowin/Gowin_V1.9.12.02_SP1_x64/IDE/ipcore/I2CMASTER/data/I2C_MASTER_TOP.v" type="verilog"/>
+        <File path="E:/Design_Tools/FPGA/Gowin/Gowin_V1.9.12.02_SP1_x64/IDE/ipcore/I2CMASTER/data/I2C_MASTER.vp" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="1"/>
+        <Option type="enable_dsrm" value="0"/>
+        <Option type="include_path" value="E:/Design_Tools/FPGA/Gowin/Gowin_V1.9.12.02_SP1_x64/IDE/ipcore/I2CMASTER/data"/>
+        <Option type="include_path" value="F:/Project/TangMega-138K-example/cam_dvi/cam2dvi/src/i2c_master_gw/i2c_master/temp/I2C_MASTER"/>
+        <Option type="ip_version" value="1.0"/>
+        <Option type="output_file" value="i2c_master_gw.vg"/>
+        <Option type="output_template" value="i2c_master_gw_tmp.v"/>
+        <Option type="ram_balance" value="1"/>
+        <Option type="ram_rw_check" value="1"/>
+        <Option type="vcc" value="0.9"/>
+        <Option type="vccx" value="1.8"/>
+        <Option type="verilog_language" value="sysv-2017"/>
+    </OptionList>
+</Project>

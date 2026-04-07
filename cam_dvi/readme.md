@@ -10,7 +10,17 @@ This project is a demo to test the DVP Camera, DDR3 memory & HDMI on GOWIN GW5AS
 - 720P@60/30Hz RGB565 video capture via DVP Camera OV5640.
 - Use on board DDR3 memory as framebuffer .
 
-This demo now is only test on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html), which mainchip is **GW5AST-LV138PGG484AC1/10** or **GW5AST-LV138PG484AES**.   
+This demo now is tested on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html), which mainchip is **GW5AST-LV138PGG484AC1/10** or **GW5AST-LV138PG484AES**, both Device **B** & **C**. 
+
+This demo is based on device version B, but is compatible with device version C.
+
+When burning the FPGA of device version C, please change the Device model in **Gowin Programmer** to **GW5AST-138C**.
+
+### Applicable Models
+  - Tang Mega 138k Dock (Version 31002 or later)
+  - ~~Tang Console 138k  (Version 33001C or later)~~ *in progress*
+
+  ![pragrammer_device_ver](../.asserts/pics/pragrammer_device_ver.png)
 
 ## Directory structure
 
@@ -21,7 +31,7 @@ This demo now is only test on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/ha
 |    |-- src                    --> project sources 
 |    |-- impl                   --> project config & implementation 
 |    |
-|    |`-- cam2dvi.fs.7z         --> prbuild bitstream(zipped)                       
+|    |`-- cam2dvi_*.fs.7z       --> prbuild bitstream(zipped)                       
 |    |`-- cam2dvi.gprj          --> demo project
 |    |`-- cam2dvi.gprj.user     --> project conf.
 
@@ -29,10 +39,8 @@ This demo now is only test on Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/ha
 
 ## Getting start
 Please confirm that you have the following conditions:
-- GOWIN IDE Version ≥ 1.9.10
-- **DO NOT** use GOWIN Programmer version **1.9.10.02**, for this version contains many issues with **onboard debugger**.
-~~ - You can get a windows GOWIN Programmer version **1.9.10.03** Alpha for [HERE](https://api.dl.sipeed.com/shareURL/TANG/programmer) ~~ GOWIN has released an update version **1.9.10.03**.
-- Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html)
+- GOWIN IDE Version ≥ 1.9.12.02_SP1 (Build 84852)
+- Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html), Version Version 30153 or later.
 - An OV5640 Sensor, a HDMI/DVI Monitor and a HDMI cable
 - USB-C date cable, use to connect the board to your PC
 

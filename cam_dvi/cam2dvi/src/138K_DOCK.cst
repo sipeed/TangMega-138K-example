@@ -69,8 +69,8 @@ IO_PORT "ddr_bank[1]"   IO_TYPE=SSTL15 PULL_MODE=NONE DRIVE=12 BANK_VCCIO=1.5;
 IO_LOC  "ddr_bank[0]"   P5;
 IO_PORT "ddr_bank[0]"   IO_TYPE=SSTL15 PULL_MODE=NONE DRIVE=12 BANK_VCCIO=1.5;
 
-IO_LOC  "ddr_addr[15]"  R1;
-IO_PORT "ddr_addr[15]"  IO_TYPE=SSTL15 PULL_MODE=NONE DRIVE=12 BANK_VCCIO=1.5;
+//IO_LOC  "ddr_addr[15]"  R1;
+//IO_PORT "ddr_addr[15]"  IO_TYPE=SSTL15 PULL_MODE=NONE DRIVE=12 BANK_VCCIO=1.5;
 IO_LOC  "ddr_addr[14]"  D1;
 IO_PORT "ddr_addr[14]"  IO_TYPE=SSTL15 PULL_MODE=NONE DRIVE=12 BANK_VCCIO=1.5;
 IO_LOC  "ddr_addr[13]"  K1;
@@ -203,7 +203,7 @@ IO_PORT "ddr_dqs[0]"    IO_TYPE=SSTL15D PULL_MODE=NONE DRIVE=8 BANK_VCCIO=1.5;
 
 INS_LOC "u_ddr3/gw3_top/u_ddr_phy_top/u_dll" DDRDLLM_BL;
 INS_LOC "u_ddr3/gw3_top/u_ddr_phy_top/fclkdiv" LEFTSIDE[4];
-INS_LOC "Gowin_PLL_m0/PLL_inst" PLL_L[0];
+INS_LOC "Gowin_PLL_m0/u_pll/PLL_inst" PLL_L[0];
 SET_PARAM "u_ddr3/gw3_top/u_ddr_phy_top/u_dll" CLKIN_SEL=CLKIN5;
 
 

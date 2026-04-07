@@ -1,31 +1,31 @@
 GowinSynthesis start
 Running parser ...
-Analyzing Verilog file 'C:\Users\12161\OneDrive\Desktop\HOSHI_TIMING\Cam2HDMI_ALT\src\fifo_top\temp\FIFO\fifo_define.v'
-Analyzing Verilog file 'C:\Users\12161\OneDrive\Desktop\HOSHI_TIMING\Cam2HDMI_ALT\src\fifo_top\temp\FIFO\fifo_parameter.v'
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\edc.v'
-Analyzing included file 'fifo_define.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\edc.v":14373)
-Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\edc.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\edc.v":14373)
-Undeclared symbol 'Reset', assumed default net type 'wire'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\edc.v":14373)
-Undeclared symbol 'RPReset', assumed default net type 'wire'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\edc.v":14373)
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo.v'
-Analyzing included file 'fifo_define.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo.v":553)
-Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo.v":553)
-Analyzing included file 'fifo_parameter.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo.v":553)
-Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo.v":553)
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo_top.v'
-Analyzing included file 'fifo_define.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo_top.v":1)
-Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo_top.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo_top.v":1)
-Analyzing included file 'fifo_parameter.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo_top.v":56)
-Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo_top.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo_top.v":56)
+Analyzing Verilog file 'F:\Project\TangMega-138K-example\cam_dvi\cam2dvi\src\fifo_top\temp\FIFO\fifo_define.v'
+Analyzing Verilog file 'F:\Project\TangMega-138K-example\cam_dvi\cam2dvi\src\fifo_top\temp\FIFO\fifo_parameter.v'
+Analyzing Verilog file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\edc.v'
+Analyzing included file 'fifo_define.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\edc.v":14373)
+Back to file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\edc.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\edc.v":14373)
+Undeclared symbol 'Reset', assumed default net type 'wire'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\edc.v":14373)
+Undeclared symbol 'RPReset', assumed default net type 'wire'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\edc.v":14373)
+Analyzing Verilog file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo.v'
+Analyzing included file 'fifo_define.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo.v":553)
+Back to file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo.v":553)
+Analyzing included file 'fifo_parameter.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo.v":553)
+Back to file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo.v":553)
+Analyzing Verilog file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo_top.v'
+Analyzing included file 'fifo_define.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo_top.v":1)
+Back to file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo_top.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo_top.v":1)
+Analyzing included file 'fifo_parameter.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo_top.v":56)
+Back to file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo_top.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo_top.v":56)
 WARN  (EX2582) : Parameter 'WDEPTH' declared inside compilation unit '$unit_fifo_define_v' shall be treated as localparam("fifo_parameter.v":1)
 WARN  (EX2582) : Parameter 'WDSIZE' declared inside compilation unit '$unit_fifo_define_v' shall be treated as localparam("fifo_parameter.v":2)
 WARN  (EX2582) : Parameter 'RDEPTH' declared inside compilation unit '$unit_fifo_define_v' shall be treated as localparam("fifo_parameter.v":3)
 WARN  (EX2582) : Parameter 'RDSIZE' declared inside compilation unit '$unit_fifo_define_v' shall be treated as localparam("fifo_parameter.v":4)
 WARN  (EX2582) : Parameter 'ASIZE' declared inside compilation unit '$unit_fifo_define_v' shall be treated as localparam("fifo_parameter.v":5)
 WARN  (EX2582) : Parameter 'RASIZE' declared inside compilation unit '$unit_fifo_define_v' shall be treated as localparam("fifo_parameter.v":6)
-Compiling module 'video_fifo'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo_top.v":3)
-Compiling module '**'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo.v":553)
-Extracting RAM for identifier '**'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\FIFO\data\fifo.v":553)
+Compiling module 'video_fifo'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo_top.v":3)
+Compiling module '**'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo.v":553)
+Extracting RAM for identifier '**'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\FIFO\data\fifo.v":553)
 NOTE  (EX0101) : Current top module is "video_fifo"
 [5%] Running netlist conversion ...
 Running device independent optimization ...
@@ -43,7 +43,7 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
-[95%] Generate netlist file "C:\Users\12161\OneDrive\Desktop\HOSHI_TIMING\Cam2HDMI_ALT\src\fifo_top\temp\FIFO\video_fifo.vg" completed
-Generate template file "C:\Users\12161\OneDrive\Desktop\HOSHI_TIMING\Cam2HDMI_ALT\src\fifo_top\temp\FIFO\video_fifo_tmp.v" completed
-[100%] Generate report file "C:\Users\12161\OneDrive\Desktop\HOSHI_TIMING\Cam2HDMI_ALT\src\fifo_top\temp\FIFO\video_fifo_syn.rpt.html" completed
+[95%] Generate netlist file "F:\Project\TangMega-138K-example\cam_dvi\cam2dvi\src\fifo_top\temp\FIFO\video_fifo.vg" completed
+Generate template file "F:\Project\TangMega-138K-example\cam_dvi\cam2dvi\src\fifo_top\temp\FIFO\video_fifo_tmp.v" completed
+[100%] Generate report file "F:\Project\TangMega-138K-example\cam_dvi\cam2dvi\src\fifo_top\temp\FIFO\video_fifo_syn.rpt.html" completed
 GowinSynthesis finish

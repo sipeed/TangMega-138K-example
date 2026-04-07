@@ -1,13 +1,17 @@
 module lut_ov5640_rgb565 #(
-	parameter [11:0] HActive = 12'd1280,
-	parameter [11:0] VActive = 12'd720,
+	parameter [11:0] HActive = 12'd800,
+	parameter [11:0] VActive = 12'd600,
 	parameter [12:0] HTotal  = 13'd2200,
 	parameter [12:0] VTotal  = 13'd1000,
-	parameter USE_4vs3_frame = "true"
+    parameter [3:0]  LUT_AW  = 4'd8,
+    parameter USE_colour_bar = 1'b0,
+	parameter USE_4vs3_frame = 1'b0
 )(
-	input[9:0]             lut_index,   //Look-up table address
-	output reg[31:0]       lut_data     //Device address (8bit I2C address), register address, register data
+	input       [LUT_AW-1:0] lut_index,     //Look-up table address
+	output reg  [31:0]       lut_data       //Device address (8bit I2C address), register address, register data
 );
+
+wire [3:0] lut_addr_width = LUT_AW;
 
 generate
 	always@(*)
@@ -218,7 +222,7 @@ generate
 			//系统时钟分频
 		    10'd202: lut_data <= {8'h78 , 24'h3035_11};	//41:15fps, 21:30Fps, 11:60Fps
 		    10'd203: 
-				if(USE_4vs3_frame == "true")
+				if(USE_4vs3_frame)
 					 lut_data <= {8'h78 , 24'h3036_72}; //PLL倍频 , 800x600(0x5A)
 				else
 					 lut_data <= {8'h78 , 24'h3036_69}; //PLL倍频 , 1280x720(0x69)
@@ -231,19 +235,19 @@ generate
 			10'd210: lut_data <= {8'h78 , 24'h3801_00};
 		    10'd211: lut_data <= {8'h78 , 24'h3802_00};
 			10'd212: 
-				if(USE_4vs3_frame == "true")
+				if(USE_4vs3_frame)
 					lut_data <= {8'h78 , 24'h3803_04};	//4:3 use 04 
 				else
 					lut_data <= {8'h78 , 24'h3803_fa};	//4:3 use 04 
 		    10'd213: lut_data <= {8'h78 , 24'h3804_0a};
 		    10'd214: lut_data <= {8'h78 , 24'h3805_3f};
 			10'd215:
-				if(USE_4vs3_frame == "true")
+				if(USE_4vs3_frame)
 					lut_data <= {8'h78 , 24'h3806_07};	//4:3 use 07
 				else
 					lut_data <= {8'h78 , 24'h3806_06};	//4:3 use 07
 			10'd216: 
-				if(USE_4vs3_frame == "true")
+				if(USE_4vs3_frame)
 					lut_data <= {8'h78 , 24'h3807_9b}; //4:3 use 9b
 				else
 		    		lut_data <= {8'h78 , 24'h3807_a9}; //4:3 use 9b
@@ -257,7 +261,7 @@ generate
 			10'd223: lut_data <= {8'h78 , {16'h380e, 3'd0, VTotal[12:8]}};	//垂直总像素大小高5位
 		    10'd224: lut_data <= {8'h78 , {16'h380f, VTotal[7:0]}};			//垂直总像素大小低8位
 			10'd225: 
-				if(USE_4vs3_frame == "true")
+				if(USE_4vs3_frame)
 					lut_data <= {8'h78 , 24'h3813_04};	//4:3 use 06
 				else
 		    		lut_data <= {8'h78 , 24'h3813_04};	//4:3 use 06
@@ -277,13 +281,17 @@ generate
 		    10'd238: lut_data <= {8'h78 , 24'h4837_22};
 		    10'd239: lut_data <= {8'h78 , 24'h3824_02};
 		    10'd240: 
-				if(USE_4vs3_frame == "true")
+				if(USE_4vs3_frame)
 					lut_data <= {8'h78 , 24'h5001_a3};
 				else
 		    		lut_data <= {8'h78 , 24'h5001_83};
 		    10'd241: lut_data <= {8'h78 , 24'h3b07_0a};
 			//彩条测试使能
-		    10'd242: lut_data <= {8'h78 , 24'h503d_00}; //0x00:正常模式 0x80:彩条显示
+		    10'd242: 
+                if(USE_colour_bar)
+                    lut_data <= {8'h78 , 24'h503d_80}; //0x00:正常模式 0x80:彩条显示
+                else
+                    lut_data <= {8'h78 , 24'h503d_00};
 			//闪光灯禁用
 		    10'd243: lut_data <= {8'h78 , 24'h3016_00};	//Disable
 		    10'd244: lut_data <= {8'h78 , 24'h301c_00};

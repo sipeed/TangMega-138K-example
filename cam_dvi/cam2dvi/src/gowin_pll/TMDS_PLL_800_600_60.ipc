@@ -2,7 +2,7 @@
 ipc_version=4
 file=TMDS_PLL_800_600_60
 module=TMDS_PLL
-target_device=gw5ast138b-002
+target_device=gw5ast138b-011
 type=clock_plladv
 version=1.0
 

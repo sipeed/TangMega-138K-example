@@ -1,11 +1,12 @@
-//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2026 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: Template file for instantiation
-//Tool Version: V1.9.10.01 (64-bit)
-//Part Number: GW5AST-LV138FPG676AES
+//Tool Version: V1.9.12.02_SP1 (64-bit)
+//IP Version: 2.4
+//Part Number: GW5AST-LV138PG484AC1/I0
 //Device: GW5AST-138
 //Device Version: B
-//Created Time: Wed Sep 11 22:04:57 2024
+//Created Time: Tue Apr  7 19:54:50 2026
 
 //Change the instance name and port connections to the signal names
 //--------Copy here to design--------
@@ -18,18 +19,18 @@
 		.I_vin0_clk(I_vin0_clk), //input I_vin0_clk
 		.I_vin0_vs_n(I_vin0_vs_n), //input I_vin0_vs_n
 		.I_vin0_de(I_vin0_de), //input I_vin0_de
-		.I_vin0_data(I_vin0_data), //input [15:0] I_vin0_data
+		.I_vin0_data(I_vin0_data), //input [31:0] I_vin0_data
 		.O_vin0_fifo_full(O_vin0_fifo_full), //output O_vin0_fifo_full
 		.I_vout0_clk(I_vout0_clk), //input I_vout0_clk
 		.I_vout0_vs_n(I_vout0_vs_n), //input I_vout0_vs_n
 		.I_vout0_de(I_vout0_de), //input I_vout0_de
 		.O_vout0_den(O_vout0_den), //output O_vout0_den
-		.O_vout0_data(O_vout0_data), //output [15:0] O_vout0_data
+		.O_vout0_data(O_vout0_data), //output [31:0] O_vout0_data
 		.O_vout0_fifo_empty(O_vout0_fifo_empty), //output O_vout0_fifo_empty
 		.I_cmd_ready(I_cmd_ready), //input I_cmd_ready
 		.O_cmd(O_cmd), //output [2:0] O_cmd
 		.O_cmd_en(O_cmd_en), //output O_cmd_en
-		.O_addr(O_addr), //output [27:0] O_addr
+		.O_addr(O_addr), //output [28:0] O_addr
 		.I_wr_data_rdy(I_wr_data_rdy), //input I_wr_data_rdy
 		.O_wr_data_en(O_wr_data_en), //output O_wr_data_en
 		.O_wr_data_end(O_wr_data_end), //output O_wr_data_end

@@ -1,18 +1,19 @@
 -series GW5AST
--device GW5AST-138B
+-device GW5AST-138
 -device_version B
--package FCPBGA676A
--part_number GW5AST-LV138FPG676AES
+-package PBGA484A
+-part_number GW5AST-LV138PG484AC1/I0
 
 
--mod_name TMDS_PLL
--file_name TMDS_PLL_60HZ
--path E:/Downloads/TangMega-138KPro-example-main/Cam2HDMI/src/gowin_pll/
+-mod_name TMDS_PLL_MOD
+-file_name TMDS_PLL_60HZ_mod
+-path F:/Project/TangMega-138K-example/cam_dvi/cam2dvi/src/gowin_pll/
 -type PLL_ADV
 -file_type vlg
+-ip_version 1.0
 -ssc false
 -clock_en false
--rst false
+-rst true
 -rst_pwd false
 -rst_i false
 -rst_o false
@@ -21,12 +22,14 @@
 -idiv_sel 1
 -clkfb_sel 0
 -dyn_fbdiv_sel false
--fbdiv_sel 1
+-fbdiv_sel 2
+-dyn_icp_sel true
+-dyn_lpf_sel true
 -en_lock true
 -dyn_dpa_en false
 -clkout0_bypass false
 -dyn_odiv0_sel false
--odiv0_sel 5
+-odiv0_sel 3
 -odiv0_frac_sel 0
 -dyn_dt0_sel false
 -clkout0_dt_dir 1
@@ -41,7 +44,7 @@
 -en_clkout1 true
 -clkout1_bypass false
 -dyn_odiv1_sel false
--odiv1_sel 25
+-odiv1_sel 15
 -dyn_dt1_sel false
 -clkout1_dt_dir 1
 -clkout1_dt_step 0
@@ -56,5 +59,5 @@
 -en_clkout6 false
 -en_clkfbout false
 -dyn_mdiv_sel false
--mdiv_sel 37
--mdiv_frac_sel 0
+-mdiv_sel 11
+-mdiv_frac_sel 1

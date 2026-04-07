@@ -2,7 +2,7 @@
 ipc_version=4
 file=video_fifo
 module=video_fifo
-target_device=gw5ast138b-002
+target_device=gw5ast138b-011
 type=fifo
 version=3.0
 
@@ -18,7 +18,6 @@ EN_ALEMPTY=false
 EN_ALFULL=false
 FWFT=false
 IMPL=0
-IO_INSERTION=false
 LANG=0
 OUTPUT_REG=true
 RDEN_CTRL=true

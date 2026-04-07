@@ -1,15 +1,16 @@
 -series GW5AST
 -device GW5AST-138
 -device_version B
--package FCPBGA676A
--part_number GW5AST-LV138FPG676AES
+-package PBGA484A
+-part_number GW5AST-LV138PG484AC1/I0
 
 
--mod_name Gowin_PLL
--file_name gowin_pll_400M
--path C:/Users/12161/OneDrive/Desktop/HOSHI_TIMING/Cam2HDMI_ALT/src/gowin_pll/
+-mod_name Gowin_PLL_MOD
+-file_name gowin_pll_400M_mod
+-path F:/Project/TangMega-138K-example/cam_dvi/cam2dvi/src/gowin_pll/
 -type PLL_ADV
 -file_type vlg
+-ip_version 1.0
 -ssc false
 -clock_en true
 -rst true
@@ -22,6 +23,8 @@
 -clkfb_sel 0
 -dyn_fbdiv_sel false
 -fbdiv_sel 1
+-dyn_icp_sel true
+-dyn_lpf_sel true
 -en_lock true
 -dyn_dpa_en false
 -clkout0_bypass false

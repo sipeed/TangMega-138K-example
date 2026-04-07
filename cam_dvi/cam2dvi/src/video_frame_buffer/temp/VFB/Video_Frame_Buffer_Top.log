@@ -1,27 +1,27 @@
 GowinSynthesis start
 Running parser ...
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_top.v'
-Analyzing included file 'top_define.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_top.v":28)
-Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_top.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_top.v":28)
-Analyzing included file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\static_macro_define.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_top.v":29)
-Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_top.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_top.v":29)
-Analyzing included file 'vfb_defines.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_top.v":30)
-Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_top.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_top.v":30)
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v'
-Analyzing included file 'top_define.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":6444)
-Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":6444)
-Analyzing included file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\static_macro_define.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":6444)
-Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":6444)
-Analyzing included file 'vfb_defines.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":6444)
-Back to file 'C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":6444)
-Compiling module 'Video_Frame_Buffer_Top'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_top.v":32)
-Compiling module '**'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":6444)
-Extracting RAM for identifier '**'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":6444)
-WARN  (EX3791) : Expression size ** truncated to fit in target size **("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":6444)
-WARN  (EX3670) : Actual bit length ** differs from formal bit length *** for port '**'("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":6444)
+Analyzing Verilog file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_top.v'
+Analyzing included file 'top_define.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_top.v":30)
+Back to file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_top.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_top.v":30)
+Analyzing included file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\static_macro_define.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_top.v":31)
+Back to file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_top.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_top.v":31)
+Analyzing included file 'vfb_defines.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_top.v":32)
+Back to file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_top.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_top.v":32)
+Analyzing Verilog file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v'
+Analyzing included file 'top_define.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":8475)
+Back to file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":8475)
+Analyzing included file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\static_macro_define.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":8475)
+Back to file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":8475)
+Analyzing included file 'vfb_defines.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":8475)
+Back to file 'E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":8475)
+Compiling module 'Video_Frame_Buffer_Top'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_top.v":34)
+Compiling module '**'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":8475)
+Extracting RAM for identifier '**'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":8475)
+WARN  (EX3791) : Expression size ** truncated to fit in target size **("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":8475)
+WARN  (EX3670) : Actual bit length ** differs from formal bit length *** for port '**'("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_wrapper.v":8475)
 NOTE  (EX0101) : Current top module is "Video_Frame_Buffer_Top"
 [5%] Running netlist conversion ...
-WARN  (CV0016) : Input I_rd_data_end is unused("C:\Gowin\Gowin_V1.9.10.01_x64\IDE\ipcore\VFB\data\vfb_top.v":76)
+WARN  (CV0016) : Input I_rd_data_end is unused("E:\Design_Tools\FPGA\Gowin\Gowin_V1.9.12.02_SP1_x64\IDE\ipcore\VFB\data\vfb_top.v":78)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed
@@ -37,7 +37,7 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
-[95%] Generate netlist file "C:\Users\12161\OneDrive\Desktop\HOSHI_TIMING\Cam2HDMI_ALT\src\video_frame_buffer\temp\VFB\Video_Frame_Buffer_Top.vg" completed
-Generate template file "C:\Users\12161\OneDrive\Desktop\HOSHI_TIMING\Cam2HDMI_ALT\src\video_frame_buffer\temp\VFB\Video_Frame_Buffer_Top_tmp.v" completed
-[100%] Generate report file "C:\Users\12161\OneDrive\Desktop\HOSHI_TIMING\Cam2HDMI_ALT\src\video_frame_buffer\temp\VFB\Video_Frame_Buffer_Top_syn.rpt.html" completed
+[95%] Generate netlist file "F:\Project\TangMega-138K-example\cam_dvi\cam2dvi\src\video_frame_buffer\temp\VFB\Video_Frame_Buffer_Top.vg" completed
+Generate template file "F:\Project\TangMega-138K-example\cam_dvi\cam2dvi\src\video_frame_buffer\temp\VFB\Video_Frame_Buffer_Top_tmp.v" completed
+[100%] Generate report file "F:\Project\TangMega-138K-example\cam_dvi\cam2dvi\src\video_frame_buffer\temp\VFB\Video_Frame_Buffer_Top_syn.rpt.html" completed
 GowinSynthesis finish

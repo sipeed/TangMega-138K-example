@@ -1,8 +1,8 @@
-//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2026 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: Post-PnR Verilog Simulation Model file
-//Tool Version: V1.9.10.01 (64-bit)
-//Created Time: Wed Sep 11 22:15:52 2024
+//Tool Version: V1.9.12.02_SP1(64-bit)
+//Created Time: Tue Apr  7 19:50:52 2026
 
 `timescale 100 ps/100 ps
 module video_fifo(
@@ -72,9 +72,9 @@ wire \fifo_inst/wfull_val_12 ;
 wire \fifo_inst/wfull_val_13 ;
 wire \fifo_inst/wfull_val_14 ;
 wire \fifo_inst/wfull_val_15 ;
-wire \fifo_inst/Equal.wbinnext_0_9 ;
+wire \fifo_inst/Equal.wbinnext_0_10 ;
 wire \fifo_inst/Equal.rgraynext_10_6 ;
-wire \fifo_inst/rbin_num_next_0_9 ;
+wire \fifo_inst/rbin_num_next_0_10 ;
 wire \fifo_inst/rempty_val ;
 wire \fifo_inst/rcnt_sub_0_3 ;
 wire \fifo_inst/rcnt_sub_1_3 ;
@@ -764,7 +764,7 @@ LUT3 \fifo_inst/Equal.wbinnext_0_s4  (
 	.I0(Full),
 	.I1(WrEn),
 	.I2(\fifo_inst/Equal.wbin [0]),
-	.F(\fifo_inst/Equal.wbinnext_0_9 )
+	.F(\fifo_inst/Equal.wbinnext_0_10 )
 );
 defparam \fifo_inst/Equal.wbinnext_0_s4 .INIT=8'hB4;
 LUT4 \fifo_inst/Equal.rgraynext_10_s2  (
@@ -810,16 +810,16 @@ LUT3 \fifo_inst/rbin_num_next_0_s4  (
 	.I0(Empty),
 	.I1(RdEn),
 	.I2(\fifo_inst/rbin_num [0]),
-	.F(\fifo_inst/rbin_num_next_0_9 )
+	.F(\fifo_inst/rbin_num_next_0_10 )
 );
 defparam \fifo_inst/rbin_num_next_0_s4 .INIT=8'hB4;
 LUT3 \fifo_inst/rempty_val_s1  (
-	.I0(\fifo_inst/rbin_num_next [12]),
+	.I0(\fifo_inst/n184_3 ),
 	.I1(\fifo_inst/Equal.rq2_wptr [12]),
-	.I2(\fifo_inst/n184_3 ),
+	.I2(\fifo_inst/rbin_num_next [12]),
 	.F(\fifo_inst/rempty_val )
 );
-defparam \fifo_inst/rempty_val_s1 .INIT=8'h09;
+defparam \fifo_inst/rempty_val_s1 .INIT=8'h41;
 LUT4 \fifo_inst/Equal.rgraynext_0_s1  (
 	.I0(Empty),
 	.I1(RdEn),
@@ -957,7 +957,7 @@ DFFCE \fifo_inst/rbin_num_1_s0  (
 );
 defparam \fifo_inst/rbin_num_1_s0 .INIT=1'b0;
 DFFCE \fifo_inst/rbin_num_0_s0  (
-	.D(\fifo_inst/rbin_num_next_0_9 ),
+	.D(\fifo_inst/rbin_num_next_0_10 ),
 	.CLK(RdClk),
 	.CE(VCC),
 	.CLEAR(\fifo_inst/reset_r [1]),
@@ -1669,7 +1669,7 @@ DFFCE \fifo_inst/Equal.wbin_1_s0  (
 );
 defparam \fifo_inst/Equal.wbin_1_s0 .INIT=1'b0;
 DFFCE \fifo_inst/Equal.wbin_0_s0  (
-	.D(\fifo_inst/Equal.wbinnext_0_9 ),
+	.D(\fifo_inst/Equal.wbinnext_0_10 ),
 	.CLK(WrClk),
 	.CE(VCC),
 	.CLEAR(\fifo_inst/reset_w [1]),
