@@ -6,4 +6,6 @@
 *_syn_resource.html
 *_syn_rsc.xml
 *_syn.rpt.html
-*impl/temp/*
+*impl/temp/
+*gwsynthesis/
+*pnr/
