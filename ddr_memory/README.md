@@ -1,4 +1,12 @@
 # DDR3 DRAM TEST
+  **ddr_memory_test_uart_Ver..fs.7z*** is the prebuilt bitstream, select according to the device version.
+  
+  If you don't know how to determine the device version, please refer [**HERE**](wiki.sipeed.com/hardware/en/tang/common-doc/questions.html#How-to-Identify-Device-Version).
+
+  The source code is for device version C, if you want to use it on device version B. Please modify the device model yourself and then regenerate **ALL** GOWIN-specific IPs.
+
+  [**Click HERE**](../.asserts/docs/how_to_regenerate_IP.md) too see how to regenerate IP.
+  
 ## Test Condition
   - GOWIN EDA Version **V1.9.12.02_SP1** (64-bit) **build(84852)**.
   - Onboard debugger or an additional FT2232 debugger, USB2TLL, whatever you like.
