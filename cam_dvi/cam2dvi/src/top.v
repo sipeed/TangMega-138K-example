@@ -20,7 +20,7 @@ module top #(
 	
 	output [4:0]           state_led,
 
-	output [15-1:0]        ddr_addr,        //ROW_WIDTH=16
+	output [15-1:0]        ddr_addr,        //ROW_WIDTH=15
 	output [3-1:0]         ddr_bank,        //BANK_WIDTH=3
 	output                 ddr_cs,
 	output                 ddr_ras,
@@ -121,7 +121,7 @@ module top #(
     assign cmos_vs_div_out = cmos_vs_cnt[4];
 
 
-    //状态指示灯
+    //indicator
     assign state_led[4] = ~i2c_done;
     assign state_led[3] = ~cmos_vs_cnt[4];
     assign state_led[2] = ~TMDS_DDR_pll_lock;
@@ -259,7 +259,7 @@ module top #(
                 .REG_DATA_WIDTH             (4'd8                     ),
                 .I2C_FAST_MODE              (1'b0                     ),
                 .INPUT_CLK_FREQ             (SCCB_LOGIC_CLK           ),
-                .LUT_ADDR_WIDTH             (LUT_ADDR_WIDTH           )    
+                .LUT_ADDR_WIDTH             (LUT_ADDR_WIDTH           )
             )i2c_master_gw_init_m0(
                 .rst_n                      (cmos_start_config        ),
                 .clk                        (sccb_clk                 ),
@@ -310,7 +310,7 @@ module top #(
     );
 
     //The video output timing generator and generate a frame read data request
-    //输出
+    //Output
     wire out_de;
     wire [11:0] active_x,active_y;
     wire [9:0] lcd_x = active_x[9:0];
@@ -368,7 +368,7 @@ module top #(
     endgenerate
     
 
-    //输入测试图
+    //Input testpattern
     ///--------------------------
     wire        tp0_vs_in ;
     wire        tp0_hs_in ;
@@ -395,8 +395,8 @@ module top #(
                 .I_v_sync    (12'd5        ),//ver sync time   // 12'd4     // 12'd6     // 12'd5     // 12'd5   
                 .I_v_bporch  (12'd20       ),//ver back porch  // 12'd23    // 12'd29    // 12'd20    // 12'd36  
                 .I_v_res     (12'd720      ),//ver resolution  // 12'd600   // 12'd768   // 12'd720   // 12'd1080 
-                .I_hs_pol    (1'b1         ),//0,负极性;1,正极性
-                .I_vs_pol    (1'b1         ),//0,负极性;1,正极性
+                .I_hs_pol    (1'b1         ),//0,negative;1,positive
+                .I_vs_pol    (1'b1         ),//0,negative;1,positive
                 .O_de        (tp0_de_in    ),   
                 .O_hs        (tp0_hs_in    ),
                 .O_vs        (tp0_vs_in    ),
@@ -421,8 +421,8 @@ module top #(
                 .I_v_sync    (12'd4        ),//ver sync time   // 12'd4     // 12'd6     // 12'd5     // 12'd5   
                 .I_v_bporch  (12'd23       ),//ver back porch  // 12'd23    // 12'd29    // 12'd20    // 12'd36  
                 .I_v_res     (12'd600      ),//ver resolution  // 12'd600   // 12'd768   // 12'd720   // 12'd1080 
-                .I_hs_pol    (1'b1         ),//0,负极性;1,正极性
-                .I_vs_pol    (1'b1         ),//0,负极性;1,正极性
+                .I_hs_pol    (1'b1         ),//0,negative;1,positive
+                .I_vs_pol    (1'b1         ),//0,negative;1,positive
                 .O_de        (tp0_de_in    ),   
                 .O_hs        (tp0_hs_in    ),
                 .O_vs        (tp0_vs_in    ),
@@ -465,14 +465,14 @@ module top #(
 
         // video data input       
         .I_vin0_clk           (fb_vin_clk   ),
-        .I_vin0_vs_n          (~fb_vin_vsync),//只接收负极性
+        .I_vin0_vs_n          (~fb_vin_vsync),  //negative only 
         .I_vin0_de            (fb_vin_de    ),
         .I_vin0_data          (fb_vin_data  ),
         .O_vin0_fifo_full     (             ),
 
         // video data output            
         .I_vout0_clk          (video_clk        ),
-        .I_vout0_vs_n         (~syn_off0_vs     ),//只接收负极性
+        .I_vout0_vs_n         (~syn_off0_vs     ),//negative only 
         .I_vout0_de           (out_de           ),
         .O_vout0_den          (off0_syn_de      ),
         .O_vout0_data         (off0_syn_data    ),
