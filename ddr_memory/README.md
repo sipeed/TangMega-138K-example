@@ -20,7 +20,7 @@
 ## Tang Console 138K Notes
   - The Console design feeds the 50 MHz `clk` input on V22 into `gowin_pll`. Keep the project clock constraint at 50 MHz when rebuilding the example.
   - Match the prebuilt bitstream to the FPGA device version. The checked-in source targets device version C. When retargeting it for version B, regenerate every Gowin IP, including `ddr3_memory_interface` and `gowin_pll` (`PLL_INIT`).
-  - An independent test on 2026-08-16 used a Tang Console 138K with a 30354 1 GB Hynix SOM and `GW5AST-LV138PG484AC1/I0` device version C. The supplied version C bitstream and a clean source build with Gowin EDA V1.9.12.03 both repeatedly reported `DDR3 TEST OKAY!`. An exact-version diagnostic also completed calibration and read/write checks. See the [hardware report in issue #6](https://github.com/sipeed/TangMega-138K-example/issues/6#issuecomment-5310590604). These checks do not establish full 1 GB address or alias coverage.
+  - An independent test on 2026-08-16 used a Tang Console 138K with a 30354 1 GB Hynix SOM and `GW5AST-LV138PG484AC1/I0` device version C. The supplied version C bitstream and a clean source build with Gowin EDA V1.9.12.03 both repeatedly reported `DDR3 TEST OKAY!`. A later exact-version diagnostic retained distinct patterns at zero, every usable 1 GiB address-line position and the final aligned 32-byte beat. See the [hardware report in issue #6](https://github.com/sipeed/TangMega-138K-example/issues/6#issuecomment-5310590604) and [NextTang commit `61ebd07`](https://github.com/jattree/NextTang/commit/61ebd075b46a0f5eeb49dcd853aa7e511c558046). This verifies address-line and endpoint mapping, not exhaustive every-cell or sustained-load coverage.
 
 ## 
 
