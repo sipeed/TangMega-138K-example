@@ -1,3 +1,19 @@
+# USB3 + HSPI16 高速双向传输例程
+
+推荐使用 [`usb3_ch569_hspi_fpga`](usb3_ch569_hspi_fpga/) 子工程。它提供：
+
+- FPGA → HSPI16 → CH569 → USB3 bulk IN → PC：实测约 200.3 MB/s；
+- PC → USB3 bulk OUT → CH569 → HSPI16 → FPGA：实测约 151.2 MB/s；
+- CH569、FPGA 和 libusb 主机测试程序的完整开源源码；
+- 4 KiB/16 槽环形缓冲、数据完整性校验以及详细二次开发说明；
+- 可直接验证硬件的预编译固件和 forward/reverse FPGA 位流。
+
+快速开始、构建依赖、烧录方式和已知 HSPI normal-mode CRC trailer 限制见
+[`usb3_ch569_hspi_fpga/README.md`](usb3_ch569_hspi_fpga/README.md)。CH569 的
+Download CFG Pin 必须保持为 **PA13**，烧录时不要修改 BOOT 配置。
+
+以下为原始单向基础例程说明。
+
 # CH569_HSPI_USB
 
 > All **Sipeed [Tang MEGA 138K](https://wiki.sipeed.com/hardware/en/tang/tang-mega-138k/mega-138k.html)** boards have been pre-burned with this firmware before leaving the factory.
