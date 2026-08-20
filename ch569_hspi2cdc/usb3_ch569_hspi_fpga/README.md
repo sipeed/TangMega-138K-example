@@ -111,3 +111,110 @@ scripts/usb3_bulk_out_hspi_benchmark 16
 
 本工程保留并注明上游开源来源，后续新增的环形缓冲、双向桥接、FPGA 协议和主机
 测试程序均以此独立工程名称维护。
+
+---
+
+## English
+
+This is an open-source, high-throughput bidirectional example connecting the
+CH569 USB 3.0 controller to an FPGA over a 16-bit HSPI bus.
+
+```text
+FPGA -> HSPI16 -> CH569 -> USB3 bulk IN  -> PC
+PC   -> USB3 bulk OUT -> CH569 -> HSPI16 -> FPGA
+```
+
+The design uses complete 4096-byte units for both HSPI frames and ring-buffer
+slots. CH569 allocates 16 × 4 KiB slots (64 KiB of its 96 KiB RAMX), while the
+SuperSpeed bulk endpoints use the controller maximum burst of four 1024-byte
+packets. HSPI DMA and USB DMA run concurrently, with explicit slot ownership
+preventing either side from accessing a slot still owned by the other side.
+
+### Directory layout
+
+- `firmware/`: fully buildable CH569 firmware derived from the open-source
+  `slogic_ch569_hspi2usb3` project.
+- `fpga/`: standalone Gowin project producing forward and reverse bitstreams.
+- `scripts/usb3_bulk_in_benchmark.c`: asynchronous FPGA-to-PC throughput and
+  payload verifier.
+- `scripts/usb3_bulk_out_hspi_benchmark.c`: PC-to-FPGA throughput, payload,
+  and FPGA-report verifier.
+- `docs/PROTOCOL.md`: 4 KiB framing, ring ownership, and development notes.
+- `prebuilt/`: verified CH569 firmware and compressed forward/reverse FPGA
+  bitstreams for a quick hardware test.
+
+### Measured stable throughput
+
+Test platform: Tang Mega Neo; CH569 and FPGA at 120 MHz; 16-bit HSPI; 4096-byte
+frames; USB enumerated at 5 Gbit/s SuperSpeed; Linux xHCI host with libusb-1.0.
+
+FPGA → HSPI16 → CH569 → USB3 bulk IN → PC, continuous 30-second run:
+
+```text
+bytes=6031409152 completions=23008 usb_errors=0 pattern_errors=0
+elapsed=30.105418 s
+rate=1602.744 Mbit/s (200.343 MB/s)
+CH569: crc=0 seq=0 fifo=0 depth_max=3 pauses=0
+```
+
+PC → USB3 bulk OUT → CH569 → HSPI16 → FPGA, 16 MiB run:
+
+```text
+bytes=16777216 elapsed=0.110949 s
+rate=1209.722 Mbit/s (151.215 MB/s)
+report: total=16777216 frames=4096 pattern_errors=0
+```
+
+The normal-mode FPGA-to-PC build deliberately keeps a 384-clock gap between
+complete 4 KiB frames. Shorter gaps increase peak throughput but caused rare
+whole-slot ordering errors during extended stress tests. The delivery build
+therefore favors repeatable operation over the highest headline number.
+
+### Build
+
+Requirements: Gowin EDA (`gw_sh`), RISC-V Embedded GCC, libusb-1.0 development
+files, openFPGALoader, and `wch-ch56x-isp`. If the CH569 programmer is not in
+`PATH`, set `WCH_CH56X_ISP=/path/to/wch-ch56x-isp`.
+
+```bash
+scripts/build_all.sh
+```
+
+Generated files:
+
+- `firmware/output/firmware.bin`
+- `fpga/impl/pnr/usb3_ch569_hspi_fpga_forward.fs`
+- `fpga/impl/pnr/usb3_ch569_hspi_fpga_reverse.fs`
+- both libusb benchmark executables under `scripts/`
+
+The SHA-256 sums for the supplied prebuilt images are listed in the Chinese
+section above. `flash_fpga.sh` automatically decompresses a prebuilt FPGA image
+when no locally built image is present.
+
+### Flash and run
+
+The CH569 BOOT configuration must remain on PA13. Put CH569 into its USB
+bootloader, then run the following command. The script intentionally does not
+pass `-b`, so it does not alter the BOOT-pin configuration.
+
+```bash
+scripts/flash_ch569.sh
+```
+
+Run the two directions independently:
+
+```bash
+# FPGA -> PC
+scripts/flash_fpga.sh forward
+scripts/usb3_bulk_in_benchmark 10
+
+# PC -> FPGA; reset CH569 normally after changing the FPGA image
+scripts/flash_fpga.sh reverse
+scripts/usb3_bulk_out_hspi_benchmark 16
+```
+
+For the reverse test, `pattern_errors=0` means that every payload word matched.
+CH569 normal-mode HSPI TX emits zero during its CRC trailer cycle, so the
+reported `hspi_crc_trailer` and dependent `hspi_seq_diag` values are retained
+as hardware-compatibility diagnostics and are not treated as payload failures.
+See `docs/PROTOCOL.md` for details and secondary-development constraints.

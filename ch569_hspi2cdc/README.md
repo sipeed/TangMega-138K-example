@@ -12,6 +12,24 @@
 [`usb3_ch569_hspi_fpga/README.md`](usb3_ch569_hspi_fpga/README.md)。CH569 的
 Download CFG Pin 必须保持为 **PA13**，烧录时不要修改 BOOT 配置。
 
+## USB3 + HSPI16 high-speed bidirectional example
+
+The recommended project is
+[`usb3_ch569_hspi_fpga`](usb3_ch569_hspi_fpga/). It provides:
+
+- FPGA → HSPI16 → CH569 → USB3 bulk IN → PC: approximately **200.3 MB/s**;
+- PC → USB3 bulk OUT → CH569 → HSPI16 → FPGA: approximately **151.2 MB/s**;
+- complete open-source CH569 firmware, FPGA RTL, and libusb host benchmarks;
+- a 16-slot × 4 KiB ring buffer, end-to-end payload verification, and detailed
+  secondary-development notes;
+- prebuilt CH569 firmware and forward/reverse FPGA bitstreams for immediate
+  hardware verification.
+
+See the [project README](usb3_ch569_hspi_fpga/README.md) for prerequisites,
+build and flashing commands, raw benchmark results, and the known HSPI
+normal-mode CRC-trailer limitation. The CH569 Download CFG pin must remain
+configured as **PA13**; do not alter the BOOT-pin configuration while flashing.
+
 以下为原始单向基础例程说明。
 
 # CH569_HSPI_USB
