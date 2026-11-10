@@ -140,7 +140,24 @@ But this LED should not be always on, otherwise please check whether the relevan
 
 #### On Raspberry Pi:
 - CM4/5 or 5b is needed.
-- Currently, there are compatibility issues between GOWIN's PCIe hardcore and ARM's PCIe controller. An additional retimer (such as DS80PCI402) or switch (such as ASM2806 or ASM1884e) is required to be recognized by the arm host.
+- A direct Pi 5 <-> Console PCIe connection works. The Pi 5 runs its reference
+  clock at 54 MHz during boot and only switches to 100 MHz when the driver
+  starts; if the FPGA SerDes is configured before the clock is stable, the link
+  stays down. Replaying the PCIe IP boot CSR (`src/serdes/serdes.csr`) over DRP
+  once the reference clock is a steady 100 MHz, then holding the PCIe core in
+  reset for about 10 ms, brings the link up at boot.
+- The earlier note that a retimer (such as DS80PCI402) or switch (such as
+  ASM2806 or ASM1884e) was "required" for ARM hosts described the same REFCLK
+  issue; those parts are optional and only shift the timing. See
+  https://github.com/sipeed/TangMega-60K-example/issues/1 for the full write-up.
+- `/boot/firmware/config.txt` — enable the external PCIe with the default
+  setting, and add the Gen3 line only if you run Gen3:
+
+```ini
+dtparam=pciex1
+# Gen3 only:
+dtparam=pciex1_gen=3
+```
 
 ## Test environment
 These environments have been verified and the demo can be used normally.
@@ -165,8 +182,11 @@ These environments have been verified and the demo can be used normally.
 ***
 **On Raspberry Pi:**
 - Raspberry Pi 5b(2GB RAM).
-- **WaveShare** PCIe TO PCIe x1 Board (C).
-- **WaveShare** PCIe-Packet-Switch-4P (ASM1184e). 
+- Direct connection works. The following is our earlier bench chain and is
+  optional/reference:
+  - **WaveShare** PCIe TO PCIe x1 Board (C), or **WaveShare** PCIe TO M.2 HAT+
+    + a generic M.2-to-PCIe-slot adapter.
+  - **WaveShare** PCIe-Packet-Switch-4P (ASM1184e).
 - Necessary FPC wires and copper pillars.
 
 ## Development
