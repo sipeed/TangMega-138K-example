@@ -63,9 +63,9 @@ module top(
         else if (!sys_rst_cnt[SYS_RST_DLY]) 
             sys_rst_cnt <= sys_rst_cnt + 2'd1;
 
+    // Only one driver for rstn: Gowin ignores a duplicate declaration, so keep
+    // the delayed reset and drop the redundant pcie_rstn assignment.
     wire rstn = sys_rst_cnt[SYS_RST_DLY];
-    
-    wire rstn = pcie_rstn;
 
     always @ (posedge cfg_clk or negedge rstn)
         if (!rstn)                      
