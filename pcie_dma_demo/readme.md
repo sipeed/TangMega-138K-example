@@ -163,12 +163,14 @@ dtparam=pciex1
 dtparam=pciex1_gen=3
 ```
 
-- Gen3 result on the 138K: with a Gen3 x1 `serdes.csr` and the replay
-  regenerated from it, the direct link comes up at boot at 8.0 GT/s, and DMA
-  measures about 934.7 MB/s (roughly twice Gen2). This is a NextTang customer
-  measurement; source:
+- Gen3 on the 138K: with a Gen3 x1 `serdes.csr` and the replay regenerated
+  from it, the direct link comes up at boot at 8.0 GT/s and short DMA runs
+  measure about 934.7 MB/s (roughly twice Gen2). An overnight soak on the
+  customer's bench was not reliable at Gen3, though (the link stayed up while
+  DMA and BAR2 transfers failed), so **Gen2 remains the recommendation**; Gen3
+  is also not officially supported by the Pi 5. Source:
   https://github.com/sipeed/TangMega-60K-example/issues/1#issuecomment-6763876140
-  (not yet re-tested by Sipeed).
+  (customer measurement; not yet re-tested by Sipeed).
 
 ## Test environment
 These environments have been verified and the demo can be used normally.
