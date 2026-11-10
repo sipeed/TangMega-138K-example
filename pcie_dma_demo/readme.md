@@ -140,12 +140,16 @@ But this LED should not be always on, otherwise please check whether the relevan
 
 #### On Raspberry Pi:
 - CM4/5 or 5b is needed.
-- A direct Pi 5 <-> Console PCIe connection works. The Pi 5 runs its reference
+- A direct Pi 5 <-> Console PCIe connection works, but **the workaround
+  described here is not built into this demo**. The Pi 5 runs its reference
   clock at 54 MHz during boot and only switches to 100 MHz when the driver
   starts; if the FPGA SerDes is configured before the clock is stable, the link
-  stays down. Replaying the PCIe IP boot CSR (`src/serdes/serdes.csr`) over DRP
-  once the reference clock is a steady 100 MHz, then holding the PCIe core in
-  reset for about 10 ms, brings the link up at boot.
+  stays down. As shipped, the demo therefore stays link-down in the normal
+  power-on order (Tang configured before the Pi boots). The workaround is to
+  replay the PCIe IP boot CSR (`src/serdes/serdes.csr`) over DRP once the
+  reference clock is a steady 100 MHz, then hold the PCIe core in reset for
+  about 10 ms; this must be added to the design (workaround reported by
+  NextTang, 2026-11-10).
 - The earlier note that a retimer (such as DS80PCI402) or switch (such as
   ASM2806 or ASM1884e) was "required" for ARM hosts described the same REFCLK
   issue; those parts are optional and only shift the timing. See
@@ -158,6 +162,13 @@ dtparam=pciex1
 # Gen3 only:
 dtparam=pciex1_gen=3
 ```
+
+- Gen3 result on the 138K: with a Gen3 x1 `serdes.csr` and the replay
+  regenerated from it, the direct link comes up at boot at 8.0 GT/s, and DMA
+  measures about 934.7 MB/s (roughly twice Gen2). This is a NextTang customer
+  measurement; source:
+  https://github.com/sipeed/TangMega-60K-example/issues/1#issuecomment-6763876140
+  (not yet re-tested by Sipeed).
 
 ## Test environment
 These environments have been verified and the demo can be used normally.
