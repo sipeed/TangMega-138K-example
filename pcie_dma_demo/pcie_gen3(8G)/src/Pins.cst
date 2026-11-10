@@ -13,3 +13,20 @@ IO_LOC "rst_n" AB13;
 IO_PORT "rst_n" PULL_MODE=UP DRIVE=OFF  BANK_VCCIO=3.3;
 IO_LOC "sys_clk_p" V22;
 IO_PORT "sys_clk_p" PULL_MODE=UP DRIVE=OFF PULL_STRENGTH=STRONG BANK_VCCIO=3.3;
+
+// ---------------------------------------------------------------------------
+// PCIe sideband note (Console 32001C, RPi 5 host)
+//
+// J4 pins 14/15 are cross-assigned compared with the Raspberry Pi PCIe
+// connector standard: the host's CLKREQ# actually arrives on FPGA T14 and
+// the host's WAKE# on FPGA AA14 (the board net names are the opposite).
+// This demo does not use these signals, so nothing is constrained here.
+// If your design does use them, bind by host function, not by net name:
+//
+//   IO_LOC "clkreq_n" T14;
+//   IO_PORT "clkreq_n" PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;
+//   IO_LOC "wake_n"  AA14;
+//   IO_PORT "wake_n"  PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;
+//
+// The same mapping applies to the Tang Mega 60K Console (AA14/T14).
+// ---------------------------------------------------------------------------
