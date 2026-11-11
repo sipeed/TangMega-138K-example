@@ -140,16 +140,34 @@ But this LED should not be always on, otherwise please check whether the relevan
 
 #### On Raspberry Pi:
 - CM4/5 or 5b is needed.
-- A direct Pi 5 <-> Console PCIe connection works, but **the workaround
-  described here is not built into this demo**. The Pi 5 runs its reference
+- A direct Pi 5 <-> Console PCIe connection works. The Pi 5 runs its reference
   clock at 54 MHz during boot and only switches to 100 MHz when the driver
-  starts; if the FPGA SerDes is configured before the clock is stable, the link
-  stays down. As shipped, the demo therefore stays link-down in the normal
-  power-on order (Tang configured before the Pi boots). The workaround is to
-  replay the PCIe IP boot CSR (`src/serdes/serdes.csr`) over DRP once the
-  reference clock is a steady 100 MHz, then hold the PCIe core in reset for
-  about 10 ms; this must be added to the design (workaround reported by
-  NextTang, 2026-11-10).
+  starts; a SerDes configured before the clock is stable never trains. Both
+  projects (`pcie_gen2(5G)` and `pcie_gen3(8G)`) therefore include
+  `src/serdes_reinit.v`: once the reference clock has been a steady 100 MHz
+  after being absent or wrong, it replays the PCIe IP's boot CSR
+  (`src/serdes/serdes.csr`) over the PCIe core's DRP port and holds the core in
+  reset for about 10 ms. The link then comes up at boot in the normal power-on
+  order (Tang configured before the Pi boots), with no driver unbind/rebind. On
+  a Console 138K with a Raspberry Pi 5 (direct link, Gen2 setting, 2026-11-10),
+  with the Tang configured before the Pi boots, the `pcie_gen2(5G)` project
+  linked at boot 5 of 5 times against 0 of 2 without the replay, and the
+  `pcie_gen3(8G)` project 3 of 3 (5.0 GT/s x1). The replay module and tools were
+  contributed by NextTang (https://github.com/jattree/NextTang).
+- If you regenerate the SerDes/PCIe IP, run these again from the project
+  folder: the first brings the reference clock out of `SerDes_Top` for the
+  replay, the second rebuilds the replay's write list from `serdes.csr`.
+
+```sh
+python3 ../tools/add_refclk_tap.py src/serdes/serdes.v
+python3 ../tools/csr_rom.py src/serdes/serdes.csr > src/include/serdes_reinit_rom.vh
+# confirm the committed list matches serdes.csr:
+python3 ../tools/csr_rom.py src/serdes/serdes.csr --check src/include/serdes_reinit_rom.vh
+```
+
+- The replay plays back every write in `serdes.csr`, which is also GOWIN's
+  recommendation. On a Gen2 x1 bench, four of the writes were enough (see the
+  issue below); the full list stays the default.
 - The earlier note that a retimer (such as DS80PCI402) or switch (such as
   ASM2806 or ASM1884e) was "required" for ARM hosts described the same REFCLK
   issue; those parts are optional and only shift the timing. See

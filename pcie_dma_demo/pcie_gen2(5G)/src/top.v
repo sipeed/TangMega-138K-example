@@ -103,6 +103,32 @@ module top(
     always @ (posedge tlp_clk)
         pcie_linkup_r <= pcie_linkup;
 
+/* SerDes boot-register replay (serdes_reinit.v) */
+    // The Raspberry Pi 5 (and any host whose PCIe REFCLK is not a steady
+    // 100 MHz when this design configures) leaves the SerDes untrainable. Once
+    // REFCLK has been a steady 100 MHz after being absent or wrong, replay the
+    // IP's boot register file over DRP, then hold the PCIe core in reset ~10 ms.
+    wire        serdes_refclk;
+    wire [23:0] reinit_drp_addr;
+    wire [31:0] reinit_drp_wrdata;
+    wire [7:0]  reinit_drp_strb;
+    wire        reinit_drp_wr, reinit_drp_rd, reinit_drp_clk, reinit_drp_ready, reinit_hold;
+    serdes_reinit u_serdes_reinit (
+        .clk        (pll_100m_clk      ),
+        .refclk     (serdes_refclk     ),
+        .drp_clk    (reinit_drp_clk    ),
+        .drp_ready  (reinit_drp_ready  ),
+        .drp_addr   (reinit_drp_addr   ),
+        .drp_wrdata (reinit_drp_wrdata ),
+        .drp_strb   (reinit_drp_strb   ),
+        .drp_wr     (reinit_drp_wr     ),
+        .drp_rd     (reinit_drp_rd     ),
+        .hold_reset (reinit_hold       ),
+        .refclk_ok  (                  ),
+        .replays    (                  ),
+        .timeouts   (                  )
+    );
+
 //leds
     assign  led[0]  = ~run_cnt[RUN_DLY];
     assign  led[1]  = ~perst_cnt[PERST_DLY];
@@ -703,7 +729,7 @@ module top(
 
     wire [7:0] nc_rx_err;
     SerDes_Top	u_pcie_ctrl(
-        .PCIE_Controller_Top_pcie_rstn_i               (rst_n          ),
+        .PCIE_Controller_Top_pcie_rstn_i               (rst_n & ~reinit_hold),
         .PCIE_Controller_Top_pcie_tl_clk_i             (tlp_clk        ),
         //RX TLP
         .PCIE_Controller_Top_pcie_tl_rx_sop_o	       (tl_rx_sop          ),
@@ -731,7 +757,19 @@ module top(
         .PCIE_Controller_Top_pcie_tl_tx_creditsnp_o    (tl_tx_np_credits   ),
         .PCIE_Controller_Top_pcie_tl_tx_creditscpl_o   (tl_tx_cpl_credits  ),
         .PCIE_Controller_Top_pcie_tl_cfg_busdev_o      (tl_cfg_busdev      ),   //bus number & Device Number
-        .PCIE_Controller_Top_pcie_linkup_o             (pcie_linkup        )		
+        .PCIE_Controller_Top_pcie_linkup_o             (pcie_linkup        ),
+        //DRP: SerDes boot-register replay
+        .PCIE_Controller_Top_pcie_tl_drp_addr_i        (reinit_drp_addr    ),
+        .PCIE_Controller_Top_pcie_tl_drp_wrdata_i      (reinit_drp_wrdata  ),
+        .PCIE_Controller_Top_pcie_tl_drp_strb_i        (reinit_drp_strb    ),
+        .PCIE_Controller_Top_pcie_tl_drp_wr_i          (reinit_drp_wr      ),
+        .PCIE_Controller_Top_pcie_tl_drp_rd_i          (reinit_drp_rd      ),
+        .PCIE_Controller_Top_pcie_tl_drp_clk_o         (reinit_drp_clk     ),
+        .PCIE_Controller_Top_pcie_tl_drp_ready_o       (reinit_drp_ready   ),
+        .PCIE_Controller_Top_pcie_tl_drp_rddata_o      (                   ),
+        .PCIE_Controller_Top_pcie_tl_drp_rd_valid_o    (                   ),
+        .PCIE_Controller_Top_pcie_tl_drp_resp_o        (                   ),
+        .serdes_refclk_o                               (serdes_refclk      )		
     );
 
 endmodule
